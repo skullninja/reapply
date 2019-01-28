@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         let center = UNUserNotificationCenter.current()
-        let options: UNAuthorizationOptions = [.alert, .sound];
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge];
 
         center.requestAuthorization(options: options) {
             (granted, error) in
@@ -27,7 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Something went wrong")
             }
         }
-            
+        
+        let choiceA = UNNotificationAction(identifier: "Reset", title: "Yes, I'm reapplying SPF", options: [.foreground])
+        let choiceB = UNNotificationAction(identifier: "Done", title: "Done", options: [.foreground])
+        
+        let spfReminderCategory = UNNotificationCategory(identifier: "spfReminderCategory", actions: [choiceA,choiceB], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([spfReminderCategory])
+        
         return true
     }
 

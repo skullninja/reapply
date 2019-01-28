@@ -11,7 +11,7 @@ import ForecastIO
 import CoreLocation
 import UserNotifications
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotificationCenterDelegate {
     
     @IBOutlet weak var lblUVIndex: UILabel!
     @IBOutlet weak var btnReminder: UIButton!
@@ -25,7 +25,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var timer = Timer()
     var isTimerRunning = false
     //4800 is 80 minutes
-    var seconds = 4800
+    var seconds = 10
     
     lazy var client: DarkSkyClient = {
         let darkSky = DarkSkyClient(apiKey: "16d1cdbf343ab6a7ee0dcb340b7484ff")
@@ -50,6 +50,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        UNUserNotificationCenter.current().delegate = self
         
     }
     
@@ -85,15 +86,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     @IBAction func setReminderNotification(_ sender: Any) {
-       
+       setReminderNotification()
+    }
+    
+    func setReminderNotification() {
+        
         btnReminder.isEnabled = false
         
         center.getNotificationSettings{ (settings) in
             if settings.authorizationStatus == .authorized {
                 // Notifications allowed
                 let content = UNMutableNotificationContent()
-                content.title = "Don't forget"
-                content.body = "Reapply sunblock"
+                content.title = "SPF Reminder"
+                content.subtitle = "Eighty minutes have passed"
+                content.body = "Would you like to continue and reapply sunblock?"
+                content.badge = 1
+                content.categoryIdentifier = "spfReminderCategory"
                 //content.sound = UNNotificationSound.default()
                 
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(self.seconds),
@@ -121,7 +129,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         if seconds == 0{
             timer.invalidate()
              btnReminder.isEnabled = true
-            lblTimerCountdown.text = "Sunburning!!!"
+            lblTimerCountdown.text = "--hr --min"
             return
         }
         seconds -= 1
@@ -133,6 +141,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+    }
+    
+    //Mark - UNNotifcation Delegate
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        if response.actionIdentifier == "Reset"{
+            //setReminderNotification()
+            
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
     }
 }
 
