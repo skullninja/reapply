@@ -21,11 +21,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     var uvIndexNeedsUpdate: Bool = true
     
     let center = UNUserNotificationCenter.current()
+    let content = UNMutableNotificationContent()
     
     var timer = Timer()
     var isTimerRunning = false
     //4800 is 80 minutes
-    var seconds = 10
+    let seconds = 10
+    var countdownSeconds = 10
     
     lazy var client: DarkSkyClient = {
         let darkSky = DarkSkyClient(apiKey: "16d1cdbf343ab6a7ee0dcb340b7484ff")
@@ -80,6 +82,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
                 if let uvindex = result.value.0?.currently?.uvIndex {
                     self.lblUVIndex.text = String(uvindex)
                 }
+                
+                if let sunsetTime = result.value.0?.currently?.sunsetTime {
+                    //returns at UNIX time, do something here
+                   print(sunsetTime)
+                }
             }
         }
         
@@ -96,29 +103,36 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         center.getNotificationSettings{ (settings) in
             if settings.authorizationStatus == .authorized {
                 // Notifications allowed
-                let content = UNMutableNotificationContent()
-                content.title = "SPF Reminder"
-                content.subtitle = "Eighty minutes have passed"
-                content.body = "Would you like to continue and reapply sunblock?"
-                content.badge = 1
-                content.categoryIdentifier = "spfReminderCategory"
-                //content.sound = UNNotificationSound.default()
+               
+                self.setupNotificationContent()
+                self.countdownSeconds = self.seconds
                 
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(self.seconds),
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval( self.countdownSeconds),
                                                                 repeats: false)
                 
-                let identifier = "UYLLocalNotification"
+                let identifier = "UNLocalNotification"
                 let request = UNNotificationRequest(identifier: identifier,
-                                                    content: content, trigger: trigger)
+                                                    content: self.content, trigger: trigger)
                 self.center.add(request, withCompletionHandler: { (error) in
                     if let error = error {
                         // Something went wrong
                     }
                 })
+                
+                 print("notifcation added to center at \(self.countdownSeconds) seconds")
             }
         }
         
         runTimer()
+    }
+    
+    func setupNotificationContent(){
+        content.title = "Reminder"
+        content.subtitle = "Eighty minutes have passed"
+        content.body = "Would you like to continue and reapply sunblock?"
+        content.badge = 1
+        content.categoryIdentifier = "spfReminderCategory"
+        //content.sound = UNNotificationSound.default()
     }
     
     func runTimer(){
@@ -126,14 +140,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     }
     
     @objc func updateTimer() {
-        if seconds == 0{
-            timer.invalidate()
-             btnReminder.isEnabled = true
-            lblTimerCountdown.text = "--hr --min"
+        if  self.countdownSeconds == 0{
             return
         }
-        seconds -= 1
-        lblTimerCountdown.text = timeString(time: TimeInterval(seconds))
+         self.countdownSeconds -= 1
+        lblTimerCountdown.text = timeString(time: TimeInterval( self.countdownSeconds))
+    }
+    
+    func resetTimer() {
+        print("reset Timer at \(countdownSeconds) seconds")
+        timer.invalidate()
+        countdownSeconds = seconds
+        btnReminder.isEnabled = true
+        lblTimerCountdown.text = "--hr --min"
     }
     
     func timeString(time:TimeInterval) -> String {
@@ -143,11 +162,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
     
+    func removeNotifications(){
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+    }
+    
     //Mark - UNNotifcation Delegate
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
         if response.actionIdentifier == "Reset"{
-            //setReminderNotification()
-            
+            resetTimer()
+            removeNotifications()
+            setReminderNotification()
+            runTimer()
+        } else if response.actionIdentifier == "Done"{
+            resetTimer()
+            removeNotifications()
         }
     }
     
