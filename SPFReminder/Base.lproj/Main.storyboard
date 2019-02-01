@@ -19,42 +19,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g6-yg-mQg">
-                                <rect key="frame" x="182" y="318" width="11" height="29"/>
+                                <rect key="frame" x="167" y="270" width="40" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UV INDEX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exj-Q9-jf3">
-                                <rect key="frame" x="87" y="292" width="200" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="87" y="249" width="200" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3U-fU-V3J">
-                                <rect key="frame" x="123" y="387" width="129" height="30"/>
+                                <rect key="frame" x="112" y="389" width="150" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="start SPF reminder"/>
                                 <connections>
                                     <action selector="setReminderNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3uP-42-Ma8"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- hr -- min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9N-9E-RH4">
-                                <rect key="frame" x="143" y="365" width="88" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00hr 00min 00sec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9N-9E-RH4">
+                                <rect key="frame" x="87" y="357" width="200" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6g6-yg-mQg" firstAttribute="top" secondItem="Exj-Q9-jf3" secondAttribute="bottom" constant="5" id="5ER-SK-6IP"/>
-                            <constraint firstItem="D3U-fU-V3J" firstAttribute="top" secondItem="6g6-yg-mQg" secondAttribute="bottom" constant="40" id="AHO-Qu-7eK"/>
-                            <constraint firstItem="c9N-9E-RH4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="143" id="ApO-Zi-smi"/>
-                            <constraint firstItem="6g6-yg-mQg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PqZ-E1-S8G"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c9N-9E-RH4" secondAttribute="trailing" constant="144" id="S5u-bk-98z"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="D3U-fU-V3J" secondAttribute="trailing" constant="123" id="V4b-hs-RGy"/>
-                            <constraint firstItem="D3U-fU-V3J" firstAttribute="top" secondItem="c9N-9E-RH4" secondAttribute="bottom" constant="1" id="cLw-9z-z5m"/>
-                            <constraint firstItem="Exj-Q9-jf3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="272" id="g5c-XB-CDt"/>
-                            <constraint firstItem="D3U-fU-V3J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="123" id="rVs-HY-F1d"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="D3U-fU-V3J" secondAttribute="trailing" constant="113" id="1uc-GS-mnc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c9N-9E-RH4" secondAttribute="trailing" constant="88" id="4qP-dT-fXi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6g6-yg-mQg" secondAttribute="trailing" constant="168" id="LW0-cj-yja"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Exj-Q9-jf3" secondAttribute="bottom" constant="397" id="Q32-ym-iCf"/>
+                            <constraint firstItem="c9N-9E-RH4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="TeW-5x-AUR"/>
+                            <constraint firstItem="D3U-fU-V3J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="UNa-Ge-Evd"/>
+                            <constraint firstItem="Exj-Q9-jf3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="229" id="g5c-XB-CDt"/>
+                            <constraint firstItem="6g6-yg-mQg" firstAttribute="top" secondItem="Exj-Q9-jf3" secondAttribute="bottom" id="gYD-7m-HkS"/>
+                            <constraint firstItem="D3U-fU-V3J" firstAttribute="top" secondItem="c9N-9E-RH4" secondAttribute="bottom" constant="8" id="mDL-Sl-axv"/>
+                            <constraint firstItem="c9N-9E-RH4" firstAttribute="top" secondItem="Exj-Q9-jf3" secondAttribute="bottom" constant="87" id="oU5-tj-TTh"/>
+                            <constraint firstItem="6g6-yg-mQg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="167" id="pBM-9P-0c0"/>
                             <constraint firstItem="Exj-Q9-jf3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="uF1-LR-fe8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Exj-Q9-jf3" secondAttribute="trailing" constant="88" id="yFD-qW-fyr"/>
                         </constraints>
@@ -68,6 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="40.799999999999997" y="26.53673163418291"/>
         </scene>
     </scenes>
 </document>

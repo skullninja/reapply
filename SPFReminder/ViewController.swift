@@ -26,8 +26,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     var timer = Timer()
     var isTimerRunning = false
     //4800 is 80 minutes
-    let seconds = 10
-    var countdownSeconds = 10
+    let seconds = 4800
+    var countdownSeconds = 4800
     
     lazy var client: DarkSkyClient = {
         let darkSky = DarkSkyClient(apiKey: "16d1cdbf343ab6a7ee0dcb340b7484ff")
@@ -83,9 +83,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
                     self.lblUVIndex.text = String(uvindex)
                 }
                 
-                if let sunsetTime = result.value.0?.currently?.sunsetTime {
+                if let sunsetTime = result.value.0?.daily?.data[0].sunsetTime {
                     //returns at UNIX time, do something here
                    print(sunsetTime)
+                   
                 }
             }
         }
@@ -152,14 +153,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         timer.invalidate()
         countdownSeconds = seconds
         btnReminder.isEnabled = true
-        lblTimerCountdown.text = "--hr --min"
+        lblTimerCountdown.text = "00hr 00min 00sec"
     }
     
     func timeString(time:TimeInterval) -> String {
         let hours = Int(time) / 3600
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
-        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+        return String(format:"%02ihr %02imin %02isec", hours, minutes, seconds)
     }
     
     func removeNotifications(){
@@ -170,18 +171,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     //Mark - UNNotifcation Delegate
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        if response.actionIdentifier == "Reset"{
-            resetTimer()
-            removeNotifications()
+        if response.actionIdentifier == "RunTimer"{
+            //set notifcation and start timer again
             setReminderNotification()
             runTimer()
-        } else if response.actionIdentifier == "Done"{
-            resetTimer()
-            removeNotifications()
         }
+        
+        completionHandler()
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        //reset timmer and remove any notifications
+        resetTimer()
+        removeNotifications()
+        
         completionHandler([.alert, .sound])
     }
 }

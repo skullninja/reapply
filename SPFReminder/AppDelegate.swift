@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        let choiceA = UNNotificationAction(identifier: "Reset", title: "Yes, I'm reapplying SPF", options: [.foreground])
+        let choiceA = UNNotificationAction(identifier: "RunTimer", title: "Yes, I'm reapplying SPF", options: [.foreground])
         let choiceB = UNNotificationAction(identifier: "Done", title: "Done", options: [.foreground])
         
         let spfReminderCategory = UNNotificationCategory(identifier: "spfReminderCategory", actions: [choiceA,choiceB], intentIdentifiers: [], options: [])
