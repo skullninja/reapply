@@ -29,6 +29,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     let seconds = 4800
     var countdownSeconds = 4800
     
+    var sunsetLocalTime = Date()
+    
     lazy var client: DarkSkyClient = {
         let darkSky = DarkSkyClient(apiKey: "16d1cdbf343ab6a7ee0dcb340b7484ff")
         darkSky.units = .auto
@@ -85,7 +87,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
                 
                 if let sunsetTime = result.value.0?.daily?.data[0].sunsetTime {
                     //returns at UNIX time, do something here
-                   print(sunsetTime)
+                    self.sunsetLocalTime = sunsetTime.convertFromGMT(timeZone: TimeZone.current)
+                    print(self.sunsetLocalTime)
                    
                 }
             }
