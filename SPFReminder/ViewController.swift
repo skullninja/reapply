@@ -17,17 +17,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     @IBOutlet weak var btnReminder: UIButton!
     @IBOutlet weak var lblTimerCountdown: UILabel!
     
+    var displayTimer: Timer!
+    
     let locationManager = CLLocationManager()
     var uvIndexNeedsUpdate: Bool = true
     
     let center = UNUserNotificationCenter.current()
     let content = UNMutableNotificationContent()
-    
-    var timer = Timer()
-    var isTimerRunning = false
-    //4800 is 80 minutes
-    let seconds = 4800
-    var countdownSeconds = 4800
     
     var sunsetLocalTime = Date()
     
@@ -50,12 +46,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
             locationManager.startUpdatingLocation()
         }
     }
+    
+    //TODO: Re-enable buttons, etc.
+    @objc func updateDisplay() {
+        guard ReminderService.shared.isRunning else { return }
+        
+        if let reapplyDate = ReminderService.shared.nextReapply {
+            let interval = Date().timeIntervalSince(reapplyDate)
+            lblTimerCountdown.text = timeString(time: interval)
+        } else {
+            lblTimerCountdown.text = "00hr 00min 00sec"
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         UNUserNotificationCenter.current().delegate = self
-        
+        displayTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateDisplay), userInfo: nil, repeats: true)
+        RunLoop.current.add(displayTimer, forMode: .common)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +72,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         
         uvIndexNeedsUpdate = true
         activateLocationServices()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -97,66 +105,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     }
 
     @IBAction func setReminderNotification(_ sender: Any) {
-       setReminderNotification()
-    }
-    
-    func setReminderNotification() {
-        
         btnReminder.isEnabled = false
         
-        center.getNotificationSettings{ (settings) in
-            if settings.authorizationStatus == .authorized {
-                // Notifications allowed
-               
-                self.setupNotificationContent()
-                self.countdownSeconds = self.seconds
-                
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval( self.countdownSeconds),
-                                                                repeats: false)
-                
-                let identifier = "UNLocalNotification"
-                let request = UNNotificationRequest(identifier: identifier,
-                                                    content: self.content, trigger: trigger)
-                self.center.add(request, withCompletionHandler: { (error) in
-                    if let error = error {
-                        // Something went wrong
-                    }
-                })
-                
-                 print("notifcation added to center at \(self.countdownSeconds) seconds")
-            }
+        if ReminderService.shared.isRunning {
+            ReminderService.shared.stop()
+        } else {
+            //ReminderService.shared.protection = .high
+            //ReminderService.shared.method = .cream
+            ReminderService.shared.start()
         }
         
-        runTimer()
-    }
-    
-    func setupNotificationContent(){
-        content.title = "Reminder"
-        content.subtitle = "Eighty minutes have passed"
-        content.body = "Would you like to continue and reapply sunblock?"
-        content.badge = 1
-        content.categoryIdentifier = "spfReminderCategory"
-        //content.sound = UNNotificationSound.default()
-    }
-    
-    func runTimer(){
-       timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
-    }
-    
-    @objc func updateTimer() {
-        if  self.countdownSeconds == 0{
-            return
-        }
-         self.countdownSeconds -= 1
-        lblTimerCountdown.text = timeString(time: TimeInterval( self.countdownSeconds))
-    }
-    
-    func resetTimer() {
-        print("reset Timer at \(countdownSeconds) seconds")
-        timer.invalidate()
-        countdownSeconds = seconds
-        btnReminder.isEnabled = true
-        lblTimerCountdown.text = "00hr 00min 00sec"
+        //ReminderService.shared.snooze()
+        
     }
     
     func timeString(time:TimeInterval) -> String {
@@ -164,32 +124,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
         return String(format:"%02ihr %02imin %02isec", hours, minutes, seconds)
-    }
-    
-    func removeNotifications(){
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-    }
-    
-    //Mark - UNNotifcation Delegate
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-        if response.actionIdentifier == "RunTimer"{
-            //set notifcation and start timer again
-            setReminderNotification()
-            runTimer()
-        }
-        
-        completionHandler()
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
-        //reset timmer and remove any notifications
-        resetTimer()
-        removeNotifications()
-        
-        completionHandler([.alert, .sound])
     }
 }
 
