@@ -28,10 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        let choiceA = UNNotificationAction(identifier: "RunTimer", title: "Yes, I'm reapplying SPF", options: [.foreground])
-        let choiceB = UNNotificationAction(identifier: "Done", title: "Done", options: [.foreground])
+        let choiceA = UNNotificationAction(identifier: "Reapply", title: "I'm Reapplying Now", options: [.foreground])
+        let choiceB = UNNotificationAction(identifier: "Later", title: "I'll Reapply Later", options: [.foreground])
+        let choiceC = UNNotificationAction(identifier: "Stop", title: "End Reminders", options: [.foreground])
         
-        let spfReminderCategory = UNNotificationCategory(identifier: "spfReminderCategory", actions: [choiceA,choiceB], intentIdentifiers: [], options: [])
+        let spfReminderCategory = UNNotificationCategory(identifier: "spfReminderCategory", actions: [choiceA, choiceB, choiceC], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([spfReminderCategory])
         
         return true
