@@ -17,6 +17,11 @@ enum protectionLevel:Float {
     case max = 10.0
 }
 
+enum sunscreenType:Float {
+    case spray = 0.0
+    case cream = 1.0
+}
+
 class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotificationCenterDelegate {
     
     @IBOutlet weak var lblUVIndex: UILabel!
@@ -79,6 +84,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         UNUserNotificationCenter.current().delegate = self
         displayTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateDisplay), userInfo: nil, repeats: true)
         RunLoop.current.add(displayTimer, forMode: .common)
+        
+        btnStartTimer.layer.cornerRadius = 6
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -163,6 +170,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         handleProtectionFilter()
     }
     
+    @IBAction func methodSliderChanged(_ sender: Any) {
+        let fixed = roundf((sender as AnyObject).value / 1.0) * 1.0;
+        (sender as AnyObject).setValue(fixed, animated: true)
+    }
     
     func handleProtectionFilter()
     {
