@@ -19,4 +19,11 @@ extension Date {
         let delta = TimeInterval(timeZone.secondsFromGMT() - initTimeZone.secondsFromGMT())
         return addingTimeInterval(delta)
     }
+    
+    func toString( dateFormat format  : String ) -> String
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
 }

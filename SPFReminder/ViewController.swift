@@ -11,11 +11,25 @@ import ForecastIO
 import CoreLocation
 import UserNotifications
 
+enum protectionLevel:Float {
+    case norm = 0.0
+    case high = 5.0
+    case max = 10.0
+}
+
 class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotificationCenterDelegate {
     
     @IBOutlet weak var lblUVIndex: UILabel!
     @IBOutlet weak var btnReminder: UIButton!
     @IBOutlet weak var lblTimerCountdown: UILabel!
+    @IBOutlet weak var lblSunriseTime: UILabel!
+    @IBOutlet weak var lblSunsetTime: UILabel!
+    @IBOutlet weak var sliderProtectionLevel: UISlider!
+    @IBOutlet weak var sliderSunscreenMethod: UISlider!
+    @IBOutlet weak var btnStartTimer: UIButton!
+    
+    var sunsetLocalTime = Date()
+    var sunriseLocalTime = Date()
     
     var displayTimer: Timer!
     
@@ -25,7 +39,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     let center = UNUserNotificationCenter.current()
     let content = UNMutableNotificationContent()
     
-    var sunsetLocalTime = Date()
+  
     
     lazy var client: DarkSkyClient = {
         let darkSky = DarkSkyClient(apiKey: "16d1cdbf343ab6a7ee0dcb340b7484ff")
@@ -72,6 +86,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         
         uvIndexNeedsUpdate = true
         activateLocationServices()
+        handleProtectionFilter()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -97,7 +112,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
                     //returns at UNIX time, do something here
                     self.sunsetLocalTime = sunsetTime.convertFromGMT(timeZone: TimeZone.current)
                     print(self.sunsetLocalTime)
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "h:mm a"
                    
+                    self.lblSunsetTime.text =   dateFormatter.string(for: self.sunsetLocalTime)
+                }
+                
+                if let sunriseTime = result.value.0?.daily?.data[0].sunriseTime {
+                    //returns at UNIX time, do something here
+                    self.sunriseLocalTime = sunriseTime.convertFromGMT(timeZone: TimeZone.current)
+                    print(self.sunriseLocalTime)
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "h:mm a"
+                    
+                    self.lblSunriseTime.text =   dateFormatter.string(for: self.sunriseLocalTime)
                 }
             }
         }
@@ -125,5 +155,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         let seconds = Int(time) % 60
         return String(format:"%02ihr %02imin %02isec", hours, minutes, seconds)
     }
+    
+    @IBAction func protectionSliderChanged(_ sender: Any) {
+        let fixed = roundf((sender as AnyObject).value / 5.0) * 5.0;
+        (sender as AnyObject).setValue(fixed, animated: true)
+        
+        handleProtectionFilter()
+    }
+    
+    
+    func handleProtectionFilter()
+    {
+        guard let mode = protectionLevel(rawValue: sliderProtectionLevel.value) else {
+          return
+        }
+        
+        switch mode {
+        case protectionLevel.norm:
+            ReminderService.shared.protection = .normal
+        case protectionLevel.high:
+            ReminderService.shared.protection = .high
+        case protectionLevel.max:
+           ReminderService.shared.protection = .maximum
+        }
+    }
+    
 }
 
