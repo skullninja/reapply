@@ -84,6 +84,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         UNUserNotificationCenter.current().delegate = self
         displayTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateDisplay), userInfo: nil, repeats: true)
         RunLoop.current.add(displayTimer, forMode: .common)
+        
+        ReminderService.shared.method = .cream
+        ReminderService.shared.protection = .normal
+        
        
     }
     
@@ -117,23 +121,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
                 if let sunsetTime = result.value.0?.daily?.data[0].sunsetTime {
                     //returns at UNIX time, do something here
                     self.sunsetLocalTime = sunsetTime.convertFromGMT(timeZone: TimeZone.current)
-                    print(self.sunsetLocalTime)
-                    
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "h:mm a"
-                   
-                    self.lblSunsetTime.text =   dateFormatter.string(for: self.sunsetLocalTime)
+                    self.lblSunsetTime.text =  result.value.0?.daily?.data[0].sunsetTime?.toString(dateFormat: "h:mm a")
                 }
                 
                 if let sunriseTime = result.value.0?.daily?.data[0].sunriseTime {
                     //returns at UNIX time, do something here
                     self.sunriseLocalTime = sunriseTime.convertFromGMT(timeZone: TimeZone.current)
-                    print(self.sunriseLocalTime)
-                    
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "h:mm a"
-                    
-                    self.lblSunriseTime.text =   dateFormatter.string(for: self.sunriseLocalTime)
+               
+                    self.lblSunriseTime.text =   result.value.0?.daily?.data[0].sunriseTime?.toString(dateFormat: "h:mm a")
                 }
             }
         }
