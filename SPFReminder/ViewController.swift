@@ -84,8 +84,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         UNUserNotificationCenter.current().delegate = self
         displayTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateDisplay), userInfo: nil, repeats: true)
         RunLoop.current.add(displayTimer, forMode: .common)
-        
-        btnStartTimer.layer.cornerRadius = 6
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -181,6 +180,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
           return
         }
         
+        /*
         switch mode {
         case protectionLevel.norm:
             ReminderService.shared.protection = .normal
@@ -188,6 +188,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
             ReminderService.shared.protection = .high
         case protectionLevel.max:
            ReminderService.shared.protection = .maximum
+        }
+ */
+    }
+    
+    func handleMethodFilter()
+    {
+        guard let mode = sunscreenType(rawValue: sliderSunscreenMethod.value) else {
+            return
+        }
+        
+        switch mode {
+        case sunscreenType.spray:
+            ReminderService.shared.method = .spray
+        case sunscreenType.cream:
+            ReminderService.shared.method = .cream
         }
     }
     
