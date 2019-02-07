@@ -136,14 +136,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     }
 
     @IBAction func setReminderNotification(_ sender: Any) {
-        btnReminder.isEnabled = false
         
         if ReminderService.shared.isRunning {
             ReminderService.shared.stop()
+            btnReminder.setTitle("Start", for: .normal)
         } else {
             //ReminderService.shared.protection = .high
             //ReminderService.shared.method = .cream
             ReminderService.shared.start()
+            btnReminder.setTitle("Stop", for: .normal)
         }
         
         //ReminderService.shared.snooze()

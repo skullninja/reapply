@@ -14,6 +14,7 @@
 		9623342121F81D7C00E31825 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9623341F21F81D7C00E31825 /* Main.storyboard */; };
 		9623342321F81D7E00E31825 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9623342221F81D7E00E31825 /* Assets.xcassets */; };
 		9623342621F81D7E00E31825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9623342421F81D7E00E31825 /* LaunchScreen.storyboard */; };
+		96F75BE1220BF4AB001F0B0F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F75BE0220BF4AA001F0B0F /* icon.png */; };
 		EBFF1BDDACD7721912FBF5AA /* Pods_SPFReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5D7266F6C8089E10D3BBBC /* Pods_SPFReminder.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		9623342221F81D7E00E31825 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9623342521F81D7E00E31825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9623342721F81D7E00E31825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96F75BE0220BF4AA001F0B0F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../Downloads/icon.png; sourceTree = "<group>"; };
 		BA09F6739CC10E8A1A4CA02E /* Pods-SPFReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPFReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SPFReminder/Pods-SPFReminder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +73,7 @@
 				9623342221F81D7E00E31825 /* Assets.xcassets */,
 				9623342421F81D7E00E31825 /* LaunchScreen.storyboard */,
 				9623342721F81D7E00E31825 /* Info.plist */,
+				96F75BE0220BF4AA001F0B0F /* icon.png */,
 				55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */,
 				55BAA902220651E100D09D54 /* ReminderService.swift */,
 			);
@@ -154,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96F75BE1220BF4AB001F0B0F /* icon.png in Resources */,
 				9623342621F81D7E00E31825 /* LaunchScreen.storyboard in Resources */,
 				9623342321F81D7E00E31825 /* Assets.xcassets in Resources */,
 				9623342121F81D7C00E31825 /* Main.storyboard in Resources */,
