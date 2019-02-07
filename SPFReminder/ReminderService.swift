@@ -133,8 +133,6 @@ class ReminderService {
         _timer?.invalidate()
         _isTimerRunning = false
         _nextReapplyDate = nil
-        //btnReminder.isEnabled = true
-        //lblTimerCountdown.text = "00hr 00min 00sec"
     }
     
     func timeString(time:TimeInterval) -> String {
