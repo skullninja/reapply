@@ -140,6 +140,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         if ReminderService.shared.isRunning {
             ReminderService.shared.stop()
             btnReminder.setTitle("Start", for: .normal)
+            lblTimerCountdown.text = "00hr 00min 00sec"
         } else {
             //ReminderService.shared.protection = .high
             //ReminderService.shared.method = .cream
@@ -155,7 +156,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         let hours = Int(time) / 3600
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
-        return String(format:"%02ihr %02imin %02isec", hours, minutes, seconds)
+        return String(format:"%02ihr %02imin %02isec", abs(hours), abs(minutes), abs(seconds))
     }
     
     @IBAction func protectionSliderChanged(_ sender: Any) {
