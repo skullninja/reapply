@@ -62,6 +62,7 @@ class ReminderService {
     
     func stop() {
         resetTimer()
+        print("notifcations removed")
         removeNotifications()
     }
     
@@ -118,7 +119,7 @@ class ReminderService {
     }
     
     func runTimer(){
-        guard _timer == nil || _isTimerRunning else { return }
+        guard _timer == nil || !_isTimerRunning else { return }
         _isTimerRunning = true
         _timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
     }

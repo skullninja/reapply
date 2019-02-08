@@ -203,5 +203,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         }
     }
     
+    @IBAction func reapplyButtonTapped(_ sender: Any) {
+         if ReminderService.shared.isRunning {
+            ReminderService.shared.reapply()
+        }
+    }
 }
 
