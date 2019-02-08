@@ -32,6 +32,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     @IBOutlet weak var sliderProtectionLevel: UISlider!
     @IBOutlet weak var sliderSunscreenMethod: UISlider!
     @IBOutlet weak var btnStartTimer: UIButton!
+    @IBOutlet weak var btnReapply: UIButton!
     
     var sunsetLocalTime = Date()
     var sunriseLocalTime = Date()
@@ -43,8 +44,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     
     let center = UNUserNotificationCenter.current()
     let content = UNMutableNotificationContent()
-    
-  
     
     lazy var client: DarkSkyClient = {
         let darkSky = DarkSkyClient(apiKey: "16d1cdbf343ab6a7ee0dcb340b7484ff")
@@ -87,8 +86,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         
         ReminderService.shared.method = .cream
         ReminderService.shared.protection = .normal
-        
-       
+        btnReapply.isEnabled = false
+        btnReapply.alpha = 0.5
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {

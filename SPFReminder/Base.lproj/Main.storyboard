@@ -285,6 +285,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="btnReapply" destination="jmC-HB-yLu" id="3DA-Xp-pIs"/>
                         <outlet property="btnReminder" destination="D3U-fU-V3J" id="LzK-nq-xgz"/>
                         <outlet property="btnStartTimer" destination="D3U-fU-V3J" id="gSj-Az-X90"/>
                         <outlet property="lblSunriseTime" destination="UdQ-Ag-pxk" id="Ikz-uQ-hiZ"/>
