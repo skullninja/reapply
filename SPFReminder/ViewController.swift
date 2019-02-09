@@ -86,8 +86,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         
         ReminderService.shared.method = .cream
         ReminderService.shared.protection = .normal
-        btnReapply.isEnabled = false
-        btnReapply.alpha = 0.5
+
+        updateButtonDisplay(_initialLoad: true)
     
     }
     
@@ -102,6 +102,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         locationManager.stopUpdatingLocation()
+    }
+    
+    func updateButtonDisplay(_initialLoad: Bool){
+        
+        if _initialLoad{
+            //initial load disable the reapply button
+            btnReapply.isEnabled = false
+            btnReapply.alpha = 0.5
+        } else if ReminderService.shared.isRunning {
+            //Start button pressed , update title to stop and enable reapply button
+            btnReminder.setTitle("Stop", for: .normal)
+            btnReapply.isEnabled = true
+            btnReapply.alpha = 1
+        } else {
+            //Stop button pressed and reminder in progress
+            btnReminder.setTitle("Start", for: .normal)
+        }
+        
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -139,13 +157,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         
         if ReminderService.shared.isRunning {
             ReminderService.shared.stop()
-            btnReminder.setTitle("Start", for: .normal)
             lblTimerCountdown.text = "00hr 00min 00sec"
+            updateButtonDisplay(_initialLoad: false)
         } else {
-            //ReminderService.shared.protection = .high
-            //ReminderService.shared.method = .cream
             ReminderService.shared.start()
-            btnReminder.setTitle("Stop", for: .normal)
+            updateButtonDisplay(_initialLoad: false)
         }
         
         //ReminderService.shared.snooze()
@@ -206,6 +222,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     @IBAction func reapplyButtonTapped(_ sender: Any) {
          if ReminderService.shared.isRunning {
             ReminderService.shared.reapply()
+            // ensure the stop/start button is enabled and stop is the title
+            btnReminder.isEnabled = true
+            btnReminder.setTitle("Stop", for: .normal)
         }
     }
 }
