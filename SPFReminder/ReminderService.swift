@@ -28,9 +28,6 @@ class ReminderService {
     fileprivate var _isTimerRunning = false
     fileprivate var _nextReapplyDate: Date?
     
-    private let _notificationCenter = UNUserNotificationCenter.current()
-    private let _notificationContent = UNMutableNotificationContent()
-    
     //TODO: Watch for change
     var protection: ProtectionLevel = .normal
     var method: SunscreenMethod = .spray
@@ -57,13 +54,15 @@ class ReminderService {
     func start() {
         guard !isRunning else { return }
         let seconds = calculateSecondsToReapply()
-        setReminderNotification(seconds)
+        NotificationService.shared.setReminderNotification(seconds)
+        _nextReapplyDate = Date(timeIntervalSinceNow: TimeInterval(seconds))
+        runTimer()
     }
     
     func stop() {
         resetTimer()
         print("notifcations removed")
-        removeNotifications()
+        NotificationService.shared.removeNotifications()
     }
     
     func snooze() {
@@ -73,49 +72,10 @@ class ReminderService {
     func reapply() {
         guard isRunning else { return }
         let seconds = calculateSecondsToReapply()
-        removeNotifications()
-        setReminderNotification(seconds)
-    }
-    
-    private func setReminderNotification(_ seconds: Int) {
-        
+        NotificationService.shared.removeNotifications()
+        NotificationService.shared.setReminderNotification(seconds)
         _nextReapplyDate = Date(timeIntervalSinceNow: TimeInterval(seconds))
-        
-        _notificationCenter.getNotificationSettings{ (settings) in
-            if settings.authorizationStatus == .authorized {
-                // Notifications allowed
-                
-                self.setupNotificationContent(seconds)
-                
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds),
-                                                                repeats: false)
-                
-                let identifier = "UNLocalNotification"
-                let request = UNNotificationRequest(identifier: identifier,
-                                                    content: self._notificationContent, trigger: trigger)
-                self._notificationCenter.add(request, withCompletionHandler: { (error) in
-                    if let error = error {
-                        // Something went wrong
-                    }
-                })
-                
-                print("notification added to center at \(seconds) seconds")
-            }
-        }
-        
         runTimer()
-    }
-    
-    func setupNotificationContent(_ seconds: Int) {
-        
-        let minutes = seconds / 60
-        
-        _notificationContent.title = "Reminder"
-        _notificationContent.subtitle = "\(minutes) minutes have passed"
-        _notificationContent.body = "Would you like to continue and reapply sunblock?"
-        _notificationContent.badge = 1
-        _notificationContent.categoryIdentifier = "spfReminderCategory"
-        //_notificationContent = UNNotificationSound.default()
     }
     
     func runTimer(){
@@ -143,12 +103,6 @@ class ReminderService {
         return String(format:"%02ihr %02imin %02isec", hours, minutes, seconds)
     }
     
-    func removeNotifications() {
-        print("remove notifications")
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-    }
-    
     //Mark - UNNotifcation Delegate
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
@@ -167,7 +121,7 @@ class ReminderService {
         
         //reset timmer and remove any notifications
         resetTimer()
-        removeNotifications()
+        NotificationService.shared.removeNotifications()
         
         completionHandler([.alert, .sound])
     }
