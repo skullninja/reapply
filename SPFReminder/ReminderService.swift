@@ -144,6 +144,7 @@ class ReminderService {
     }
     
     func removeNotifications() {
+        print("remove notifications")
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
     }
