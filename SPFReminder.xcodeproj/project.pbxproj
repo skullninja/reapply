@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		55BAA90122040C1100D09D54 /* DateTimeZoneExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */; };
 		55BAA903220651E100D09D54 /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA902220651E100D09D54 /* ReminderService.swift */; };
+		55BAA9052212921800D09D54 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA9042212921800D09D54 /* Reminder.swift */; };
 		9623341C21F81D7C00E31825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9623341B21F81D7C00E31825 /* AppDelegate.swift */; };
 		9623341E21F81D7C00E31825 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9623341D21F81D7C00E31825 /* ViewController.swift */; };
 		9623342121F81D7C00E31825 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9623341F21F81D7C00E31825 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeZoneExtension.swift; sourceTree = "<group>"; };
 		55BAA902220651E100D09D54 /* ReminderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderService.swift; sourceTree = "<group>"; };
+		55BAA9042212921800D09D54 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		833A342E2D33ECE68AC937ED /* Pods-SPFReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPFReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SPFReminder/Pods-SPFReminder.debug.xcconfig"; sourceTree = "<group>"; };
 		8D5D7266F6C8089E10D3BBBC /* Pods_SPFReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SPFReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9623341821F81D7C00E31825 /* SPFReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPFReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 				55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */,
 				55BAA902220651E100D09D54 /* ReminderService.swift */,
 				96F75BE2220E5CDE001F0B0F /* NotificationService.swift */,
+				55BAA9042212921800D09D54 /* Reminder.swift */,
 			);
 			path = SPFReminder;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				9623341E21F81D7C00E31825 /* ViewController.swift in Sources */,
 				9623341C21F81D7C00E31825 /* AppDelegate.swift in Sources */,
 				55BAA90122040C1100D09D54 /* DateTimeZoneExtension.swift in Sources */,
+				55BAA9052212921800D09D54 /* Reminder.swift in Sources */,
 				96F75BE3220E5CDE001F0B0F /* NotificationService.swift in Sources */,
 				55BAA903220651E100D09D54 /* ReminderService.swift in Sources */,
 			);

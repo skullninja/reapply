@@ -9,24 +9,15 @@
 import Foundation
 import UserNotifications
 
-enum SunscreenMethod {
-    case spray
-    case cream
-}
 
-enum ProtectionLevel {
-    case normal
-    case high
-    case maximum
-}
 
 class ReminderService {
     
     static let shared = ReminderService()
     
-    fileprivate var _timer: Timer?
     fileprivate var _isTimerRunning = false
     fileprivate var _nextReapplyDate: Date?
+    fileprivate var _reminder: Reminder?
     
     //TODO: Watch for change
     var protection: ProtectionLevel = .normal
@@ -37,13 +28,19 @@ class ReminderService {
     
     var isRunning: Bool {
         get {
-            return _isTimerRunning
+            return _reminder != nil
         }
     }
     
     var nextReapply: Date? {
         get {
             return _nextReapplyDate
+        }
+    }
+    
+    var currentReminder: Reminder? {
+        get {
+            return _reminder
         }
     }
     
@@ -54,13 +51,21 @@ class ReminderService {
     func start() {
         guard !isRunning else { return }
         let seconds = calculateSecondsToReapply()
+        
+        let reminder = Reminder()
+        reminder.method = method
+        reminder.protection = protection
+        reminder.start = Date()
+        reminder.end = sunDown
+        
         NotificationService.shared.setReminderNotification(seconds)
-        _nextReapplyDate = Date(timeIntervalSinceNow: TimeInterval(seconds))
-        runTimer()
+        reminder.scheduledNotification = Date(timeIntervalSinceNow: TimeInterval(seconds))
+        
+        _reminder = reminder
     }
     
     func stop() {
-        resetTimer()
+        _reminder = nil
         print("notifcations removed")
         NotificationService.shared.removeNotifications()
     }
@@ -74,26 +79,7 @@ class ReminderService {
         let seconds = calculateSecondsToReapply()
         NotificationService.shared.removeNotifications()
         NotificationService.shared.setReminderNotification(seconds)
-        _nextReapplyDate = Date(timeIntervalSinceNow: TimeInterval(seconds))
-        runTimer()
-    }
-    
-    func runTimer(){
-        guard _timer == nil || !_isTimerRunning else { return }
-        _isTimerRunning = true
-        _timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
-    }
-    
-    @objc func updateTimer() {
-        //guard countdownSeconds != 0 else { return }
-        //countdownSeconds -= 1
-        //lblTimerCountdown.text = timeString(time: TimeInterval( self.countdownSeconds))
-    }
-    
-    func resetTimer() {
-        _timer?.invalidate()
-        _isTimerRunning = false
-        _nextReapplyDate = nil
+        _reminder?.scheduledNotification = Date(timeIntervalSinceNow: TimeInterval(seconds))
     }
     
     func timeString(time:TimeInterval) -> String {
@@ -119,8 +105,7 @@ class ReminderService {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
-        //reset timmer and remove any notifications
-        resetTimer()
+        //remove any notifications
         NotificationService.shared.removeNotifications()
         
         completionHandler([.alert, .sound])
