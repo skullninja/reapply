@@ -139,16 +139,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
                 
                 if let sunsetTime = result.value.0?.daily?.data[0].sunsetTime {
                     //returns at UNIX time, do something here
-                    ReminderService.shared.sunDown = sunsetTime
                     self.sunsetLocalTime = sunsetTime.convertFromGMT(timeZone: TimeZone.current)
+                    ReminderService.shared.sunSet = self.sunsetLocalTime
                     self.lblSunsetTime.text =  result.value.0?.daily?.data[0].sunsetTime?.toString(dateFormat: "h:mm a")
                 }
                 
                 if let sunriseTime = result.value.0?.daily?.data[0].sunriseTime {
                     //returns at UNIX time, do something here
-                    ReminderService.shared.sunUp = sunriseTime
+                    
                     self.sunriseLocalTime = sunriseTime.convertFromGMT(timeZone: TimeZone.current)
-               
+                    ReminderService.shared.sunRise = self.sunriseLocalTime
                     self.lblSunriseTime.text =   result.value.0?.daily?.data[0].sunriseTime?.toString(dateFormat: "h:mm a")
                 }
             }

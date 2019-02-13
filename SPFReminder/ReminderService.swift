@@ -27,8 +27,8 @@ class ReminderService {
     var protection: ProtectionLevel = .normal
     var method: SunscreenMethod = .spray
     
-    var sunDown: Date?
-    var sunUp: Date?
+    var sunSet: Date?
+    var sunRise: Date?
     
     var isRunning: Bool {
         get {
@@ -49,19 +49,22 @@ class ReminderService {
     func start() -> StartResponse {
         guard !isRunning else { return .alreadyRunning }
         
-        if let sunDown = sunDown {
-            let checkAhead = Date().addingTimeInterval(60);
-            if checkAhead > sunDown { return .tooLate }
-            
-            //TODO: spend time on this logic
-            if checkAhead < sunDown { return .tooEarly }
+        if let sunDown = sunSet {
+            let currentDate = Date().convertFromGMT(timeZone: TimeZone.current);
+            print("now:\(currentDate) and sunset:\(sunDown)")
+            if currentDate > sunDown { return .tooLate }
+        }
+        
+        if let sunUp = sunRise {
+            let currentDate = Date().convertFromGMT(timeZone: TimeZone.current);
+            if currentDate < sunUp { return .tooEarly }
         }
         
         let reminder = Reminder()
         reminder.method = method
         reminder.protection = protection
         reminder.start = Date()
-        reminder.end = sunDown
+        reminder.end = sunSet
         
         let seconds = reminder.calculateSecondsToReapply()
         //TODO: Remove this
@@ -69,7 +72,6 @@ class ReminderService {
         
         NotificationService.shared.setReminderNotification(reminder)
 
-        
         _reminder = reminder
         
         return .started
