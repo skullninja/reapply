@@ -16,7 +16,6 @@ class ReminderService {
     static let shared = ReminderService()
     
     fileprivate var _isTimerRunning = false
-    fileprivate var _nextReapplyDate: Date?
     fileprivate var _reminder: Reminder?
     
     //TODO: Watch for change
@@ -29,12 +28,6 @@ class ReminderService {
     var isRunning: Bool {
         get {
             return _reminder != nil
-        }
-    }
-    
-    var nextReapply: Date? {
-        get {
-            return _nextReapplyDate
         }
     }
     

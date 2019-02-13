@@ -69,7 +69,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     @objc func updateDisplay() {
         guard ReminderService.shared.isRunning else { return }
         
-        if let reapplyDate = ReminderService.shared.nextReapply {
+        if let reapplyDate = ReminderService.shared.currentReminder?.scheduledNotification {
             let interval = Date().timeIntervalSince(reapplyDate)
             lblTimerCountdown.text = timeString(time: interval)
         } else {
