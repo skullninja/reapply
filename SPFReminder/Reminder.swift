@@ -27,6 +27,35 @@ class Reminder {
     var start: Date?
     var end: Date?
     
+    var reapplys: Array<Date> = Array()
+    
     var scheduledNotification: Date?
     
+    public func calculateSecondsToReapply() -> Int {
+        
+        var seconds = 0
+        
+        switch method {
+        case .spray:
+            seconds += 3600
+            break
+        case .cream:
+            seconds += 4800
+            break
+        }
+        
+        switch protection {
+        case .normal:
+            break
+        case .high:
+            seconds = Int(Double(seconds) * 0.75)
+            break
+        case .maximum:
+            seconds = Int(Double(seconds) * 0.5)
+            break
+        }
+        
+        return seconds
+        
+    }
 }

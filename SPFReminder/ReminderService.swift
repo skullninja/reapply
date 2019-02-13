@@ -9,7 +9,12 @@
 import Foundation
 import UserNotifications
 
-
+enum StartResponse {
+    case started
+    case alreadyRunning
+    case tooLate
+    case tooEarly
+}
 
 class ReminderService {
     
@@ -41,9 +46,13 @@ class ReminderService {
         
     }
     
-    func start() {
-        guard !isRunning else { return }
-        let seconds = calculateSecondsToReapply()
+    func start() -> StartResponse {
+        guard !isRunning else { return .alreadyRunning }
+        
+        if let sunDown = sunDown {
+            let checkAhead = Date().addingTimeInterval(60);
+            if checkAhead > sunDown { return .tooLate }
+        }
         
         let reminder = Reminder()
         reminder.method = method
@@ -51,10 +60,16 @@ class ReminderService {
         reminder.start = Date()
         reminder.end = sunDown
         
-        NotificationService.shared.setReminderNotification(seconds, sundown: sunDown ?? Date())
+        let seconds = reminder.calculateSecondsToReapply()
+        //TODO: Remove this
         reminder.scheduledNotification = Date(timeIntervalSinceNow: TimeInterval(seconds))
         
+        NotificationService.shared.setReminderNotification(reminder)
+
+        
         _reminder = reminder
+        
+        return .started
     }
     
     func stop() {
@@ -69,10 +84,17 @@ class ReminderService {
     
     func reapply() {
         guard isRunning else { return }
-        let seconds = calculateSecondsToReapply()
-        NotificationService.shared.removeNotifications()
-        NotificationService.shared.setReminderNotification(seconds, sundown: sunDown ??  Date())
+        let seconds = _reminder?.calculateSecondsToReapply() ?? 0
+        //TODO: Remove this
         _reminder?.scheduledNotification = Date(timeIntervalSinceNow: TimeInterval(seconds))
+        if let reminder = _reminder {
+            NotificationService.shared.setReminderNotification(reminder)
+        }
+    }
+    
+    private func scheduleNotifications() {
+        guard isRunning else { return }
+        //TODO: Pass reminder to notification service
     }
     
     func timeString(time:TimeInterval) -> String {
@@ -102,33 +124,5 @@ class ReminderService {
         NotificationService.shared.removeNotifications()
         
         completionHandler([.alert, .sound])
-    }
-    
-    private func calculateSecondsToReapply() -> Int {
-    
-        var seconds = 0
-    
-        switch method {
-        case .spray:
-            seconds += 3600
-            break
-        case .cream:
-            seconds += 4800
-            break
-        }
-        
-        switch protection {
-        case .normal:
-            break
-        case .high:
-            seconds = Int(Double(seconds) * 0.75)
-            break
-        case .maximum:
-            seconds = Int(Double(seconds) * 0.5)
-            break
-        }
-        
-        return seconds
-    
     }
 }
