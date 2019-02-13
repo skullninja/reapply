@@ -51,7 +51,7 @@ class ReminderService {
         reminder.start = Date()
         reminder.end = sunDown
         
-        NotificationService.shared.setReminderNotification(seconds)
+        NotificationService.shared.setReminderNotification(seconds, sundown: sunDown ?? Date())
         reminder.scheduledNotification = Date(timeIntervalSinceNow: TimeInterval(seconds))
         
         _reminder = reminder
@@ -71,7 +71,7 @@ class ReminderService {
         guard isRunning else { return }
         let seconds = calculateSecondsToReapply()
         NotificationService.shared.removeNotifications()
-        NotificationService.shared.setReminderNotification(seconds)
+        NotificationService.shared.setReminderNotification(seconds, sundown: sunDown ??  Date())
         _reminder?.scheduledNotification = Date(timeIntervalSinceNow: TimeInterval(seconds))
     }
     
