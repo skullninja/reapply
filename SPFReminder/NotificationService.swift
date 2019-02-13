@@ -42,7 +42,13 @@ class NotificationService {
         //_notificationContent = UNNotificationSound.default()
     }
     
-    func setReminderNotification(_ seconds: Int, sundown: Date) {
+    func setReminderNotification(_ reminder: Reminder) {
+        
+        removeNotifications()
+        
+        //seconds, sundown: sunDown ?? Date()
+        
+        let seconds = reminder.calculateSecondsToReapply()
         
         _notificationCenter.getNotificationSettings{ (settings) in
             if settings.authorizationStatus == .authorized {

@@ -130,6 +130,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         guard uvIndexNeedsUpdate else { return }
         uvIndexNeedsUpdate = false
         
+        //TODO: Update When Day Switches or Location Changes
         client.getForecast(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) { result in
             DispatchQueue.main.async {
                 if let uvindex = result.value.0?.currently?.uvIndex {
@@ -138,12 +139,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
                 
                 if let sunsetTime = result.value.0?.daily?.data[0].sunsetTime {
                     //returns at UNIX time, do something here
+                    ReminderService.shared.sunDown = sunsetTime
                     self.sunsetLocalTime = sunsetTime.convertFromGMT(timeZone: TimeZone.current)
                     self.lblSunsetTime.text =  result.value.0?.daily?.data[0].sunsetTime?.toString(dateFormat: "h:mm a")
                 }
                 
                 if let sunriseTime = result.value.0?.daily?.data[0].sunriseTime {
                     //returns at UNIX time, do something here
+                    ReminderService.shared.sunUp = sunriseTime
                     self.sunriseLocalTime = sunriseTime.convertFromGMT(timeZone: TimeZone.current)
                
                     self.lblSunriseTime.text =   result.value.0?.daily?.data[0].sunriseTime?.toString(dateFormat: "h:mm a")
@@ -155,13 +158,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
 
     @IBAction func setReminderNotification(_ sender: Any) {
         
-        if ReminderService.shared.isRunning {
+        switch ReminderService.shared.start() {
+        case .alreadyRunning:
             ReminderService.shared.stop()
             lblTimerCountdown.text = "00hr 00min 00sec"
             updateButtonDisplay(_initialLoad: false)
-        } else {
-            ReminderService.shared.start()
+            break
+        case .started:
             updateButtonDisplay(_initialLoad: false)
+            break
+        case .tooLate:
+            //TODO: Message Too Late
+            break
+        case .tooEarly:
+            //TODO: Message Too Early
+            break
         }
         
         //ReminderService.shared.snooze()
