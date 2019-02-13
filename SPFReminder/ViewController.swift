@@ -168,10 +168,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
             updateButtonDisplay(_initialLoad: false)
             break
         case .tooLate:
-            //TODO: Message Too Late
+            let alert = UIAlertController(title: "Uh oh, it's after sunset", message: "There is no need to apply sunscreen at this time. Try again after sunrise.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             break
         case .tooEarly:
-            //TODO: Message Too Early
+            let alert = UIAlertController(title: "Uh oh, it's too early", message: "There is no need to apply sunscreen at this time. Try again after sunrise.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             break
         }
         

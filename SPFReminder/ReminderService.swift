@@ -52,6 +52,9 @@ class ReminderService {
         if let sunDown = sunDown {
             let checkAhead = Date().addingTimeInterval(60);
             if checkAhead > sunDown { return .tooLate }
+            
+            //TODO: spend time on this logic
+            if checkAhead < sunDown { return .tooEarly }
         }
         
         let reminder = Reminder()
