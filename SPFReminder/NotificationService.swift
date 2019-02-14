@@ -52,76 +52,67 @@ class NotificationService {
             if settings.authorizationStatus == .authorized {
                 // Notifications allowed
                 
+                var secondsUntilSunset = 0.0
+                
                 if let sunDown = ReminderService.shared.sunSet {
                     let localTime = Date().convertFromGMT(timeZone: TimeZone.current)
-                    let checkAhead = localTime.addingTimeInterval(3600)
-                    // the sun is setting soon no need to set a notification
+                    let checkAhead = localTime.addingTimeInterval(TimeInterval(seconds))
+                
+                    secondsUntilSunset = abs(localTime.timeIntervalSince(sunDown))
+                    
+                    // the sun is setting befire the reminder time no need to set a notification
                     if checkAhead > sunDown { return }
                 }
                 
                 self.setupInititalNotificationContent(seconds)
-                var trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds),
-                                                                repeats: false)
+                self.createNotification(seconds)
                 
-                var identifier = "InitialNotification\(seconds)"
-                let notifcationRequest1 = UNNotificationRequest(identifier: identifier,
-                                                    content: self._notificationContent, trigger: trigger)
-                self._notificationCenter.add(notifcationRequest1, withCompletionHandler: { (error) in
-                    if let error = error {
-                        // Something went wrong
-                    }
-                })
+                secondsUntilSunset = secondsUntilSunset - Double(seconds)
+                print("\(secondsUntilSunset) minutes remaining before sunset")
                 
                 //Send a follow up reminder 20 and every 45 minutes until sunset
+                let twentyMinutes = 1200
+                let fortyFiveMinutes = 2700
                 
-                  if let sunDown = ReminderService.shared.sunSet {
-                    let localTime = Date().convertFromGMT(timeZone: TimeZone.current)
-                    var secondsUntilSunset = abs(localTime.timeIntervalSince(sunDown))
-                    let twentyMinutes = 1200
-                    let fortyFiveMinutes = 2700
+                //setup first notification at 20 minutes
+                if Int(secondsUntilSunset) > seconds{
                     
-                    //setup first notification at 20 minutes
+                    self.setupFollowUpNotificationContent(twentyMinutes)
+                    self.createNotification(twentyMinutes)
                     
-                    if secondsUntilSunset > 4800{
-                        self.setupFollowUpNotificationContent(twentyMinutes)
-                        trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds + twentyMinutes),
-                                                                repeats: false)
-                        identifier = "FollowUpNotification\(seconds+twentyMinutes)"
-                        let notifcationRequest2 = UNNotificationRequest(identifier: identifier,
-                                                                    content: self._notificationContent, trigger: trigger)
-                        self._notificationCenter.add(notifcationRequest2, withCompletionHandler: { (error) in
-                            if let error = error {
-                                // Something went wrong
-                        }
-                        })
-                        
-                        print("follow up notifcation for 20 minutes, \(secondsUntilSunset) remaining")
-                        secondsUntilSunset = secondsUntilSunset - Double(twentyMinutes)
-                    }
-                    
-                   
-                    while secondsUntilSunset >= 4800 {
-                        
-                        self.setupFollowUpNotificationContent(fortyFiveMinutes)
-                        trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds + fortyFiveMinutes),
-                                                                    repeats: false)
-                        identifier = "FollowUpNotification\(seconds+fortyFiveMinutes)"
-                        let notifcationRequest2 = UNNotificationRequest(identifier: identifier,
-                                                                        content: self._notificationContent, trigger: trigger)
-                        self._notificationCenter.add(notifcationRequest2, withCompletionHandler: { (error) in
-                            if let error = error {
-                                // Something went wrong
-                            }
-                        })
-                        
-                        print("follow up notifcation for 45 minutes, \(secondsUntilSunset) remaining")
-                        secondsUntilSunset = secondsUntilSunset - Double(fortyFiveMinutes)
-                    }
-
+                    secondsUntilSunset = secondsUntilSunset - Double(twentyMinutes)
+                    print("follow up notifcation for 20 minutes, \(secondsUntilSunset) minutes remaining")
                 }
+                
+                while Int(secondsUntilSunset) > seconds {
+                    
+                    self.setupFollowUpNotificationContent(fortyFiveMinutes)
+                    self.createNotification(fortyFiveMinutes)
+                    
+                    secondsUntilSunset = secondsUntilSunset - Double(fortyFiveMinutes)
+                    print("follow up notifcation for 45 minutes, \(secondsUntilSunset) minutes remaining")
+                    
+                }
+
+                
             }
         }
     
+    }
+    
+    func createNotification(_ seconds: Int){
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds),
+                                                        repeats: false)
+        
+        let identifier = "InitialNotification\(seconds)"
+        let notifcationRequest1 = UNNotificationRequest(identifier: identifier,
+                                                        content: self._notificationContent, trigger: trigger)
+        self._notificationCenter.add(notifcationRequest1, withCompletionHandler: { (error) in
+            if error != nil {
+                // Something went wrong
+            }
+        })
+        
     }
     
     func removeNotifications() {
