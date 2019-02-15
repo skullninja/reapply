@@ -93,6 +93,16 @@ class NotificationService {
                     print("follow up notifcation for 45 minutes, \(secondsUntilSunset) minutes remaining")
                     
                 }
+                
+                //notification for tomorrow morning to remind them to use the app
+                if let sunUp = ReminderService.shared.sunRise {
+                    let oneDay = 86400
+                    let twoHours = 7200
+                    
+                    self.setupFollowUpNotificationContent(fortyFiveMinutes)
+                    self.createNotification(oneDay+twoHours)
+                    
+                }
 
                 
             }
