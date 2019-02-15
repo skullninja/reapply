@@ -73,36 +73,36 @@ class NotificationService {
                 //Send a follow up reminder 20 and every 45 minutes until sunset
                 let twentyMinutes = 1200
                 let fortyFiveMinutes = 2700
+                var secondsUntilNotification = seconds+twentyMinutes
                 
                 //setup first notification at 20 minutes
                 if Int(secondsUntilSunset) > seconds{
                     
                     self.setupFollowUpNotificationContent(twentyMinutes)
-                    self.createNotification(twentyMinutes)
+                    self.createNotification(secondsUntilNotification)
                     
                     secondsUntilSunset = secondsUntilSunset - Double(twentyMinutes)
                     print("follow up notifcation for 20 minutes, \(secondsUntilSunset) minutes remaining")
                 }
                 
                 while Int(secondsUntilSunset) > seconds {
-                    
+                    secondsUntilNotification = secondsUntilNotification + fortyFiveMinutes
                     self.setupFollowUpNotificationContent(fortyFiveMinutes)
-                    self.createNotification(fortyFiveMinutes)
+                    self.createNotification(secondsUntilNotification)
                     
                     secondsUntilSunset = secondsUntilSunset - Double(fortyFiveMinutes)
                     print("follow up notifcation for 45 minutes, \(secondsUntilSunset) minutes remaining")
                     
                 }
                 
-                //notification for tomorrow morning to remind them to use the app
+                //TODO: notification for tomorrow morning to remind them to use the app
+                /*
                 if let sunUp = ReminderService.shared.sunRise {
                     let oneDay = 86400
                     let twoHours = 7200
                     
-                    self.setupFollowUpNotificationContent(fortyFiveMinutes)
-                    self.createNotification(oneDay+twoHours)
-                    
                 }
+ */
 
                 
             }
