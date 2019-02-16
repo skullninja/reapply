@@ -24,7 +24,7 @@ class NotificationService {
         
         let minutes = seconds / 60
         
-        _notificationContent.title = "Hiya!"
+        _notificationContent.title = "Howdy!"
         _notificationContent.subtitle = "\(minutes) minutes have passed"
         _notificationContent.body = "Would you like to continue and reapply sunscreen?"
         _notificationContent.badge = 1
@@ -42,6 +42,17 @@ class NotificationService {
         //_notificationContent = UNNotificationSound.default()
     }
     
+    func setupFollowUpTomorrowNotificationContent(_ seconds: Int) {
+        
+        _notificationContent.title = "Good morning, sunshine!"
+        //TO DO: get top uv index and cloud coverage
+        _notificationContent.subtitle = "Don't forget to apply suncreen today. The max UV Index is 3 and cloud coverage is 20."
+        _notificationContent.body = "Get on in here and start the sunscreen reminder."
+        _notificationContent.badge = 1
+        _notificationContent.categoryIdentifier = "spfReminderCategory"
+        //_notificationContent = UNNotificationSound.default()
+    }
+    
     func setReminderNotification(_ reminder: Reminder) {
         
         removeNotifications()
@@ -51,6 +62,19 @@ class NotificationService {
         _notificationCenter.getNotificationSettings{ (settings) in
             if settings.authorizationStatus == .authorized {
                 // Notifications allowed
+                
+                //TODO: notification for tomorrow morning to remind them to use the app
+                
+                if let sunUp = ReminderService.shared.sunRise {
+                    let oneDay = 86400
+                    let twoHours = 7200
+                    let tomorrowDate = sunUp.addingTimeInterval(TimeInterval(oneDay+twoHours))
+                    let secondsUntilTomorrowDate = abs(Date().timeIntervalSince(tomorrowDate))
+                    
+                    self.setupFollowUpTomorrowNotificationContent(Int(secondsUntilTomorrowDate))
+                    self.createNotification(Int(secondsUntilTomorrowDate))
+                    print("tomorow's notification set")
+                }
                 
                 var secondsUntilSunset = 0.0
                 
@@ -94,17 +118,6 @@ class NotificationService {
                     print("follow up notifcation for 45 minutes, \(secondsUntilSunset) minutes remaining")
                     
                 }
-                
-                //TODO: notification for tomorrow morning to remind them to use the app
-                /*
-                if let sunUp = ReminderService.shared.sunRise {
-                    let oneDay = 86400
-                    let twoHours = 7200
-                    
-                }
- */
-
-                
             }
         }
     
