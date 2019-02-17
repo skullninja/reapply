@@ -69,7 +69,8 @@ class NotificationService {
                     let oneDay = 86400
                     let twoHours = 7200
                     let tomorrowDate = sunUp.addingTimeInterval(TimeInterval(oneDay+twoHours))
-                    let secondsUntilTomorrowDate = abs(Date().timeIntervalSince(tomorrowDate))
+                    let localTime = Date().convertFromGMT(timeZone: TimeZone.current)
+                    let secondsUntilTomorrowDate = abs(localTime.timeIntervalSince(tomorrowDate))
                     
                     self.setupFollowUpTomorrowNotificationContent(Int(secondsUntilTomorrowDate))
                     self.createNotification(Int(secondsUntilTomorrowDate))
@@ -94,28 +95,28 @@ class NotificationService {
                 secondsUntilSunset = secondsUntilSunset - Double(seconds)
                 print("\(secondsUntilSunset) minutes remaining before sunset")
                 
-                //Send a follow up reminder 20 and every 45 minutes until sunset
-                let twentyMinutes = 1200
-                let fortyFiveMinutes = 2700
-                var secondsUntilNotification = seconds+twentyMinutes
+                //Send a follow up reminder 30 and every 60 minutes until sunset
+                let thirtyMinutes = 1800
+                let sityMinutes = 3600
+                var notificationTime = seconds+thirtyMinutes
                 
-                //setup first notification at 20 minutes
+                //setup first notification at 30 minutes
                 if Int(secondsUntilSunset) > seconds{
                     
-                    self.setupFollowUpNotificationContent(twentyMinutes)
-                    self.createNotification(secondsUntilNotification)
+                    self.setupFollowUpNotificationContent(thirtyMinutes)
+                    self.createNotification(notificationTime)
                     
-                    secondsUntilSunset = secondsUntilSunset - Double(twentyMinutes)
-                    print("follow up notifcation for 20 minutes, \(secondsUntilSunset) minutes remaining")
+                    secondsUntilSunset = secondsUntilSunset - Double(thirtyMinutes)
+                    print("follow up notifcation for 30 minutes, \(secondsUntilSunset) minutes remaining")
                 }
                 
                 while Int(secondsUntilSunset) > seconds {
-                    secondsUntilNotification = secondsUntilNotification + fortyFiveMinutes
-                    self.setupFollowUpNotificationContent(fortyFiveMinutes)
-                    self.createNotification(secondsUntilNotification)
+                    notificationTime = notificationTime + sityMinutes
+                    self.setupFollowUpNotificationContent(sityMinutes)
+                    self.createNotification(notificationTime)
                     
-                    secondsUntilSunset = secondsUntilSunset - Double(fortyFiveMinutes)
-                    print("follow up notifcation for 45 minutes, \(secondsUntilSunset) minutes remaining")
+                    secondsUntilSunset = secondsUntilSunset - Double(sityMinutes)
+                    print("follow up notifcation for 60 minutes, \(secondsUntilSunset) minutes remaining")
                     
                 }
             }
