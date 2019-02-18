@@ -35,9 +35,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     @IBOutlet weak var btnStartTimer: UIButton!
     @IBOutlet weak var btnReapply: UIButton!
     
-    var sunsetLocalTime = Date()
-    var sunriseLocalTime = Date()
-    
     var displayTimer: Timer!
     
     let locationManager = CLLocationManager()
@@ -46,12 +43,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     let center = UNUserNotificationCenter.current()
     let content = UNMutableNotificationContent()
     
-    lazy var client: DarkSkyClient = {
-        let darkSky = DarkSkyClient(apiKey: "16d1cdbf343ab6a7ee0dcb340b7484ff")
-        darkSky.units = .auto
-        darkSky.language = .english
-        return darkSky
-    }()
     
     func activateLocationServices() {
         
@@ -136,9 +127,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        updateUVIndexIfNeeded(locations[0])
+        
+        guard uvIndexNeedsUpdate else { return }
+        uvIndexNeedsUpdate = false
+        
+        ForecastService.shared.updateUVIndexIfNeeded(locations[0], completionHandler: {_ in
+            
+            if let uvindex = ForecastService.shared.currentUVIndex {
+                self.lblUVIndex.text = String(uvindex)
+            }
+            
+            self.lblSunsetTime.text =  ForecastService.shared.sunsetTime.toString(dateFormat: "h:mm a")
+            
+            self.lblSunriseTime.text = ForecastService.shared.sunriseTime.toString(dateFormat: "h:mm a")
+        })
     }
     
+    /*
     func updateUVIndexIfNeeded(_ location: CLLocation) {
         guard uvIndexNeedsUpdate else { return }
         uvIndexNeedsUpdate = false
@@ -168,6 +173,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         }
         
     }
+ */
 
     @IBAction func setReminderNotification(_ sender: Any) {
         

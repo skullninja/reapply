@@ -14,8 +14,8 @@ class ForecastService{
     
     static let shared = ForecastService()
     
-    var sunsetLocalTime = Date()
-    var sunriseLocalTime = Date()
+    var sunsetTime = Date()
+    var sunriseTime = Date()
     var currentUVIndex:Double?
     var currentCloudCoverage:Double?
     
@@ -40,13 +40,13 @@ class ForecastService{
                 }
                 
                 if let sunsetTime = result.value.0?.daily?.data[0].sunsetTime {
-                    self.sunsetLocalTime = sunsetTime.convertFromGMT(timeZone: TimeZone.current)
-                    ReminderService.shared.sunSet = self.sunsetLocalTime
+                    self.sunsetTime = sunsetTime
+                    ReminderService.shared.sunSet = sunsetTime
                 }
                 
                 if let sunriseTime = result.value.0?.daily?.data[0].sunriseTime {
-                    self.sunriseLocalTime = sunriseTime.convertFromGMT(timeZone: TimeZone.current)
-                    ReminderService.shared.sunRise = self.sunriseLocalTime
+                    self.sunriseTime = sunriseTime
+                    ReminderService.shared.sunRise = sunriseTime
                 }
                 
                 completionHandler(true)
