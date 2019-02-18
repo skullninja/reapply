@@ -29,10 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         let choiceA = UNNotificationAction(identifier: "Reapply", title: "I'm Reapplying Now", options: [.foreground])
-        let choiceB = UNNotificationAction(identifier: "Later", title: "I'll Reapply Later", options: [.foreground])
-        let choiceC = UNNotificationAction(identifier: "Stop", title: "End Reminders", options: [.foreground])
+        let choiceB = UNNotificationAction(identifier: "Stop", title: "End Reminders", options: [.foreground])
         
-        let spfReminderCategory = UNNotificationCategory(identifier: "spfReminderCategory", actions: [choiceA, choiceB, choiceC], intentIdentifiers: [], options: [])
+        let spfReminderCategory = UNNotificationCategory(identifier: "spfReminderCategory", actions: [choiceA, choiceB], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([spfReminderCategory])
         
         return true
