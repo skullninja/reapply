@@ -23,7 +23,6 @@ class ReminderService {
     fileprivate var _isTimerRunning = false
     fileprivate var _reminder: Reminder?
     
-    //TODO: Watch for change
     var protection: ProtectionLevel = .normal
     var method: SunscreenMethod = .spray
     
@@ -50,26 +49,23 @@ class ReminderService {
         guard !isRunning else { return .alreadyRunning }
         
         if let sunDown = sunSet {
-            let currentDate = Date().convertFromGMT(timeZone: TimeZone.current);
+            let currentDate = Date();
             print("now:\(currentDate) and sunset:\(sunDown)")
             if currentDate > sunDown { return .tooLate }
         }
         
         if let sunUp = sunRise {
-            let currentDate = Date().convertFromGMT(timeZone: TimeZone.current);
+            let currentDate = Date();
             if currentDate < sunUp { return .tooEarly }
         }
         
         let reminder = Reminder()
         reminder.method = method
         reminder.protection = protection
-        reminder.start = Date()
+        reminder.start = Date();
         reminder.end = sunSet
         
-        let seconds = reminder.calculateSecondsToReapply()
-        //TODO: Remove this
-        reminder.scheduledNotification = Date(timeIntervalSinceNow: TimeInterval(seconds))
-        
+        reminder.updateScheduledNotification()
         NotificationService.shared.setReminderNotification(reminder)
 
         _reminder = reminder
@@ -83,16 +79,10 @@ class ReminderService {
         NotificationService.shared.removeNotifications()
     }
     
-    func snooze() {
-        //TODO:
-    }
-    
     func reapply() {
         guard isRunning else { return }
-        let seconds = _reminder?.calculateSecondsToReapply() ?? 0
-        //TODO: Remove this
-        _reminder?.scheduledNotification = Date(timeIntervalSinceNow: TimeInterval(seconds))
         if let reminder = _reminder {
+            reminder.reapply()
             NotificationService.shared.setReminderNotification(reminder)
         }
     }
@@ -114,8 +104,6 @@ class ReminderService {
         
         if response.actionIdentifier == "Reapply" {
             reapply()
-        } else if response.actionIdentifier == "Later" {
-            snooze()
         } else if response.actionIdentifier == "Stop" {
             stop()
         }
