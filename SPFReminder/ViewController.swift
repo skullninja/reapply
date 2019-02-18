@@ -29,6 +29,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     @IBOutlet weak var lblTimerCountdown: UILabel!
     @IBOutlet weak var lblSunriseTime: UILabel!
     @IBOutlet weak var lblSunsetTime: UILabel!
+    @IBOutlet weak var lblCurrentProtectionLevel: UILabel!
     @IBOutlet weak var sliderProtectionLevel: UISlider!
     @IBOutlet weak var sliderSunscreenMethod: UISlider!
     @IBOutlet weak var btnStartTimer: UIButton!
@@ -75,10 +76,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         } else {
             lblTimerCountdown.text = "00hr 00min 00sec"
         }
+        
+        let protectionLevel = ReminderService.shared.currentReminder?.protectionLevel(for: Date()) ?? 0.0
+        if protectionLevel >= 100.0 {
+            lblCurrentProtectionLevel.text = "good"
+        } else if protectionLevel > 50.0 {
+            lblCurrentProtectionLevel.text = "ok"
+        } else if protectionLevel > 0.0 {
+            lblCurrentProtectionLevel.text = "poor"
+        } else {
+            lblCurrentProtectionLevel.text = "--"
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        lblCurrentProtectionLevel.text = "--"
         // Do any additional setup after loading the view, typically from a nib.
         UNUserNotificationCenter.current().delegate = self
         displayTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateDisplay), userInfo: nil, repeats: true)
@@ -140,7 +153,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
                 if let sunsetTime = result.value.0?.daily?.data[0].sunsetTime {
                     //returns at UNIX time, do something here
                     self.sunsetLocalTime = sunsetTime.convertFromGMT(timeZone: TimeZone.current)
-                    ReminderService.shared.sunSet = self.sunsetLocalTime
+                    ReminderService.shared.sunSet = sunsetTime
                     self.lblSunsetTime.text =  result.value.0?.daily?.data[0].sunsetTime?.toString(dateFormat: "h:mm a")
                 }
                 
@@ -148,7 +161,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
                     //returns at UNIX time, do something here
                     
                     self.sunriseLocalTime = sunriseTime.convertFromGMT(timeZone: TimeZone.current)
-                    ReminderService.shared.sunRise = self.sunriseLocalTime
+                    ReminderService.shared.sunRise = sunriseTime
                     self.lblSunriseTime.text =   result.value.0?.daily?.data[0].sunriseTime?.toString(dateFormat: "h:mm a")
                 }
             }
@@ -178,9 +191,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
             self.present(alert, animated: true, completion: nil)
             break
         }
-        
-        //ReminderService.shared.snooze()
-        
     }
     
     func timeString(time:TimeInterval) -> String {
@@ -208,7 +218,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
           return
         }
         
-        /*
         switch mode {
         case protectionLevel.norm:
             ReminderService.shared.protection = .normal
@@ -217,7 +226,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         case protectionLevel.max:
            ReminderService.shared.protection = .maximum
         }
- */
     }
     
     func handleMethodFilter()
