@@ -143,38 +143,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         })
     }
     
-    /*
-    func updateUVIndexIfNeeded(_ location: CLLocation) {
-        guard uvIndexNeedsUpdate else { return }
-        uvIndexNeedsUpdate = false
-        
-        //TODO: Update When Day Switches or Location Changes
-        client.getForecast(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) { result in
-            DispatchQueue.main.async {
-                if let uvindex = result.value.0?.currently?.uvIndex {
-                    self.lblUVIndex.text = String(uvindex)
-                }
-                
-                if let sunsetTime = result.value.0?.daily?.data[0].sunsetTime {
-                    //returns at UNIX time, do something here
-                    self.sunsetLocalTime = sunsetTime.convertFromGMT(timeZone: TimeZone.current)
-                    ReminderService.shared.sunSet = sunsetTime
-                    self.lblSunsetTime.text =  result.value.0?.daily?.data[0].sunsetTime?.toString(dateFormat: "h:mm a")
-                }
-                
-                if let sunriseTime = result.value.0?.daily?.data[0].sunriseTime {
-                    //returns at UNIX time, do something here
-                    
-                    self.sunriseLocalTime = sunriseTime.convertFromGMT(timeZone: TimeZone.current)
-                    ReminderService.shared.sunRise = sunriseTime
-                    self.lblSunriseTime.text =   result.value.0?.daily?.data[0].sunriseTime?.toString(dateFormat: "h:mm a")
-                }
-            }
-        }
-        
-    }
- */
-
     @IBAction func setReminderNotification(_ sender: Any) {
         
         switch ReminderService.shared.start() {
