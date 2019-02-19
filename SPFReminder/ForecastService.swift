@@ -10,7 +10,7 @@ import Foundation
 import ForecastIO
 import CoreLocation
 
-class ForecastService{
+class ForecastService {
     
     static let shared = ForecastService()
     
@@ -18,6 +18,11 @@ class ForecastService{
     var sunriseTime = Date()
     var currentUVIndex:Double?
     var currentCloudCoverage:Double?
+    
+    var fiveDayForecast: Array<DailyForecast> = Array()
+    
+    var lastDailyForecastUpdate = NSDate()
+    var lastHourlyForecastUpdate = NSDate()
     
     lazy var client: DarkSkyClient = {
         let darkSky = DarkSkyClient(apiKey: "16d1cdbf343ab6a7ee0dcb340b7484ff")
@@ -47,6 +52,20 @@ class ForecastService{
                 if let sunriseTime = result.value.0?.daily?.data[0].sunriseTime {
                     self.sunriseTime = sunriseTime
                     ReminderService.shared.sunRise = sunriseTime
+                }
+                
+                var i = 0
+                while i < 4 {
+                    if let dailyData = result.value.0?.daily?.data[i]{
+                        let dailyForecast = DailyForecast()
+                        dailyForecast.forecastDate = dailyData.time
+                        dailyForecast.cloudCoverage = dailyData.cloudCover
+                        dailyForecast.uvIndex = dailyData.uvIndex
+                        dailyForecast.sunriseTime = dailyData.sunriseTime ?? Date()
+                        dailyForecast.sunsetTime = dailyData.sunsetTime ?? Date()
+                        self.fiveDayForecast.append(dailyForecast)
+                    }
+                    i += 1
                 }
                 
                 completionHandler(true)

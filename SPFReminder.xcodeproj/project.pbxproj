@@ -16,6 +16,7 @@
 		9623342321F81D7E00E31825 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9623342221F81D7E00E31825 /* Assets.xcassets */; };
 		9623342621F81D7E00E31825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9623342421F81D7E00E31825 /* LaunchScreen.storyboard */; };
 		96236225221B5E8C00B8B172 /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96236224221B5E8C00B8B172 /* ForecastService.swift */; };
+		96236227221B7C0100B8B172 /* DailyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96236226221B7C0100B8B172 /* DailyForecast.swift */; };
 		96F75BE1220BF4AB001F0B0F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F75BE0220BF4AA001F0B0F /* icon.png */; };
 		96F75BE3220E5CDE001F0B0F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F75BE2220E5CDE001F0B0F /* NotificationService.swift */; };
 		EBFF1BDDACD7721912FBF5AA /* Pods_SPFReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5D7266F6C8089E10D3BBBC /* Pods_SPFReminder.framework */; };
@@ -36,6 +37,7 @@
 		9623342521F81D7E00E31825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9623342721F81D7E00E31825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96236224221B5E8C00B8B172 /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
+		96236226221B7C0100B8B172 /* DailyForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecast.swift; sourceTree = "<group>"; };
 		96F75BE0220BF4AA001F0B0F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		96F75BE2220E5CDE001F0B0F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		BA09F6739CC10E8A1A4CA02E /* Pods-SPFReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPFReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SPFReminder/Pods-SPFReminder.release.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */,
 				55BAA902220651E100D09D54 /* ReminderService.swift */,
 				96236224221B5E8C00B8B172 /* ForecastService.swift */,
+				96236226221B7C0100B8B172 /* DailyForecast.swift */,
 				96F75BE2220E5CDE001F0B0F /* NotificationService.swift */,
 				55BAA9042212921800D09D54 /* Reminder.swift */,
 			);
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96236227221B7C0100B8B172 /* DailyForecast.swift in Sources */,
 				9623341E21F81D7C00E31825 /* ViewController.swift in Sources */,
 				9623341C21F81D7C00E31825 /* AppDelegate.swift in Sources */,
 				55BAA90122040C1100D09D54 /* DateTimeZoneExtension.swift in Sources */,
