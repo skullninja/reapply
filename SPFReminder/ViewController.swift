@@ -10,6 +10,7 @@ import UIKit
 import ForecastIO
 import CoreLocation
 import UserNotifications
+import ScrollableGraphView
 
 enum protectionLevel:Float {
     case norm = 0.0
@@ -34,6 +35,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     @IBOutlet weak var sliderSunscreenMethod: UISlider!
     @IBOutlet weak var btnStartTimer: UIButton!
     @IBOutlet weak var btnReapply: UIButton!
+    @IBOutlet weak var graphContainerView: UIView!
+    
+    var graphView: ScrollableGraphView?
     
     var sunsetLocalTime = Date()
     var sunriseLocalTime = Date()
@@ -80,7 +84,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         let protectionLevel = ReminderService.shared.currentReminder?.protectionLevel(for: Date()) ?? 0.0
         if protectionLevel >= 100.0 {
             lblCurrentProtectionLevel.text = "good"
-        } else if protectionLevel > 50.0 {
+        } else if protectionLevel > 40.0 {
             lblCurrentProtectionLevel.text = "ok"
         } else if protectionLevel > 0.0 {
             lblCurrentProtectionLevel.text = "poor"
@@ -112,9 +116,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         handleProtectionFilter()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        reloadGraph()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         locationManager.stopUpdatingLocation()
+    }
+    
+    func reloadGraph() {
+        graphView?.removeFromSuperview()
+        graphView = GraphService.createGraphView(frame: graphContainerView.bounds, dataSource: self)
+        if let graphView = graphView {
+            graphContainerView.addSubview(graphView)
+            graphView.leftAnchor.constraint(equalTo: graphContainerView.leftAnchor)
+            graphView.rightAnchor.constraint(equalTo: graphContainerView.rightAnchor)
+            graphView.topAnchor.constraint(equalTo: graphContainerView.topAnchor)
+            graphView.bottomAnchor.constraint(equalTo: graphContainerView.bottomAnchor)
+        }
     }
     
     func updateButtonDisplay(_initialLoad: Bool){
@@ -175,10 +197,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         case .alreadyRunning:
             ReminderService.shared.stop()
             lblTimerCountdown.text = "00hr 00min 00sec"
+            lblCurrentProtectionLevel.text = "--"
             updateButtonDisplay(_initialLoad: false)
+            reloadGraph()
             break
         case .started:
             updateButtonDisplay(_initialLoad: false)
+            reloadGraph()
             break
         case .tooLate:
             let alert = UIAlertController(title: "Uh oh, it's after sunset", message: "There is no need to apply sunscreen at this time. Try again after sunrise.", preferredStyle: UIAlertController.Style.alert)
@@ -248,7 +273,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
             // ensure the stop/start button is enabled and stop is the title
             btnReminder.isEnabled = true
             btnReminder.setTitle("Stop", for: .normal)
+            reloadGraph()
         }
     }
 }
 
+extension ViewController: ScrollableGraphViewDataSource {
+    
+    func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
+        return ReminderService.shared.currentReminder?.dataPoints()[pointIndex] ?? 0.0
+    }
+    
+    func label(atIndex pointIndex: Int) -> String {
+        return "\(pointIndex + 1)"
+    }
+    
+    func numberOfPoints() -> Int {
+        return ReminderService.shared.currentReminder?.dataPoints().count ?? 0
+    }
+}

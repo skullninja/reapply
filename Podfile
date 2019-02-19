@@ -9,5 +9,6 @@ target 'SPFReminder' do
  pod 'Alamofire', '~> 4.8'
  pod 'Moya', '~> 12.0'
  pod 'ForecastIO', '~> 5.1'
+ pod 'ScrollableGraphView', '~> 4.0'
 
 end

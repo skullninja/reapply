@@ -40,20 +40,47 @@ class Reminder {
         updateScheduledNotification()
     }
     
-    private func latestDateBeforeEnd() -> Date? {
+    private func latestDateBeforeDate(_ date: Date) -> Date? {
         if reapplys.isEmpty {
             return start
         }
         else {
-            return reapplys.last
+            var latest = start
+            for reapplyDate in reapplys {
+                if reapplyDate < date {
+                    latest = reapplyDate
+                }
+            }
+            return latest
         }
+    }
+    
+    public func dataPoints() -> Array<Double> {
+        
+        var dataPoints = Array<Double>()
+        
+        if let end = end, let start = start {
+            let seconds = end.timeIntervalSince(start)
+            let hours = Int(seconds / 60 / 60)
+            var check = 0
+            
+            while (check <= hours) {
+                if let interval = TimeInterval(exactly: 60 * 60 * check) {
+                    let time = start.addingTimeInterval(interval)
+                    dataPoints.append(protectionLevel(for: time))
+                }
+                check += 1
+            }
+        }
+        
+        return dataPoints
     }
     
     public func protectionLevel(for date: Date) -> Double {
         guard let start = start, let end = end,
             date >= start, date <= end else { return 0.0 }
         
-        if let latestDate = latestDateBeforeEnd() {
+        if let latestDate = latestDateBeforeDate(date) {
             let seconds = Int(date.timeIntervalSince(latestDate))
             let maxSeconds = calculateSecondsToReapply()
             var protectionLevel = 100.0
@@ -63,14 +90,18 @@ class Reminder {
             }
             
             // After max exposure, reduce by 1/2 every 2 hours
-            var factor = Int(((seconds - maxSeconds) / 60) / 60 / 2)
-            
-            while (factor > 0) {
-                protectionLevel /= 2.0
-                factor -= 1
+            let hours = Int(((seconds - maxSeconds) / 60) / 60)
+            var count = 0
+            var factor = protectionLevel
+            while count < hours {
+                protectionLevel -= (factor * 0.25)
+                if count % 2 == 1 {
+                    factor = factor / 2.0
+                }
+                count += 1
             }
             
-            return protectionLevel
+            return max(protectionLevel, 0.0)
         }
         return 0.0
     }
