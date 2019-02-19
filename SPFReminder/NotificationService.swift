@@ -43,10 +43,11 @@ class NotificationService {
     }
     
     func setupFollowUpTomorrowNotificationContent(_ seconds: Int) {
-        
+        let maxUVIndex = Int(ForecastService.shared.fiveDayForecast[1].uvIndex ?? 0)
+        let cloudCoverage = Int(ForecastService.shared.fiveDayForecast[1].cloudCoverage! * 100)
         _notificationContent.title = "Good morning, sunshine!"
         //TO DO: get top uv index and cloud coverage
-        _notificationContent.subtitle = "Don't forget to apply suncreen today. The max UV Index is 3 and cloud coverage is 20."
+        _notificationContent.subtitle = "Don't forget to apply suncreen today. The top UV Index is \(maxUVIndex) and cloud coverage is \(cloudCoverage) percent."
         _notificationContent.body = "Get on in here and start the sunscreen reminder."
         _notificationContent.badge = 1
         _notificationContent.categoryIdentifier = "spfReminderCategory"
@@ -67,8 +68,9 @@ class NotificationService {
                 
                 if let sunUp = ReminderService.shared.sunRise {
                     let oneDay = 86400
-                    let twoHours = 7200
-                    let tomorrowDate = sunUp.addingTimeInterval(TimeInterval(oneDay+twoHours))
+                    let threeHours = 10800
+                    let sunriseLocalTime = sunUp.convertFromGMT(timeZone: TimeZone.current)
+                    let tomorrowDate = sunriseLocalTime.addingTimeInterval(TimeInterval(oneDay+threeHours))
                     let localTime = Date().convertFromGMT(timeZone: TimeZone.current)
                     let secondsUntilTomorrowDate = abs(localTime.timeIntervalSince(tomorrowDate))
                     
@@ -83,7 +85,8 @@ class NotificationService {
                     let localTime = Date().convertFromGMT(timeZone: TimeZone.current)
                     let checkAhead = localTime.addingTimeInterval(TimeInterval(seconds))
                 
-                    secondsUntilSunset = abs(localTime.timeIntervalSince(sunDown))
+                    let sunsetLocalTime = sunDown.convertFromGMT(timeZone: TimeZone.current)
+                    secondsUntilSunset = abs(localTime.timeIntervalSince(sunsetLocalTime))
                     
                     // the sun is setting befire the reminder time no need to set a notification
                     if checkAhead > sunDown { return }
@@ -97,7 +100,7 @@ class NotificationService {
                 
                 //Send a follow up reminder 30 and every 60 minutes until sunset
                 let thirtyMinutes = 1800
-                let sityMinutes = 3600
+                let sixtyMinutes = 3600
                 var notificationTime = seconds+thirtyMinutes
                 
                 //setup first notification at 30 minutes
@@ -111,11 +114,11 @@ class NotificationService {
                 }
                 
                 while Int(secondsUntilSunset) > seconds {
-                    notificationTime = notificationTime + sityMinutes
-                    self.setupFollowUpNotificationContent(sityMinutes)
+                    notificationTime = notificationTime + sixtyMinutes
+                    self.setupFollowUpNotificationContent(sixtyMinutes)
                     self.createNotification(notificationTime)
                     
-                    secondsUntilSunset = secondsUntilSunset - Double(sityMinutes)
+                    secondsUntilSunset = secondsUntilSunset - Double(sixtyMinutes)
                     print("follow up notifcation for 60 minutes, \(secondsUntilSunset) minutes remaining")
                     
                 }
