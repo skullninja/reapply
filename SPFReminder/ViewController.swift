@@ -39,9 +39,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     
     var graphView: ScrollableGraphView?
     
-    var sunsetLocalTime = Date()
-    var sunriseLocalTime = Date()
-    
     var displayTimer: Timer!
     
     let locationManager = CLLocationManager()
@@ -50,12 +47,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     let center = UNUserNotificationCenter.current()
     let content = UNMutableNotificationContent()
     
-    lazy var client: DarkSkyClient = {
-        let darkSky = DarkSkyClient(apiKey: "16d1cdbf343ab6a7ee0dcb340b7484ff")
-        darkSky.units = .auto
-        darkSky.language = .english
-        return darkSky
-    }()
     
     func activateLocationServices() {
         
@@ -158,39 +149,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        updateUVIndexIfNeeded(locations[0])
-    }
-    
-    func updateUVIndexIfNeeded(_ location: CLLocation) {
+        
         guard uvIndexNeedsUpdate else { return }
         uvIndexNeedsUpdate = false
         
-        //TODO: Update When Day Switches or Location Changes
-        client.getForecast(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) { result in
-            DispatchQueue.main.async {
-                if let uvindex = result.value.0?.currently?.uvIndex {
-                    self.lblUVIndex.text = String(uvindex)
-                }
-                
-                if let sunsetTime = result.value.0?.daily?.data[0].sunsetTime {
-                    //returns at UNIX time, do something here
-                    self.sunsetLocalTime = sunsetTime.convertFromGMT(timeZone: TimeZone.current)
-                    ReminderService.shared.sunSet = sunsetTime
-                    self.lblSunsetTime.text =  result.value.0?.daily?.data[0].sunsetTime?.toString(dateFormat: "h:mm a")
-                }
-                
-                if let sunriseTime = result.value.0?.daily?.data[0].sunriseTime {
-                    //returns at UNIX time, do something here
-                    
-                    self.sunriseLocalTime = sunriseTime.convertFromGMT(timeZone: TimeZone.current)
-                    ReminderService.shared.sunRise = sunriseTime
-                    self.lblSunriseTime.text =   result.value.0?.daily?.data[0].sunriseTime?.toString(dateFormat: "h:mm a")
-                }
+        ForecastService.shared.updateUVIndexIfNeeded(locations[0], completionHandler: {_ in
+            
+            if let uvindex = ForecastService.shared.currentUVIndex {
+                self.lblUVIndex.text = String(uvindex)
             }
-        }
-        
+            
+            self.lblSunsetTime.text =  ForecastService.shared.sunsetTime.toString(dateFormat: "h:mm a")
+            
+            self.lblSunriseTime.text = ForecastService.shared.sunriseTime.toString(dateFormat: "h:mm a")
+        })
     }
-
+    
     @IBAction func setReminderNotification(_ sender: Any) {
         
         switch ReminderService.shared.start() {
