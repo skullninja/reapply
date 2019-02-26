@@ -35,7 +35,9 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     @IBOutlet weak var btnStartTimer: UIButton!
     @IBOutlet weak var btnReapply: UIButton!
     @IBOutlet weak var graphContainerView: UIView!
+    @IBOutlet weak var lblCity: UILabel!
     
+   
     var graphView: ScrollableGraphView?
     
     var displayTimer: Timer!
@@ -73,6 +75,19 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         self.lblSunsetTime.text =  ForecastService.shared.sunsetTime.toString(dateFormat: "h:mm a")
         self.lblSunriseTime.text = ForecastService.shared.sunriseTime.toString(dateFormat: "h:mm a")
         
+        //to do: remove the city label
+        LocationService.shared.lookUpCurrentLocation{ geoLoc in
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = .medium
+            
+            if let lastLocationUpdate = ReminderService.shared.locationUpdateTime{
+            self.lblCity.text = String(format: "%@ - %@", geoLoc?.locality ?? "none", dateFormatter.string(from: lastLocationUpdate))
+            }
+            else{
+                 self.lblCity.text = geoLoc?.locality
+            }
+        }
+        
     }
 
     override func viewDidLoad() {
@@ -94,7 +109,6 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         super.viewWillAppear(animated)
         
         uvIndexNeedsUpdate = true
-        LocationService.shared.activateLocationServices()
         handleProtectionFilter()
         
     }
@@ -106,7 +120,6 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        LocationService.shared.locationManager.stopUpdatingLocation()
     }
     
     func reloadGraph() {
