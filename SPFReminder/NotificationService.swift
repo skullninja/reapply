@@ -9,16 +9,12 @@
 import Foundation
 import UserNotifications
 
-class NotificationService {
+class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     
     static let shared = NotificationService()
     
     private let _notificationCenter = UNUserNotificationCenter.current()
     private let _notificationContent = UNMutableNotificationContent()
-    
-    init() {
-        
-    }
     
     func setupInititalNotificationContent(_ seconds: Int) {
         
@@ -45,6 +41,7 @@ class NotificationService {
     
     func setReminderNotification(_ reminder: Reminder) {
         
+        UNUserNotificationCenter.current().delegate = self
         removeNotifications()
         
         let seconds = reminder.calculateSecondsToReapply()
@@ -158,6 +155,26 @@ class NotificationService {
         print("remove notifications")
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+    }
+    
+    //Mark - UNNotifcation Delegate
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        if response.actionIdentifier == "Reapply" {
+            ReminderService.shared.reapply()
+        } else if response.actionIdentifier == "Stop" {
+            ReminderService.shared.stop()
+        }
+        
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        //remove any notifications
+        NotificationService.shared.removeNotifications()
+        
+        completionHandler([.alert, .sound])
     }
     
 }

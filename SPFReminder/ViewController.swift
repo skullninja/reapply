@@ -8,7 +8,6 @@
 
 import UIKit
 import ForecastIO
-import UserNotifications
 import ScrollableGraphView
 
 enum protectionLevel:Float {
@@ -22,7 +21,7 @@ enum sunscreenType:Float {
     case cream = 1.0
 }
 
-class ViewController: UIViewController, UNUserNotificationCenterDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet weak var lblUVIndex: UILabel!
     @IBOutlet weak var btnReminder: UIButton!
@@ -44,8 +43,6 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     var uvIndexNeedsUpdate: Bool = true
     
-    let center = UNUserNotificationCenter.current()
-    let content = UNMutableNotificationContent()
     
     //TODO: Re-enable buttons, etc.
     @objc func updateDisplay() {
@@ -94,7 +91,6 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         super.viewDidLoad()
         lblCurrentProtectionLevel.text = "--"
         // Do any additional setup after loading the view, typically from a nib.
-        UNUserNotificationCenter.current().delegate = self
         displayTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateDisplay), userInfo: nil, repeats: true)
         RunLoop.current.add(displayTimer, forMode: .common)
         

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UserNotifications
 import CoreLocation
 
 enum StartResponse {
@@ -104,23 +103,4 @@ class ReminderService {
         return String(format:"%02ihr %02imin %02isec", hours, minutes, seconds)
     }
     
-    //Mark - UNNotifcation Delegate
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-        if response.actionIdentifier == "Reapply" {
-            reapply()
-        } else if response.actionIdentifier == "Stop" {
-            stop()
-        }
-        
-        completionHandler()
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
-        //remove any notifications
-        NotificationService.shared.removeNotifications()
-        
-        completionHandler([.alert, .sound])
-    }
 }
