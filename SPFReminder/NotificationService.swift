@@ -147,8 +147,8 @@ class NotificationService {
         let cloudCoverage = Int(ForecastService.shared.fiveDayForecast[dayIndex].cloudCoverage! * 100)
         _notificationContent.title = "Good morning, sunshine!"
         //TO DO: get top uv index and cloud coverage
-        _notificationContent.subtitle = "Don't forget to apply suncreen today. The top UV Index is \(maxUVIndex) and cloud coverage is \(cloudCoverage) percent."
-        _notificationContent.body = "Get on in here and start the sunscreen reminder."
+        _notificationContent.subtitle = "Don't forget to apply suncreen today."
+        _notificationContent.body = "The top UV Index is \(maxUVIndex) and cloud coverage is \(cloudCoverage) percent. Get on in here and start the sunscreen reminder."
         _notificationContent.badge = 1
         _notificationContent.categoryIdentifier = "spfReminderCategory"
         //_notificationContent = UNNotificationSound.default()
