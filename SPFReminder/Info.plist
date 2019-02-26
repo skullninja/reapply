@@ -25,7 +25,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>I need your location to show the UV Index</string>
+	<string>We use your location to get the local forecast</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We use your location to get the local forecast</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We use your location to get the local forecast</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
