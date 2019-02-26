@@ -17,8 +17,8 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     
     func activateLocationServices() {
         
-        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
-            locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.authorizationStatus() != .authorizedAlways {
+            locationManager.requestAlwaysAuthorization()
         }
         
         if CLLocationManager.locationServicesEnabled() {
@@ -31,10 +31,14 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         ForecastService.shared.updateUVIndexIfNeeded(locations[0], completionHandler: {_ in
-           
             ReminderService.shared.location = locations[0]
            
         })
+    }
+    
+    func locationUpdate( currentLocation: Any){
+        
+       
     }
     
 }
