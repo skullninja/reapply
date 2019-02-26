@@ -8,7 +8,6 @@
 
 import UIKit
 import ForecastIO
-import CoreLocation
 import UserNotifications
 import ScrollableGraphView
 
@@ -23,7 +22,7 @@ enum sunscreenType:Float {
     case cream = 1.0
 }
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotificationCenterDelegate {
+class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     @IBOutlet weak var lblUVIndex: UILabel!
     @IBOutlet weak var btnReminder: UIButton!
@@ -41,30 +40,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
     
     var displayTimer: Timer!
     
-    let locationManager = CLLocationManager()
     var uvIndexNeedsUpdate: Bool = true
     
     let center = UNUserNotificationCenter.current()
     let content = UNMutableNotificationContent()
     
-    
-    func activateLocationServices() {
-        
-        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
-            locationManager.requestWhenInUseAuthorization()
-        }
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-            locationManager.startUpdatingLocation()
-        }
-    }
-    
     //TODO: Re-enable buttons, etc.
     @objc func updateDisplay() {
-        guard ReminderService.shared.isRunning else { return }
-        
+       
         if let reapplyDate = ReminderService.shared.currentReminder?.scheduledNotification {
             let interval = Date().timeIntervalSince(reapplyDate)
             lblTimerCountdown.text = timeString(time: interval)
@@ -82,6 +65,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         } else {
             lblCurrentProtectionLevel.text = "--"
         }
+        
+        if let uvindex = ForecastService.shared.currentUVIndex {
+            self.lblUVIndex.text = String(uvindex)
+        }
+        
+        self.lblSunsetTime.text =  ForecastService.shared.sunsetTime.toString(dateFormat: "h:mm a")
+        self.lblSunriseTime.text = ForecastService.shared.sunriseTime.toString(dateFormat: "h:mm a")
+        
     }
 
     override func viewDidLoad() {
@@ -103,19 +94,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         super.viewWillAppear(animated)
         
         uvIndexNeedsUpdate = true
-        activateLocationServices()
+        LocationService.shared.activateLocationServices()
         handleProtectionFilter()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         reloadGraph()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        locationManager.stopUpdatingLocation()
+        LocationService.shared.locationManager.stopUpdatingLocation()
     }
     
     func reloadGraph() {
@@ -148,23 +139,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UNUserNotific
         
     }
 
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        guard uvIndexNeedsUpdate else { return }
-        uvIndexNeedsUpdate = false
-        
-        ForecastService.shared.updateUVIndexIfNeeded(locations[0], completionHandler: {_ in
-            
-            if let uvindex = ForecastService.shared.currentUVIndex {
-                self.lblUVIndex.text = String(uvindex)
-            }
-            
-            self.lblSunsetTime.text =  ForecastService.shared.sunsetTime.toString(dateFormat: "h:mm a")
-            
-            self.lblSunriseTime.text = ForecastService.shared.sunriseTime.toString(dateFormat: "h:mm a")
-        })
-    }
-    
     @IBAction func setReminderNotification(_ sender: Any) {
         
         switch ReminderService.shared.start() {

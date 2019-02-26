@@ -19,6 +19,7 @@
 		9623342621F81D7E00E31825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9623342421F81D7E00E31825 /* LaunchScreen.storyboard */; };
 		96236225221B5E8C00B8B172 /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96236224221B5E8C00B8B172 /* ForecastService.swift */; };
 		96236227221B7C0100B8B172 /* DailyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96236226221B7C0100B8B172 /* DailyForecast.swift */; };
+		965158B72224AB7B003B1092 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965158B62224AB7A003B1092 /* LocationService.swift */; };
 		96F75BE1220BF4AB001F0B0F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F75BE0220BF4AA001F0B0F /* icon.png */; };
 		96F75BE3220E5CDE001F0B0F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F75BE2220E5CDE001F0B0F /* NotificationService.swift */; };
 		EBFF1BDDACD7721912FBF5AA /* Pods_SPFReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5D7266F6C8089E10D3BBBC /* Pods_SPFReminder.framework */; };
@@ -42,6 +43,7 @@
 		9623342721F81D7E00E31825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96236224221B5E8C00B8B172 /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
 		96236226221B7C0100B8B172 /* DailyForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecast.swift; sourceTree = "<group>"; };
+		965158B62224AB7A003B1092 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		96F75BE0220BF4AA001F0B0F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		96F75BE2220E5CDE001F0B0F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		BA09F6739CC10E8A1A4CA02E /* Pods-SPFReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPFReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SPFReminder/Pods-SPFReminder.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				96F75BE2220E5CDE001F0B0F /* NotificationService.swift */,
 				55BAA9042212921800D09D54 /* Reminder.swift */,
 				55BAA907221B7C4F00D09D54 /* GraphService.swift */,
+				965158B62224AB7A003B1092 /* LocationService.swift */,
 				55BAA909221B7D0100D09D54 /* UIColorExtension.swift */,
 			);
 			path = SPFReminder;
@@ -252,6 +255,7 @@
 				55BAA90122040C1100D09D54 /* DateTimeZoneExtension.swift in Sources */,
 				55BAA90A221B7D0100D09D54 /* UIColorExtension.swift in Sources */,
 				55BAA908221B7C4F00D09D54 /* GraphService.swift in Sources */,
+				965158B72224AB7B003B1092 /* LocationService.swift in Sources */,
 				55BAA9052212921800D09D54 /* Reminder.swift in Sources */,
 				96F75BE3220E5CDE001F0B0F /* NotificationService.swift in Sources */,
 				96236225221B5E8C00B8B172 /* ForecastService.swift in Sources */,

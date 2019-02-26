@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 enum SunscreenMethod {
     case spray
@@ -26,6 +27,8 @@ class Reminder {
     
     var start: Date?
     var end: Date?
+    
+    var location: CLLocation?
     
     var reapplys: Array<Date> = Array()
     

@@ -8,6 +8,7 @@
 
 import Foundation
 import UserNotifications
+import CoreLocation
 
 enum StartResponse {
     case started
@@ -28,6 +29,8 @@ class ReminderService {
     
     var sunSet: Date?
     var sunRise: Date?
+    
+    var location: CLLocation?
     
     var isRunning: Bool {
         get {
