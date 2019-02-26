@@ -28,8 +28,6 @@ class Reminder {
     var start: Date?
     var end: Date?
     
-    var location: CLLocation?
-    
     var reapplys: Array<Date> = Array()
     
     var scheduledNotification: Date?
