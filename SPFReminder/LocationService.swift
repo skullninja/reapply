@@ -17,8 +17,8 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     
     func activateLocationServices() {
         
-        if CLLocationManager.authorizationStatus() != .authorizedAlways {
-            locationManager.requestAlwaysAuthorization()
+        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
+            locationManager.requestWhenInUseAuthorization()
         }
         
         if CLLocationManager.locationServicesEnabled() {
