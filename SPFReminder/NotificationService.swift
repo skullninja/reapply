@@ -31,7 +31,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     func setupFollowUpNotificationContent(_ seconds: Int) {
 
         _notificationContent.title = "Hello, sunshine!"
-        _notificationContent.subtitle = "Reapplying sunscreen will only take a few minutes."
+        _notificationContent.subtitle = "Reapplying sunscreen will only take a minute."
         _notificationContent.body = "Get on in here and reapply."
         _notificationContent.badge = 1
         _notificationContent.categoryIdentifier = "spfReminderCategory"

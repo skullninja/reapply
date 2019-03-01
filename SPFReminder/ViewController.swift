@@ -116,6 +116,7 @@ class ViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        LocationService.shared.locationManager.stopUpdatingLocation()
     }
     
     func reloadGraph() {

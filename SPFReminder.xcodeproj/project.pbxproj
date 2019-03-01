@@ -20,6 +20,7 @@
 		96236225221B5E8C00B8B172 /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96236224221B5E8C00B8B172 /* ForecastService.swift */; };
 		96236227221B7C0100B8B172 /* DailyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96236226221B7C0100B8B172 /* DailyForecast.swift */; };
 		965158B72224AB7B003B1092 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965158B62224AB7A003B1092 /* LocationService.swift */; };
+		96F07993222615E7009A5C06 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96F07992222615E7009A5C06 /* CloudKit.framework */; };
 		96F75BE1220BF4AB001F0B0F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F75BE0220BF4AA001F0B0F /* icon.png */; };
 		96F75BE3220E5CDE001F0B0F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F75BE2220E5CDE001F0B0F /* NotificationService.swift */; };
 		EBFF1BDDACD7721912FBF5AA /* Pods_SPFReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5D7266F6C8089E10D3BBBC /* Pods_SPFReminder.framework */; };
@@ -44,6 +45,7 @@
 		96236224221B5E8C00B8B172 /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
 		96236226221B7C0100B8B172 /* DailyForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecast.swift; sourceTree = "<group>"; };
 		965158B62224AB7A003B1092 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		96F07992222615E7009A5C06 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		96F75BE0220BF4AA001F0B0F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		96F75BE2220E5CDE001F0B0F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		BA09F6739CC10E8A1A4CA02E /* Pods-SPFReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPFReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SPFReminder/Pods-SPFReminder.release.xcconfig"; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBFF1BDDACD7721912FBF5AA /* Pods_SPFReminder.framework in Frameworks */,
+				96F07993222615E7009A5C06 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +118,7 @@
 		E23BE698DF26B39DBF4ADAF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96F07992222615E7009A5C06 /* CloudKit.framework */,
 				8D5D7266F6C8089E10D3BBBC /* Pods_SPFReminder.framework */,
 			);
 			name = Frameworks;
@@ -156,6 +160,9 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 							com.apple.iCloud = {
