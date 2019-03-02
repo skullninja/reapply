@@ -50,8 +50,6 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             if settings.authorizationStatus == .authorized {
                 // Notifications allowed
                 
-                self.createFutureDailyNotification()
-                
                 var secondsUntilSunset = 0.0
                 
                 if let sunDown = ReminderService.shared.sunSet {
@@ -61,12 +59,14 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
                     // the sun is setting before the reminder time no need to set a notification
                     if checkAhead > sunDown { return }
                     
+                    //set the initial follow up notifcation
+                    self.setupInititalNotificationContent(seconds)
+                    self.createNotification(seconds)
+                    
+                    //used later to calc how many seconds left until sunset with each notification set
                     let sunsetLocalTime = sunDown.convertFromGMT(timeZone: TimeZone.current)
                     secondsUntilSunset = abs(localTime.timeIntervalSince(sunsetLocalTime))
                 }
-                
-                self.setupInititalNotificationContent(seconds)
-                self.createNotification(seconds)
                 
                 secondsUntilSunset = secondsUntilSunset - Double(seconds)
                 print("\(secondsUntilSunset) minutes remaining before sunset")
@@ -95,6 +95,8 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
                     print("follow up notifcation for 60 minutes, \(secondsUntilSunset) minutes remaining")
                     
                 }
+                
+                self.createFutureDailyNotification()
             }
         }
     
