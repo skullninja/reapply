@@ -49,6 +49,7 @@ class ViewController: UIViewController {
        
         if let reapplyDate = ReminderService.shared.currentReminder?.scheduledNotification {
             let interval = Date().timeIntervalSince(reapplyDate)
+            if interval > 0 {return}
             lblTimerCountdown.text = timeString(time: interval)
         } else {
             lblTimerCountdown.text = "00hr 00min 00sec"
