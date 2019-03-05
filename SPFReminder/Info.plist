@@ -21,14 +21,14 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>6</string>
+	<string>7</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationWhenInUseUsageDescription</key>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>We use your location to get the local forecast</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We use your location to get the local forecast</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We use your location to get the local forecast</string>
 	<key>UIBackgroundModes</key>
 	<array>
