@@ -73,13 +73,18 @@ class ReminderService {
         NotificationService.shared.setReminderNotification(reminder)
 
         _reminder = reminder
+        save(reminder)
         
         return .started
     }
     
     func stop() {
+        if let reminder = _reminder {
+            reminder.end = Date()
+            save(reminder)
+        }
         _reminder = nil
-        print("notifcations removed")
+        print("notifications removed")
         NotificationService.shared.removeNotifications()
     }
     
@@ -88,6 +93,7 @@ class ReminderService {
         if let reminder = _reminder {
             reminder.reapply()
             NotificationService.shared.setReminderNotification(reminder)
+            save(reminder)
         }
     }
     
@@ -103,4 +109,47 @@ class ReminderService {
         return String(format:"%02ihr %02imin %02isec", hours, minutes, seconds)
     }
     
+}
+
+extension ReminderService {
+    
+    func save(_ reminder: Reminder) {
+        guard let start = reminder.start else { return }
+        
+        let pathDirectory = getDocumentsDirectory()
+        try? FileManager().createDirectory(at: pathDirectory, withIntermediateDirectories: true)
+        let filePath = pathDirectory.appendingPathComponent(start.toString(dateFormat: "yyyy-MM-dd-HH-mm-ss") + ".json")
+        
+        let json = try? JSONEncoder().encode(reminder)
+        
+        do {
+            try json!.write(to: filePath)
+        } catch {
+            print("Failed to write JSON data: \(error.localizedDescription)")
+        }
+    }
+    
+    func loadAll() -> [Reminder] {
+        let pathDirectory = getDocumentsDirectory()
+        let filenames = try? FileManager().contentsOfDirectory(at: pathDirectory, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+        
+        var reminders: [Reminder] = []
+        
+        if let filenames = filenames {
+            for fn in filenames {
+                if let data = FileManager().contents(atPath: fn.absoluteString),
+                    let reminder = try? JSONDecoder().decode(Reminder.self, from: data) {
+                    reminders.append(reminder)
+                }
+            }
+        }
+        
+        return reminders
+    }
+    
+    private func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        print(paths[0])
+        return paths[0].appendingPathComponent("reminders")
+    }
 }
