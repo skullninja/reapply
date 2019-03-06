@@ -55,7 +55,12 @@ class ReminderService {
         if let sunDown = sunSet {
             let currentDate = Date();
             print("now:\(currentDate) and sunset:\(sunDown)")
+            
+            #if DEBUG
+            #else
             if currentDate > sunDown { return .tooLate }
+            #endif
+            
         }
         
         if let sunUp = sunRise {
@@ -73,7 +78,9 @@ class ReminderService {
         NotificationService.shared.setReminderNotification(reminder)
 
         _reminder = reminder
-        
+    
+        ReminderModel.shared.add(reminder: reminder)
+        ReminderModel.shared.fetchReminders()
         return .started
     }
     
