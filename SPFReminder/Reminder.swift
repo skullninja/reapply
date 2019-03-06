@@ -9,18 +9,18 @@
 import Foundation
 import CoreLocation
 
-enum SunscreenMethod {
-    case spray
-    case cream
+enum SunscreenMethod: String, Codable {
+    case spray = "spray"
+    case cream = "cream"
 }
 
-enum ProtectionLevel {
-    case normal
-    case high
-    case maximum
+enum ProtectionLevel: String, Codable {
+    case normal = "normal"
+    case high = "high"
+    case maximum = "maximum"
 }
 
-class Reminder {
+class Reminder: Codable {
     
     var protection: ProtectionLevel = .normal
     var method: SunscreenMethod = .spray
