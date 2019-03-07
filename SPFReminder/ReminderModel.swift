@@ -18,30 +18,17 @@ class ReminderModel{
     private let cloudKitManager = CloudKitManager()
     
     func add(reminder: Reminder){
-        
-        let reminderRecord = CKRecord(recordType: "Reminder")
-        reminderRecord.setObject(reminder.start! as __CKRecordObjCValue, forKey: "start")
-        reminderRecord.setObject(reminder.end! as __CKRecordObjCValue, forKey: "end")
-        reminderRecord.setObject(reminder.scheduledNotification! as __CKRecordObjCValue, forKey: "scheduledNotification")
-        
-        if reminder.method == SunscreenMethod.cream{
-            reminderRecord.setObject(1.0 as __CKRecordObjCValue, forKey: "sunscreenMethod")
-        }else{
-            reminderRecord.setObject(0.0 as __CKRecordObjCValue, forKey: "sunscreenMethod")
-        }
-        
-        if reminder.protection == ProtectionLevel.normal{
-            reminderRecord.setObject(0.0 as __CKRecordObjCValue, forKey: "protectionLevel")
-        }else if reminder.protection == ProtectionLevel.high{
-            reminderRecord.setObject(5.0 as __CKRecordObjCValue, forKey: "protectionLevel")
-        }else{
-            reminderRecord.setObject(10.0 as __CKRecordObjCValue, forKey: "protectionLevel")
-        }
-        
-        database.save(reminderRecord) { _, error in
-            guard error == nil else {
-               
-                return
+    
+        if let json = try? JSONEncoder().encode(reminder),
+            let content = String(data: json, encoding: .utf8),
+            let start = reminder.start {
+            let reminderRecord = CKRecord(recordType: "Reminder")
+            reminderRecord.setValue(content, forKey: "content")
+            reminderRecord.setValue(start, forKey: "start")
+            
+            database.save(reminderRecord) { _, error in
+                guard error != nil else { return }
+                print("error: \(String(describing: error))")
             }
         }
     }
@@ -51,38 +38,35 @@ class ReminderModel{
         //let query = CKQuery(recordType: "Reminder", predicate: NSPredicate(value: true))
         
         let pred = NSPredicate(value: true)
-        let sort = NSSortDescriptor(key: "start", ascending: false)
+        //let sort = NSSortDescriptor(key: "start", ascending: false)
         let query = CKQuery(recordType: "Reminder", predicate: pred)
-        query.sortDescriptors = [sort]
+       // query.sortDescriptors = [sort]
         
         let operation = CKQueryOperation(query: query)
-        operation.desiredKeys = ["scheduledNotification"]
+        operation.desiredKeys = ["content", "start"]
         operation.resultsLimit = 20
         
         var newReminders = [Reminder]()
         
         operation.recordFetchedBlock = { record in
-            let reminder = Reminder()
-            reminder.start = record["start"]
-            reminder.scheduledNotification = record["scheduledNotification"]
-            newReminders.append(reminder)
+            if  let content = record.value(forKey: "content") as? String,
+                let data = content.data(using: .utf8),
+                let reminder = try? JSONDecoder().decode(Reminder.self, from: data) {
+                
+                newReminders.append(reminder)
+            }
         }
         
-        /*
-        database.perform(query, inZoneWith: nil) { (records, error) in
-            records?.forEach({ (record) in
-                
-                // System Field from property
-                let recordName_fromProperty = record.recordID.recordName
-                print("System Field, recordName: \(recordName_fromProperty)")
-                
-                // Custom Field from key path (eg: deeplink)
-                let scheduledNotification = record.value(forKey: "scheduledNotification")
-                print("Custom Field, scheduledNotification: \(scheduledNotification ?? "")")
-            })
-
-            
+        operation.queryCompletionBlock = { [unowned self] (cursor, error) in
+            DispatchQueue.main.async {
+                if error == nil {
+                  print("no error")
+                } else {
+                    print("Fetch failed. There was a problem fetching the list of reminders: \(error!.localizedDescription)")
+                }
+            }
         }
-  */
+        
+        database.add(operation)
     }
 }
