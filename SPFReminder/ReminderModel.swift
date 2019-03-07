@@ -15,8 +15,6 @@ class ReminderModel{
     
     private let database = CKContainer.default().privateCloudDatabase
     
-    private let cloudKitManager = CloudKitManager()
-    
     func add(reminder: Reminder){
     
         if let json = try? JSONEncoder().encode(reminder),
@@ -30,12 +28,11 @@ class ReminderModel{
                 guard error != nil else { return }
                 print("error: \(String(describing: error))")
             }
+ 
         }
     }
     
     func fetchReminders(){
-        
-        //let query = CKQuery(recordType: "Reminder", predicate: NSPredicate(value: true))
         
         let pred = NSPredicate(value: true)
         //let sort = NSSortDescriptor(key: "start", ascending: false)
@@ -66,7 +63,6 @@ class ReminderModel{
                 }
             }
         }
-        
         database.add(operation)
     }
 }
