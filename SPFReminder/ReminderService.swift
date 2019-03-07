@@ -30,8 +30,6 @@ class ReminderService {
     var sunRise: Date?
     
     var location: CLLocation?
-    //to do: remove after testing
-    var locationUpdateTime: Date?
     
     var isRunning: Bool {
         get {
