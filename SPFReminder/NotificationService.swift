@@ -58,7 +58,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
                     let localTime = Date().convertFromGMT(timeZone: TimeZone.current)
                     let checkAhead = localTime.addingTimeInterval(TimeInterval(seconds + sixtyMinutes))
                 
-                    // the sun is setting before the reminder time no need to set a notification
+                    // the sun is setting to close to the reminder, no need to set a notification
                     if checkAhead > sunDown { return }
                     
                     //set the initial follow up notifcation
@@ -86,7 +86,8 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
                     print("follow up notifcation for 30 minutes, \(secondsUntilSunset) minutes remaining")
                 }
                 
-                while Int(secondsUntilSunset) > seconds {
+                //only set a notification if there is more than hour before sunset after the notification fires
+                while Int(secondsUntilSunset) > (seconds + sixtyMinutes) {
                     notificationTime = notificationTime + sixtyMinutes
                     self.setupFollowUpNotificationContent(sixtyMinutes)
                     self.createNotification(notificationTime)
