@@ -163,6 +163,7 @@ class ViewController: UIViewController {
         case .started:
             updateButtonDisplay(_initialLoad: false)
             reloadGraph()
+             ReminderModel.shared.fetchReminders()
             break
         case .tooLate:
             let alert = UIAlertController(title: "Uh oh, it's after sunset", message: "There is no need to apply sunscreen at this time. Try again after sunrise.", preferredStyle: UIAlertController.Style.alert)
