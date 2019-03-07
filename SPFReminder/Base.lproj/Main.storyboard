@@ -316,7 +316,6 @@
                         <outlet property="btnReminder" destination="D3U-fU-V3J" id="LzK-nq-xgz"/>
                         <outlet property="btnStartTimer" destination="D3U-fU-V3J" id="gSj-Az-X90"/>
                         <outlet property="graphContainerView" destination="CY7-9j-ctv" id="Jgs-kd-Vah"/>
-                        <outlet property="lblCity" destination="jfh-l1-7ry" id="01W-7U-N5T"/>
                         <outlet property="lblCurrentProtectionLevel" destination="Vmg-qP-Al2" id="HK7-Cy-bYa"/>
                         <outlet property="lblSunriseTime" destination="UdQ-Ag-pxk" id="Ikz-uQ-hiZ"/>
                         <outlet property="lblSunsetTime" destination="izy-2M-jT6" id="T6i-Lv-nPr"/>

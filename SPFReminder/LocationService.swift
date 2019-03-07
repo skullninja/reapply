@@ -30,7 +30,6 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         
         ForecastService.shared.updateUVIndexIfNeeded(locations[0], completionHandler: {_ in
             ReminderService.shared.location = locations[0]
-            ReminderService.shared.locationUpdateTime = Date()
         })
     }
     

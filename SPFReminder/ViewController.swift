@@ -34,7 +34,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnStartTimer: UIButton!
     @IBOutlet weak var btnReapply: UIButton!
     @IBOutlet weak var graphContainerView: UIView!
-    @IBOutlet weak var lblCity: UILabel!
     
     var graphView: ScrollableGraphView?
     
@@ -76,13 +75,7 @@ class ViewController: UIViewController {
         LocationService.shared.lookUpCurrentLocation{ geoLoc in
             let dateFormatter = DateFormatter()
             dateFormatter.timeStyle = .medium
-            
-            if let lastLocationUpdate = ReminderService.shared.locationUpdateTime{
-            self.lblCity.text = String(format: "%@ - %@", geoLoc?.locality ?? "none", dateFormatter.string(from: lastLocationUpdate))
-            }
-            else{
-                 self.lblCity.text = geoLoc?.locality
-            }
+        
         }
         
     }
