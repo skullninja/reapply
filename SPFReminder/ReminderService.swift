@@ -52,8 +52,7 @@ class ReminderService {
         
         if let sunDown = sunSet {
             let currentDate = Date();
-            print("now:\(currentDate) and sunset:\(sunDown)")
-            
+        
             #if DEBUG
             #else
             if currentDate > sunDown { return .tooLate }
