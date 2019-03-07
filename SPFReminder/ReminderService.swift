@@ -80,7 +80,9 @@ class ReminderService {
         _reminder = reminder
     
         //saves reminder to cloudkit
-        ReminderModel.shared.add(reminder: reminder)
+        if CloudKitManager.shared.hasAccount{
+            ReminderModel.shared.add(reminder: reminder)
+        }
         //saves reminder to disk
         save(reminder)
         

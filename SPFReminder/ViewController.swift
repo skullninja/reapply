@@ -36,7 +36,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var graphContainerView: UIView!
     @IBOutlet weak var lblCity: UILabel!
     
-   
     var graphView: ScrollableGraphView?
     
     var displayTimer: Timer!
@@ -108,6 +107,10 @@ class ViewController: UIViewController {
         uvIndexNeedsUpdate = true
         handleProtectionFilter()
         
+        if CloudKitManager.shared.hasAccount{
+            ReminderModel.shared.fetchReminders()
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -163,7 +166,6 @@ class ViewController: UIViewController {
         case .started:
             updateButtonDisplay(_initialLoad: false)
             reloadGraph()
-             ReminderModel.shared.fetchReminders()
             break
         case .tooLate:
             let alert = UIAlertController(title: "Uh oh, it's after sunset", message: "There is no need to apply sunscreen at this time. Try again after sunrise.", preferredStyle: UIAlertController.Style.alert)
