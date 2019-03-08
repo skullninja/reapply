@@ -10,5 +10,6 @@ target 'SPFReminder' do
  pod 'Moya', '~> 12.0'
  pod 'ForecastIO', '~> 5.1'
  pod 'ScrollableGraphView', '~> 4.0'
+ pod 'SwiftMessages', '~> 6.0'
 
 end
