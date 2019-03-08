@@ -8,12 +8,16 @@ PODS:
     - Result (~> 4.0)
   - Result (4.1.0)
   - ScrollableGraphView (4.0.6)
+  - SwiftMessages (6.0.2):
+    - SwiftMessages/App (= 6.0.2)
+  - SwiftMessages/App (6.0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8)
   - ForecastIO (~> 5.1)
   - Moya (~> 12.0)
   - ScrollableGraphView (~> 4.0)
+  - SwiftMessages (~> 6.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -22,6 +26,7 @@ SPEC REPOS:
     - Moya
     - Result
     - ScrollableGraphView
+    - SwiftMessages
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
@@ -29,7 +34,8 @@ SPEC CHECKSUMS:
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   ScrollableGraphView: 4af35d4ea9ecdec665d34a74da51da161ddff8ac
+  SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
 
-PODFILE CHECKSUM: d3f1b03a81f1b1035a5f4a8234491970da3ad519
+PODFILE CHECKSUM: e93a423581bc21f6f5a2b5db1912ed5deeab209b
 
 COCOAPODS: 1.5.3
