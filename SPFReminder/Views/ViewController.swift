@@ -100,10 +100,6 @@ class ViewController: UIViewController {
         uvIndexNeedsUpdate = true
         handleProtectionFilter()
         
-        if CloudKitManager.shared.hasAccount{
-            ReminderModel.shared.fetchReminders()
-        }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {

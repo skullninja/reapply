@@ -75,13 +75,14 @@ class ReminderService {
         NotificationService.shared.setReminderNotification(reminder)
 
         _reminder = reminder
-    
-        //saves reminder to cloudkit
-        if CloudKitManager.shared.hasAccount{
-            ReminderModel.shared.add(reminder: reminder)
-        }
+        
         //saves reminder to disk
         save(reminder)
+        
+        //saves reminder to cloudkit
+        if CloudKitManager.shared.hasAccount{
+            ReminderCloudKitModel.shared.add(reminder: reminder)
+        }
         
         return .started
     }
@@ -145,7 +146,8 @@ extension ReminderService {
         
         if let filenames = filenames {
             for fn in filenames {
-                if let data = FileManager().contents(atPath: fn.absoluteString),
+                //if let data = FileManager().contents(atPath: fn.absoluteString)
+                if let data = try? Data.init(contentsOf: fn),
                     let reminder = try? JSONDecoder().decode(Reminder.self, from: data) {
                     reminders.append(reminder)
                 }
