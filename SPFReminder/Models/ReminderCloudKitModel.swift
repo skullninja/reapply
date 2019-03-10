@@ -9,9 +9,9 @@
 import Foundation
 import CloudKit
 
-class ReminderModel{
+class ReminderCloudKitModel{
     
-    static let shared = ReminderModel()
+    static let shared = ReminderCloudKitModel()
     
     private let database = CKContainer.default().privateCloudDatabase
     
@@ -32,16 +32,15 @@ class ReminderModel{
         }
     }
     
-    func fetchReminders(){
+    func fetchReminders(_ resultsLimit: Int) -> [Reminder]{
         
         let pred = NSPredicate(value: true)
-        //let sort = NSSortDescriptor(key: "start", ascending: false)
         let query = CKQuery(recordType: "Reminder", predicate: pred)
-       // query.sortDescriptors = [sort]
+        //query.sortDescriptors = [NSSortDescriptor(key: "start", ascending: false)]
         
         let operation = CKQueryOperation(query: query)
         operation.desiredKeys = ["content", "start"]
-        operation.resultsLimit = 20
+        operation.resultsLimit = resultsLimit
         
         var newReminders = [Reminder]()
         
@@ -64,5 +63,37 @@ class ReminderModel{
             }
         }
         database.add(operation)
+        
+        return newReminders
+    }
+    
+    func syncReminders() {
+        
+        var localReminders: [Reminder] = ReminderService.shared.loadAll()
+        var cloudKitReminders: [Reminder] = fetchReminders(50)
+        
+        //no reminders saved on the device. save any reminders from cloudkit to device.
+        if localReminders.count == 0 {
+            for reminder in cloudKitReminders{
+                ReminderService.shared.save(reminder)
+            }
+            return
+        }
+        
+        //check if any reminder exist on the device and not in cloudkit
+        if localReminders.count > 0 {
+            
+            localReminders.sort(by: { $0.start!.compare($1.start!) == .orderedDescending
+            })
+            
+            cloudKitReminders.sort(by: { $0.start!.compare($1.start!) == .orderedDescending
+            })
+            
+             for reminder in localReminders{
+                print(reminder.start ?? Date())
+            }
+           
+        }
+        
     }
 }

@@ -23,12 +23,12 @@ class CloudKitManager {
     
     @objc private func accountDidChange(_ notification: Notification) {
         // Request Account Status
-        DispatchQueue.main.async { self.requestAccountStatus() }
+        DispatchQueue.main.async { self.requestAccountStatus(completionHandler: {}) }
     }
     
     // MARK: - Helper Methods
     
-    func requestAccountStatus() {
+    func requestAccountStatus(completionHandler: @escaping () -> Void) {
         // Request Account Status
         container.accountStatus { [unowned self] (accountStatus, error) in
             // Print Errors
@@ -53,9 +53,12 @@ class CloudKitManager {
                 print("restricted")
                 self.accountStatus = CKAccountStatus.restricted
             }
+            
+             completionHandler()
         }
         
         setupNotificationHandling()
+       
     }
     
     // MARK: -
