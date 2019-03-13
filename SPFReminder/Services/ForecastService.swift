@@ -55,6 +55,8 @@ class ForecastService {
                 }
                 
                 var i = 0
+                self.fiveDayForecast = Array()
+                
                 while i < 4 {
                     if let dailyData = result.value.0?.daily?.data[i]{
                         let dailyForecast = DailyForecast()

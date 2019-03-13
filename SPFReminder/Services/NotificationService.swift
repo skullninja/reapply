@@ -120,29 +120,34 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     
     func createFutureDailyNotification(){
         
-        if let sunUp = ReminderService.shared.sunRise {
+        //start with index 1 to get tomorrow's forecast
+        var i = 1
+        
+        while i < ForecastService.shared.fiveDayForecast.count {
             
-            //start with index 1 to get tomorrow's forecast
-            var i = 1
-            while i < ForecastService.shared.fiveDayForecast.count {
-               
-                let oneDay = 86400
-                let threeHours = 10800
-                let sunriseLocalTime = sunUp.convertFromGMT(timeZone: TimeZone.current)
-                let tomorrowDate = sunriseLocalTime.addingTimeInterval(TimeInterval(oneDay+threeHours))
-                let localTime = Date().convertFromGMT(timeZone: TimeZone.current)
-                let secondsUntilTomorrowDate = abs(localTime.timeIntervalSince(tomorrowDate))
-                
-                self.setupFutureDailyNotificationContent(Int(secondsUntilTomorrowDate) * i, dayIndex: i)
-                self.createNotification(Int(secondsUntilTomorrowDate))
-                print("tomorow's notification set")
-                i += 1
-            }
+            //if the max uv index is 2 or less or cloud coverage is 90% of more --> continue
+            if Int(ForecastService.shared.fiveDayForecast[i].uvIndex ?? 0) <= 2 {continue}
+            if Int(ForecastService.shared.fiveDayForecast[i].cloudCoverage! * 100) >= 90 {continue}
+        
+            //get next day noon
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM.dd.yyyy"
+            let result = String(format: "%@ 12:00:00",formatter.string(from: date))
+            formatter.dateFormat = "MM.dd.yyyy HH:mm:ss"
+            let newdate = formatter.date(from: result)
+            let localTomorrow = Calendar.current.date(byAdding: .day, value: i, to: newdate!)!.convertFromGMT(timeZone: TimeZone.current)
+            let localNow = Date().convertFromGMT(timeZone: TimeZone.current)
+            let secondsUntilTomorrowDate = abs(localNow.timeIntervalSince(localTomorrow))
+            self.setupFutureDailyNotificationContent(dayIndex: i)
+            self.createNotification(Int(secondsUntilTomorrowDate))
+            i += 1
+            
+            print("tomorow's notification set")
         }
-      
     }
     
-    func setupFutureDailyNotificationContent(_ seconds: Int, dayIndex: Int) {
+    func setupFutureDailyNotificationContent(dayIndex: Int) {
         let maxUVIndex = Int(ForecastService.shared.fiveDayForecast[dayIndex].uvIndex ?? 0)
         let cloudCoverage = Int(ForecastService.shared.fiveDayForecast[dayIndex].cloudCoverage! * 100)
         _notificationContent.title = "Good morning, sunshine!"
