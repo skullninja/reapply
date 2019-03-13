@@ -23,11 +23,12 @@ class ReminderCloudKitModel{
             let reminderRecord = CKRecord(recordType: "Reminder")
             reminderRecord.setValue(content, forKey: "content")
             reminderRecord.setValue(start, forKey: "start")
-           
+            
             database.save(reminderRecord) { _, error in
                 guard error != nil else { return }
                 print("error: \(String(describing: error))")
             }
+ 
  
         }
     }
@@ -40,7 +41,7 @@ class ReminderCloudKitModel{
         
         let operation = CKQueryOperation(query: query)
         operation.desiredKeys = ["content", "start"]
-        operation.resultsLimit = resultsLimit
+        //operation.resultsLimit = resultsLimit
         
         var newReminders = [Reminder]()
         
@@ -82,6 +83,7 @@ class ReminderCloudKitModel{
                 return
             }
             
+            //no reminder saved in cloudkit. save any reminder from the device
             if cloudKitReminders.count == 0 {
                 for reminder in localReminders{
                     self.add(reminder: reminder)
@@ -98,9 +100,19 @@ class ReminderCloudKitModel{
                 let firstCloudkitDate = cloudKitReminders[0].start
                 let firstLocalDate = localReminders[0].start
                 
+                //check if device has more recent reminders than cloudkit. add missing reminders to cloudkit
                 if firstLocalDate!.compare(firstCloudkitDate!) ==  ComparisonResult.orderedDescending{
                     for reminder in localReminders{
-                        print(reminder.start ?? Date())
+                        if(reminder.start == firstCloudkitDate){ return }
+                        self.add(reminder: reminder)
+                    }
+                }
+                
+                //check if cloudkit has more recent reminders than the device. add missing reminders to device
+                if firstCloudkitDate!.compare(firstLocalDate!) ==  ComparisonResult.orderedDescending{
+                    for reminder in cloudKitReminders{
+                        if(reminder.start == firstLocalDate){ return }
+                        ReminderService.shared.save(reminder)
                     }
                 }
             }
