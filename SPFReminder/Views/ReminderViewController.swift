@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ReminderViewController.swift
 //  SPFReminder
 //
 //  Created by Amber Reyngoudt on 1/22/19.
@@ -9,19 +9,9 @@
 import UIKit
 import ForecastIO
 import ScrollableGraphView
+import SwiftMessages
 
-enum protectionLevel:Float {
-    case norm = 0.0
-    case high = 5.0
-    case max = 10.0
-}
-
-enum sunscreenType:Float {
-    case spray = 0.0
-    case cream = 1.0
-}
-
-class ViewController: UIViewController {
+class ReminderViewController: UIViewController {
     
     @IBOutlet weak var lblUVIndex: UILabel!
     @IBOutlet weak var btnReminder: UIButton!
@@ -29,18 +19,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblSunriseTime: UILabel!
     @IBOutlet weak var lblSunsetTime: UILabel!
     @IBOutlet weak var lblCurrentProtectionLevel: UILabel!
-    @IBOutlet weak var sliderProtectionLevel: UISlider!
-    @IBOutlet weak var sliderSunscreenMethod: UISlider!
     @IBOutlet weak var btnStartTimer: UIButton!
     @IBOutlet weak var btnReapply: UIButton!
     @IBOutlet weak var graphContainerView: UIView!
     
     var graphView: ScrollableGraphView?
     
+    var configureVC: ConfigureReminderViewController?
+    
     var displayTimer: Timer!
     
     var uvIndexNeedsUpdate: Bool = true
-    
     
     //TODO: Re-enable buttons, etc.
     @objc func updateDisplay() {
@@ -75,20 +64,17 @@ class ViewController: UIViewController {
         LocationService.shared.lookUpCurrentLocation{ geoLoc in
             let dateFormatter = DateFormatter()
             dateFormatter.timeStyle = .medium
-        
         }
         
+        updateButtonDisplay(_initialLoad: false)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         lblCurrentProtectionLevel.text = "--"
         // Do any additional setup after loading the view, typically from a nib.
-        displayTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateDisplay), userInfo: nil, repeats: true)
+        displayTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(ReminderViewController.updateDisplay), userInfo: nil, repeats: true)
         RunLoop.current.add(displayTimer, forMode: .common)
-        
-        ReminderService.shared.method = .cream
-        ReminderService.shared.protection = .normal
 
         updateButtonDisplay(_initialLoad: true)
     
@@ -98,7 +84,6 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         
         uvIndexNeedsUpdate = true
-        handleProtectionFilter()
         
     }
     
@@ -138,35 +123,10 @@ class ViewController: UIViewController {
         } else {
             //Stop button pressed and reminder in progress
             btnReminder.setTitle("Start", for: .normal)
+            btnReapply.isEnabled = false
+            btnReapply.alpha = 0.5
         }
         
-    }
-
-    @IBAction func setReminderNotification(_ sender: Any) {
-        
-        switch ReminderService.shared.start() {
-        case .alreadyRunning:
-            ReminderService.shared.stop()
-            lblTimerCountdown.text = "00hr 00min 00sec"
-            lblCurrentProtectionLevel.text = "--"
-            updateButtonDisplay(_initialLoad: false)
-            reloadGraph()
-            break
-        case .started:
-            updateButtonDisplay(_initialLoad: false)
-            reloadGraph()
-            break
-        case .tooLate:
-            let alert = UIAlertController(title: "Uh oh, it's after sunset", message: "There is no need to apply sunscreen at this time. Try again after sunrise.", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            break
-        case .tooEarly:
-            let alert = UIAlertController(title: "Uh oh, it's too early", message: "There is no need to apply sunscreen at this time. Try again after sunrise.", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            break
-        }
     }
     
     func timeString(time:TimeInterval) -> String {
@@ -176,46 +136,32 @@ class ViewController: UIViewController {
         return String(format:"%02ihr %02imin %02isec", abs(hours), abs(minutes), abs(seconds))
     }
     
-    @IBAction func protectionSliderChanged(_ sender: Any) {
-        let fixed = roundf((sender as AnyObject).value / 5.0) * 5.0;
-        (sender as AnyObject).setValue(fixed, animated: true)
+    @IBAction func startStopAction(_ sender: Any) {
         
-        handleProtectionFilter()
-    }
-    
-    @IBAction func methodSliderChanged(_ sender: Any) {
-        let fixed = roundf((sender as AnyObject).value / 1.0) * 1.0;
-        (sender as AnyObject).setValue(fixed, animated: true)
-    }
-    
-    func handleProtectionFilter()
-    {
-        guard let mode = protectionLevel(rawValue: sliderProtectionLevel.value) else {
-          return
+        /*var config = SwiftMessages.defaultConfig
+        config.presentationStyle = .bottom
+        config.presentationContext = .viewController(self)
+        //config.presentationContext = .window(windowLevel: .alert)
+        config.duration = .forever
+        config.dimMode = .gray(interactive: true)
+        //config.interactiveHide = false
+        //config.preferredStatusBarStyle = .lightContent
+        config.eventListeners.append() { event in
+            if case .didHide = event { print("yep") }
         }
+        */
         
-        switch mode {
-        case protectionLevel.norm:
-            ReminderService.shared.protection = .normal
-        case protectionLevel.high:
-            ReminderService.shared.protection = .high
-        case protectionLevel.max:
-           ReminderService.shared.protection = .maximum
-        }
-    }
-    
-    func handleMethodFilter()
-    {
-        guard let mode = sunscreenType(rawValue: sliderSunscreenMethod.value) else {
-            return
+        if ReminderService.shared.isRunning {
+            ReminderService.shared.stop()
+        } else {
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            configureVC = storyboard.instantiateViewController(withIdentifier: "ConfigureReminderViewController") as? ConfigureReminderViewController
+            if let configureVC = configureVC {
+                let segue = ConfigureReminderSegue(identifier: nil, source: self, destination: configureVC)
+                segue.perform()
+            }
         }
         
-        switch mode {
-        case sunscreenType.spray:
-            ReminderService.shared.method = .spray
-        case sunscreenType.cream:
-            ReminderService.shared.method = .cream
-        }
     }
     
     @IBAction func reapplyButtonTapped(_ sender: Any) {
@@ -229,7 +175,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: ScrollableGraphViewDataSource {
+extension ReminderViewController: ScrollableGraphViewDataSource {
     
     func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
         return ReminderService.shared.currentReminder?.dataPoints()[pointIndex] ?? 0.0
@@ -241,5 +187,29 @@ extension ViewController: ScrollableGraphViewDataSource {
     
     func numberOfPoints() -> Int {
         return ReminderService.shared.currentReminder?.dataPoints().count ?? 0
+    }
+}
+
+class ConfigureReminderSegue: SwiftMessagesSegue {
+    override public  init(identifier: String?, source: UIViewController, destination: UIViewController) {
+        super.init(identifier: identifier, source: source, destination: destination)
+        configure(layout: .bottomCard)
+        dimMode = .blur(style: .dark, alpha: 0.9, interactive: true)
+        // Increase the internal layout margins. With the `.background` containment option,
+        // the margin additions specify the outer margins around `messageView.backgroundView`.
+        messageView.layoutMarginAdditions = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        
+        // Collapse layout margin edges that encroach on non-zero safe area insets.
+        messageView.collapseLayoutMarginAdditions = true
+        
+        // Add a default drop shadow.
+        messageView.configureDropShadow()
+        
+        // Indicate that the view controller's view should be installed
+        // as the `backgroundView` of `messageView`.
+        containment = .background
+        messageView.configureNoDropShadow()
+        
+        
     }
 }

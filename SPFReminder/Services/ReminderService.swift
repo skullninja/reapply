@@ -24,7 +24,7 @@ class ReminderService {
     fileprivate var _reminder: Reminder?
     
     var protection: ProtectionLevel = .normal
-    var method: SunscreenMethod = .spray
+    var method: SunscreenMethod = .cream
     
     var sunSet: Date?
     var sunRise: Date?

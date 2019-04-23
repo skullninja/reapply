@@ -1,0 +1,129 @@
+//
+//  ConfigureReminderView.swift
+//  SPFReminder
+//
+//  Created by Dave Peck on 3/7/19.
+//  Copyright © 2019 Skull Ninja Inc. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+enum protectionLevel:Float {
+    case norm = 0.0
+    case high = 5.0
+    case max = 10.0
+}
+
+enum sunscreenType:Float {
+    case spray = 0.0
+    case cream = 1.0
+}
+
+class ConfigureReminderViewController: UIViewController {
+    
+    @IBOutlet weak var btnCancel: UIButton!
+    @IBOutlet weak var sliderProtectionLevel: UISlider!
+    @IBOutlet weak var sliderSunscreenMethod: UISlider!
+    @IBOutlet weak var btnStartTimer: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        preferredContentSize = CGSize.init(width: 0, height: 350)
+        
+        updateProtectionFilter(for: ReminderService.shared.protection)
+        updateMethodFilter(for: ReminderService.shared.method)
+    }
+    
+    @IBAction func protectionSliderChanged(_ sender: Any) {
+        let fixed = roundf((sender as AnyObject).value / 5.0) * 5.0;
+        (sender as AnyObject).setValue(fixed, animated: true)
+        
+        handleProtectionFilter()
+    }
+    
+    @IBAction func methodSliderChanged(_ sender: Any) {
+        let fixed = roundf((sender as AnyObject).value / 1.0) * 1.0;
+        (sender as AnyObject).setValue(fixed, animated: true)
+        
+        handleMethodFilter()
+    }
+    
+    func updateProtectionFilter(for level: ProtectionLevel) {
+        switch level {
+        case .high:
+            sliderProtectionLevel.setValue(protectionLevel.high.rawValue, animated: false)
+        case .maximum:
+            sliderProtectionLevel.setValue(protectionLevel.max.rawValue, animated: false)
+        case .normal:
+            sliderProtectionLevel.setValue(protectionLevel.norm.rawValue, animated: false)
+        }
+    }
+    
+    func updateMethodFilter(for method: SunscreenMethod) {
+        switch method {
+        case .cream:
+            sliderSunscreenMethod.setValue(sunscreenType.cream.rawValue, animated: false)
+        case .spray:
+            sliderSunscreenMethod.setValue(sunscreenType.spray.rawValue, animated: false)
+        }
+    }
+    
+    func handleProtectionFilter()
+    {
+        guard let mode = protectionLevel(rawValue: sliderProtectionLevel.value) else {
+            return
+        }
+        
+        switch mode {
+        case protectionLevel.norm:
+            ReminderService.shared.protection = .normal
+        case protectionLevel.high:
+            ReminderService.shared.protection = .high
+        case protectionLevel.max:
+            ReminderService.shared.protection = .maximum
+        }
+    }
+    
+    func handleMethodFilter()
+    {
+        guard let mode = sunscreenType(rawValue: sliderSunscreenMethod.value) else {
+            return
+        }
+        
+        switch mode {
+        case sunscreenType.spray:
+            ReminderService.shared.method = .spray
+        case sunscreenType.cream:
+            ReminderService.shared.method = .cream
+        }
+    }
+    
+    @IBAction func setReminderNotification(_ sender: Any) {
+        
+        switch ReminderService.shared.start() {
+        case .alreadyRunning:
+            ReminderService.shared.stop()
+            //lblTimerCountdown.text = "00hr 00min 00sec"
+            //lblCurrentProtectionLevel.text = "--"
+            //updateButtonDisplay(_initialLoad: false)
+            //reloadGraph()
+            break
+        case .started:
+            //updateButtonDisplay(_initialLoad: false)
+            //reloadGraph()
+            break
+        case .tooLate:
+            let alert = UIAlertController(title: "Uh oh, it's after sunset", message: "There is no need to apply sunscreen at this time. Try again after sunrise.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            break
+        case .tooEarly:
+            let alert = UIAlertController(title: "Uh oh, it's too early", message: "There is no need to apply sunscreen at this time. Try again after sunrise.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            break
+        }
+    }
+}
