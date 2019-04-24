@@ -16,12 +16,12 @@ class ReminderViewController: UIViewController {
     @IBOutlet weak var lblUVIndex: UILabel!
     @IBOutlet weak var btnReminder: UIButton!
     @IBOutlet weak var lblTimerCountdown: UILabel!
-    @IBOutlet weak var lblSunriseTime: UILabel!
-    @IBOutlet weak var lblSunsetTime: UILabel!
-    @IBOutlet weak var lblCurrentProtectionLevel: UILabel!
+    //@IBOutlet weak var lblSunriseTime: UILabel!
+    //@IBOutlet weak var lblSunsetTime: UILabel!
+    //@IBOutlet weak var lblCurrentProtectionLevel: UILabel!
     @IBOutlet weak var btnStartTimer: UIButton!
     @IBOutlet weak var btnReapply: UIButton!
-    @IBOutlet weak var graphContainerView: UIView!
+    //@IBOutlet weak var graphContainerView: UIView!
     
     var graphView: ScrollableGraphView?
     
@@ -39,9 +39,10 @@ class ReminderViewController: UIViewController {
             if interval > 0 {return}
             lblTimerCountdown.text = timeString(time: interval)
         } else {
-            lblTimerCountdown.text = "00hr 00min 00sec"
+            lblTimerCountdown.text = "00:00:00"
         }
         
+        /*
         let protectionLevel = ReminderService.shared.currentReminder?.protectionLevel(for: Date()) ?? 0.0
         if protectionLevel >= 100.0 {
             lblCurrentProtectionLevel.text = "good"
@@ -52,13 +53,14 @@ class ReminderViewController: UIViewController {
         } else {
             lblCurrentProtectionLevel.text = "--"
         }
+        */
         
         if let uvindex = ForecastService.shared.currentUVIndex {
             self.lblUVIndex.text = String(uvindex)
         }
         
-        self.lblSunsetTime.text =  ForecastService.shared.sunsetTime.toString(dateFormat: "h:mm a")
-        self.lblSunriseTime.text = ForecastService.shared.sunriseTime.toString(dateFormat: "h:mm a")
+        //self.lblSunsetTime.text =  ForecastService.shared.sunsetTime.toString(dateFormat: "h:mm a")
+        //self.lblSunriseTime.text = ForecastService.shared.sunriseTime.toString(dateFormat: "h:mm a")
         
         //to do: remove the city label
         LocationService.shared.lookUpCurrentLocation{ geoLoc in
@@ -71,7 +73,7 @@ class ReminderViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblCurrentProtectionLevel.text = "--"
+        //lblCurrentProtectionLevel.text = "--"
         // Do any additional setup after loading the view, typically from a nib.
         displayTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(ReminderViewController.updateDisplay), userInfo: nil, repeats: true)
         RunLoop.current.add(displayTimer, forMode: .common)
@@ -98,6 +100,7 @@ class ReminderViewController: UIViewController {
     }
     
     func reloadGraph() {
+        /*
         graphView?.removeFromSuperview()
         graphView = GraphService.createGraphView(frame: graphContainerView.bounds, dataSource: self)
         if let graphView = graphView {
@@ -107,6 +110,7 @@ class ReminderViewController: UIViewController {
             graphView.topAnchor.constraint(equalTo: graphContainerView.topAnchor)
             graphView.bottomAnchor.constraint(equalTo: graphContainerView.bottomAnchor)
         }
+         */
     }
     
     func updateButtonDisplay(_initialLoad: Bool){
@@ -133,7 +137,7 @@ class ReminderViewController: UIViewController {
         let hours = Int(time) / 3600
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
-        return String(format:"%02ihr %02imin %02isec", abs(hours), abs(minutes), abs(seconds))
+        return String(format:"%02i:%02i:%02i", abs(hours), abs(minutes), abs(seconds))
     }
     
     @IBAction func startStopAction(_ sender: Any) {
