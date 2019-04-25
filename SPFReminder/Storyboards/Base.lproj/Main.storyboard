@@ -265,57 +265,168 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi There," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azk-XK-jae">
-                                <rect key="frame" x="15" y="40" width="132.5" height="41"/>
+                                <rect key="frame" x="15" y="45" width="132.5" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <color key="textColor" red="0.094117647058823528" green="0.098039215686274508" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLq-Y0-hrq">
-                                <rect key="frame" x="15" y="86" width="344" height="84"/>
-                                <string key="text">We believe the daily application of sunscreen is the most important thing you can do to protect your skin from harmful UV rays. That's why we created Reapply. Here you will find useful resources — articles, tips, and product reviews.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="15" y="96" width="344" height="95.5"/>
+                                <string key="text">We believe the daily application of sunscreen is the most important thing you can do to protect your skin from harmful UV rays. Here you will find useful resources — articles, tips, and product reviews.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.38" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8v-2Q-UCA">
-                                <rect key="frame" x="15" y="211" width="167.5" height="30"/>
-                                <state key="normal" title="Sun Care Basics"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="TopLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8v-2Q-UCA">
+                                <rect key="frame" x="15" y="226.5" width="167" height="126"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="126" id="csL-ZR-zHX"/>
+                                    <constraint firstAttribute="width" secondItem="J8v-2Q-UCA" secondAttribute="height" multiplier="167:126" id="pip-16-P8D"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="placeholder-beach"/>
+                                <connections>
+                                    <action selector="btnSunBasicsTapped:" destination="hBH-Td-nP7" eventType="touchUpInside" id="XAS-ad-SgN"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66C-oD-H2M">
-                                <rect key="frame" x="16" y="270" width="167" height="30"/>
-                                <state key="normal" title="Sun Care Basics"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96P-5N-p9f">
+                                <rect key="frame" x="20" y="274" width="157" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sun Care Basics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2Q-39-LCg">
+                                        <rect key="frame" x="10" y="4" width="137" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <color key="textColor" white="0.38" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Jon-oj-FNG"/>
+                                    <constraint firstAttribute="width" secondItem="96P-5N-p9f" secondAttribute="height" multiplier="157:30" id="KQ3-VQ-Awd"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yr-Ap-epu">
+                                <rect key="frame" x="193" y="226.5" width="167" height="126"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1Yr-Ap-epu" secondAttribute="height" multiplier="167:126" id="KNC-yj-6EK"/>
+                                    <constraint firstAttribute="height" constant="126" id="Vju-ek-UvY"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="placeholder-beach"/>
+                                <connections>
+                                    <action selector="btnTipsTapped:" destination="hBH-Td-nP7" eventType="touchUpInside" id="P4C-KU-e1H"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yr-Ap-epu">
-                                <rect key="frame" x="192.5" y="211" width="167.5" height="30"/>
-                                <state key="normal" title="Sun Care Basics"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBc-mL-zIG">
+                                <rect key="frame" x="198" y="274" width="157" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sun Safety Tips" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8OK-if-3Y5">
+                                        <rect key="frame" x="10" y="4" width="139" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <color key="textColor" white="0.38" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kBc-mL-zIG" secondAttribute="height" multiplier="157:30" id="jV3-E1-BNJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="tuK-mH-mQa"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="TopLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tr-lO-xIT">
+                                <rect key="frame" x="15" y="387.5" width="167" height="126"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9tr-lO-xIT" secondAttribute="height" multiplier="167:126" id="UIG-75-Gbx"/>
+                                    <constraint firstAttribute="height" constant="126" id="a3E-JI-pBj"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="placeholder-beach"/>
+                                <connections>
+                                    <action selector="btnReviewsTapped:" destination="hBH-Td-nP7" eventType="touchUpInside" id="lWQ-mH-gIe"/>
+                                    <action selector="btnTipsTapped:" destination="hBH-Td-nP7" eventType="touchUpInside" id="yZV-zI-unr"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6A-3Q-4re">
-                                <rect key="frame" x="191" y="271" width="167" height="30"/>
-                                <state key="normal" title="Sun Care Basics"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kkZ-rn-DXw">
+                                <rect key="frame" x="17" y="435" width="162" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sunscreen Reviews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Km-o7-wW4">
+                                        <rect key="frame" x="0.0" y="4" width="164" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <color key="textColor" white="0.38" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="G8K-ED-vkQ"/>
+                                    <constraint firstAttribute="width" secondItem="kkZ-rn-DXw" secondAttribute="height" multiplier="27:5" id="qAQ-NS-zx7"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuO-0S-mku">
+                                <rect key="frame" x="193" y="387.5" width="167" height="126"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vuO-0S-mku" secondAttribute="height" multiplier="167:126" id="R8m-62-z4V"/>
+                                    <constraint firstAttribute="height" constant="126" id="elb-v7-iUW"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="placeholder-beach"/>
+                                <connections>
+                                    <action selector="btnShopTapped:" destination="hBH-Td-nP7" eventType="touchUpInside" id="eEB-se-KL6"/>
+                                </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QeK-EL-Vy4">
+                                <rect key="frame" x="195" y="435" width="162" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shop Our Favorites" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uP-V2-bfG">
+                                        <rect key="frame" x="0.0" y="4" width="165" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <color key="textColor" white="0.38" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QeK-EL-Vy4" secondAttribute="height" multiplier="27:5" id="6NP-X4-bSm"/>
+                                    <constraint firstAttribute="height" constant="30" id="swk-zH-QG5"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="1Yr-Ap-epu" firstAttribute="top" secondItem="WLq-Y0-hrq" secondAttribute="bottom" constant="35" id="0Tn-bX-pZU"/>
                             <constraint firstItem="azk-XK-jae" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" constant="15" id="8cP-rB-Ijr"/>
-                            <constraint firstItem="WLq-Y0-hrq" firstAttribute="top" secondItem="azk-XK-jae" secondAttribute="bottom" constant="5" id="9Ky-r6-0CN"/>
-                            <constraint firstItem="1Yr-Ap-epu" firstAttribute="leading" secondItem="J8v-2Q-UCA" secondAttribute="trailing" constant="10" id="9pn-KP-gys"/>
-                            <constraint firstItem="J8v-2Q-UCA" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" constant="15" id="CIp-vO-2fL"/>
-                            <constraint firstItem="1Yr-Ap-epu" firstAttribute="height" secondItem="J8v-2Q-UCA" secondAttribute="height" id="DGh-9M-rDM"/>
-                            <constraint firstItem="66C-oD-H2M" firstAttribute="top" secondItem="J8v-2Q-UCA" secondAttribute="bottom" constant="29" id="KUO-M6-1Rc"/>
-                            <constraint firstItem="J8v-2Q-UCA" firstAttribute="top" secondItem="WLq-Y0-hrq" secondAttribute="bottom" constant="41" id="Kx6-hT-wGv"/>
-                            <constraint firstItem="1Yr-Ap-epu" firstAttribute="width" secondItem="J8v-2Q-UCA" secondAttribute="width" id="awv-Tx-WQr"/>
-                            <constraint firstItem="WLq-Y0-hrq" firstAttribute="top" secondItem="azk-XK-jae" secondAttribute="bottom" constant="5" id="cZF-sn-e2d"/>
-                            <constraint firstItem="ORH-v5-Rsy" firstAttribute="trailing" secondItem="1Yr-Ap-epu" secondAttribute="trailing" constant="15" id="cvA-mY-Vvt"/>
+                            <constraint firstItem="WLq-Y0-hrq" firstAttribute="top" secondItem="azk-XK-jae" secondAttribute="bottom" constant="10" id="9Ky-r6-0CN"/>
+                            <constraint firstItem="vuO-0S-mku" firstAttribute="leading" secondItem="9tr-lO-xIT" secondAttribute="trailing" constant="11" id="Cyb-va-oZK"/>
+                            <constraint firstItem="ORH-v5-Rsy" firstAttribute="trailing" secondItem="1Yr-Ap-epu" secondAttribute="trailing" constant="15" id="D5F-jK-iyv"/>
+                            <constraint firstItem="vuO-0S-mku" firstAttribute="top" secondItem="QeK-EL-Vy4" secondAttribute="bottom" constant="-77.5" id="DUr-uU-Fcf"/>
+                            <constraint firstItem="J8v-2Q-UCA" firstAttribute="top" secondItem="96P-5N-p9f" secondAttribute="bottom" constant="-77.5" id="FRI-TB-tLw"/>
+                            <constraint firstItem="9tr-lO-xIT" firstAttribute="leading" secondItem="kkZ-rn-DXw" secondAttribute="trailing" constant="-164" id="J0H-Rv-nfn"/>
+                            <constraint firstItem="1Yr-Ap-epu" firstAttribute="top" secondItem="kBc-mL-zIG" secondAttribute="bottom" constant="-77.5" id="NWq-yW-hRy"/>
+                            <constraint firstItem="9tr-lO-xIT" firstAttribute="top" secondItem="kkZ-rn-DXw" secondAttribute="bottom" constant="-77.5" id="Pjk-TV-EH1"/>
+                            <constraint firstItem="9tr-lO-xIT" firstAttribute="top" secondItem="J8v-2Q-UCA" secondAttribute="bottom" constant="35" id="QUM-0R-Gb1"/>
+                            <constraint firstItem="1Yr-Ap-epu" firstAttribute="leading" secondItem="J8v-2Q-UCA" secondAttribute="trailing" constant="11" id="TlK-pq-JDK"/>
+                            <constraint firstItem="J8v-2Q-UCA" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" constant="15" id="XoL-4l-55W"/>
+                            <constraint firstItem="vuO-0S-mku" firstAttribute="top" secondItem="1Yr-Ap-epu" secondAttribute="bottom" constant="35" id="ZkT-ll-iUf"/>
+                            <constraint firstItem="WLq-Y0-hrq" firstAttribute="top" secondItem="azk-XK-jae" secondAttribute="bottom" constant="10" id="cZF-sn-e2d"/>
+                            <constraint firstItem="96P-5N-p9f" firstAttribute="leading" secondItem="J8v-2Q-UCA" secondAttribute="trailing" constant="-162" id="eCY-uf-ggo"/>
+                            <constraint firstItem="J8v-2Q-UCA" firstAttribute="top" secondItem="WLq-Y0-hrq" secondAttribute="bottom" constant="35" id="jHV-Wy-pnh"/>
+                            <constraint firstItem="ORH-v5-Rsy" firstAttribute="trailing" secondItem="vuO-0S-mku" secondAttribute="trailing" constant="15" id="jTi-2i-LFI"/>
                             <constraint firstItem="ORH-v5-Rsy" firstAttribute="trailing" secondItem="WLq-Y0-hrq" secondAttribute="trailing" constant="16" id="jUy-sV-bu9"/>
-                            <constraint firstItem="ORH-v5-Rsy" firstAttribute="trailing" secondItem="1Yr-Ap-epu" secondAttribute="trailing" constant="15" id="lBo-RY-7tl"/>
-                            <constraint firstItem="1Yr-Ap-epu" firstAttribute="top" secondItem="WLq-Y0-hrq" secondAttribute="bottom" constant="41" id="mTl-qA-rdt"/>
-                            <constraint firstItem="X6A-3Q-4re" firstAttribute="top" secondItem="1Yr-Ap-epu" secondAttribute="bottom" constant="30" id="pSV-Va-Vny"/>
+                            <constraint firstItem="vuO-0S-mku" firstAttribute="leading" secondItem="QeK-EL-Vy4" secondAttribute="trailing" constant="-164" id="mGa-Ki-o0m"/>
+                            <constraint firstItem="9tr-lO-xIT" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" constant="15" id="ohY-Mm-X8b"/>
                             <constraint firstItem="WLq-Y0-hrq" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" constant="15" id="xqH-hM-MvF"/>
-                            <constraint firstItem="azk-XK-jae" firstAttribute="top" secondItem="ORH-v5-Rsy" secondAttribute="top" constant="20" id="y2s-3q-hcm"/>
+                            <constraint firstItem="azk-XK-jae" firstAttribute="top" secondItem="ORH-v5-Rsy" secondAttribute="top" constant="25" id="y2s-3q-hcm"/>
+                            <constraint firstItem="kBc-mL-zIG" firstAttribute="leading" secondItem="1Yr-Ap-epu" secondAttribute="trailing" constant="-162" id="yf1-ZY-4ua"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ORH-v5-Rsy"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Learn" image="read-light-idea" id="bSa-L9-DIe"/>
+                    <connections>
+                        <outlet property="btnReviews" destination="9tr-lO-xIT" id="i3p-50-GzD"/>
+                        <outlet property="btnShop" destination="vuO-0S-mku" id="2Cd-QZ-qfn"/>
+                        <outlet property="btnSunBasics" destination="J8v-2Q-UCA" id="fEr-Wb-TEI"/>
+                        <outlet property="btnTips" destination="1Yr-Ap-epu" id="trK-dM-8HL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U3P-cV-4eh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -347,9 +458,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="moon-icon" width="36" height="36"/>
-        <image name="sun_icon" width="36" height="36"/>
         <image name="body-care-sun-cream" width="24" height="24"/>
+        <image name="placeholder-beach" width="2351" height="1302"/>
         <image name="read-light-idea" width="24" height="24"/>
         <image name="temp-header" width="414" height="575"/>
     </resources>
