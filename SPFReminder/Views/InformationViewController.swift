@@ -35,7 +35,7 @@ class InformationViewController: UIViewController {
     }
     
     @IBAction func btnReviewsTapped(_ sender: Any) {
-        guard let url = URL(string: "https://amberreyn.wixsite.com/mysite-5/sun-care-basics") else { return }
+        guard let url = URL(string: "https://amberreyn.wixsite.com/mysite-5/sunscreen-reviews") else { return }
         UIApplication.shared.open(url)
     }
     
