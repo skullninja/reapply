@@ -14,13 +14,12 @@ import SwiftMessages
 class ReminderViewController: UIViewController {
     
     @IBOutlet weak var lblUVIndex: UILabel!
-    @IBOutlet weak var btnReminder: UIButton!
     @IBOutlet weak var lblTimerCountdown: UILabel!
-    //@IBOutlet weak var lblSunriseTime: UILabel!
-    //@IBOutlet weak var lblSunsetTime: UILabel!
-    //@IBOutlet weak var lblCurrentProtectionLevel: UILabel!
-    @IBOutlet weak var btnStartTimer: UIButton!
+    @IBOutlet weak var lblUVLevel: UILabel!
+    @IBOutlet weak var lblUVLevelDescription: UILabel!
     @IBOutlet weak var btnReapply: UIButton!
+    @IBOutlet weak var btnApply: UIButton!
+    @IBOutlet weak var btnStop: UIButton!
     //@IBOutlet weak var graphContainerView: UIView!
     
     var graphView: ScrollableGraphView?
@@ -55,8 +54,28 @@ class ReminderViewController: UIViewController {
         }
         */
         
-        if let uvindex = ForecastService.shared.currentUVIndex {
-            self.lblUVIndex.text = String(uvindex)
+        if let uvIndex = ForecastService.shared.currentUVIndex {
+            self.lblUVIndex.text = String(uvIndex)
+            var uvLevel = ""
+            var uvDescription = "Some Protection Required"
+            if uvIndex < 1 {
+                uvLevel = "Low"
+                uvDescription = "No Protection Needed"
+            } else if uvIndex < 3 {
+                uvLevel = "Low"
+            } else if uvIndex < 6 {
+                uvLevel = "Moderate"
+            } else if uvIndex < 8 {
+                uvLevel = "High"
+            } else if uvIndex < 11 {
+                uvLevel = "Very High"
+            } else {
+                uvLevel = "Extreme"
+                uvDescription = "Stay Inside!"
+            }
+        
+            self.lblUVLevel.text = uvLevel + " UV Levels"
+            self.lblUVLevelDescription.text = uvDescription
         }
         
         //self.lblSunsetTime.text =  ForecastService.shared.sunsetTime.toString(dateFormat: "h:mm a")
@@ -73,6 +92,8 @@ class ReminderViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        lblUVLevel.text = "";
+        lblUVLevelDescription.text = "";
         //lblCurrentProtectionLevel.text = "--"
         // Do any additional setup after loading the view, typically from a nib.
         displayTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(ReminderViewController.updateDisplay), userInfo: nil, repeats: true)
@@ -117,18 +138,22 @@ class ReminderViewController: UIViewController {
         
         if _initialLoad{
             //initial load disable the reapply button
-            btnReapply.isEnabled = false
-            btnReapply.alpha = 0.5
+            btnReapply.isHidden = true
+            btnApply.isHidden = false
+            btnStop.isHidden = true
+            lblTimerCountdown.isHidden = true
         } else if ReminderService.shared.isRunning {
             //Start button pressed , update title to stop and enable reapply button
-            btnReminder.setTitle("Stop", for: .normal)
-            btnReapply.isEnabled = true
-            btnReapply.alpha = 1
+            btnReapply.isHidden = false
+            btnApply.isHidden = true
+            btnStop.isHidden = false
+            lblTimerCountdown.isHidden = false
         } else {
             //Stop button pressed and reminder in progress
-            btnReminder.setTitle("Start", for: .normal)
-            btnReapply.isEnabled = false
-            btnReapply.alpha = 0.5
+            btnReapply.isHidden = true
+            btnApply.isHidden = false
+            btnStop.isHidden = true
+            lblTimerCountdown.isHidden = true
         }
         
     }
@@ -172,8 +197,6 @@ class ReminderViewController: UIViewController {
          if ReminderService.shared.isRunning {
             ReminderService.shared.reapply()
             // ensure the stop/start button is enabled and stop is the title
-            btnReminder.isEnabled = true
-            btnReminder.setTitle("Stop", for: .normal)
             reloadGraph()
         }
     }
