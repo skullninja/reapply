@@ -25,22 +25,22 @@ class InformationViewController: UIViewController {
     }
     
     @IBAction func btnSunBasicsTapped(_ sender: Any) {
-        guard let url = URL(string: "https://amberreyn.wixsite.com/mysite-5/sun-care-basics") else { return }
+        guard let url = URL(string: "https://www.reapplyapp.com/sun-care-basics") else { return }
         UIApplication.shared.open(url)
     }
     
     @IBAction func btnTipsTapped(_ sender: Any) {
-        guard let url = URL(string: "https://amberreyn.wixsite.com/mysite-5/sun-care-basics") else { return }
+        guard let url = URL(string: "https://www.reapplyapp.com/sun-safety-tips-1") else { return }
         UIApplication.shared.open(url)
     }
     
     @IBAction func btnReviewsTapped(_ sender: Any) {
-        guard let url = URL(string: "https://amberreyn.wixsite.com/mysite-5/sunscreen-reviews") else { return }
+        guard let url = URL(string: "https://www.reapplyapp.com/sunscreen-reviews") else { return }
         UIApplication.shared.open(url)
     }
     
     @IBAction func btnShopTapped(_ sender: Any) {
-        guard let url = URL(string: "https://amberreyn.wixsite.com/mysite-5/sun-care-basics") else { return }
+        guard let url = URL(string: "https://www.reapplyapp.com/shop") else { return }
         UIApplication.shared.open(url)
     }
     
