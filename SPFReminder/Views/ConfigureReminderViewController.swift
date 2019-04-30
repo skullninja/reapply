@@ -24,8 +24,8 @@ class ConfigureReminderViewController: UIViewController {
     
     @IBOutlet weak var btnCancel: UIButton!
     @IBOutlet weak var sliderProtectionLevel: UISlider!
-    @IBOutlet weak var sliderSunscreenMethod: UISlider!
     @IBOutlet weak var btnStartTimer: UIButton!
+    @IBOutlet weak var lblTimerLength: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class ConfigureReminderViewController: UIViewController {
         preferredContentSize = CGSize.init(width: 0, height: 350)
         
         updateProtectionFilter(for: ReminderService.shared.protection)
-        updateMethodFilter(for: ReminderService.shared.method)
+        //updateMethodFilter(for: ReminderService.shared.method)
     }
     
     @IBAction func protectionSliderChanged(_ sender: Any) {
@@ -61,15 +61,6 @@ class ConfigureReminderViewController: UIViewController {
         }
     }
     
-    func updateMethodFilter(for method: SunscreenMethod) {
-        switch method {
-        case .cream:
-            sliderSunscreenMethod.setValue(sunscreenType.cream.rawValue, animated: false)
-        case .spray:
-            sliderSunscreenMethod.setValue(sunscreenType.spray.rawValue, animated: false)
-        }
-    }
-    
     func handleProtectionFilter()
     {
         guard let mode = protectionLevel(rawValue: sliderProtectionLevel.value) else {
@@ -79,16 +70,20 @@ class ConfigureReminderViewController: UIViewController {
         switch mode {
         case protectionLevel.norm:
             ReminderService.shared.protection = .normal
+            self.lblTimerLength.text = "2 hrs"
         case protectionLevel.high:
             ReminderService.shared.protection = .high
+            self.lblTimerLength.text = "80 mins"
         case protectionLevel.max:
             ReminderService.shared.protection = .maximum
+            self.lblTimerLength.text = "40 mins"
         }
     }
     
     func handleMethodFilter()
     {
-        guard let mode = sunscreenType(rawValue: sliderSunscreenMethod.value) else {
+        
+        /*guard let mode = sunscreenType(rawValue: sliderSunscreenMethod.value) else {
             return
         }
         
@@ -98,6 +93,7 @@ class ConfigureReminderViewController: UIViewController {
         case sunscreenType.cream:
             ReminderService.shared.method = .cream
         }
+ */
     }
     
     @IBAction func setReminderNotification(_ sender: Any) {
