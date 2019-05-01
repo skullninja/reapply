@@ -30,6 +30,9 @@ class ConfigureReminderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        btnStartTimer.clipsToBounds = true
+        btnStartTimer.layer.cornerRadius = 8.0
+        
         preferredContentSize = CGSize.init(width: 0, height: 350)
         
         updateProtectionFilter(for: ReminderService.shared.protection)

@@ -11,6 +11,12 @@ import ForecastIO
 import ScrollableGraphView
 import SwiftMessages
 
+enum ScreenMode {
+    case daytime
+    case nightime
+    case running
+}
+
 class ReminderViewController: UIViewController {
     
     @IBOutlet weak var lblUVIndex: UILabel!
@@ -20,7 +26,16 @@ class ReminderViewController: UIViewController {
     @IBOutlet weak var btnReapply: UIButton!
     @IBOutlet weak var btnApply: UIButton!
     @IBOutlet weak var btnStop: UIButton!
+    
+    @IBOutlet weak var activeHeaderView: UIImageView!
+    @IBOutlet weak var transitionHeaderView: UIImageView!
+    @IBOutlet weak var nightBackgroundView: UIImageView!
+    
     //@IBOutlet weak var graphContainerView: UIView!
+    
+    let defaultHeaderImage = UIImage(named: "temp-header")
+    let timerHeaderImage = UIImage(named: "temp-header-timer")
+    let nightHeaderImage = UIImage(named: "temp-header-low-uv")
     
     var graphView: ScrollableGraphView?
     
@@ -30,8 +45,19 @@ class ReminderViewController: UIViewController {
     
     var uvIndexNeedsUpdate: Bool = true
     
+    var screenMode: ScreenMode = .daytime
+    
     //TODO: Re-enable buttons, etc.
     @objc func updateDisplay() {
+        
+        if ReminderService.shared.isRunning {
+            self.screenMode = .running
+        } else if let uvIndex = ForecastService.shared.currentUVIndex,
+            uvIndex < 1 {
+            self.screenMode = .nightime
+        } else {
+            self.screenMode = .daytime
+        }
        
         if let reapplyDate = ReminderService.shared.currentReminder?.scheduledNotification {
             let interval = Date().timeIntervalSince(reapplyDate)
@@ -53,6 +79,29 @@ class ReminderViewController: UIViewController {
             lblCurrentProtectionLevel.text = "--"
         }
         */
+        
+        var activeHeaderImage = defaultHeaderImage
+        switch self.screenMode {
+        case .running:
+            activeHeaderImage = timerHeaderImage
+            break
+        case .nightime:
+            activeHeaderImage = nightHeaderImage
+            break
+        case .daytime:
+            // Nothing
+            break
+        }
+        
+        if self.transitionHeaderView.image != activeHeaderImage {
+            self.transitionHeaderView.image = activeHeaderImage
+            UIView.animate(withDuration: 0.3, animations: {
+                self.activeHeaderView.alpha = 0.0
+            }) { _ in
+                self.activeHeaderView.image = activeHeaderImage
+                self.activeHeaderView.alpha = 1.0
+            }
+        }
         
         if let uvIndex = ForecastService.shared.currentUVIndex {
             self.lblUVIndex.text = String(uvIndex)
@@ -136,26 +185,36 @@ class ReminderViewController: UIViewController {
     
     func updateButtonDisplay(_initialLoad: Bool){
         
-        if _initialLoad{
-            //initial load disable the reapply button
+        if _initialLoad {
+            
+            btnReapply.clipsToBounds = true
+            btnApply.clipsToBounds = true
+            btnStop.clipsToBounds = true
+            btnReapply.layer.cornerRadius = btnReapply.bounds.width / 2.0
+            btnApply.layer.cornerRadius = btnApply.bounds.width / 2.0
+            btnStop.layer.cornerRadius = btnStop.bounds.width / 2.0
+        }
+        
+        switch self.screenMode {
+        case .daytime:
             btnReapply.isHidden = true
             btnApply.isHidden = false
             btnStop.isHidden = true
+            nightBackgroundView.isHidden = true
             lblTimerCountdown.isHidden = true
-        } else if ReminderService.shared.isRunning {
-            //Start button pressed , update title to stop and enable reapply button
+        case .running:
             btnReapply.isHidden = false
             btnApply.isHidden = true
             btnStop.isHidden = false
+            nightBackgroundView.isHidden = true
             lblTimerCountdown.isHidden = false
-        } else {
-            //Stop button pressed and reminder in progress
+        case .nightime:
             btnReapply.isHidden = true
-            btnApply.isHidden = false
+            btnApply.isHidden = true // Flip to false to support triggering the apply at anytime.
             btnStop.isHidden = true
+            nightBackgroundView.isHidden = false
             lblTimerCountdown.isHidden = true
         }
-        
     }
     
     func timeString(time:TimeInterval) -> String {
@@ -221,7 +280,7 @@ class ConfigureReminderSegue: SwiftMessagesSegue {
     override public  init(identifier: String?, source: UIViewController, destination: UIViewController) {
         super.init(identifier: identifier, source: source, destination: destination)
         configure(layout: .bottomCard)
-        dimMode = .blur(style: .dark, alpha: 0.9, interactive: true)
+        dimMode = .color(color: UIColor(red: 243.0/255.0, green: 114.0/255.0, blue: 37.0/255.0, alpha: 0.8), interactive: true)
         // Increase the internal layout margins. With the `.background` containment option,
         // the margin additions specify the outer margins around `messageView.backgroundView`.
         messageView.layoutMarginAdditions = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
