@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WsM-9m-bXp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WsM-9m-bXp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -207,11 +207,11 @@
                                     <action selector="setReminderNotification:" destination="WW8-b9-2ew" eventType="touchUpInside" id="pVM-D7-hIz"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="norm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBJ-Qr-aBo">
-                                <rect key="frame" x="55" y="138" width="36" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="normal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBJ-Qr-aBo">
+                                <rect key="frame" x="55" y="138" width="60" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="HRa-Nf-AhE"/>
-                                    <constraint firstAttribute="width" constant="36" id="JhW-Sn-8Kn"/>
+                                    <constraint firstAttribute="width" constant="60" id="JhW-Sn-8Kn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -254,6 +254,7 @@
                             <constraint firstItem="HR9-JI-6UI" firstAttribute="trailing" secondItem="xVP-56-Bc2" secondAttribute="trailing" constant="88" id="63a-kO-O31"/>
                             <constraint firstItem="TBJ-Qr-aBo" firstAttribute="top" secondItem="apo-6o-ILK" secondAttribute="bottom" constant="5" id="70d-ia-UVc"/>
                             <constraint firstItem="smg-dU-uEN" firstAttribute="top" secondItem="apo-6o-ILK" secondAttribute="bottom" constant="5" id="9Vg-n2-0C8"/>
+                            <constraint firstItem="775-8Y-k8x" firstAttribute="leading" secondItem="TBJ-Qr-aBo" secondAttribute="trailing" constant="57.5" id="AZX-JN-EA3"/>
                             <constraint firstItem="b4n-Gj-qPJ" firstAttribute="centerX" secondItem="k0x-DE-9fE" secondAttribute="centerX" id="Hky-wl-cp7"/>
                             <constraint firstItem="xVP-56-Bc2" firstAttribute="leading" secondItem="HR9-JI-6UI" secondAttribute="leading" constant="87" id="LC5-aV-Q7y"/>
                             <constraint firstItem="apo-6o-ILK" firstAttribute="leading" secondItem="HR9-JI-6UI" secondAttribute="leading" constant="70.5" id="MXE-eP-nQh"/>
@@ -266,7 +267,6 @@
                             <constraint firstItem="b4n-Gj-qPJ" firstAttribute="top" secondItem="HR9-JI-6UI" secondAttribute="top" constant="50" id="i2K-Fw-KOv"/>
                             <constraint firstItem="xVP-56-Bc2" firstAttribute="top" secondItem="775-8Y-k8x" secondAttribute="bottom" constant="27" id="kKl-Xa-DfO"/>
                             <constraint firstItem="HR9-JI-6UI" firstAttribute="trailing" secondItem="4aL-F1-lEz" secondAttribute="trailing" constant="123" id="mzw-DG-aHg"/>
-                            <constraint firstItem="775-8Y-k8x" firstAttribute="leading" secondItem="TBJ-Qr-aBo" secondAttribute="trailing" constant="81.5" id="x9E-vT-S3D"/>
                             <constraint firstItem="smg-dU-uEN" firstAttribute="leading" secondItem="775-8Y-k8x" secondAttribute="trailing" constant="83.5" id="xQ8-gs-5bh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HR9-JI-6UI"/>
