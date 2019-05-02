@@ -109,25 +109,16 @@ class Reminder: Codable {
     
     public func calculateSecondsToReapply() -> Int {
         
-        var seconds = 0
-        
-        switch method {
-        case .spray:
-            seconds += 3600
-            break
-        case .cream:
-            seconds += 4800
-            break
-        }
+        var seconds = 7200
         
         switch protection {
         case .normal:
             break
         case .high:
-            seconds = Int(Double(seconds) * 0.75)
+            seconds = 4800
             break
         case .maximum:
-            seconds = Int(Double(seconds) * 0.5)
+            seconds = 2400
             break
         }
         
