@@ -124,5 +124,7 @@ class ConfigureReminderViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             break
         }
+        
+       dismiss(animated: true, completion: nil)
     }
 }
