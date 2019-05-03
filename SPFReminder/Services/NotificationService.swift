@@ -21,10 +21,15 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         let minutes = seconds / 60
         
         _notificationContent.title = "Howdy!"
-        _notificationContent.subtitle = "\(minutes) minutes have passed"
-        _notificationContent.body = "Would you like to continue and reapply sunscreen?"
-        _notificationContent.badge = 1
+        _notificationContent.body = "It's time to reapply sunscreen."
         _notificationContent.categoryIdentifier = "spfReminderCategory"
+        
+         _notificationContent.subtitle = "\(minutes) minutes have passed"
+        
+        if minutes == 120{
+             _notificationContent.subtitle = "2 hours have passed"
+        }
+        
         //_notificationContent = UNNotificationSound.default()
     }
     
@@ -33,7 +38,6 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         _notificationContent.title = "Hello, sunshine!"
         _notificationContent.subtitle = "Reapplying sunscreen will only take a minute."
         _notificationContent.body = "Get on in here and reapply."
-        _notificationContent.badge = 1
         _notificationContent.categoryIdentifier = "spfReminderCategory"
         //_notificationContent = UNNotificationSound.default()
     }
@@ -154,7 +158,6 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         //TO DO: get top uv index and cloud coverage
         _notificationContent.subtitle = "Don't forget to apply suncreen today."
         _notificationContent.body = "The top UV Index is \(maxUVIndex) and cloud coverage is \(cloudCoverage) percent. Get on in here and start the sunscreen reminder."
-        _notificationContent.badge = 1
         _notificationContent.categoryIdentifier = "spfReminderCategory"
         //_notificationContent = UNNotificationSound.default()
     }
