@@ -61,7 +61,15 @@ class ReminderViewController: UIViewController {
        
         if let reapplyDate = ReminderService.shared.currentReminder?.scheduledNotification {
             let interval = Date().timeIntervalSince(reapplyDate)
-            if interval > 0 {return}
+            if interval > 0 {
+                //positive number means we are past the timer time
+                lblTimerCountdown.text = "00:00:00"
+                if interval > 4800{
+                    //a lot of time has past. lets reset the state of the timer.
+                    ReminderService.shared.stop()
+                }
+                return
+            }
             lblTimerCountdown.text = timeString(time: interval)
         } else {
             lblTimerCountdown.text = "00:00:00"
