@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5587FEF72283E3F200D07FFE /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587FEF62283E3F200D07FFE /* StoreViewController.swift */; };
 		55BAA90122040C1100D09D54 /* DateTimeZoneExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */; };
 		55BAA903220651E100D09D54 /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA902220651E100D09D54 /* ReminderService.swift */; };
 		55BAA9052212921800D09D54 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA9042212921800D09D54 /* Reminder.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5587FEF62283E3F200D07FFE /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeZoneExtension.swift; sourceTree = "<group>"; };
 		55BAA902220651E100D09D54 /* ReminderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderService.swift; sourceTree = "<group>"; };
 		55BAA9042212921800D09D54 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				9623341D21F81D7C00E31825 /* ReminderViewController.swift */,
 				55D9834122324095000A0B68 /* ConfigureReminderViewController.swift */,
 				55F7D822226ED62A00205EE3 /* InformationViewController.swift */,
+				5587FEF62283E3F200D07FFE /* StoreViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
+				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -287,6 +291,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -323,6 +328,7 @@
 				9623341C21F81D7C00E31825 /* AppDelegate.swift in Sources */,
 				55BAA90122040C1100D09D54 /* DateTimeZoneExtension.swift in Sources */,
 				55BAA90A221B7D0100D09D54 /* UIColorExtension.swift in Sources */,
+				5587FEF72283E3F200D07FFE /* StoreViewController.swift in Sources */,
 				967C5EB6222F36D1000582D7 /* ReminderCloudKitModel.swift in Sources */,
 				55D9834222324095000A0B68 /* ConfigureReminderViewController.swift in Sources */,
 				967C5EB6222F36D1000582D7 /* ReminderCloudKitModel.swift in Sources */,
@@ -491,7 +497,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.skullninja.SPFReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -511,7 +517,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.skullninja.SPFReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
