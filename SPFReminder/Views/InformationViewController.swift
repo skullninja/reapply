@@ -44,4 +44,10 @@ class InformationViewController: UIViewController {
         UIApplication.shared.open(url)
     }
     
+    @IBAction func sunscreenAction(_ sender: Any) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let storeVC = storyboard.instantiateViewController(withIdentifier: "StoreViewController")
+        present(storeVC, animated: true, completion: nil)
+    }
+    
 }

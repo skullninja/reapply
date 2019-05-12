@@ -267,6 +267,12 @@ class ReminderViewController: UIViewController {
             reloadGraph()
         }
     }
+    
+    @IBAction func sunscreenAction(_ sender: Any) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let storeVC = storyboard.instantiateViewController(withIdentifier: "StoreViewController")
+        present(storeVC, animated: true, completion: nil)
+    }
 }
 
 extension ReminderViewController: ScrollableGraphViewDataSource {
