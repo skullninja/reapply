@@ -11,13 +11,7 @@ import ForecastIO
 import ScrollableGraphView
 import SwiftMessages
 
-enum ScreenMode {
-    case daytime
-    case nightime
-    case running
-}
-
-class ReminderViewController: UIViewController {
+class ReminderViewController: GenericViewController {
     
     @IBOutlet weak var lblUVIndex: UILabel!
     @IBOutlet weak var lblTimerCountdown: UILabel!
@@ -26,37 +20,30 @@ class ReminderViewController: UIViewController {
     @IBOutlet weak var btnReapply: UIButton!
     @IBOutlet weak var btnApply: UIButton!
     @IBOutlet weak var btnStop: UIButton!
-    
-    @IBOutlet weak var activeHeaderView: UIImageView!
-    @IBOutlet weak var transitionHeaderView: UIImageView!
     @IBOutlet weak var nightBackgroundView: UIImageView!
+    @IBOutlet weak var titleView: UIImageView!
     
-    //@IBOutlet weak var graphContainerView: UIView!
-    
-    let defaultHeaderImage = UIImage(named: "temp-header")
-    let timerHeaderImage = UIImage(named: "temp-header-timer")
-    let nightHeaderImage = UIImage(named: "temp-header-low-uv")
+    let defaultTitleImage = UIImage(named: "default-title")
+    let timerTitleImage = UIImage(named: "timer-title")
+    let nightTitleImage = UIImage(named: "night-title")
     
     var graphView: ScrollableGraphView?
     
     var configureVC: ConfigureReminderViewController?
-    
-    var displayTimer: Timer!
-    
+
     var uvIndexNeedsUpdate: Bool = true
     
-    var screenMode: ScreenMode = .daytime
-    
     //TODO: Re-enable buttons, etc.
-    @objc func updateDisplay() {
+    @objc override func updateDisplay() {
+        super.updateDisplay()
         
-        if ReminderService.shared.isRunning {
-            self.screenMode = .running
-        } else if let uvIndex = ForecastService.shared.currentUVIndex,
-            uvIndex < 1 {
-            self.screenMode = .nightime
-        } else {
-            self.screenMode = .daytime
+        switch self.screenMode {
+        case .running:
+            titleView.image = timerTitleImage
+        case .nightime:
+            titleView.image = nightTitleImage
+        case .daytime:
+            titleView.image = defaultTitleImage
         }
        
         if let reapplyDate = ReminderService.shared.currentReminder?.scheduledNotification {
@@ -87,29 +74,6 @@ class ReminderViewController: UIViewController {
             lblCurrentProtectionLevel.text = "--"
         }
         */
-        
-        var activeHeaderImage = defaultHeaderImage
-        switch self.screenMode {
-        case .running:
-            activeHeaderImage = timerHeaderImage
-            break
-        case .nightime:
-            activeHeaderImage = nightHeaderImage
-            break
-        case .daytime:
-            // Nothing
-            break
-        }
-        
-        if self.transitionHeaderView.image != activeHeaderImage {
-            self.transitionHeaderView.image = activeHeaderImage
-            UIView.animate(withDuration: 0.3, animations: {
-                self.activeHeaderView.alpha = 0.0
-            }) { _ in
-                self.activeHeaderView.image = activeHeaderImage
-                self.activeHeaderView.alpha = 1.0
-            }
-        }
         
         if let uvIndex = ForecastService.shared.currentUVIndex {
             self.lblUVIndex.text = String(uvIndex)
@@ -148,13 +112,11 @@ class ReminderViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         lblUVLevel.text = "";
         lblUVLevelDescription.text = "";
+        super.viewDidLoad()
         //lblCurrentProtectionLevel.text = "--"
         // Do any additional setup after loading the view, typically from a nib.
-        displayTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(ReminderViewController.updateDisplay), userInfo: nil, repeats: true)
-        RunLoop.current.add(displayTimer, forMode: .common)
 
         updateButtonDisplay(_initialLoad: true)
     
@@ -266,12 +228,6 @@ class ReminderViewController: UIViewController {
             // ensure the stop/start button is enabled and stop is the title
             reloadGraph()
         }
-    }
-    
-    @IBAction func sunscreenAction(_ sender: Any) {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let storeVC = storyboard.instantiateViewController(withIdentifier: "StoreViewController")
-        present(storeVC, animated: true, completion: nil)
     }
 }
 

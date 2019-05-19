@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InformationViewController: UIViewController {
+class InformationViewController: GenericViewController {
     
     @IBOutlet weak var btnSunBasics: UIButton!
     @IBOutlet weak var btnTips: UIButton!
@@ -42,12 +42,6 @@ class InformationViewController: UIViewController {
     @IBAction func btnShopTapped(_ sender: Any) {
         guard let url = URL(string: "https://www.reapplyapp.com/shop") else { return }
         UIApplication.shared.open(url)
-    }
-    
-    @IBAction func sunscreenAction(_ sender: Any) {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let storeVC = storyboard.instantiateViewController(withIdentifier: "StoreViewController")
-        present(storeVC, animated: true, completion: nil)
     }
     
 }

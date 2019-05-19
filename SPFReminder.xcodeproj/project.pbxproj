@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5587FEF72283E3F200D07FFE /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587FEF62283E3F200D07FFE /* StoreViewController.swift */; };
+		5587FEFA228E66B700D07FFE /* StoreAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587FEF9228E66B700D07FFE /* StoreAnimator.swift */; };
+		5587FEFD229098BF00D07FFE /* StoreTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587FEFC229098BF00D07FFE /* StoreTransitioningDelegate.swift */; };
+		5587FEFF229098E700D07FFE /* StorePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587FEFE229098E700D07FFE /* StorePresentationController.swift */; };
+		5587FF0322909F5100D07FFE /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587FF0222909F5100D07FFE /* GenericViewController.swift */; };
+		5587FF052290C12600D07FFE /* StoreTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587FF042290C12600D07FFE /* StoreTransitionViewController.swift */; };
 		55BAA90122040C1100D09D54 /* DateTimeZoneExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */; };
 		55BAA903220651E100D09D54 /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA902220651E100D09D54 /* ReminderService.swift */; };
 		55BAA9052212921800D09D54 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA9042212921800D09D54 /* Reminder.swift */; };
@@ -33,6 +38,11 @@
 
 /* Begin PBXFileReference section */
 		5587FEF62283E3F200D07FFE /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		5587FEF9228E66B700D07FFE /* StoreAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAnimator.swift; sourceTree = "<group>"; };
+		5587FEFC229098BF00D07FFE /* StoreTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTransitioningDelegate.swift; sourceTree = "<group>"; };
+		5587FEFE229098E700D07FFE /* StorePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePresentationController.swift; sourceTree = "<group>"; };
+		5587FF0222909F5100D07FFE /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
+		5587FF042290C12600D07FFE /* StoreTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTransitionViewController.swift; sourceTree = "<group>"; };
 		55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeZoneExtension.swift; sourceTree = "<group>"; };
 		55BAA902220651E100D09D54 /* ReminderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderService.swift; sourceTree = "<group>"; };
 		55BAA9042212921800D09D54 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
@@ -86,10 +96,13 @@
 		5562FBFE223236E40063568A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5587FEF8228E669F00D07FFE /* Animation */,
 				9623341D21F81D7C00E31825 /* ReminderViewController.swift */,
 				55D9834122324095000A0B68 /* ConfigureReminderViewController.swift */,
 				55F7D822226ED62A00205EE3 /* InformationViewController.swift */,
 				5587FEF62283E3F200D07FFE /* StoreViewController.swift */,
+				5587FF0222909F5100D07FFE /* GenericViewController.swift */,
+				5587FF042290C12600D07FFE /* StoreTransitionViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -134,6 +147,16 @@
 				965158B62224AB7A003B1092 /* LocationService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		5587FEF8228E669F00D07FFE /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				5587FEF9228E66B700D07FFE /* StoreAnimator.swift */,
+				5587FEFC229098BF00D07FFE /* StoreTransitioningDelegate.swift */,
+				5587FEFE229098E700D07FFE /* StorePresentationController.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		9623340F21F81D7C00E31825 = {
@@ -277,21 +300,25 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SPFReminder/Pods-SPFReminder-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ForecastIO/ForecastIO.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ForecastIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -324,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96236227221B7C0100B8B172 /* DailyForecast.swift in Sources */,
+				5587FF052290C12600D07FFE /* StoreTransitionViewController.swift in Sources */,
 				9623341E21F81D7C00E31825 /* ReminderViewController.swift in Sources */,
 				9623341C21F81D7C00E31825 /* AppDelegate.swift in Sources */,
 				55BAA90122040C1100D09D54 /* DateTimeZoneExtension.swift in Sources */,
@@ -332,14 +360,18 @@
 				967C5EB6222F36D1000582D7 /* ReminderCloudKitModel.swift in Sources */,
 				55D9834222324095000A0B68 /* ConfigureReminderViewController.swift in Sources */,
 				967C5EB6222F36D1000582D7 /* ReminderCloudKitModel.swift in Sources */,
+				5587FEFD229098BF00D07FFE /* StoreTransitioningDelegate.swift in Sources */,
 				55BAA908221B7C4F00D09D54 /* GraphService.swift in Sources */,
 				965158B72224AB7B003B1092 /* LocationService.swift in Sources */,
 				55BAA9052212921800D09D54 /* Reminder.swift in Sources */,
 				96F75BE3220E5CDE001F0B0F /* NotificationService.swift in Sources */,
 				96236225221B5E8C00B8B172 /* ForecastService.swift in Sources */,
+				5587FEFA228E66B700D07FFE /* StoreAnimator.swift in Sources */,
 				55BAA903220651E100D09D54 /* ReminderService.swift in Sources */,
 				967C5EB8222F7FF9000582D7 /* CloudKitManager.swift in Sources */,
+				5587FF0322909F5100D07FFE /* GenericViewController.swift in Sources */,
 				55F7D823226ED62A00205EE3 /* InformationViewController.swift in Sources */,
+				5587FEFF229098E700D07FFE /* StorePresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
