@@ -22,8 +22,22 @@ class StoreViewController: UIViewController {
     
     let carousel = iCarousel(frame: .zero)
     
+    let defaultHeaderImage = UIImage(named: "default")
+    let timerHeaderImage = UIImage(named: "timer")
+    let nightHeaderImage = UIImage(named: "night")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //TODO: Refactor
+        if ReminderService.shared.isRunning {
+            backgroundImageView.image = timerHeaderImage
+        } else if let uvIndex = ForecastService.shared.currentUVIndex,
+            uvIndex < 1 {
+            backgroundImageView.image = nightHeaderImage
+        } else {
+            backgroundImageView.image = defaultHeaderImage
+        }
         
         btnReview.clipsToBounds = true
         btnReview.layer.cornerRadius = 8.0
