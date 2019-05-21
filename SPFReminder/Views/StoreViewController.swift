@@ -8,6 +8,7 @@
 
 import UIKit
 import iCarousel
+import AlamofireImage
 
 class StoreViewController: UIViewController {
     
@@ -25,6 +26,15 @@ class StoreViewController: UIViewController {
     let defaultHeaderImage = UIImage(named: "default")
     let timerHeaderImage = UIImage(named: "timer")
     let nightHeaderImage = UIImage(named: "night")
+    
+    private static var products: NSArray = {
+        if let path = Bundle.main.path(forResource: "products", ofType: "json"),
+            let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe),
+            let jsonResult = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
+            return jsonResult as? NSArray ?? NSArray()
+        }
+        return NSArray()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,13 +116,19 @@ extension StoreViewController: iCarouselDelegate {
 
 extension StoreViewController: iCarouselDataSource {
     func numberOfItems(in carousel: iCarousel) -> Int {
-        return 4
+        return StoreViewController.products.count
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         let imageView = UIImageView(frame: carousel.bounds.insetBy(dx: 0, dy: 40))
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "temp-product")
+        if let product = StoreViewController.products[index] as? NSDictionary,
+            let imageUrl = product["imageUrl"] as? String,
+            let url = URL(string: imageUrl) {
+            imageView.af_setImage(withURL: url)
+        } else {
+            imageView.image = UIImage(named: "temp-product")
+        }
         return imageView
     }
     

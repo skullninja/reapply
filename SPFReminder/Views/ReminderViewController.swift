@@ -34,8 +34,8 @@ class ReminderViewController: GenericViewController {
     var uvIndexNeedsUpdate: Bool = true
     
     //TODO: Re-enable buttons, etc.
-    @objc override func updateDisplay() {
-        super.updateDisplay()
+    override func updateDisplay(animate: Bool) {
+        super.updateDisplay(animate: animate)
         
         switch self.screenMode {
         case .running:
