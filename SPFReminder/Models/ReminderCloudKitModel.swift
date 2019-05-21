@@ -54,7 +54,7 @@ class ReminderCloudKitModel{
             }
         }
         
-        operation.queryCompletionBlock = { [unowned self] (cursor, error) in
+        operation.queryCompletionBlock = { (cursor, error) in
             DispatchQueue.main.async {
                 if error == nil {
                     print("no error")

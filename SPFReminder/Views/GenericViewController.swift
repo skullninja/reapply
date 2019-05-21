@@ -32,17 +32,20 @@ class GenericViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        displayTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(self.updateDisplay), userInfo: nil, repeats: true)
+        updateDisplay(animate: false)
+        displayTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(self.performDisplayUpdateAnimated), userInfo: nil, repeats: true)
         RunLoop.current.add(displayTimer, forMode: .common)
-        updateDisplay()
     }
     
-    @objc public func updateDisplay() {
-        updateScreenMode()
+    @objc private func performDisplayUpdateAnimated() {
+        updateDisplay(animate: true)
     }
     
-    func updateScreenMode() {
+    public func updateDisplay(animate: Bool) {
+        updateScreenMode(animate: animate)
+    }
+    
+    func updateScreenMode(animate: Bool) {
         if ReminderService.shared.isRunning {
             self.screenMode = .running
         } else if let uvIndex = ForecastService.shared.currentUVIndex,
@@ -67,11 +70,15 @@ class GenericViewController: UIViewController {
         
         if self.transitionHeaderView.image != activeHeaderImage {
             self.transitionHeaderView.image = activeHeaderImage
-            UIView.animate(withDuration: 0.3, animations: {
-                self.activeHeaderView.alpha = 0.0
-            }) { _ in
+            if animate {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.activeHeaderView.alpha = 0.0
+                }) { _ in
+                    self.activeHeaderView.image = activeHeaderImage
+                    self.activeHeaderView.alpha = 1.0
+                }
+            } else {
                 self.activeHeaderView.image = activeHeaderImage
-                self.activeHeaderView.alpha = 1.0
             }
         }
     }
