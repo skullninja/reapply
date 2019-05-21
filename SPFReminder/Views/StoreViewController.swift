@@ -36,6 +36,11 @@ class StoreViewController: UIViewController {
         return NSArray()
     }()
     
+    private var currentProduct: NSDictionary {
+        let index = carousel.currentItemIndex
+        return StoreViewController.products[index] as? NSDictionary ?? NSDictionary()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,6 +74,17 @@ class StoreViewController: UIViewController {
         carousel.isPagingEnabled = true
         carousel.type = .invertedTimeMachine
         carousel.reloadData()
+        
+        updateProductDisplay(animated: false)
+    }
+    
+    private func updateProductDisplay(animated: Bool) {
+        if let price = currentProduct["price"] as? String,
+            let retailer = currentProduct["retailer"] as? String {
+            btnPurchase.setTitle(String(format: "Buy on %@ for %@", retailer, price), for: .normal)
+        } else {
+            btnPurchase.setTitle("Buy Now", for: .normal)
+        }
     }
     
     @IBAction func previousProductAction(_ sender: Any) {
@@ -82,11 +98,15 @@ class StoreViewController: UIViewController {
     }
     
     @IBAction func reviewAction(_ sender: Any) {
-        
+        guard let reviewUrl = currentProduct["reviewUrl"] as? String,
+            let url = URL(string: reviewUrl) else { return }
+        UIApplication.shared.open(url)
     }
     
     @IBAction func purchaseAction(_ sender: Any) {
-        
+        guard let linkUrl = currentProduct["linkUrl"] as? String,
+            let url = URL(string: linkUrl) else { return }
+        UIApplication.shared.open(url)
     }
     
     @IBAction func closeAction(_ sender: Any) {
@@ -110,6 +130,10 @@ extension StoreViewController: iCarouselDelegate {
             return 0.5
         }
         return value
+    }
+    
+    func carouselCurrentItemIndexDidChange(_ carousel: iCarousel) {
+        updateProductDisplay(animated: true)
     }
     
 }
