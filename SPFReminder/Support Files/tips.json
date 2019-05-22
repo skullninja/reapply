@@ -1,0 +1,59 @@
+[
+    {
+        "tipId": "tip01",
+        "tip": "Seek shade mid day. Sun is most intense between between the hours of 10 A.M. and 4 P.M."
+    }
+    {
+        "tipId": "tip02",
+        "tip": "Often we don’t apply enough sunscreen. Try reapplying 20 minutes later after the first application to compensate for the initial under-application."
+    }
+    {
+    "tipId": "tip03",
+    "tip": "Reapply sunscreen after a vigorous activity. Sunscreen is removed by swimming and excessive sweating."
+    }
+    {
+        "tipId": "tip04",
+        "tip": "When the UV Index is 9, you can get a sunburn in less than 20 minutes."
+    }
+    {
+        "tipId": "tip05",
+        "tip":  "Even when the UV Index is 4, a sunburn is possible within 50 minutes."
+    }
+    {
+        "tipId": "tip06",
+        "tip":  "Up to 80 percent of UV rays pass through clouds. A sunburn is possible on cloudy days."
+    }
+    {
+        "tipId": "tip07",
+        "tip":  "Snow, water, and sand increase sun exposure by reflecting incoming UV rays. It's important for skiers, boaters, and beachcombers to reapply sunscreen often."
+    }
+    {
+        "tipId": "tip08",
+        "tip":  "Wear sunscreens that offer protection from both UVA and UVB rays."
+    }
+    {
+        "tipId": "tip09",
+        "tip":  "According to FDA, “water resistant” sunscreens must maintain their SPF after 40 minutes of water immersion, while “very water resistant” must maintain their SPF after 80 minutes of water immersion."
+    }
+    {
+        "tipId": "tip10",
+        "tip":  "The Shadow rule - look at your shadow and if it is shorter than your height this means that the sun’s UV rays are strong."
+    }
+    {
+        "tipId": "tip11",
+        "tip":  "The Shadow rule - look at your shadow and if it is shorter than your height this means that the sun’s UV rays are strong."
+    }
+    {
+        "tipId": "tip12",
+        "tip":  "All skin tones need sunscreen even if you rarely get burned."
+    }
+    {
+        "tipId": "tip13",
+        "tip":  "UV rays still penetrate the glass in your office and your car."
+    }
+    {
+        "tipId": "tip14",
+        "tip":  "For a day outdoors, we recommend SPF 50 and don’t forget to reapply every two hours."
+    }
+    
+]
