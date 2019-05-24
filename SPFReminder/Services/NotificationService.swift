@@ -16,6 +16,15 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     private let _notificationCenter = UNUserNotificationCenter.current()
     private let _notificationContent = UNMutableNotificationContent()
     
+    private lazy var tips: NSArray = {
+        if let path = Bundle.main.path(forResource: "tips", ofType: "json"),
+            let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe),
+            let jsonResult = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
+            return jsonResult as? NSArray ?? NSArray()
+        }
+        return NSArray()
+    }()
+    
     func setupInititalNotificationContent(_ seconds: Int) {
         
         let minutes = seconds / 60
@@ -38,6 +47,15 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         _notificationContent.title = "Hello, sunshine!"
         _notificationContent.subtitle = "Reapplying sunscreen will only take a minute."
         _notificationContent.body = "Get on in here and reapply."
+        _notificationContent.categoryIdentifier = "spfReminderCategory"
+        //_notificationContent = UNNotificationSound.default()
+    }
+    
+    func setupTipNotificationContent(_ tipDescripition: String) {
+        
+        _notificationContent.title = "Sun Safety Tip"
+        _notificationContent.subtitle = "Do you know?"
+        _notificationContent.body = tipDescripition
         _notificationContent.categoryIdentifier = "spfReminderCategory"
         //_notificationContent = UNNotificationSound.default()
     }
@@ -102,6 +120,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
                 }
                 
                 self.createFutureDailyNotification()
+                self.createTipsNotification()
             }
         }
     
@@ -137,7 +156,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             let date = Date()
             let formatter = DateFormatter()
             formatter.dateFormat = "MM.dd.yyyy"
-            let result = String(format: "%@ 12:00:00",formatter.string(from: date))
+            let result = String(format: "%@ 11:00:00",formatter.string(from: date))
             formatter.dateFormat = "MM.dd.yyyy HH:mm:ss"
             let newdate = formatter.date(from: result)
             let localTomorrow = Calendar.current.date(byAdding: .day, value: i, to: newdate!)!.convertFromGMT(timeZone: TimeZone.current)
@@ -146,8 +165,6 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             self.setupFutureDailyNotificationContent(dayIndex: i)
             self.createNotification(Int(secondsUntilTomorrowDate))
             i += 1
-            
-            print("tomorow's notification set")
         }
     }
     
@@ -186,6 +203,32 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         NotificationService.shared.removeNotifications()
         
         completionHandler([.alert, .sound])
+    }
+    
+    func createTipsNotification(){
+        
+        var i = 1
+        
+        for tip in self.tips{
+            
+            var tipDict = tip as! Dictionary<String, AnyObject>
+            let tipDescription = tipDict["tip"]
+            self.setupTipNotificationContent(tipDescription as! String)
+            
+            //get next day noon
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM.dd.yyyy"
+            let result = String(format: "%@ 14:00:00",formatter.string(from: date))
+            formatter.dateFormat = "MM.dd.yyyy HH:mm:ss"
+            let newdate = formatter.date(from: result)
+            let localTomorrow = Calendar.current.date(byAdding: .day, value: i, to: newdate!)!.convertFromGMT(timeZone: TimeZone.current)
+            let localNow = Date().convertFromGMT(timeZone: TimeZone.current)
+            let secondsUntilTomorrowDate = abs(localNow.timeIntervalSince(localTomorrow))
+            self.createNotification(Int(secondsUntilTomorrowDate))
+            i += 1
+        
+        }
     }
     
 }
