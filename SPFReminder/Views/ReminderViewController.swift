@@ -22,6 +22,7 @@ class ReminderViewController: GenericViewController {
     @IBOutlet weak var btnStop: UIButton!
     @IBOutlet weak var nightBackgroundView: UIImageView!
     @IBOutlet weak var titleView: UIImageView!
+    @IBOutlet weak var lblUntilNextReapply: UILabel!
     
     let defaultTitleImage = UIImage(named: "default-title")
     let timerTitleImage = UIImage(named: "timer-title")
@@ -168,18 +169,21 @@ class ReminderViewController: GenericViewController {
         switch self.screenMode {
         case .daytime:
             btnReapply.isHidden = true
+            lblUntilNextReapply.isHidden = true
             btnApply.isHidden = false
             btnStop.isHidden = true
             nightBackgroundView.isHidden = true
             lblTimerCountdown.isHidden = true
         case .running:
             btnReapply.isHidden = false
+            lblUntilNextReapply.isHidden = false
             btnApply.isHidden = true
             btnStop.isHidden = false
             nightBackgroundView.isHidden = true
             lblTimerCountdown.isHidden = false
         case .nightime:
             btnReapply.isHidden = true
+            lblUntilNextReapply.isHidden = true
             btnApply.isHidden = true // Flip to false to support triggering the apply at anytime.
             btnStop.isHidden = true
             nightBackgroundView.isHidden = false
