@@ -9,7 +9,110 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Heavy.ttf">
+            <string>Lato-Heavy</string>
+        </array>
+    </customFonts>
     <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="P0n-td-U1g">
+            <objects>
+                <pageViewController storyboardIdentifier="OnboardingViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="gC5-nL-ftx" customClass="OnboardingViewController" customModule="SPFReminder" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ik-yb-R4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1908" y="-958"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="roS-t2-VeN">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingPage1" id="R1a-6M-RX0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XmR-Nq-dh9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWu-Ga-Npj">
+                                <rect key="frame" x="10" y="20" width="355" height="31"/>
+                                <fontDescription key="fontDescription" name="Lato-Heavy" family="Lato" pointSize="16"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osI-8M-nlY">
+                                <rect key="frame" x="234" y="591" width="121" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="5M3-dk-oxp"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="121" id="SOa-c3-g7u"/>
+                                    <constraint firstAttribute="height" constant="45" id="TeC-3J-XTB"/>
+                                    <constraint firstAttribute="width" constant="121" id="zcR-SW-4qB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                <state key="normal" title="Next ">
+                                    <color key="titleColor" red="0.29019823670387268" green="0.2901921272277832" blue="0.29019626975059509" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ybM-uI-k8e">
+                                <rect key="frame" x="126" y="595" width="122" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="122" id="MqB-Ce-iZe"/>
+                                    <constraint firstAttribute="height" constant="37" id="s5L-dB-zEg"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" red="0.2901982367" green="0.29019212719999998" blue="0.29019626980000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="currentPageIndicatorTintColor" red="0.93885010480880737" green="0.56422227621078491" blue="0.23518577218055725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </pageControl>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="2z4-36-auA">
+                                <rect key="frame" x="67" y="111" width="240" height="159"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protecting our skin from the sun is a daily habit that’s easy to overlook." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvE-jz-eQo">
+                                <rect key="frame" x="37" y="340" width="300" height="93.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
+                                <color key="textColor" red="0.2901982367" green="0.29019212719999998" blue="0.29019626980000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7ZN-kt-crt" firstAttribute="bottom" secondItem="ybM-uI-k8e" secondAttribute="bottom" constant="35" id="0Lb-qa-qEg"/>
+                            <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="pvE-jz-eQo" secondAttribute="trailing" constant="38" id="2GW-Ql-uuz"/>
+                            <constraint firstItem="7ZN-kt-crt" firstAttribute="bottom" secondItem="osI-8M-nlY" secondAttribute="bottom" constant="31" id="83C-w2-6T3"/>
+                            <constraint firstItem="pvE-jz-eQo" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" constant="37" id="9o3-jI-RZV"/>
+                            <constraint firstItem="2z4-36-auA" firstAttribute="top" secondItem="eWu-Ga-Npj" secondAttribute="bottom" constant="60" id="9uY-Z9-kg7"/>
+                            <constraint firstItem="2z4-36-auA" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" constant="67" id="Bua-FX-3wD"/>
+                            <constraint firstItem="eWu-Ga-Npj" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" constant="10" id="C5F-cG-Xst"/>
+                            <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="osI-8M-nlY" secondAttribute="trailing" constant="20" id="Dkp-Yv-Aiv"/>
+                            <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="eWu-Ga-Npj" secondAttribute="trailing" constant="10" id="SpB-BC-BLA"/>
+                            <constraint firstItem="eWu-Ga-Npj" firstAttribute="top" secondItem="7ZN-kt-crt" secondAttribute="top" id="bnk-pt-URQ"/>
+                            <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="osI-8M-nlY" secondAttribute="trailing" constant="20" id="cz4-FS-ZKm"/>
+                            <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="ybM-uI-k8e" secondAttribute="trailing" constant="127" id="hel-BT-EFD"/>
+                            <constraint firstItem="ybM-uI-k8e" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" constant="126" id="lbv-oi-I2S"/>
+                            <constraint firstItem="pvE-jz-eQo" firstAttribute="top" secondItem="2z4-36-auA" secondAttribute="bottom" constant="70" id="n6T-NA-rxs"/>
+                            <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="2z4-36-auA" secondAttribute="trailing" constant="68" id="roX-mb-oK8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7ZN-kt-crt"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="exr-wg-WCQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2669.5999999999999" y="-958.4707646176912"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="k5e-zH-rOr">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingPage2" id="c5v-aA-bky" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AhR-af-jmx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="464-Md-uNA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Qj-l3-Pr3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3372" y="-959"/>
+        </scene>
         <!--Apply-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -790,6 +893,7 @@
         <image name="cross-white" width="18" height="18"/>
         <image name="default" width="414" height="524"/>
         <image name="default-title" width="258" height="36"/>
+        <image name="logo" width="144" height="159"/>
         <image name="next" width="17" height="30"/>
         <image name="prev" width="17" height="30"/>
         <image name="read-light-idea" width="24" height="24"/>

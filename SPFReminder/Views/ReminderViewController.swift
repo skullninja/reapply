@@ -116,9 +116,7 @@ class ReminderViewController: GenericViewController {
         lblUVLevel.text = "";
         lblUVLevelDescription.text = "";
         super.viewDidLoad()
-        //lblCurrentProtectionLevel.text = "--"
-        // Do any additional setup after loading the view, typically from a nib.
-
+        
         updateButtonDisplay(_initialLoad: true)
     
     }
@@ -133,6 +131,15 @@ class ReminderViewController: GenericViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         reloadGraph()
+        
+        //TO DO: just testing for now. may not leave this here
+      /*
+            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OnboardingViewController") as UIViewController
+    
+        
+            self.present(viewController, animated: false, completion: nil)
+ */
+    
     }
     
     override func viewWillDisappear(_ animated: Bool) {
