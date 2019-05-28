@@ -1,0 +1,23 @@
+//
+//  UserHelper.swift
+//  SPFReminder
+//
+//  Created by Amber Reyngoudt on 5/28/19.
+//  Copyright © 2019 Skull Ninja Inc. All rights reserved.
+//
+
+import Foundation
+
+class UserHelper: NSObject{
+    
+    static let shared = UserHelper()
+    
+    func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
+    }
+    
+    func setKeyInUserDefaults(key: String, value: String){
+        UserDefaults.standard.set(value, forKey: key)
+        UserDefaults.standard.synchronize()
+    }
+}
