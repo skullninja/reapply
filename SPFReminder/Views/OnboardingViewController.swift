@@ -27,6 +27,12 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         self.dataSource = self
         self.delegate   = self
         
+        view.backgroundColor = UIColor.white
+        
+        let appearance = UIPageControl.appearance(whenContainedInInstancesOf: [UIPageViewController.self])
+        appearance.pageIndicatorTintColor = UIColor.lightGray
+        appearance.currentPageIndicatorTintColor = UIColor.orange
+        
         if let firstVC = pages.first
         {
             setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
@@ -82,6 +88,16 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         }
         
         return pages[nextIndex]
+    }
+    
+    // Enables pagination dots
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return 2
+    }
+    
+    // This only gets called once, when setViewControllers is called
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        return 0
     }
     
 }

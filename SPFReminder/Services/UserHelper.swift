@@ -20,4 +20,12 @@ class UserHelper: NSObject{
         UserDefaults.standard.set(value, forKey: key)
         UserDefaults.standard.synchronize()
     }
+    
+   func hasCompletedOnboarding() -> Bool{
+        return isKeyPresentInUserDefaults(key: "UserCompletedOnBoardingKey")
+    }
+    
+    func setOnboardingComplete(){
+        setKeyInUserDefaults(key: "UserCompletedOnBoardingKey", value: "true")
+    }
 }

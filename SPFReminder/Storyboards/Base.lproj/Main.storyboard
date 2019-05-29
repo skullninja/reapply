@@ -54,15 +54,6 @@
                                     <color key="titleColor" red="0.29019823670387268" green="0.2901921272277832" blue="0.29019626975059509" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ybM-uI-k8e">
-                                <rect key="frame" x="126" y="595" width="122" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="122" id="MqB-Ce-iZe"/>
-                                    <constraint firstAttribute="height" constant="37" id="s5L-dB-zEg"/>
-                                </constraints>
-                                <color key="pageIndicatorTintColor" red="0.2901982367" green="0.29019212719999998" blue="0.29019626980000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="currentPageIndicatorTintColor" red="0.93885010480880737" green="0.56422227621078491" blue="0.23518577218055725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="2z4-36-auA">
                                 <rect key="frame" x="67" y="111" width="240" height="159"/>
                             </imageView>
@@ -75,7 +66,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7ZN-kt-crt" firstAttribute="bottom" secondItem="ybM-uI-k8e" secondAttribute="bottom" constant="35" id="0Lb-qa-qEg"/>
                             <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="pvE-jz-eQo" secondAttribute="trailing" constant="38" id="2GW-Ql-uuz"/>
                             <constraint firstItem="7ZN-kt-crt" firstAttribute="bottom" secondItem="osI-8M-nlY" secondAttribute="bottom" constant="31" id="83C-w2-6T3"/>
                             <constraint firstItem="pvE-jz-eQo" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" constant="37" id="9o3-jI-RZV"/>
@@ -86,8 +76,6 @@
                             <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="eWu-Ga-Npj" secondAttribute="trailing" constant="10" id="SpB-BC-BLA"/>
                             <constraint firstItem="eWu-Ga-Npj" firstAttribute="top" secondItem="7ZN-kt-crt" secondAttribute="top" id="bnk-pt-URQ"/>
                             <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="osI-8M-nlY" secondAttribute="trailing" constant="20" id="cz4-FS-ZKm"/>
-                            <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="ybM-uI-k8e" secondAttribute="trailing" constant="127" id="hel-BT-EFD"/>
-                            <constraint firstItem="ybM-uI-k8e" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" constant="126" id="lbv-oi-I2S"/>
                             <constraint firstItem="pvE-jz-eQo" firstAttribute="top" secondItem="2z4-36-auA" secondAttribute="bottom" constant="70" id="n6T-NA-rxs"/>
                             <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="2z4-36-auA" secondAttribute="trailing" constant="68" id="roX-mb-oK8"/>
                         </constraints>
