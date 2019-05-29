@@ -134,7 +134,6 @@
 			children = (
 				55BAA909221B7D0100D09D54 /* UIColorExtension.swift */,
 				55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */,
-				9601E5B3229DF10D00AADB45 /* UserHelper.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -157,6 +156,7 @@
 				96F75BE2220E5CDE001F0B0F /* NotificationService.swift */,
 				55BAA907221B7C4F00D09D54 /* GraphService.swift */,
 				965158B62224AB7A003B1092 /* LocationService.swift */,
+				9601E5B3229DF10D00AADB45 /* UserHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";

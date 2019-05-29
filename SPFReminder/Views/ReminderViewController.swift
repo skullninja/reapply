@@ -133,12 +133,12 @@ class ReminderViewController: GenericViewController {
         reloadGraph()
         
         //TO DO: just testing for now. may not leave this here
-      /*
-            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OnboardingViewController") as UIViewController
-    
-        
-            self.present(viewController, animated: false, completion: nil)
- */
+        if !UserHelper.shared.hasCompletedOnboarding(){
+            UserHelper.shared.setOnboardingComplete()
+                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OnboardingViewController") as UIViewController
+                
+                self.present(viewController, animated: false, completion: nil)
+        }
     
     }
     
