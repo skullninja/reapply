@@ -24,6 +24,7 @@
 		55F7D823226ED62A00205EE3 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F7D822226ED62A00205EE3 /* InformationViewController.swift */; };
 		9601E5B2229DA53100AADB45 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9601E5B1229DA53100AADB45 /* OnboardingViewController.swift */; };
 		9601E5B4229DF10D00AADB45 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9601E5B3229DF10D00AADB45 /* UserHelper.swift */; };
+		960B738E22A0421800D3A3BC /* OnboardingPageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960B738D22A0421800D3A3BC /* OnboardingPageContent.swift */; };
 		9623341C21F81D7C00E31825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9623341B21F81D7C00E31825 /* AppDelegate.swift */; };
 		9623341E21F81D7C00E31825 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9623341D21F81D7C00E31825 /* ReminderViewController.swift */; };
 		9623342121F81D7C00E31825 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9623341F21F81D7C00E31825 /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 		8D5D7266F6C8089E10D3BBBC /* Pods_SPFReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SPFReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9601E5B1229DA53100AADB45 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		9601E5B3229DF10D00AADB45 /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
+		960B738D22A0421800D3A3BC /* OnboardingPageContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageContent.swift; sourceTree = "<group>"; };
 		9623341821F81D7C00E31825 /* SPFReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPFReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9623341B21F81D7C00E31825 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9623341D21F81D7C00E31825 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				5587FF0222909F5100D07FFE /* GenericViewController.swift */,
 				5587FF042290C12600D07FFE /* StoreTransitionViewController.swift */,
 				9601E5B1229DA53100AADB45 /* OnboardingViewController.swift */,
+				960B738D22A0421800D3A3BC /* OnboardingPageContent.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				5587FEF72283E3F200D07FFE /* StoreViewController.swift in Sources */,
 				5587FF062293A2F400D07FFE /* ReminderCloudKitModel.swift in Sources */,
 				55D9834222324095000A0B68 /* ConfigureReminderViewController.swift in Sources */,
+				960B738E22A0421800D3A3BC /* OnboardingPageContent.swift in Sources */,
 				9601E5B2229DA53100AADB45 /* OnboardingViewController.swift in Sources */,
 				5587FEFD229098BF00D07FFE /* StoreTransitioningDelegate.swift in Sources */,
 				55BAA908221B7C4F00D09D54 /* GraphService.swift in Sources */,

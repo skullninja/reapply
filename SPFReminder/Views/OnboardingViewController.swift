@@ -10,16 +10,27 @@ import UIKit
 
 class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate{
     
+   var pageIndex = 0
+    
+    public var pageDescriptions: Array<String> =  ["Protecting our skin from the sun is a daily habit that’s easy to overlook.", "Track Your Suncreen Applications."]
+    
+    
     fileprivate lazy var pages: [UIViewController] = {
         return [
-            self.getViewController(withIdentifier: "OnboardingPage1"),
-            self.getViewController(withIdentifier: "OnboardingPage2")
+            self.getViewController(0),
+            self.getViewController(1)
         ]
     }()
     
-    fileprivate func getViewController(withIdentifier identifier: String) -> UIViewController
+    fileprivate func getViewController(_ index: Int) -> UIViewController
     {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+        let pageContentViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PageContentViewController") as! OnboardingPageContent
+        pageContentViewController.descriptionText = self.pageDescriptions[index]
+        pageContentViewController.pageIndex = index
+        
+        pageContentViewController.delegate = self
+        
+        return pageContentViewController
     }
     
     override func viewDidLoad() {
@@ -90,6 +101,8 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         return pages[nextIndex]
     }
     
+    
+    
     // Enables pagination dots
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return 2
@@ -100,6 +113,20 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         return 0
     }
     
+}
+
+extension OnboardingViewController: OnboardingPageContentDelegate {
+    func didTapNext(index: Int) {
+        if pages.count == (index + 1){
+            //dismiss view controller
+            navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        self.setViewControllers([self.getViewController(index+1)], direction: .forward, animated: true, completion: nil)
+      
+        
+    }
 }
 
 

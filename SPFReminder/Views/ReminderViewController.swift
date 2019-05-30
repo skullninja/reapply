@@ -130,15 +130,24 @@ class ReminderViewController: GenericViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        reloadGraph()
         
-        //TO DO: just testing for now. may not leave this here
+        //TO DO: may not leave this here
+        
+        /*let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "UserCompletedOnBoardingKey")
+        defaults.synchronize()
+ */
+        
+        
         if !UserHelper.shared.hasCompletedOnboarding(){
             UserHelper.shared.setOnboardingComplete()
                 let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OnboardingViewController") as UIViewController
                 
                 self.present(viewController, animated: false, completion: nil)
         }
+ 
+        
+        //reloadGraph()
     
     }
     
