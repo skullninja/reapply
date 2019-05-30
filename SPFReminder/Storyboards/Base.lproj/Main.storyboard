@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="1908" y="-958"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding Page Content-->
         <scene sceneID="roS-t2-VeN">
             <objects>
-                <viewController storyboardIdentifier="OnboardingPage1" id="R1a-6M-RX0" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageContentViewController" id="R1a-6M-RX0" customClass="OnboardingPageContent" customModule="SPFReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XmR-Nq-dh9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osI-8M-nlY">
-                                <rect key="frame" x="234" y="591" width="121" height="45"/>
+                                <rect key="frame" x="234" y="621" width="121" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="5M3-dk-oxp"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="121" id="SOa-c3-g7u"/>
@@ -53,6 +53,9 @@
                                 <state key="normal" title="Next ">
                                     <color key="titleColor" red="0.29019823670387268" green="0.2901921272277832" blue="0.29019626975059509" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="NextButtonTapped:" destination="R1a-6M-RX0" eventType="touchUpInside" id="FIM-LZ-H0M"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="2z4-36-auA">
                                 <rect key="frame" x="67" y="111" width="240" height="159"/>
@@ -67,7 +70,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="pvE-jz-eQo" secondAttribute="trailing" constant="38" id="2GW-Ql-uuz"/>
-                            <constraint firstItem="7ZN-kt-crt" firstAttribute="bottom" secondItem="osI-8M-nlY" secondAttribute="bottom" constant="31" id="83C-w2-6T3"/>
+                            <constraint firstItem="7ZN-kt-crt" firstAttribute="bottom" secondItem="osI-8M-nlY" secondAttribute="bottom" constant="1" id="83C-w2-6T3"/>
                             <constraint firstItem="pvE-jz-eQo" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" constant="37" id="9o3-jI-RZV"/>
                             <constraint firstItem="2z4-36-auA" firstAttribute="top" secondItem="eWu-Ga-Npj" secondAttribute="bottom" constant="60" id="9uY-Z9-kg7"/>
                             <constraint firstItem="2z4-36-auA" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" constant="67" id="Bua-FX-3wD"/>
@@ -81,25 +84,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7ZN-kt-crt"/>
                     </view>
+                    <connections>
+                        <outlet property="btnNext" destination="osI-8M-nlY" id="xnF-lJ-5Rl"/>
+                        <outlet property="lblDescription" destination="pvE-jz-eQo" id="geB-Us-0PD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exr-wg-WCQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2669.5999999999999" y="-958.4707646176912"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="k5e-zH-rOr">
-            <objects>
-                <viewController storyboardIdentifier="OnboardingPage2" id="c5v-aA-bky" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AhR-af-jmx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="464-Md-uNA"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Qj-l3-Pr3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3372" y="-959"/>
         </scene>
         <!--Apply-->
         <scene sceneID="tne-QT-ifu">
