@@ -56,7 +56,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         _notificationContent.title = "Sun Safety Tip"
         _notificationContent.subtitle = "Do you know?"
         _notificationContent.body = tipDescripition
-        _notificationContent.categoryIdentifier = "spfReminderCategory"
+        _notificationContent.categoryIdentifier = "spfTipCategory"
         //_notificationContent = UNNotificationSound.default()
     }
     
@@ -93,7 +93,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
                 }
                 
                 secondsUntilSunset = secondsUntilSunset - Double(seconds)
-                print("\(secondsUntilSunset) minutes remaining before sunset")
+               // print("\(secondsUntilSunset) minutes remaining before sunset")
                 
                 //Send a follow up reminder 30 and every 60 minutes until sunset
               var notificationTime = seconds+thirtyMinutes
@@ -105,7 +105,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
                     self.createNotification(notificationTime)
                     
                     secondsUntilSunset = secondsUntilSunset - Double(thirtyMinutes)
-                    print("follow up notifcation for 30 minutes, \(secondsUntilSunset) minutes remaining")
+                    //print("follow up notifcation for 30 minutes, \(secondsUntilSunset) minutes remaining")
                 }
                 
                 //only set a notification if there is more than hour before sunset after the notification fires
@@ -115,7 +115,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
                     self.createNotification(notificationTime)
                     
                     secondsUntilSunset = secondsUntilSunset - Double(sixtyMinutes)
-                    print("follow up notifcation for 60 minutes, \(secondsUntilSunset) minutes remaining")
+                    //print("follow up notifcation for 60 minutes, \(secondsUntilSunset) minutes remaining")
                     
                 }
                 
@@ -156,7 +156,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             let date = Date()
             let formatter = DateFormatter()
             formatter.dateFormat = "MM.dd.yyyy"
-            let result = String(format: "%@ 11:00:00",formatter.string(from: date))
+            let result = String(format: "%@ 10:00:00",formatter.string(from: date))
             formatter.dateFormat = "MM.dd.yyyy HH:mm:ss"
             let newdate = formatter.date(from: result)
             let localTomorrow = Calendar.current.date(byAdding: .day, value: i, to: newdate!)!.convertFromGMT(timeZone: TimeZone.current)
@@ -219,13 +219,25 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             let date = Date()
             let formatter = DateFormatter()
             formatter.dateFormat = "MM.dd.yyyy"
-            let result = String(format: "%@ 14:00:00",formatter.string(from: date))
+            let result = String(format: "%@ 11:59:00",formatter.string(from: date))
             formatter.dateFormat = "MM.dd.yyyy HH:mm:ss"
             let newdate = formatter.date(from: result)
             let localTomorrow = Calendar.current.date(byAdding: .day, value: i, to: newdate!)!.convertFromGMT(timeZone: TimeZone.current)
             let localNow = Date().convertFromGMT(timeZone: TimeZone.current)
-            let secondsUntilTomorrowDate = abs(localNow.timeIntervalSince(localTomorrow))
-            self.createNotification(Int(secondsUntilTomorrowDate))
+            let seconds = abs(localNow.timeIntervalSince(localTomorrow))
+           
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds),
+                                                            repeats: false)
+            
+            let identifier = "TipNotification\(seconds)"
+            let notifcationRequest1 = UNNotificationRequest(identifier: identifier,
+                                                            content: self._notificationContent, trigger: trigger)
+            self._notificationCenter.add(notifcationRequest1, withCompletionHandler: { (error) in
+                if error != nil {
+                    // Something went wrong
+                }
+            })
+            
             i += 1
         
         }
