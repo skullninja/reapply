@@ -133,10 +133,10 @@ class ReminderViewController: GenericViewController {
         
         //TO DO: may not leave this here
         
-        /*let defaults = UserDefaults.standard
+        let defaults = UserDefaults.standard
         defaults.removeObject(forKey: "UserCompletedOnBoardingKey")
         defaults.synchronize()
- */
+ 
         
         
         if !UserHelper.shared.hasCompletedOnboarding(){

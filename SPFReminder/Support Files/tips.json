@@ -54,5 +54,9 @@
     {
         "tipId": "tip14",
         "tip":  "For a day outdoors, we recommend SPF 50 and don’t forget to reapply every two hours."
+    },
+    {
+        "tipId": "tip15",
+        "tip": "It only takes 5 minutes of sun exposure to get enough vitamin D for a day."
     }
 ]
