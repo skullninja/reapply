@@ -42,8 +42,11 @@ class OnboardingPageContent: UIViewController {
             imgTitle.isHidden = false
         }
         
-        if(pageIndex == 1){
+        if(pageIndex == 3){
             btnNext.setTitle("Get Started!", for: .normal)
+            btnNext.isHidden = false
+        }else{
+          btnNext.isHidden = true
         }
         
     }

@@ -16,15 +16,20 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     
     public var pageDescriptions: Array<String> =  [
         "We believe the daily application of sunscreen is the most important thing you can do to protect your skin",
-        "Protecting our skin from the sun is a daily habit that’s easy to overlook"]
+        "Protecting your skin from the sun is a daily habit that’s easy to overlook",
+        "Overexposure can lead to severe long term damage to your skin - wrinkles, sun spots, and skin cancer",
+        "Select sunscreens carefully, many have harmful ingredients that are skin irritants and coral reef killers"
+        ]
     
-    public var imageNames: Array<String> = ["sun-rays","hand-with-sunscreen2"]
+    public var imageNames: Array<String> = ["sun-rays","hand-with-sunscreen","blured-beach", "blue-ocean"]
     
     
     fileprivate lazy var pages: [UIViewController] = {
         return [
             self.getViewController(0),
-            self.getViewController(1)
+            self.getViewController(1),
+            self.getViewController(2),
+            self.getViewController(3),
         ]
     }()
     
@@ -36,6 +41,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         pageContentViewController.imageName = self.imageNames[index]
         
         pageContentViewController.delegate = self
+      
         
         return pageContentViewController
     }
@@ -125,7 +131,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     
     // Enables pagination dots
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return 2
+        return 4
     }
     
     // This only gets called once, when setViewControllers is called
