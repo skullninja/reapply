@@ -31,25 +31,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun-rays" translatesAutoresizingMaskIntoConstraints="NO" id="izo-Zd-eyd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun-rays" translatesAutoresizingMaskIntoConstraints="NO" id="izo-Zd-eyd">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osI-8M-nlY">
-                                <rect key="frame" x="137" y="622" width="100" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="vDO-fg-ZQt"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="NextButtonTapped:" destination="R1a-6M-RX0" eventType="touchUpInside" id="FIM-LZ-H0M"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We believe the daily application of sunscreen is the most important thing you can do to protect your skin" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvE-jz-eQo">
-                                <rect key="frame" x="18" y="452" width="339" height="130"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="26"/>
+                                <rect key="frame" x="18" y="457" width="339" height="124.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -62,6 +49,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="252" image="default-title" translatesAutoresizingMaskIntoConstraints="NO" id="MVa-0g-udk">
                                 <rect key="frame" x="48" y="365.5" width="279" height="36"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osI-8M-nlY">
+                                <rect key="frame" x="112" y="622" width="150" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="vDO-fg-ZQt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.94671255350112915" green="0.71799880266189575" blue="0.26652330160140991" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="NextButtonTapped:" destination="R1a-6M-RX0" eventType="touchUpInside" id="FIM-LZ-H0M"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -69,7 +69,7 @@
                             <constraint firstItem="MVa-0g-udk" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" constant="48" id="55t-hC-iOC"/>
                             <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="pvE-jz-eQo" secondAttribute="trailing" constant="18" id="6mp-mw-GAh"/>
                             <constraint firstItem="izo-Zd-eyd" firstAttribute="bottom" secondItem="7ZN-kt-crt" secondAttribute="bottom" id="75f-mi-vsA"/>
-                            <constraint firstItem="pvE-jz-eQo" firstAttribute="top" secondItem="MVa-0g-udk" secondAttribute="bottom" constant="50.5" id="O9M-I9-Dxf"/>
+                            <constraint firstItem="pvE-jz-eQo" firstAttribute="top" secondItem="MVa-0g-udk" secondAttribute="bottom" constant="55.5" id="O9M-I9-Dxf"/>
                             <constraint firstItem="2nB-5Y-PNy" firstAttribute="centerY" secondItem="XmR-Nq-dh9" secondAttribute="centerY" id="PNX-7e-qNl"/>
                             <constraint firstItem="izo-Zd-eyd" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" id="Pc8-Wa-F97"/>
                             <constraint firstItem="MVa-0g-udk" firstAttribute="top" secondItem="2nB-5Y-PNy" secondAttribute="bottom" constant="15" id="T9d-ei-bgh"/>
@@ -77,9 +77,8 @@
                             <constraint firstItem="izo-Zd-eyd" firstAttribute="trailing" secondItem="7ZN-kt-crt" secondAttribute="trailing" id="aue-Ko-DK5"/>
                             <constraint firstItem="izo-Zd-eyd" firstAttribute="top" secondItem="XmR-Nq-dh9" secondAttribute="top" id="grr-X2-4xh"/>
                             <constraint firstItem="2nB-5Y-PNy" firstAttribute="centerX" secondItem="XmR-Nq-dh9" secondAttribute="centerX" id="lfq-03-BdQ"/>
-                            <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="osI-8M-nlY" secondAttribute="trailing" constant="138" id="lmv-UO-kge"/>
-                            <constraint firstItem="osI-8M-nlY" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" constant="137" id="niJ-d2-pMc"/>
-                            <constraint firstItem="osI-8M-nlY" firstAttribute="top" secondItem="pvE-jz-eQo" secondAttribute="bottom" constant="40" id="vYR-Ge-29u"/>
+                            <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="osI-8M-nlY" secondAttribute="trailing" constant="113" id="lmv-UO-kge"/>
+                            <constraint firstItem="osI-8M-nlY" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" constant="112" id="niJ-d2-pMc"/>
                             <constraint firstItem="pvE-jz-eQo" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" constant="18" id="x0M-P3-jae"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7ZN-kt-crt"/>
@@ -880,7 +879,7 @@
         <image name="prev" width="17" height="30"/>
         <image name="read-light-idea" width="24" height="24"/>
         <image name="rounded" width="414" height="827"/>
-        <image name="sun-rays" width="375" height="669"/>
+        <image name="sun-rays" width="750" height="1624"/>
         <image name="temp-apply-background" width="180" height="180"/>
         <image name="temp-button-1" width="170" height="130"/>
         <image name="temp-button-2" width="170" height="130"/>
