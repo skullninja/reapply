@@ -79,7 +79,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         self.nextButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.maxX - 90, y: UIScreen.main.bounds.maxY - 45, width: 100, height: 50))
          self.nextButton.setTitleColor(.darkGray, for: .normal)
          self.nextButton.setTitle("NEXT", for: .normal)
-        self.view.addSubview( self.nextButton)
+        //self.view.addSubview( self.nextButton)
         
         self.doneButton = UIButton(frame: CGRect(x: 20, y: UIScreen.main.bounds.maxX - 100, width: self.view.bounds.width - 40, height: 45))
        // self.doneButton.setTitleColor(UIColor(red: 252.0/255.0, green: 180.0/255.0, blue: 22.0/255.0, alpha: 1.0) , for: .normal)
