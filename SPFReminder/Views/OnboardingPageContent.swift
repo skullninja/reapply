@@ -8,13 +8,8 @@
 
 import UIKit
 
-protocol OnboardingPageContentDelegate: AnyObject {
-    func didTapNext(index: Int)
-}
-
 class OnboardingPageContent: UIViewController {
     
-    @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var imgBackground: UIImageView!
     @IBOutlet weak var lblWelcome: UILabel!
@@ -23,8 +18,6 @@ class OnboardingPageContent: UIViewController {
     public var pageIndex = 0
     public var descriptionText: String = ""
     public var imageName: String = ""
-    
-    weak var delegate:OnboardingPageContentDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,20 +34,6 @@ class OnboardingPageContent: UIViewController {
             lblWelcome.isHidden = false
             imgTitle.isHidden = false
         }
-        
-        if(pageIndex == 3){
-            btnNext.setTitle("Get Started!", for: .normal)
-            btnNext.isHidden = false
-        }else{
-          btnNext.isHidden = true
-        }
-        
-    }
-    
-    @IBAction func NextButtonTapped(_ sender: Any) {
-        
-        self.delegate?.didTapNext(index: self.pageIndex)
-        
         
     }
     

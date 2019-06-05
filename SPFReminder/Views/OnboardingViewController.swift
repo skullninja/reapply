@@ -11,6 +11,8 @@ import UIKit
 class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate{
 
     var pageControl = UIPageControl()
+    var nextButton = UIButton()
+    var doneButton = UIButton()
     
    var pageIndex = 0
     
@@ -40,9 +42,6 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         pageContentViewController.pageIndex = index
         pageContentViewController.imageName = self.imageNames[index]
         
-        pageContentViewController.delegate = self
-      
-        
         return pageContentViewController
     }
     
@@ -50,8 +49,9 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         super.viewDidLoad()
         self.dataSource = self
         self.delegate   = self
-        //configurePageControl()
+        configurePageControl()
         view.backgroundColor = UIColor.white
+        
         
         
         let appearance = UIPageControl.appearance(whenContainedInInstancesOf: [UIPageViewController.self])
@@ -68,12 +68,32 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     
     func configurePageControl() {
         
-       // pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 60,width: UIScreen.main.bounds.width,height: 50))
+       //pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 55,width: UIScreen.main.bounds.width,height: 50))
         self.pageControl.numberOfPages = pages.count
         self.pageControl.currentPage = 0
         self.pageControl.tintColor = UIColor.lightGray
         self.pageControl.pageIndicatorTintColor = UIColor.orange
         self.pageControl.currentPageIndicatorTintColor = UIColor.lightGray
+      
+        
+        self.nextButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.maxX - 90, y: UIScreen.main.bounds.maxY - 45, width: 100, height: 50))
+         self.nextButton.setTitleColor(.darkGray, for: .normal)
+         self.nextButton.setTitle("NEXT", for: .normal)
+        self.view.addSubview( self.nextButton)
+        
+        self.doneButton = UIButton(frame: CGRect(x: 20, y: UIScreen.main.bounds.maxX - 100, width: self.view.bounds.width - 40, height: 45))
+       // self.doneButton.setTitleColor(UIColor(red: 252.0/255.0, green: 180.0/255.0, blue: 22.0/255.0, alpha: 1.0) , for: .normal)
+       // self.doneButton.layer.borderColor = UIColor(red: 252.0/255.0, green: 180.0/255.0, blue: 22.0/255.0, alpha: 1.0).cgColor
+        self.doneButton.layer.borderColor = UIColor.white.cgColor
+        self.doneButton.layer.borderWidth = 1.0
+        self.doneButton.setTitle("Get Started", for: .normal)
+        self.doneButton.titleLabel?.textAlignment = NSTextAlignment.center
+        self.doneButton.titleLabel?.font = .systemFont(ofSize: 20)
+        self.doneButton.addTarget(self, action:#selector(self.didTapContinue), for: .touchUpInside)
+        self.doneButton.isHidden = true
+        self.view.addSubview( self.doneButton)
+        
+        
         self.view.addSubview(pageControl)
     }
     
@@ -142,24 +162,26 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     
     // MARK: Delegate functions
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        let pageContentViewController = pageViewController.viewControllers![0]
-        self.pageControl.currentPage = pages.index(of: pageContentViewController)!
+        
+        //let pageContentViewController = pageViewController.viewControllers![pageIndex]
+        //self.pageControl.currentPage = pages.index(of: pageContentViewController)!
+        pageIndex = pageIndex + 1
+        if pageIndex == 3 {
+            self.nextButton.isHidden = true
+            self.doneButton.isHidden = false
+            self.pageControl.isUserInteractionEnabled = false
+        }
     }
     
-}
-
-extension OnboardingViewController: OnboardingPageContentDelegate {
-    func didTapNext(index: Int) {
-        if pages.count == (index + 1){
+    @objc func didTapContinue() {
+       
             //dismiss view controller
             navigationController?.popViewController(animated: true)
             dismiss(animated: true, completion: nil)
             return
-        }
-        self.setViewControllers([self.getViewController(index+1)], direction: .forward, animated: true, completion: nil)
-      
         
     }
+    
 }
 
 
