@@ -37,6 +37,8 @@ class ConfigureReminderViewController: UIViewController {
         
         updateProtectionFilter(for: ReminderService.shared.protection)
         //updateMethodFilter(for: ReminderService.shared.method)
+        
+        handleProtectionFilter()
     }
     
     @IBAction func protectionSliderChanged(_ sender: Any) {
