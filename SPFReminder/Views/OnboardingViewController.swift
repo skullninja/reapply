@@ -68,7 +68,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     
     func configurePageControl() {
         
-       pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 55,width: UIScreen.main.bounds.width,height: 50))
+       pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 60,width: UIScreen.main.bounds.width,height: 50))
         self.pageControl.numberOfPages = pages.count
         self.pageControl.currentPage = 0
         self.pageControl.tintColor = UIColor.lightGray
@@ -76,14 +76,19 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         self.pageControl.currentPageIndicatorTintColor = UIColor.lightGray
       
         
-        self.nextButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.maxX - 90, y: UIScreen.main.bounds.maxY - 55, width: 100, height: 50))
+        self.nextButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.maxX - 90, y: UIScreen.main.bounds.maxY - 60, width: 100, height: 50))
          self.nextButton.setTitleColor(.darkGray, for: .normal)
          self.nextButton.setTitle("NEXT", for: .normal)
         self.view.addSubview( self.nextButton)
         
-        self.doneButton = UIButton(frame: CGRect(x: 20, y: UIScreen.main.bounds.maxX - 100, width: self.view.bounds.width - 40, height: 45))
-       // self.doneButton.setTitleColor(UIColor(red: 252.0/255.0, green: 180.0/255.0, blue: 22.0/255.0, alpha: 1.0) , for: .normal)
-       // self.doneButton.layer.borderColor = UIColor(red: 252.0/255.0, green: 180.0/255.0, blue: 22.0/255.0, alpha: 1.0).cgColor
+        self.doneButton = UIButton(frame: CGRect(x: 20, y: UIScreen.main.bounds.maxY - 120, width: self.view.bounds.width - 40, height: 45))
+        
+        if UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 1334 {
+            //iPhone 6/6S/7/8
+            self.doneButton = UIButton(frame: CGRect(x: 20, y: UIScreen.main.bounds.maxY - 80, width: self.view.bounds.width - 40, height: 45))
+        }
+       //self.doneButton.setTitleColor(UIColor(red: 252.0/255.0, green: 180.0/255.0, blue: 22.0/255.0, alpha: 1.0) , for: .normal)
+      // self.doneButton.layer.borderColor = UIColor(red: 252.0/255.0, green: 180.0/255.0, blue: 22.0/255.0, alpha: 1.0).cgColor
         self.doneButton.layer.borderColor = UIColor.white.cgColor
         self.doneButton.layer.borderWidth = 1.0
         self.doneButton.setTitle("Get Started", for: .normal)
@@ -171,10 +176,14 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         if pageIndex == 3 {
             self.nextButton.isHidden = true
             self.doneButton.isHidden = false
+            self.pageControl.isHidden = true
+            self.pageControl.isUserInteractionEnabled = false
             
         }else{
             self.nextButton.isHidden = false
             self.doneButton.isHidden = true
+            self.pageControl.isHidden = false
+            self.pageControl.isUserInteractionEnabled = true
         }
     }
     
