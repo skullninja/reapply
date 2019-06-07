@@ -89,11 +89,13 @@ class ReminderViewController: GenericViewController {
                 uvLevel = "Moderate"
             } else if uvIndex < 8 {
                 uvLevel = "High"
+                 uvDescription = "Protection Required"
             } else if uvIndex < 11 {
                 uvLevel = "Very High"
+                uvDescription = "Protection Required"
             } else {
-                uvLevel = "Extreme"
-                uvDescription = "Stay Inside!"
+                uvLevel = "Extremely High"
+                uvDescription = "Seek Shade"
             }
         
             self.lblUVLevel.text = uvLevel + " UV Levels"
@@ -132,11 +134,11 @@ class ReminderViewController: GenericViewController {
         super.viewDidAppear(animated)
         
         //TO DO: may not leave this here
-        
+        /*
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: "UserCompletedOnBoardingKey")
         defaults.synchronize()
- 
+ */
         if !UserHelper.shared.hasCompletedOnboarding(){
             UserHelper.shared.setOnboardingComplete()
                 let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OnboardingViewController") as UIViewController
