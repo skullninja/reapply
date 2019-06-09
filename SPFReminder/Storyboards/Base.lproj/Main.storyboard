@@ -13,7 +13,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="P0n-td-U1g">
             <objects>
-                <pageViewController storyboardIdentifier="OnboardingViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="gC5-nL-ftx" customClass="OnboardingViewController" customModule="SPFReminder" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="OnboardingViewController" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="gC5-nL-ftx" customClass="OnboardingViewController" customModule="SPFReminder" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ik-yb-R4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1908" y="-958"/>
@@ -22,11 +22,11 @@
         <scene sceneID="roS-t2-VeN">
             <objects>
                 <viewController storyboardIdentifier="PageContentViewController" id="R1a-6M-RX0" customClass="OnboardingPageContent" customModule="SPFReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XmR-Nq-dh9">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XmR-Nq-dh9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun-rays" translatesAutoresizingMaskIntoConstraints="NO" id="izo-Zd-eyd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun-rays" translatesAutoresizingMaskIntoConstraints="NO" id="izo-Zd-eyd">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We believe the daily application of sunscreen is the most important thing you can do to protect your skin" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvE-jz-eQo">
@@ -47,21 +47,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="MVa-0g-udk" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" constant="48" id="55t-hC-iOC"/>
-                            <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="pvE-jz-eQo" secondAttribute="trailing" constant="18" id="6mp-mw-GAh"/>
-                            <constraint firstItem="izo-Zd-eyd" firstAttribute="bottom" secondItem="7ZN-kt-crt" secondAttribute="bottom" id="75f-mi-vsA"/>
+                            <constraint firstItem="MVa-0g-udk" firstAttribute="leading" secondItem="XmR-Nq-dh9" secondAttribute="leading" constant="48" id="55t-hC-iOC"/>
+                            <constraint firstAttribute="trailing" secondItem="pvE-jz-eQo" secondAttribute="trailing" constant="18" id="6mp-mw-GAh"/>
+                            <constraint firstItem="izo-Zd-eyd" firstAttribute="bottom" secondItem="XmR-Nq-dh9" secondAttribute="bottom" id="75f-mi-vsA"/>
                             <constraint firstItem="pvE-jz-eQo" firstAttribute="top" secondItem="MVa-0g-udk" secondAttribute="bottom" constant="55.5" id="O9M-I9-Dxf"/>
                             <constraint firstItem="2nB-5Y-PNy" firstAttribute="centerY" secondItem="XmR-Nq-dh9" secondAttribute="centerY" id="PNX-7e-qNl"/>
-                            <constraint firstItem="izo-Zd-eyd" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" id="Pc8-Wa-F97"/>
+                            <constraint firstItem="izo-Zd-eyd" firstAttribute="leading" secondItem="XmR-Nq-dh9" secondAttribute="leading" id="Pc8-Wa-F97"/>
                             <constraint firstItem="MVa-0g-udk" firstAttribute="top" secondItem="2nB-5Y-PNy" secondAttribute="bottom" constant="15" id="T9d-ei-bgh"/>
-                            <constraint firstItem="7ZN-kt-crt" firstAttribute="trailing" secondItem="MVa-0g-udk" secondAttribute="trailing" constant="48" id="Uuw-gs-djh"/>
-                            <constraint firstItem="izo-Zd-eyd" firstAttribute="trailing" secondItem="7ZN-kt-crt" secondAttribute="trailing" id="aue-Ko-DK5"/>
+                            <constraint firstAttribute="trailing" secondItem="MVa-0g-udk" secondAttribute="trailing" constant="48" id="Uuw-gs-djh"/>
+                            <constraint firstItem="izo-Zd-eyd" firstAttribute="trailing" secondItem="XmR-Nq-dh9" secondAttribute="trailing" id="aue-Ko-DK5"/>
                             <constraint firstItem="izo-Zd-eyd" firstAttribute="top" secondItem="XmR-Nq-dh9" secondAttribute="top" id="grr-X2-4xh"/>
                             <constraint firstItem="2nB-5Y-PNy" firstAttribute="centerX" secondItem="XmR-Nq-dh9" secondAttribute="centerX" id="lfq-03-BdQ"/>
-                            <constraint firstItem="pvE-jz-eQo" firstAttribute="leading" secondItem="7ZN-kt-crt" secondAttribute="leading" constant="18" id="x0M-P3-jae"/>
+                            <constraint firstItem="pvE-jz-eQo" firstAttribute="leading" secondItem="XmR-Nq-dh9" secondAttribute="leading" constant="18" id="x0M-P3-jae"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="7ZN-kt-crt"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="imgBackground" destination="izo-Zd-eyd" id="Io2-6K-YOx"/>
                         <outlet property="imgTitle" destination="MVa-0g-udk" id="RJJ-15-61w"/>
