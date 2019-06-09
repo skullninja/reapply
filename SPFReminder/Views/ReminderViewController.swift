@@ -31,8 +31,6 @@ class ReminderViewController: GenericViewController {
     var graphView: ScrollableGraphView?
     
     var configureVC: ConfigureReminderViewController?
-
-    var uvIndexNeedsUpdate: Bool = true
     
     //TODO: Re-enable buttons, etc.
     override func updateDisplay(animate: Bool) {
@@ -63,19 +61,6 @@ class ReminderViewController: GenericViewController {
             lblTimerCountdown.text = "00:00:00"
         }
         
-        /*
-        let protectionLevel = ReminderService.shared.currentReminder?.protectionLevel(for: Date()) ?? 0.0
-        if protectionLevel >= 100.0 {
-            lblCurrentProtectionLevel.text = "good"
-        } else if protectionLevel > 40.0 {
-            lblCurrentProtectionLevel.text = "ok"
-        } else if protectionLevel > 0.0 {
-            lblCurrentProtectionLevel.text = "poor"
-        } else {
-            lblCurrentProtectionLevel.text = "--"
-        }
-        */
-        
         if let uvIndex = ForecastService.shared.currentUVIndex {
             self.lblUVIndex.text = String(uvIndex)
             var uvLevel = ""
@@ -102,14 +87,8 @@ class ReminderViewController: GenericViewController {
             self.lblUVLevelDescription.text = uvDescription
         }
         
-        //self.lblSunsetTime.text =  ForecastService.shared.sunsetTime.toString(dateFormat: "h:mm a")
-        //self.lblSunriseTime.text = ForecastService.shared.sunriseTime.toString(dateFormat: "h:mm a")
-        
-        //to do: remove the city label
-        LocationService.shared.lookUpCurrentLocation{ geoLoc in
-            let dateFormatter = DateFormatter()
-            dateFormatter.timeStyle = .medium
-        }
+        //LocationService.shared.lookUpCurrentLocation{ geoLoc in
+       // }
         
         updateButtonDisplay(_initialLoad: false)
     }
@@ -119,14 +98,13 @@ class ReminderViewController: GenericViewController {
         lblUVLevelDescription.text = "";
         super.viewDidLoad()
         
-        updateButtonDisplay(_initialLoad: true)
+       // updateButtonDisplay(_initialLoad: true)
     
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        uvIndexNeedsUpdate = true
+        updateButtonDisplay(_initialLoad: true)
         
     }
     
