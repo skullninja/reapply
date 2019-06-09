@@ -71,15 +71,16 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
        pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 60,width: UIScreen.main.bounds.width,height: 50))
         self.pageControl.numberOfPages = pages.count
         self.pageControl.currentPage = 0
-        self.pageControl.tintColor = UIColor.lightGray
-        self.pageControl.pageIndicatorTintColor = UIColor.orange
-        self.pageControl.currentPageIndicatorTintColor = UIColor.lightGray
-      
+        self.pageControl.tintColor = UIColor.white
+        self.pageControl.pageIndicatorTintColor = UIColor.white
+        self.pageControl.currentPageIndicatorTintColor = UIColor.orange
         
-        self.nextButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.maxX - 90, y: UIScreen.main.bounds.maxY - 60, width: 100, height: 50))
-         self.nextButton.setTitleColor(.darkGray, for: .normal)
-         self.nextButton.setTitle("NEXT", for: .normal)
-        self.view.addSubview( self.nextButton)
+        //self.nextButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.maxX - 90, y: UIScreen.main.bounds.maxY - 60, width: 100, height: 50))
+        self.nextButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        self.nextButton.setTitleColor(.white, for: .normal)
+        self.nextButton.setTitle("NEXT", for: .normal)
+        self.nextButton.addTarget(self, action:#selector(self.didTapNext), for: .touchUpInside)
+        //self.pageControl.addSubview( self.nextButton)
         
         self.doneButton = UIButton(frame: CGRect(x: 20, y: UIScreen.main.bounds.maxY - 120, width: self.view.bounds.width - 40, height: 45))
         
@@ -87,8 +88,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
             //iPhone 6/6S/7/8
             self.doneButton = UIButton(frame: CGRect(x: 20, y: UIScreen.main.bounds.maxY - 80, width: self.view.bounds.width - 40, height: 45))
         }
-       //self.doneButton.setTitleColor(UIColor(red: 252.0/255.0, green: 180.0/255.0, blue: 22.0/255.0, alpha: 1.0) , for: .normal)
-      // self.doneButton.layer.borderColor = UIColor(red: 252.0/255.0, green: 180.0/255.0, blue: 22.0/255.0, alpha: 1.0).cgColor
+     
         self.doneButton.layer.borderColor = UIColor.white.cgColor
         self.doneButton.layer.borderWidth = 1.0
         self.doneButton.setTitle("Get Started", for: .normal)
@@ -98,7 +98,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         self.doneButton.isHidden = true
         self.view.addSubview( self.doneButton)
         
-        
+        //self.view.insetsLayoutMarginsFromSafeArea = false
         self.view.addSubview(pageControl)
     }
     
@@ -151,18 +151,6 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         
         return pages[nextIndex]
     }
-    
-    
-    
-    // Enables pagination dots
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return 4
-    }
-    
-    // This only gets called once, when setViewControllers is called
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return 0
-    }
  
     
     // MARK: Delegate functions
@@ -188,11 +176,15 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     }
     
     @objc func didTapContinue() {
-       
             //dismiss view controller
             navigationController?.popViewController(animated: true)
             dismiss(animated: true, completion: nil)
             return
+        
+    }
+    
+    @objc func didTapNext() {
+            self.setViewControllers([self.getViewController(pageIndex+1)], direction: .forward, animated: true, completion: nil)
         
     }
     

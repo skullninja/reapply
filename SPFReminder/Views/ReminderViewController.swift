@@ -87,8 +87,8 @@ class ReminderViewController: GenericViewController {
             self.lblUVLevelDescription.text = uvDescription
         }
         
-        //LocationService.shared.lookUpCurrentLocation{ geoLoc in
-       // }
+        LocationService.shared.lookUpCurrentLocation{ geoLoc in
+       }
         
         updateButtonDisplay(_initialLoad: false)
     }
@@ -112,11 +112,13 @@ class ReminderViewController: GenericViewController {
         super.viewDidAppear(animated)
         
         //TO DO: may not leave this here
+        
         /*
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: "UserCompletedOnBoardingKey")
         defaults.synchronize()
  */
+        
         if !UserHelper.shared.hasCompletedOnboarding(){
             UserHelper.shared.setOnboardingComplete()
                 let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OnboardingViewController") as UIViewController
