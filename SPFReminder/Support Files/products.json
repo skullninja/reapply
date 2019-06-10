@@ -9,7 +9,7 @@
         "retailer": "Nordstrom",
         "price": "$38.00",
         "reviewUrl": "https://amberreyn.wixsite.com/mysite-5/post/supergoop-superscreen-daily-moisturizer-spf",
-        "imageUrl": "https://static.wixstatic.com/media/cf6644_582b6c3bf9a948a0b06ef8a49261ed7b~mv2.jpeg",
+        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/supergoop-moisturizer.png",
         "linkUrl": "https://www.wallabii.com/product/57615/transfer",
         "bodyPart": "Face"
     },
@@ -23,7 +23,7 @@
         "retailer": "Amazon",
         "price": "$45.00",
         "reviewUrl": "https://amberreyn.wixsite.com/mysite-5/post/supergoop-superscreen-daily-moisturizer-spf",
-        "imageUrl": "https://static.wixstatic.com/media/cf6644_6a1bbb46c05d43ecba0305a77ceb9518~mv2.jpeg",
+        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/suntegrity.png",
         "linkUrl": "http://www.wallabii.com/product/57616/transfer",
         "bodyPart": "Face (tinted)"
     },
@@ -37,7 +37,7 @@
         "retailer": "Nordstrom",
         "price": "$42.00",
         "reviewUrl": "https://amberreyn.wixsite.com/mysite-5/post/supergoop-superscreen-daily-moisturizer-spf",
-        "imageUrl": "https://static.wixstatic.com/media/cf6644_a4fa7f010c924d4e9dca84b31a211959~mv2.png",
+        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/coola.png",
         "linkUrl": "http://www.wallabii.com/product/57617/transfer",
         "bodyPart": "Body and Face"
     },
@@ -51,7 +51,7 @@
         "retailer": "Amazon",
         "price": "$21.00",
         "reviewUrl": "https://www.reapplyapp.com/post/love-sun-body-spf-30-fragrance-free-body-sunscreen",
-        "imageUrl": "",
+        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/love-sun-body.png",
         "linkUrl": "https://www.wallabii.com/product/59401/transfer",
         "bodyPart": "Body and Face"
     },
@@ -65,7 +65,7 @@
         "retailer": "Dermstore",
         "price": "$34.00",
         "reviewUrl": "https://www.reapplyapp.com/post/skinceuticals-physical-fusion-uv-defense-spf-50-product-review",
-        "imageUrl": "",
+        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/skinceuticals.png",
         "linkUrl": "https://www.wallabii.com/product/59153/transfer",
         "bodyPart": "Face (tinted)"
     },
@@ -79,7 +79,7 @@
         "retailer": "Amazon",
         "price": "$24.00",
         "reviewUrl": "",
-        "imageUrl": "",
+        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/suntegrity.png",
         "linkUrl": "http://www.wallabii.com/product/59693/transfer",
         "bodyPart": "Body and Face"
     },
@@ -93,7 +93,7 @@
         "retailer": "Beauty Counter",
         "price": "$39.00",
         "reviewUrl": "",
-        "imageUrl": "",
+        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/beauty-counter-countersun.png",
         "linkUrl": "https://www.wallabii.com/product/59694/transfer",
         "bodyPart": "Body and Face"
     },
@@ -107,7 +107,7 @@
         "retailer": "Walmart",
         "price": "$12.99",
         "reviewUrl": "",
-        "imageUrl": "",
+        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/bare-republic.png",
         "linkUrl": "https://www.wallabii.com/product/59695/transfer",
         "bodyPart": "Body and Face"
     },
@@ -121,8 +121,35 @@
         "retailer": "Amazon",
         "price": "$14.99",
         "reviewUrl": "",
-        "imageUrl": "",
+        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/bare-republic.png",
         "linkUrl": "https://www.wallabii.com/product/59696/transfer",
         "bodyPart": "Face"
+    },
+    {
+      "name": "Invincible Setting Powder",
+      "brand": "Supergoop!",
+      "description": "A setting powder that provides 100 percent mineral broad-spectrum UV protection with a flawless, satin finish—perfect for setting your makeup and re-applying SPF in just one step.",
+      "size": 0.2,
+      "mineral": true,
+      "spf": 45,
+      "retailer": "Sephora",
+      "price": "$30.00",
+      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/invincible-setting-powder.png",
+      "linkUrl": "https://www.wallabii.com/product/59989/transfer",
+      "bodyPart": "Face"
+    },
+    {
+      "name": "Unscented Lip Balm",
+      "brand": "All Good",
+      "description": "Whether you need a little hydration or sun protection, All good lip balm is formulated to keep your lips soft and smooth with the safest ingredients.",
+      "size": 0.15,
+      "mineral": true,
+      "spf": 20,
+      "retailer": "Amazon",
+      "price": "$7.59",
+      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/lip-balm.png",
+      "linkUrl": "https://www.wallabii.com/product/59990/transfer",
+      "bodyPart": "Lips"
     }
 ]
+
