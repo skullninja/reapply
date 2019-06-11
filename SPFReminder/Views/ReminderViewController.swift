@@ -11,6 +11,7 @@ import ForecastIO
 import ScrollableGraphView
 import SwiftMessages
 import Presentr
+import UserNotifications
 
 class ReminderViewController: GenericViewController {
     
@@ -30,6 +31,7 @@ class ReminderViewController: GenericViewController {
     let nightTitleImage = UIImage(named: "night-title")
     
     let presenter = Presentr(presentationType: .bottomHalf)
+    let notificationPresenter = Presentr(presentationType: .alert)
     
     var graphView: ScrollableGraphView?
     
@@ -37,7 +39,7 @@ class ReminderViewController: GenericViewController {
     
     var uvIndexNeedsUpdate: Bool = true
     
-    lazy var alertController: AlertViewController = {
+    lazy var locationAlertController: AlertViewController = {
         let font = UIFont.boldSystemFont(ofSize: 18)
         let alertController = AlertViewController(title: "Enable Location Services", body: "The experience works best when we can detect your location. Enabling this allows us to get accurate weather information.", titleFont: nil, bodyFont: nil, buttonFont: nil)
         let cancelAction = AlertAction(title: "NO, SORRY! 😱", style: .cancel) {
@@ -45,6 +47,42 @@ class ReminderViewController: GenericViewController {
         }
         let okAction = AlertAction(title: "YES, PLEASE! 🤘", style: .destructive) {
             LocationService.shared.activateLocationServices()
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        return alertController
+    }()
+    
+    lazy var notificationAlertController: AlertViewController = {
+        let font = UIFont.boldSystemFont(ofSize: 20)
+        let alertController = AlertViewController(title: "Enable Notifications", body: "Enabling notifications allows us to alert you when it's time to reapply sunscreen.", titleFont: nil, bodyFont: nil, buttonFont: nil)
+        let cancelAction = AlertAction(title: "NO, SORRY! 😱", style: .cancel) {
+            print("CANCEL!!")
+        }
+        let okAction = AlertAction(title: "YES, PLEASE! 🤘", style: .destructive) {
+            let center = UNUserNotificationCenter.current()
+            let options: UNAuthorizationOptions = [.alert]
+            
+            center.requestAuthorization(options: options) {
+                (granted, error) in
+                if !granted {
+                    print("Something went wrong")
+                }
+                
+                let choiceA = UNNotificationAction(identifier: "Reapply", title: "I'm Reapplying Now", options: [.foreground])
+                let choiceB = UNNotificationAction(identifier: "Stop", title: "End Reminders", options: [.foreground])
+                
+                let spfReminderCategory = UNNotificationCategory(identifier: "spfReminderCategory", actions: [choiceA, choiceB], intentIdentifiers: [], options: [])
+                
+                UNUserNotificationCenter.current().setNotificationCategories([spfReminderCategory])
+                
+                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                self.configureVC = storyboard.instantiateViewController(withIdentifier: "ConfigureReminderViewController") as? ConfigureReminderViewController
+                if let configureVC = self.configureVC {
+                    let segue = ConfigureReminderSegue(identifier: nil, source: self, destination: configureVC)
+                    segue.perform()
+                }
+            }
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
@@ -149,7 +187,7 @@ class ReminderViewController: GenericViewController {
         }
         
         if !UserHelper.shared.seenLocationRequest(){
-             customPresentViewController(presenter, viewController: alertController, animated: true, completion:{UserHelper.shared.setLocationRequestComplete()})
+             customPresentViewController(presenter, viewController: locationAlertController, animated: true, completion:{UserHelper.shared.setLocationRequestComplete()})
         }
  
         //reloadGraph()
@@ -233,6 +271,13 @@ class ReminderViewController: GenericViewController {
             if case .didHide = event { print("yep") }
         }
         */
+        
+        if !UserHelper.shared.seenNotificationRequest(){
+            customPresentViewController(notificationPresenter, viewController: notificationAlertController, animated: true, completion:{
+                UserHelper.shared.setNotificationRequestComplete()
+                return
+            })
+        }
         
         if ReminderService.shared.isRunning {
             ReminderService.shared.stop()

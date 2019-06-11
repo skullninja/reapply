@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,28 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
-       // LocationService.shared.activateLocationServices()
         
         if launchOptions?[.location] != nil {
             LocationService.shared.restartUpdatingLocation()
         }
 
-        let center = UNUserNotificationCenter.current()
-        let options: UNAuthorizationOptions = [.alert, .sound];
-
-        center.requestAuthorization(options: options) {
-            (granted, error) in
-            if !granted {
-                print("Something went wrong")
-            }
-        }
-        
-        let choiceA = UNNotificationAction(identifier: "Reapply", title: "I'm Reapplying Now", options: [.foreground])
-        let choiceB = UNNotificationAction(identifier: "Stop", title: "End Reminders", options: [.foreground])
-        
-        let spfReminderCategory = UNNotificationCategory(identifier: "spfReminderCategory", actions: [choiceA, choiceB], intentIdentifiers: [], options: [])
-        UNUserNotificationCenter.current().setNotificationCategories([spfReminderCategory])
-        
         return true
     }
 
