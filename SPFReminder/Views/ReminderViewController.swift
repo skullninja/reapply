@@ -35,6 +35,8 @@ class ReminderViewController: GenericViewController {
     
     var configureVC: ConfigureReminderViewController?
     
+    var uvIndexNeedsUpdate: Bool = true
+    
     lazy var alertController: AlertViewController = {
         let font = UIFont.boldSystemFont(ofSize: 18)
         let alertController = AlertViewController(title: "Enable Location Services", body: "The experience works best when we can detect your location. Enabling this allows us to get accurate weather information.", titleFont: nil, bodyFont: nil, buttonFont: nil)
@@ -105,7 +107,9 @@ class ReminderViewController: GenericViewController {
         }
         
         LocationService.shared.lookUpCurrentLocation{ geoLoc in
-       }
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = .medium
+        }
         
         updateButtonDisplay(_initialLoad: false)
     }
@@ -115,14 +119,14 @@ class ReminderViewController: GenericViewController {
         lblUVLevelDescription.text = "";
         super.viewDidLoad()
         
-       // updateButtonDisplay(_initialLoad: true)
+       updateButtonDisplay(_initialLoad: true)
     
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateButtonDisplay(_initialLoad: true)
-        
+      
+        uvIndexNeedsUpdate = true
         
     }
     
