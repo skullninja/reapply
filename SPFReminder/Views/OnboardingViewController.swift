@@ -91,7 +91,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
      
         self.doneButton.layer.borderColor = UIColor.white.cgColor
         self.doneButton.layer.borderWidth = 1.0
-        self.doneButton.setTitle("Get Started", for: .normal)
+        self.doneButton.setTitle("Let's Get Started", for: .normal)
         self.doneButton.titleLabel?.textAlignment = NSTextAlignment.center
         self.doneButton.titleLabel?.font = .systemFont(ofSize: 20)
         self.doneButton.addTarget(self, action:#selector(self.didTapContinue), for: .touchUpInside)

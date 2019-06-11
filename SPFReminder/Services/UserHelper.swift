@@ -36,4 +36,12 @@ class UserHelper: NSObject{
     func setLocationRequestComplete(){
         setKeyInUserDefaults(key: "UserSeenLocationRequestKey", value: "true")
     }
+    
+    func seenNotificationRequest() -> Bool{
+        return isKeyPresentInUserDefaults(key: "UserSeenNotificationRequestKey")
+    }
+    
+    func setNotificationRequestComplete(){
+        setKeyInUserDefaults(key: "UserSeenNotificationRequestKey", value: "true")
+    }
 }
