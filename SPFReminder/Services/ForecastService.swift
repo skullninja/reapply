@@ -14,15 +14,12 @@ class ForecastService {
     
     static let shared = ForecastService()
     
-    var sunsetTime = Date()
-    var sunriseTime = Date()
-    var currentUVIndex:Double?
-    var currentCloudCoverage:Double?
+    var sunsetTime: Date?
+    var sunriseTime: Date?
+    var currentUVIndex: Double?
+    var currentCloudCoverage: Double?
     
     var fiveDayForecast: Array<DailyForecast> = Array()
-    
-    var lastDailyForecastUpdate = NSDate()
-    var lastHourlyForecastUpdate = NSDate()
     
     lazy var client: DarkSkyClient = {
         let darkSky = DarkSkyClient(apiKey: "16d1cdbf343ab6a7ee0dcb340b7484ff")
@@ -31,7 +28,18 @@ class ForecastService {
         return darkSky
     }()
     
-    func updateUVIndexIfNeeded(_ location: CLLocation, completionHandler: @escaping (Bool) ->()) {
+    private var isUpdating = false
+    private var lastUpdate: Date?
+    
+    func updateUVIndexIfNeeded(_ location: CLLocation, completionHandler: ((Bool) ->())?) {
+        guard !isUpdating else { return }
+        
+        if let lastUpdate = lastUpdate, Calendar.current.compare(Date(), to: lastUpdate, toGranularity: .hour).rawValue == 0 {
+            // Updated in last hour, so bail
+            return
+        }
+        
+        isUpdating = true
         
         //TODO: Update When Day Switches or Location Changes
         client.getForecast(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) { result in
@@ -70,7 +78,11 @@ class ForecastService {
                     i += 1
                 }
                 
-                completionHandler(true)
+                self.lastUpdate = Date()
+                self.isUpdating = false
+                if let completionHandler = completionHandler {
+                    completionHandler(true)
+                }
             }
         }
         

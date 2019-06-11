@@ -47,6 +47,11 @@ class ReminderService {
         
     }
     
+    func refreshUVIndex() {
+        guard let location = self.location else { return }
+        ForecastService.shared.updateUVIndexIfNeeded(location, completionHandler: nil)
+    }
+    
     func start() -> StartResponse {
         guard !isRunning else { return .alreadyRunning }
         
