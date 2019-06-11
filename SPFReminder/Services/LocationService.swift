@@ -34,10 +34,12 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
     
     func restartUpdatingLocation() {
-        startUpdatingLocation()
+        if CLLocationManager.locationServicesEnabled() {
+            startUpdatingLocation()
+        }
     }
     
-    func startUpdatingLocation() {
+    private func startUpdatingLocation() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         locationManager.distanceFilter = 11.0  // 7 miles
