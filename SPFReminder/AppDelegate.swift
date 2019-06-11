@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
-        LocationService.shared.activateLocationServices()
+       // LocationService.shared.activateLocationServices()
         
         if launchOptions?[.location] != nil {
             LocationService.shared.restartUpdatingLocation()

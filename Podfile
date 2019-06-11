@@ -14,5 +14,6 @@ target 'SPFReminder' do
  pod 'iCarousel', '~> 1.8'
  pod 'Firebase/Analytics'
  pod 'AlamofireImage', '~> 3.5'
+ pod 'Presentr'
 
 end
