@@ -30,8 +30,7 @@ class ReminderViewController: GenericViewController {
     let timerTitleImage = UIImage(named: "timer-title")
     let nightTitleImage = UIImage(named: "night-title")
     
-    let presenter = Presentr(presentationType: .bottomHalf)
-    let notificationPresenter = Presentr(presentationType: .alert)
+    let presenter = Presentr(presentationType: .alert)
     
     var graphView: ScrollableGraphView?
     
@@ -40,8 +39,8 @@ class ReminderViewController: GenericViewController {
     var uvIndexNeedsUpdate: Bool = true
     
     lazy var locationAlertController: AlertViewController = {
-        let font = UIFont.boldSystemFont(ofSize: 18)
-        let alertController = AlertViewController(title: "Enable Location Services", body: "The experience works best when we can detect your location. Enabling this allows us to get accurate weather information.", titleFont: nil, bodyFont: nil, buttonFont: nil)
+        let font = UIFont.boldSystemFont(ofSize: 16)
+        let alertController = AlertViewController(title: "Enable Location Services", body: "The experience works best when we know your location. Enabling allows us to get accurate weather data.", titleFont: nil, bodyFont: nil, buttonFont: nil)
         let cancelAction = AlertAction(title: "NO, SORRY! 😱", style: .cancel) {
             print("CANCEL!!")
         }
@@ -69,6 +68,14 @@ class ReminderViewController: GenericViewController {
                     print("Something went wrong")
                 }
                 
+                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                self.configureVC = storyboard.instantiateViewController(withIdentifier: "ConfigureReminderViewController") as? ConfigureReminderViewController
+                if let configureVC = self.configureVC {
+                    let segue = ConfigureReminderSegue(identifier: nil, source: self, destination: configureVC)
+                    segue.perform()
+                }
+                
+                
                 let choiceA = UNNotificationAction(identifier: "Reapply", title: "I'm Reapplying Now", options: [.foreground])
                 let choiceB = UNNotificationAction(identifier: "Stop", title: "End Reminders", options: [.foreground])
                 
@@ -76,12 +83,6 @@ class ReminderViewController: GenericViewController {
                 
                 UNUserNotificationCenter.current().setNotificationCategories([spfReminderCategory])
                 
-                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-                self.configureVC = storyboard.instantiateViewController(withIdentifier: "ConfigureReminderViewController") as? ConfigureReminderViewController
-                if let configureVC = self.configureVC {
-                    let segue = ConfigureReminderSegue(identifier: nil, source: self, destination: configureVC)
-                    segue.perform()
-                }
             }
         }
         alertController.addAction(cancelAction)
@@ -273,7 +274,7 @@ class ReminderViewController: GenericViewController {
         */
         
         if !UserHelper.shared.seenNotificationRequest(){
-            customPresentViewController(notificationPresenter, viewController: notificationAlertController, animated: true, completion:{
+            customPresentViewController(presenter, viewController: notificationAlertController, animated: true, completion:{
                 UserHelper.shared.setNotificationRequestComplete()
                 return
             })
