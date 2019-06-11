@@ -10,6 +10,7 @@ import UIKit
 import ForecastIO
 import ScrollableGraphView
 import SwiftMessages
+import Presentr
 
 class ReminderViewController: GenericViewController {
     
@@ -28,9 +29,25 @@ class ReminderViewController: GenericViewController {
     let timerTitleImage = UIImage(named: "timer-title")
     let nightTitleImage = UIImage(named: "night-title")
     
+    let presenter = Presentr(presentationType: .bottomHalf)
+    
     var graphView: ScrollableGraphView?
     
     var configureVC: ConfigureReminderViewController?
+    
+    lazy var alertController: AlertViewController = {
+        let font = UIFont.boldSystemFont(ofSize: 18)
+        let alertController = AlertViewController(title: "Enable Location Services", body: "The experience works best when we can detect your location. Enabling this allows us to get accurate weather information.", titleFont: nil, bodyFont: nil, buttonFont: nil)
+        let cancelAction = AlertAction(title: "NO, SORRY! 😱", style: .cancel) {
+            print("CANCEL!!")
+        }
+        let okAction = AlertAction(title: "YES, PLEASE! 🤘", style: .destructive) {
+            LocationService.shared.activateLocationServices()
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        return alertController
+    }()
     
     //TODO: Re-enable buttons, etc.
     override func updateDisplay(animate: Bool) {
@@ -106,6 +123,7 @@ class ReminderViewController: GenericViewController {
         super.viewWillAppear(animated)
         updateButtonDisplay(_initialLoad: true)
         
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -125,8 +143,11 @@ class ReminderViewController: GenericViewController {
                 
                 self.present(viewController, animated: false, completion: nil)
         }
- 
         
+        if !UserHelper.shared.seenLocationRequest(){
+             customPresentViewController(presenter, viewController: alertController, animated: true, completion:{UserHelper.shared.setLocationRequestComplete()})
+        }
+ 
         //reloadGraph()
     
     }

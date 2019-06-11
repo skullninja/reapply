@@ -28,4 +28,12 @@ class UserHelper: NSObject{
     func setOnboardingComplete(){
         setKeyInUserDefaults(key: "UserCompletedOnBoardingKey", value: "true")
     }
+    
+    func seenLocationRequest() -> Bool{
+        return isKeyPresentInUserDefaults(key: "UserSeenLocationRequestKey")
+    }
+    
+    func setLocationRequestComplete(){
+        setKeyInUserDefaults(key: "UserSeenLocationRequestKey", value: "true")
+    }
 }
