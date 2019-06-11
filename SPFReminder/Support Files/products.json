@@ -14,6 +14,33 @@
         "bodyPart": "Face"
     },
     {
+        "name": "CC Cream Broad Spectrum",
+        "brand": "Supergoop!",
+        "description": "A lightweight mineral face sunscreen with protection against UVA and UVB rays. It contains a blend of apple extract, irish moss, red seaweed extract, and sodium hyaluronate to make the skin appear smoother and softer.",
+        "size": 1.6,
+        "mineral": true,
+        "spf": 35,
+        "retailer": "Sephora",
+        "price": "$34.00",
+        "reviewUrl": "",
+        "imageUrl": "",
+        "linkUrl": "https://www.wallabii.com/product/59988/transfer",
+        "bodyPart": "Face"
+    },
+    {
+        "name": "Invincible Setting Powder",
+        "brand": "Supergoop!",
+        "description": "A setting powder that provides 100 percent mineral broad-spectrum UV protection with a flawless, satin finish—perfect for setting your makeup and re-applying SPF in just one step.",
+        "size": 0.2,
+        "mineral": true,
+        "spf": 45,
+        "retailer": "Sephora",
+        "price": "$30.00",
+        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/invincible-setting-powder.png",
+        "linkUrl": "https://www.wallabii.com/product/59989/transfer",
+        "bodyPart": "Face"
+    },
+    {
         "name": "5-in-1 Natural Moisturizing Face Sunscreen",
         "brand": "Suntegrity",
         "description": "Tinted moisturizer combines broad spectrum, mineral SPF 30 protection with potent ingredients to moisturize, protect, and give you dewy coverage.",
@@ -112,7 +139,7 @@
         "bodyPart": "Body and Face"
     },
     {
-        "name": "Untinted Mineral Face Sunscreen Lotion",
+        "name": "Mineral Face Sunscreen Lotion",
         "brand": "Bare Republic",
         "description": "A suncreen lotion that gently melts into skin for a sheer, powdery finish, while an infusion of antioxidant-rich raspberry, grape and carrot seed oils help fight free radicals and promote youthful-looking skin year-round.",
         "size": 1.7,
@@ -126,30 +153,45 @@
         "bodyPart": "Face"
     },
     {
-      "name": "Invincible Setting Powder",
-      "brand": "Supergoop!",
-      "description": "A setting powder that provides 100 percent mineral broad-spectrum UV protection with a flawless, satin finish—perfect for setting your makeup and re-applying SPF in just one step.",
-      "size": 0.2,
-      "mineral": true,
-      "spf": 45,
-      "retailer": "Sephora",
-      "price": "$30.00",
-      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/invincible-setting-powder.png",
-      "linkUrl": "https://www.wallabii.com/product/59989/transfer",
-      "bodyPart": "Face"
+        "name": "Unscented Lip Balm",
+        "brand": "All Good",
+        "description": "Whether you need a little hydration or sun protection, All good lip balm is formulated to keep your lips soft and smooth with the safest ingredients.",
+        "size": 0.15,
+        "mineral": true,
+        "spf": 20,
+        "retailer": "Amazon",
+        "price": "$7.59",
+        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/all-good-lip-balm.png",
+        "linkUrl": "https://www.wallabii.com/product/59990/transfer",
+        "bodyPart": "Lips"
     },
     {
-      "name": "Unscented Lip Balm",
-      "brand": "All Good",
-      "description": "Whether you need a little hydration or sun protection, All good lip balm is formulated to keep your lips soft and smooth with the safest ingredients.",
-      "size": 0.15,
+        "name": "Sheer Zinc Natural Spray for Sensitive Skin",
+        "brand": "Babo Botanicals",
+        "description": "The first 100% Zinc Sheer Continuous Spray SPF 30 sunscreen. Babo's fragrance free sunscreen is perfect for extra sensitive skin, protecting against damaging UVA and UVB rays while providing 80 minutes of water resistance.",
+        "size": 6.0,
+        "mineral": true,
+        "spf": 30,
+        "retailer": "Amazon",
+        "price": "$13.29",
+        "reviewUrl": "",
+        "imageUrl": "",
+        "linkUrl": "https://www.wallabii.com/product/59991/transfer",
+        "bodyPart": "Body and Face"
+    },
+    {
+      "name": "Mineral Sun Silk Creme",
+      "brand": "Coola",
+      "description": "An oil-free, airy-light formula gently glides on to form a transparent veil, ideal for everyday use. Non-nano Zinc Oxide provides broad spectrum UVA/UVB protection while a plant-derived Full Spectrum 360° complex helps mitigate the effects of today’s modern-world skin-aggressors – HEV light, IR, and pollution.",
+      "size": 1.5,
       "mineral": true,
-      "spf": 20,
-      "retailer": "Amazon",
-      "price": "$7.59",
-      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/lip-balm.png",
-      "linkUrl": "https://www.wallabii.com/product/59990/transfer",
-      "bodyPart": "Lips"
+      "spf": 30,
+      "retailer": "Sephora",
+      "price": "$42.00",
+      "reviewUrl": "",
+      "imageUrl": "",
+      "linkUrl": "https://www.wallabii.com/product/60155/transfer",
+      "bodyPart": "Face"
     }
 ]
 
