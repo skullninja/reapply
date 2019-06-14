@@ -17,6 +17,7 @@ class ForecastService {
     var sunsetTime: Date?
     var sunriseTime: Date?
     var currentUVIndex: Double?
+    var maxUVIndex: Double?
     var currentCloudCoverage: Double?
     
     var fiveDayForecast: Array<DailyForecast> = Array()
@@ -46,6 +47,10 @@ class ForecastService {
             DispatchQueue.main.async {
                 if let uvindex = result.value.0?.currently?.uvIndex {
                     self.currentUVIndex = uvindex
+                }
+                
+                if let maxUVIndex = result.value.0?.daily?.data[0].uvIndex {
+                    self.maxUVIndex = maxUVIndex
                 }
                 
                 if let cloudCoverage = result.value.0?.currently?.cloudCover {

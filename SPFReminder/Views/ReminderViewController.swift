@@ -25,6 +25,14 @@ class ReminderViewController: GenericViewController {
     @IBOutlet weak var nightBackgroundView: UIImageView!
     @IBOutlet weak var titleView: UIImageView!
     @IBOutlet weak var lblUntilNextReapply: UILabel!
+    @IBOutlet weak var lblTopUVIndex: UILabel!
+    
+    @IBOutlet weak var lblNow: UILabel!
+    @IBOutlet weak var lblToday: UILabel!
+    @IBOutlet weak var imgSunUV: UIImageView!
+    @IBOutlet weak var lblTopUVTime: UILabel!
+    
+    
     
     let defaultTitleImage = UIImage(named: "default-title")
     let timerTitleImage = UIImage(named: "timer-title")
@@ -120,7 +128,8 @@ class ReminderViewController: GenericViewController {
         }
         
         if let uvIndex = ForecastService.shared.currentUVIndex {
-            self.lblUVIndex.text = String(uvIndex)
+            self.lblUVIndex.text = String(format: "%g", uvIndex)
+            self.lblTopUVIndex.text = String(format: "%g",ForecastService.shared.maxUVIndex!)
             var uvLevel = ""
             var uvDescription = "Some Protection Required"
             if uvIndex < 1 {
@@ -234,6 +243,13 @@ class ReminderViewController: GenericViewController {
             btnStop.isHidden = true
             nightBackgroundView.isHidden = true
             lblTimerCountdown.isHidden = true
+            
+            lblTopUVIndex.isHidden = false
+            lblNow.isHidden = false
+            lblToday.isHidden = false
+            imgSunUV.isHidden = false
+            lblTopUVTime.isHidden = false
+            
         case .running:
             btnReapply.isHidden = false
             lblUntilNextReapply.isHidden = false
@@ -248,6 +264,12 @@ class ReminderViewController: GenericViewController {
             btnStop.isHidden = true
             nightBackgroundView.isHidden = false
             lblTimerCountdown.isHidden = true
+            
+            lblTopUVIndex.isHidden = true
+            lblNow.isHidden = true
+            lblToday.isHidden = true
+            imgSunUV.isHidden = true
+            lblTopUVTime.isHidden = true
         }
     }
     
