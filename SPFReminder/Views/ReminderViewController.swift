@@ -294,6 +294,18 @@ class ReminderViewController: GenericViewController {
     }
     
     @IBAction func reapplyButtonTapped(_ sender: Any) {
+        
+        //blink timer countdown lable to indicate it's being reset
+        self.lblTimerCountdown.alpha = 1.0
+        UIView.animate(withDuration: 0.12, delay: 0, options: [.curveEaseInOut], animations: {
+            self.lblTimerCountdown.alpha = 0.0
+        },  completion:  { (finished: Bool) in
+            UIView.animate(withDuration: 0.12, delay: 0, options: [.curveEaseInOut], animations: {
+                self.lblTimerCountdown.alpha = 1.0
+                },  completion: nil)
+        })
+        
+        
          if ReminderService.shared.isRunning {
             ReminderService.shared.reapply()
             // ensure the stop/start button is enabled and stop is the title

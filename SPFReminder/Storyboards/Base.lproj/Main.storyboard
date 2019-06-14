@@ -60,6 +60,7 @@
                             <constraint firstItem="2nB-5Y-PNy" firstAttribute="centerX" secondItem="XmR-Nq-dh9" secondAttribute="centerX" id="lfq-03-BdQ"/>
                             <constraint firstItem="pvE-jz-eQo" firstAttribute="leading" secondItem="XmR-Nq-dh9" secondAttribute="leading" constant="18" id="x0M-P3-jae"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nb9-PN-mj2"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -151,7 +152,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJV-kt-etz">
-                                <rect key="frame" x="164" y="604" width="47" height="47"/>
+                                <rect key="frame" x="164" y="608.5" width="47" height="47"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="1f8-uU-CbX"/>
@@ -164,14 +165,17 @@
                                     <action selector="startStopAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WDr-pb-I1e"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Until Next Reapply" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkZ-xK-aqY">
-                                <rect key="frame" x="113" y="442" width="150" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Until Next Reapply" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkZ-xK-aqY">
+                                <rect key="frame" x="113" y="451.5" width="149" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Oev-Xj-ePn"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmC-HB-yLu">
-                                <rect key="frame" x="141.5" y="492" width="92" height="92"/>
+                                <rect key="frame" x="141.5" y="496.5" width="92" height="92"/>
                                 <color key="backgroundColor" red="0.011764705882352941" green="0.61568627450980395" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92" id="Kvi-z3-hyK"/>
