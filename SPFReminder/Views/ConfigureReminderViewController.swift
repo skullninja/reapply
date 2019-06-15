@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+protocol ConfigureReminderViewControllerDelegate: AnyObject {
+    func didTapStart()
+}
+
 enum protectionLevel:Float {
     case norm = 0.0
     case high = 5.0
@@ -26,6 +30,8 @@ class ConfigureReminderViewController: UIViewController {
     @IBOutlet weak var sliderProtectionLevel: UISlider!
     @IBOutlet weak var btnStartTimer: UIButton!
     @IBOutlet weak var lblTimerLength: UILabel!
+    
+    weak var delegate:ConfigureReminderViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,6 +133,9 @@ class ConfigureReminderViewController: UIViewController {
             break
         }
         
-       dismiss(animated: true, completion: nil)
+       dismiss(animated: true, completion: {
+        self.delegate?.didTapStart()
+        
+       })
     }
 }
