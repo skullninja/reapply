@@ -244,6 +244,7 @@ class ReminderViewController: GenericViewController {
             nightBackgroundView.isHidden = true
             lblTimerCountdown.isHidden = true
             
+            lblUVIndex.isHidden = false
             lblTopUVIndex.isHidden = false
             lblNow.isHidden = false
             lblToday.isHidden = false
@@ -265,6 +266,7 @@ class ReminderViewController: GenericViewController {
             nightBackgroundView.isHidden = false
             lblTimerCountdown.isHidden = true
             
+            lblUVIndex.isHidden = true
             lblTopUVIndex.isHidden = true
             lblNow.isHidden = true
             lblToday.isHidden = true
