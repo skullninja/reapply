@@ -76,21 +76,13 @@ class ReminderViewController: GenericViewController {
                     print("Something went wrong")
                 }
                 
-                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-                self.configureVC = storyboard.instantiateViewController(withIdentifier: "ConfigureReminderViewController") as? ConfigureReminderViewController
-                if let configureVC = self.configureVC {
-                    let segue = ConfigureReminderSegue(identifier: nil, source: self, destination: configureVC)
-                    segue.perform()
-                }
-                
-                
+
                 let choiceA = UNNotificationAction(identifier: "Reapply", title: "I'm Reapplying Now", options: [.foreground])
                 let choiceB = UNNotificationAction(identifier: "Stop", title: "End Reminders", options: [.foreground])
                 
                 let spfReminderCategory = UNNotificationCategory(identifier: "spfReminderCategory", actions: [choiceA, choiceB], intentIdentifiers: [], options: [])
                 
                 UNUserNotificationCenter.current().setNotificationCategories([spfReminderCategory])
-                
             }
         }
         alertController.addAction(cancelAction)
@@ -132,22 +124,24 @@ class ReminderViewController: GenericViewController {
             self.lblTopUVIndex.text = String(format: "%g",ForecastService.shared.maxUVIndex!)
             var uvLevel = ""
             var uvDescription = "Some Protection Required"
-            if uvIndex < 1 {
+            if uvIndex == 0 {
+                uvLevel = "Zero"
+                uvDescription = "No Protection Needed"
+            }
+            if uvIndex == 1 {
                 uvLevel = "Low"
                 uvDescription = "No Protection Needed"
             } else if uvIndex < 3 {
                 uvLevel = "Low"
             } else if uvIndex < 6 {
                 uvLevel = "Moderate"
-            } else if uvIndex < 8 {
+                uvDescription = "Protection Required"
+            } else if uvIndex < 9 {
                 uvLevel = "High"
                  uvDescription = "Protection Required"
-            } else if uvIndex < 11 {
-                uvLevel = "Very High"
-                uvDescription = "Protection Required"
             } else {
                 uvLevel = "Extremely High"
-                uvDescription = "Seek Shade"
+                uvDescription = "Stay Indoors"
             }
         
             self.lblUVLevel.text = uvLevel + " UV Levels"
@@ -297,18 +291,12 @@ class ReminderViewController: GenericViewController {
         }
         */
         
-        if !UserHelper.shared.seenNotificationRequest(){
-            customPresentViewController(presenter, viewController: notificationAlertController, animated: true, completion:{
-                UserHelper.shared.setNotificationRequestComplete()
-                return
-            })
-        }
-        
         if ReminderService.shared.isRunning {
             ReminderService.shared.stop()
         } else {
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             configureVC = storyboard.instantiateViewController(withIdentifier: "ConfigureReminderViewController") as? ConfigureReminderViewController
+            configureVC?.delegate = self
             if let configureVC = configureVC {
                 let segue = ConfigureReminderSegue(identifier: nil, source: self, destination: configureVC)
                 segue.perform()
@@ -374,5 +362,16 @@ class ConfigureReminderSegue: SwiftMessagesSegue {
         messageView.configureNoDropShadow()
         
         
+    }
+}
+
+extension ReminderViewController: ConfigureReminderViewControllerDelegate {
+    func didTapStart() {
+        if !UserHelper.shared.seenNotificationRequest(){
+            customPresentViewController(presenter, viewController: notificationAlertController, animated: true, completion:{
+                UserHelper.shared.setNotificationRequestComplete()
+                return
+            })
+        }
     }
 }
