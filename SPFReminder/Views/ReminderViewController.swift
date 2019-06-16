@@ -76,7 +76,10 @@ class ReminderViewController: GenericViewController {
                     print("Something went wrong")
                 }
                 
-
+                if let currentReminder = ReminderService.shared.currentReminder{
+                    NotificationService.shared.setReminderNotification(currentReminder)
+                }
+                
                 let choiceA = UNNotificationAction(identifier: "Reapply", title: "I'm Reapplying Now", options: [.foreground])
                 let choiceB = UNNotificationAction(identifier: "Stop", title: "End Reminders", options: [.foreground])
                 
@@ -87,6 +90,7 @@ class ReminderViewController: GenericViewController {
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
+        
         return alertController
     }()
     
