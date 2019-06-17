@@ -12,6 +12,7 @@ import ScrollableGraphView
 import SwiftMessages
 import Presentr
 import UserNotifications
+import Pulsator
 
 class ReminderViewController: GenericViewController {
     
@@ -32,13 +33,17 @@ class ReminderViewController: GenericViewController {
     @IBOutlet weak var imgSunUV: UIImageView!
     @IBOutlet weak var lblTopUVTime: UILabel!
     
-    
+    @IBOutlet weak var imgApplyBackground: UIButton!
     
     let defaultTitleImage = UIImage(named: "default-title")
     let timerTitleImage = UIImage(named: "timer-title")
     let nightTitleImage = UIImage(named: "night-title")
     
     let presenter = Presentr(presentationType: .alert)
+    
+    let pulsatorDarkOrange = Pulsator()
+    let pulsatorLightOrange = Pulsator()
+    let pulsatorYellow = Pulsator()
     
     var graphView: ScrollableGraphView?
     
@@ -179,6 +184,43 @@ class ReminderViewController: GenericViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+       
+        
+        //Inner layer
+        btnApply.layer.insertSublayer(pulsatorDarkOrange, at: 0)
+        pulsatorDarkOrange.numPulse = 2
+        pulsatorDarkOrange.radius = 50.0
+        pulsatorDarkOrange.backgroundColor = UIColor(red: 232/255.0, green: 149/255.0, blue: 76/255.0, alpha: 1).cgColor
+        pulsatorDarkOrange.animationDuration = 5
+        pulsatorDarkOrange.position = CGPoint(x:btnApply.bounds.midX, y:btnApply.bounds.midY)
+        
+        //Middle layer
+        btnApply.layer.insertSublayer(pulsatorLightOrange, at: 0)
+        pulsatorLightOrange.numPulse = 1
+        pulsatorLightOrange.radius = 80.0
+        pulsatorLightOrange.backgroundColor = UIColor(red: 240/255.0, green: 176/255.0, blue: 95/255.0, alpha: 1).cgColor
+        pulsatorLightOrange.animationDuration = 9
+        //pulsatorLightOrange.pulseInterval = 5
+        pulsatorLightOrange.position = CGPoint(x:btnApply.bounds.midX, y:btnApply.bounds.midY)
+        
+        //Outer Layer
+        btnApply.layer.insertSublayer(pulsatorYellow, at: 0)
+        pulsatorYellow.numPulse = 1
+        pulsatorYellow.radius = 105.0
+        pulsatorYellow.backgroundColor = UIColor(red: 244/255.0, green: 212/255.0, blue: 141/255.0, alpha: 1).cgColor
+        pulsatorYellow.animationDuration = 9
+        pulsatorYellow.position = CGPoint(x:btnApply.bounds.midX, y:btnApply.bounds.midY)
+        
+        //pulsatorDarkOrange.start()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+            self.pulsatorLightOrange.start()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(800)) {
+            self.pulsatorYellow.start()
+        }
+        
         //TO DO: may not leave this here
         
         /*
@@ -226,7 +268,7 @@ class ReminderViewController: GenericViewController {
         if _initialLoad {
             
             btnReapply.clipsToBounds = true
-            btnApply.clipsToBounds = true
+            //btnApply.clipsToBounds = true
             btnStop.clipsToBounds = true
             btnReapply.layer.cornerRadius = btnReapply.bounds.width / 2.0
             btnApply.layer.cornerRadius = btnApply.bounds.width / 2.0

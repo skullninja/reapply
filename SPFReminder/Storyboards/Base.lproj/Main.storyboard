@@ -136,7 +136,7 @@
                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3U-fU-V3J">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3U-fU-V3J">
                                 <rect key="frame" x="97.5" y="383.5" width="180" height="180"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -147,8 +147,19 @@
                                 <state key="normal" title="Apply" backgroundImage="temp-apply-background">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpf-JL-fF8">
+                                <rect key="frame" x="141.5" y="427.5" width="92" height="92"/>
+                                <color key="backgroundColor" red="0.90980392156862744" green="0.5835731029510498" blue="0.29796099662780762" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="92" id="PUH-E3-f1a"/>
+                                    <constraint firstAttribute="width" constant="92" id="qbG-Hv-nD4"/>
+                                </constraints>
+                                <state key="normal" title="Apply">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="startStopAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0XY-mJ-DLu"/>
+                                    <action selector="startStopAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ByL-kf-R8r"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJV-kt-etz">
@@ -278,6 +289,7 @@
                             <constraint firstItem="6g6-yg-mQg" firstAttribute="top" secondItem="O4e-2g-PcS" secondAttribute="bottom" constant="1" id="E4k-x8-SnF"/>
                             <constraint firstItem="9Ed-r8-HFK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EBH-Qm-5pb"/>
                             <constraint firstItem="vRq-NI-OJ9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="G0G-nT-1su"/>
+                            <constraint firstItem="kpf-JL-fF8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="140" id="GAv-QC-JA7"/>
                             <constraint firstItem="c9N-9E-RH4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GQd-p1-h6P"/>
                             <constraint firstItem="dWe-WL-LjK" firstAttribute="top" secondItem="O4e-2g-PcS" secondAttribute="bottom" constant="10" id="HWp-gE-aWZ"/>
                             <constraint firstItem="Ztb-36-Css" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Jsq-KI-Nzo"/>
@@ -306,6 +318,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vRq-NI-OJ9" secondAttribute="trailing" constant="16" id="f4R-pU-5ps"/>
                             <constraint firstItem="jba-Jd-qy9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fFD-OR-4uo"/>
                             <constraint firstItem="jmC-HB-yLu" firstAttribute="top" secondItem="lkZ-xK-aqY" secondAttribute="bottom" constant="20" id="fjl-Gw-6hX"/>
+                            <constraint firstItem="kpf-JL-fF8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hrz-Gs-hqn"/>
                             <constraint firstItem="D3U-fU-V3J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="i6v-n6-ugz"/>
                             <constraint firstItem="4iJ-gt-f8Y" firstAttribute="leading" secondItem="dWe-WL-LjK" secondAttribute="trailing" constant="47" id="jYw-m3-Q0Q"/>
                             <constraint firstAttribute="bottom" secondItem="nyB-8j-kaN" secondAttribute="bottom" constant="190" id="l51-Eo-pXH"/>
@@ -320,10 +333,11 @@
                     <tabBarItem key="tabBarItem" title="Apply" image="body-care-sun-cream" id="Onc-4H-BRo"/>
                     <connections>
                         <outlet property="activeHeaderView" destination="nyB-8j-kaN" id="RRF-nT-JPG"/>
-                        <outlet property="btnApply" destination="D3U-fU-V3J" id="SOT-J5-66O"/>
+                        <outlet property="btnApply" destination="kpf-JL-fF8" id="i5X-ci-81j"/>
                         <outlet property="btnReapply" destination="jmC-HB-yLu" id="3DA-Xp-pIs"/>
                         <outlet property="btnStop" destination="dJV-kt-etz" id="TD4-Np-qHA"/>
                         <outlet property="btnStore" destination="vRq-NI-OJ9" id="vXO-Gl-UDD"/>
+                        <outlet property="imgApplyBackground" destination="D3U-fU-V3J" id="Aya-4L-OkY"/>
                         <outlet property="imgSunUV" destination="dWe-WL-LjK" id="bTK-YA-9kG"/>
                         <outlet property="lblNow" destination="O4e-2g-PcS" id="yvd-l7-zY3"/>
                         <outlet property="lblTimerCountdown" destination="c9N-9E-RH4" id="AyU-bw-stu"/>
