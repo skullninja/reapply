@@ -1,6 +1,6 @@
 [
     {
-        "name": "Superscreen Daily Moisturizer",
+        "name": "Superscreen Daily Moisturizer for Face",
         "brand": "Supergoop!",
         "description": "This moisturizer is a game changer. Not only is it an excellent moisturizer it also works well under makeup and doesn't leave an oily residue.",
         "size": 1.7,
@@ -32,7 +32,7 @@
         "inactive": "Water; Cyclopentasiloxane; C12-15 Alkyl Benzoate; Isododecane; Glycerin; Propanediol; Cetyl Diglyceryl Tris(Trimethylsiloxy)silylethyl Dimethicone; 1,2-Hexanediol; Pyrus Malus (Apple) Fruit Extract; Sodium Chloride; Iron Oxides; Triethoxycaprylylsilane; Mica; Hydroxyacetophenone; Silica; Titanium Dioxide; Dimethicone/Vinyl Dimethicone Crosspolymer; Trisodium Ethylenediamine Disuccinate; Chlorphenesin; Tin Oxide; Tocopherol; Chondrus Crispus Extract; Sodium Hyaluronate"
     },
     {
-        "name": "Invincible Setting Powder",
+        "name": "Invincible Setting Powder for Face",
         "brand": "Supergoop!",
         "description": "A setting powder that provides 100 percent mineral broad-spectrum UV protection with a flawless, satin finish—perfect for setting your makeup and re-applying SPF in just one step.",
         "size": 0.2,
@@ -79,7 +79,7 @@
         "inactive": "Algae Extract (Organic); Aloe Barbadensis Leaf Juice (Organic); Bentonite; Bisabolol (Organic);  Brassica Campestris (Rapeseed) Seed Oil; Butyloctyl Salicylate; Camelina Sativa Seed Oil; Caprylhydroxamic Acid; Capryloyl Glycerin/Sebacic Acid Copolymer; Caprylyl Glycol; Carthamus Tinctorius (Safflower) Oleosomes; Cellulose Gum; Cetearyl Alcohol; Citric Acid; Citrus Aurantium Dulcis (Organic Orange) Fruit Water; Coco-Glucoside; Cocos Nucifera (Organic Coconut) Oil; Glycerin (Organic); Helianthus Annuus (Organic Sunflower) Seed Oil; Limnanthes Alba (Meadowfoam) Seed Oil; Mauritia Flexuosa (Organic Buriti) Fruit Oil;  Methyl Dihydroabietate; Microcrystalline Cellulose; Opuntia Ficus-Indica Flower Extract; Propanediol; Rosmarinus Officinalis (Organic Rosemary) Leaf Extract; Rubus Idaeus (Organic Raspberry) Seed Oil; Shea Butter Ethyl Esters; Simmondsia Chinesis (Organic Jojoba) Seed Oil; Sodium Stearoyl Glutamate; Water"
     },
     {
-        "name": "Fragrance-Free Sunscreen",
+        "name": "Fragrance-Free Body & Face Sunscreen",
         "brand": "Love Sun Body",
         "description": "",
         "size": 3.38,
@@ -95,7 +95,7 @@
         "inactive": "Almond Oil; Aqua/Water; Benzoic Acid; Caprylic/Capric Triglyceride (Coconut Oil); Cetyl Alcohol; Glycerin; Glyceryl Sterate SE; Natural Tiare; Natural Vanillin; Polyhydroxystearic Acid; Sorbitan Laurate; Sunflower Oil; Tocopherol (Vitamin E); Xathan Gum"
     },
     {
-        "name": "Physical Fusion UV Defense",
+        "name": "Physical Fusion UV Defense for Face",
         "brand": "Skinceuticals",
         "description": "A 'universal tint' that adapts to your skin tone with 100% mineral filters providing broad spectrum UVA/UVB protection, while promoting natural radiance and a more even skin tone",
         "size": 1.7,
@@ -111,7 +111,7 @@
         "inactive": "Water; Dimethicone; Isododecane; C12-15 Alkyl Benzoate; Undecane; Triethylhexanoin; Isohexadecane; Nylon-12; Caprylyl Methicone; Butyloctyl Salicylate; Phenethyl Benzoate; Styrene/acrylates Copolymer; Silica; Tridecane; Dicaprylyl Carbonate; Dicaprylyl Ether; Talc; Dimethicone/peg-10/15 Crosspolymer; Aluminum Stearate; Pentylene Glycol; Peg-9 Polydimethylsiloxyethyl Dimethicone; Alumina; Polyhydroxystearic Acid; Phenoxyethanol; Magnesium Sulfate; Caprylyl Glycol; Iron Oxides; Peg-8 Laurate; Disteardimonium Hectorite; Triethoxycaprylylsilane; Tocopherol; Propylene Carbonate; Artemia Extract; Benzoic Acid; C9-15 Fluoroalcohol Phosphate; Peg-9"
     },
     {
-        "name": "Natural Mineral Sunscreen For Body",
+        "name": "Natural Mineral Sunscreen For Face",
         "brand": "Suntegrity",
         "description": "An Unscented Body SPF 30 Mineral Sunscreen is unscented, vegan and chemical-free. It's non-greasy and contains 20% non-nano, uncoated zinc-oxide for therapeutic broad-spectrum protection against the sun’s harmful UVA and UVB rays.",
         "size": 4.3,
@@ -127,7 +127,7 @@
         "inactive": "Aloe Barbadensis (Organic Aloe Vera) Leaf Juice; Camellia Sinensis (Organic Green Tea) Leaf Extract; Caprylic Capric Triglycerides (Coconut Oil Extract); Cetyl Dimethicone (Mineral Based); Cucumis Sativus (Organic Cucumber) Fruit Extract; Ethylhexylglycerin (Plant Derived Preservative); Glyceryl Monostearate (Plant Derived); Helianthus Annuus (Organic Sunflower) Seed Oil; Hexyl Laurate (Plant Derived); Hyaluronic Acid (Plant Derived); Magnesium Sulfate (Epsom Salt); Polyaminopropyl Biguanide (Preservative); Polyglyceryl-4 Isostearate (Plant Derived); Punica Granatum (Organic Pomegranate) Seed Oil; Simmondsia Chinensis (Organic Jojoba) Seed Oil; Sorbitan Stearate (Plant Derived); Water"
     },
     {
-        "name": "Countersun Mineral Sunscreen Lotion",
+        "name": "Countersun Mineral Sunscreen Lotion for Body",
         "brand": "Beauty Counter",
         "description": "Guard against sun's damaging rays with this award winning sunscreen lotion. Formulated with non-nano zinc and California Poppy, this water resistant physical SPF 30 formulation provides an effective shield from UVA and UVB, while being gentle and pleasant feeling on the skin. ",
         "size": 3.4,
@@ -143,7 +143,7 @@
         "inactive": "Water; Caprylic/Capric Triglyceride; Coco-Caprylate; Cetearyl Nonanoate; Ethylhexyl Palmitate; Isopropyl Palmitate; Polyglyceryl-4 Diisostearate/Polyhydroxystearate/Sebacate; Glycerin; Isopropyl Myristate; Magnesium Sulfate; Beeswax; Phenoxyethanol; Silica; Sodium Chloride; Isostearic Acid; Lecithin; Polyglyceryl-3 Polyricinoleate; Polyhydroxystearic Acid; Hydrogenated Castor Oil; Decylene Glycol; Citrus Aurantium Dulcis (Orange) Peel Oil; Aloe Barbadensis Leaf Juice; 1,2-Hexanediol; Citrus Limon (Lemon) Peel Oil; Citrus Reticulata (Tangerine) Fruit Extract; Citrus Reticulata (Tangerine) Peel Oil; Eschscholzia Californica Leaf Cell Extract; Mentha Piperita (Peppermint) Oil; Mimosa Tenuiflora Bark Extract"
     },
     {
-        "name": "Mineral Body Sunscreen Lotion",
+        "name": "Mineral Body Sunscreen Lotion for Body",
         "brand": "Bare Republic",
         "description": "All natural chemical-free SPF 30 mineral sport sunscreen lotion for a lightweight, non-whitening, non-greasy way to protect yourself from those harmful UV rays. Broad spectrum UVA/UVB protection, 80 minutes water resistant, no chemical actives, no synthetic fragrances, no parabens.",
         "size": 5,

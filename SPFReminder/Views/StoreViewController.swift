@@ -47,7 +47,11 @@ class StoreViewController: UIViewController {
                     productDictionary["activeIngredients"] = activeArray
                     productDictionary["inactiveIngredients"] = inactiveArray
                     productDictionary["ingredients"] = activeArray + inactiveArray
-                    productArray.add(productDictionary)
+                    
+                    if let imageUrl = productDictionary["imageUrl"] as? String,
+                        let _ = URL(string: imageUrl) {
+                        productArray.add(productDictionary)
+                    }
                 }
             }
             return productArray
@@ -119,7 +123,7 @@ class StoreViewController: UIViewController {
             
             lblName.text = name
             lblBrand.text = brand.uppercased()
-            lblSPF.text = "\(spf)"
+            lblSPF.text = "SPF \(spf)"
         } else {
             lblSPF.text = ""
             lblBrand.text = "REAPPLY"
