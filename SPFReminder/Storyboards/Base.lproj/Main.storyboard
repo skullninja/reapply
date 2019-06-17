@@ -136,7 +136,7 @@
                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3U-fU-V3J">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3U-fU-V3J">
                                 <rect key="frame" x="97.5" y="383.5" width="180" height="180"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -144,7 +144,7 @@
                                     <constraint firstAttribute="width" constant="180" id="aFs-Sk-0uD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Apply" backgroundImage="temp-apply-background">
+                                <state key="normal" title="Apply">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -1005,7 +1005,6 @@
         <image name="rounded" width="414" height="827"/>
         <image name="shopping-bag" width="21" height="24"/>
         <image name="sun-rays" width="375" height="812"/>
-        <image name="temp-apply-background" width="180" height="180"/>
         <image name="temp-button-1" width="170" height="130"/>
         <image name="temp-button-2" width="170" height="130"/>
         <image name="temp-button-3" width="170" height="130"/>
