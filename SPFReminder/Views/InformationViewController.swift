@@ -40,8 +40,14 @@ class InformationViewController: GenericViewController {
     }
     
     @IBAction func btnShopTapped(_ sender: Any) {
-        guard let url = URL(string: "https://www.reapplyapp.com/shop") else { return }
-        UIApplication.shared.open(url)
+        
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let storeVC = storyboard.instantiateViewController(withIdentifier: "StoreViewController")
+        self.storeTransitioningDelegate = StoreTransitioningDelegate(viewController: storeVC, presentingViewController: self)
+        storeVC.modalPresentationStyle = .custom
+        storeVC.transitioningDelegate = self.storeTransitioningDelegate
+        present(storeVC, animated: true, completion: nil)
+    
     }
     
 }
