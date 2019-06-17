@@ -184,41 +184,43 @@ class ReminderViewController: GenericViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-       
-        
         //Inner layer
-        btnApply.layer.insertSublayer(pulsatorDarkOrange, at: 0)
+        imgApplyBackground.layer.insertSublayer(pulsatorDarkOrange, at: 0)
         pulsatorDarkOrange.numPulse = 2
-        pulsatorDarkOrange.radius = 50.0
+        pulsatorDarkOrange.radius = 90.0
         pulsatorDarkOrange.backgroundColor = UIColor(red: 232/255.0, green: 149/255.0, blue: 76/255.0, alpha: 1).cgColor
-        pulsatorDarkOrange.animationDuration = 5
-        pulsatorDarkOrange.position = CGPoint(x:btnApply.bounds.midX, y:btnApply.bounds.midY)
+        pulsatorDarkOrange.animationDuration = 8
+        pulsatorDarkOrange.position = CGPoint(x:imgApplyBackground.bounds.midX, y:imgApplyBackground.bounds.midY)
         
         //Middle layer
-        btnApply.layer.insertSublayer(pulsatorLightOrange, at: 0)
-        pulsatorLightOrange.numPulse = 1
-        pulsatorLightOrange.radius = 80.0
+        imgApplyBackground.layer.insertSublayer(pulsatorLightOrange, at: 0)
+        pulsatorLightOrange.numPulse = 2
+        pulsatorLightOrange.radius = 100.0
         pulsatorLightOrange.backgroundColor = UIColor(red: 240/255.0, green: 176/255.0, blue: 95/255.0, alpha: 1).cgColor
-        pulsatorLightOrange.animationDuration = 9
+        pulsatorLightOrange.animationDuration = 8
         //pulsatorLightOrange.pulseInterval = 5
-        pulsatorLightOrange.position = CGPoint(x:btnApply.bounds.midX, y:btnApply.bounds.midY)
+        pulsatorLightOrange.position = CGPoint(x:imgApplyBackground.bounds.midX, y:imgApplyBackground.bounds.midY)
         
         //Outer Layer
-        btnApply.layer.insertSublayer(pulsatorYellow, at: 0)
-        pulsatorYellow.numPulse = 1
-        pulsatorYellow.radius = 105.0
+        imgApplyBackground.layer.insertSublayer(pulsatorYellow, at: 0)
+        pulsatorYellow.numPulse = 2
+        pulsatorYellow.radius = 110.0
         pulsatorYellow.backgroundColor = UIColor(red: 244/255.0, green: 212/255.0, blue: 141/255.0, alpha: 1).cgColor
-        pulsatorYellow.animationDuration = 9
-        pulsatorYellow.position = CGPoint(x:btnApply.bounds.midX, y:btnApply.bounds.midY)
+        pulsatorYellow.animationDuration = 8
+        pulsatorYellow.position = CGPoint(x:imgApplyBackground.bounds.midX, y:imgApplyBackground.bounds.midY)
         
         //pulsatorDarkOrange.start()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
             self.pulsatorLightOrange.start()
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(800)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(0)) {
             self.pulsatorYellow.start()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(600)) {
+            self.pulsatorDarkOrange.start()
         }
         
         //TO DO: may not leave this here
