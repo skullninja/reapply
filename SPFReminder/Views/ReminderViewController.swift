@@ -292,6 +292,7 @@ class ReminderViewController: GenericViewController {
             lblToday.isHidden = false
             imgSunUV.isHidden = false
             lblTopUVTime.isHidden = false
+            imgApplyBackground.isHidden = false
             
         case .running:
             btnReapply.isHidden = false
@@ -300,6 +301,7 @@ class ReminderViewController: GenericViewController {
             btnStop.isHidden = false
             nightBackgroundView.isHidden = true
             lblTimerCountdown.isHidden = false
+            imgApplyBackground.isHidden = true
         case .nightime:
             btnReapply.isHidden = true
             lblUntilNextReapply.isHidden = true
@@ -307,17 +309,13 @@ class ReminderViewController: GenericViewController {
             btnStop.isHidden = true
             nightBackgroundView.isHidden = false
             lblTimerCountdown.isHidden = true
-            
+            imgApplyBackground.isHidden = true
             lblUVIndex.isHidden = true
             lblTopUVIndex.isHidden = true
             lblNow.isHidden = true
             lblToday.isHidden = true
             imgSunUV.isHidden = true
             lblTopUVTime.isHidden = true
-            
-            self.pulsatorLightOrange.stop()
-            self.pulsatorDarkOrange.stop()
-            self.pulsatorYellow.stop()
         }
     }
     

@@ -50,7 +50,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         self.dataSource = self
         self.delegate   = self
         configurePageControl()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.black
         
         
         /*

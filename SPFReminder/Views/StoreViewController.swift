@@ -95,6 +95,7 @@ class StoreViewController: UIViewController {
         carouselContainerView.translatesAutoresizingMaskIntoConstraints = false
         carouselContainerView.addSubview(productCarousel)
         
+        productCarousel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         productCarousel.frame = carouselContainerView.bounds
         productCarousel.topAnchor.constraint(equalTo: carouselContainerView.topAnchor).isActive = true
         productCarousel.leftAnchor.constraint(equalTo: carouselContainerView.leftAnchor).isActive = true
@@ -204,7 +205,7 @@ extension StoreViewController: iCarouselDataSource {
         contentView.axis = .vertical
         contentView.backgroundColor = .clear
         let imageView = UIImageView(frame: contentView.bounds)
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = UIScreen.main.bounds.size.height < 700.0 ? .scaleAspectFit : .scaleAspectFill
         if let product = StoreViewController.products[index] as? NSDictionary,
             let imageUrl = product["imageUrl"] as? String,
             let url = URL(string: imageUrl) {
