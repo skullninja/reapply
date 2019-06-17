@@ -758,11 +758,11 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6F-SE-115">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rounded" translatesAutoresizingMaskIntoConstraints="NO" id="tg9-8t-J8J">
-                                <rect key="frame" x="0.0" y="500" width="375" height="750"/>
+                                <rect key="frame" x="0.0" y="367" width="375" height="750"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tg9-8t-J8J" secondAttribute="height" multiplier="1:2" id="v2C-5U-1GA"/>
                                 </constraints>
@@ -867,9 +867,8 @@
                         <color key="backgroundColor" red="0.97647058823529409" green="0.96078431372549022" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="WZ7-sp-aIZ" firstAttribute="leading" secondItem="EZX-AS-Jmx" secondAttribute="leading" id="5Yf-51-oPl"/>
+                            <constraint firstItem="tg9-8t-J8J" firstAttribute="top" secondItem="W6F-SE-115" secondAttribute="bottom" constant="33" id="6Dc-2e-776"/>
                             <constraint firstItem="W6F-SE-115" firstAttribute="leading" secondItem="EZX-AS-Jmx" secondAttribute="leading" id="6sx-Eb-1UF"/>
-                            <constraint firstItem="NOF-Ok-b1M" firstAttribute="trailing" secondItem="EZX-AS-Jmx" secondAttribute="trailing" id="891-Uf-hnj"/>
-                            <constraint firstItem="tg9-8t-J8J" firstAttribute="top" secondItem="ims-tj-CUn" secondAttribute="top" constant="500" id="BvK-Zg-ky2"/>
                             <constraint firstItem="EZX-AS-Jmx" firstAttribute="bottom" secondItem="TiF-iD-C9u" secondAttribute="bottom" constant="10" id="C40-2A-LWe"/>
                             <constraint firstItem="jLt-oW-Ifw" firstAttribute="trailing" secondItem="EZX-AS-Jmx" secondAttribute="trailing" id="Dx3-ki-bZh"/>
                             <constraint firstItem="tg9-8t-J8J" firstAttribute="trailing" secondItem="EZX-AS-Jmx" secondAttribute="trailing" id="E7V-LW-j4c"/>
@@ -890,8 +889,8 @@
                             <constraint firstItem="EZX-AS-Jmx" firstAttribute="trailing" secondItem="BAY-CQ-5rJ" secondAttribute="trailing" constant="16" id="bLK-6S-g3S"/>
                             <constraint firstItem="WZ7-sp-aIZ" firstAttribute="height" secondItem="Ydo-yx-IIj" secondAttribute="height" id="bZg-8V-acG"/>
                             <constraint firstItem="3eF-EC-Wdh" firstAttribute="leading" secondItem="EZX-AS-Jmx" secondAttribute="leading" constant="28" id="c5G-Ii-gIo"/>
+                            <constraint firstItem="NOF-Ok-b1M" firstAttribute="centerX" secondItem="ims-tj-CUn" secondAttribute="centerX" id="eAN-Pc-DPg"/>
                             <constraint firstItem="EZX-AS-Jmx" firstAttribute="trailing" secondItem="lzR-gI-cPM" secondAttribute="trailing" constant="16" id="g1X-KJ-cuj"/>
-                            <constraint firstItem="EZX-AS-Jmx" firstAttribute="bottom" secondItem="W6F-SE-115" secondAttribute="bottom" constant="200" id="gHA-8C-9JT"/>
                             <constraint firstItem="o8x-d5-6Gw" firstAttribute="leading" secondItem="EZX-AS-Jmx" secondAttribute="leading" constant="28" id="guN-0J-gv0"/>
                             <constraint firstItem="W6F-SE-115" firstAttribute="top" secondItem="ims-tj-CUn" secondAttribute="top" id="hfK-Pf-CAR"/>
                             <constraint firstItem="Ydo-yx-IIj" firstAttribute="leading" secondItem="EZX-AS-Jmx" secondAttribute="leading" id="icT-hz-zk1"/>
@@ -902,6 +901,8 @@
                             <constraint firstItem="EZX-AS-Jmx" firstAttribute="trailing" secondItem="TiF-iD-C9u" secondAttribute="trailing" constant="28" id="uQ1-on-307"/>
                             <constraint firstItem="WZ7-sp-aIZ" firstAttribute="width" secondItem="Ydo-yx-IIj" secondAttribute="width" id="uxl-54-IMh"/>
                             <constraint firstItem="EZX-AS-Jmx" firstAttribute="bottom" secondItem="3Kl-CO-b56" secondAttribute="bottom" constant="280" id="v4g-9C-PZm"/>
+                            <constraint firstItem="NOF-Ok-b1M" firstAttribute="leading" secondItem="EZX-AS-Jmx" secondAttribute="leading" id="vQg-Cu-Py3"/>
+                            <constraint firstItem="tg9-8t-J8J" firstAttribute="top" secondItem="ims-tj-CUn" secondAttribute="bottom" constant="-300" id="vgm-qm-6w8"/>
                             <constraint firstItem="Ydo-yx-IIj" firstAttribute="top" secondItem="ims-tj-CUn" secondAttribute="top" id="yAy-iM-YoP"/>
                             <constraint firstItem="TiF-iD-C9u" firstAttribute="leading" secondItem="EZX-AS-Jmx" secondAttribute="leading" constant="28" id="zYf-D4-Su9"/>
                         </constraints>

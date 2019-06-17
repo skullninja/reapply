@@ -17,7 +17,7 @@ class StoreTransitionViewController: UIViewController {
     @IBOutlet weak var roundHeaderTopConstraint: NSLayoutConstraint!
     
     let roundHeaderConstraintMinValue: CGFloat = 64.0
-    let roundHeaderConstraintMaxValue: CGFloat = 500.0
+    var roundHeaderConstraintMaxValue: CGFloat = 500.0
     
     let backgroundConstraintMinValue: CGFloat = 190.0
     let backgroundConstraintMaxValue: CGFloat = -190.0
@@ -28,6 +28,8 @@ class StoreTransitionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        roundHeaderConstraintMaxValue = UIScreen.main.bounds.size.height - 300.0
         
         //TODO: Refactor
         if ReminderService.shared.isRunning {
