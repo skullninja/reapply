@@ -67,6 +67,7 @@ PODS:
   - SwiftMessages (6.0.2):
     - SwiftMessages/App (= 6.0.2)
   - SwiftMessages/App (6.0.2)
+  - TagListView (1.4.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8)
@@ -78,6 +79,7 @@ DEPENDENCIES:
   - Presentr
   - ScrollableGraphView (~> 4.0)
   - SwiftMessages (~> 6.0)
+  - TagListView (~> 1.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -97,6 +99,7 @@ SPEC REPOS:
     - Result
     - ScrollableGraphView
     - SwiftMessages
+    - TagListView
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -115,7 +118,8 @@ SPEC CHECKSUMS:
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   ScrollableGraphView: 4af35d4ea9ecdec665d34a74da51da161ddff8ac
   SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
+  TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
 
-PODFILE CHECKSUM: 26d164e60fac1949182927db76e8e163d93a5ce4
+PODFILE CHECKSUM: be7f041f09a97a2190e157cacb1bbcdf338fed1c
 
 COCOAPODS: 1.5.3

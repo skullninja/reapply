@@ -20,8 +20,13 @@ class StoreViewController: UIViewController {
     @IBOutlet weak var btnPurchase: UIButton!
     @IBOutlet weak var btnClose: UIButton!
     @IBOutlet weak var carouselContainerView: UIView!
+    @IBOutlet weak var ingredientListContainerView: UICollectionView!
     
-    let carousel = iCarousel(frame: .zero)
+    @IBOutlet weak var lblSPF: UILabel!
+    @IBOutlet weak var lblBrand: UILabel!
+    @IBOutlet weak var lblName: UILabel!
+    
+    let productCarousel = iCarousel(frame: .zero)
     
     let defaultHeaderImage = UIImage(named: "default")
     let timerHeaderImage = UIImage(named: "timer")
@@ -31,13 +36,27 @@ class StoreViewController: UIViewController {
         if let path = Bundle.main.path(forResource: "products", ofType: "json"),
             let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe),
             let jsonResult = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
-            return jsonResult as? NSArray ?? NSArray()
+            let rawArray = jsonResult as? NSArray ?? NSArray()
+            var productArray = NSMutableArray()
+            for product in rawArray {
+                if var productDictionary = product as? [String: Any?],
+                    let active = productDictionary["active"] as? String,
+                    let inactive = productDictionary["inactive"] as? String {
+                    let activeArray = active.components(separatedBy: ";")
+                    let inactiveArray = inactive.components(separatedBy: ";")
+                    productDictionary["activeIngredients"] = activeArray
+                    productDictionary["inactiveIngredients"] = inactiveArray
+                    productDictionary["ingredients"] = activeArray + inactiveArray
+                    productArray.add(productDictionary)
+                }
+            }
+            return productArray
         }
         return NSArray()
     }()
     
     private var currentProduct: NSDictionary {
-        let index = carousel.currentItemIndex
+        let index = productCarousel.currentItemIndex
         return StoreViewController.products[index] as? NSDictionary ?? NSDictionary()
     }
     
@@ -56,24 +75,33 @@ class StoreViewController: UIViewController {
         
         btnReview.clipsToBounds = true
         btnReview.layer.cornerRadius = 8.0
+        btnReview.layer.borderColor = UIColor.colorFromHex(0xF37225).cgColor
+        btnReview.layer.borderWidth = 1.0
+        btnReview.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         
         btnPurchase.clipsToBounds = true
         btnPurchase.layer.cornerRadius = 8.0
+        btnPurchase.layer.borderColor = UIColor.colorFromHex(0xF37225).cgColor
+        btnPurchase.layer.borderWidth = 1.0
+        btnPurchase.setTitleColor(UIColor.colorFromHex(0xF37225), for: .normal)
+        btnPurchase.backgroundColor = .clear
+        btnPurchase.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        btnPurchase.titleLabel?.adjustsFontSizeToFitWidth = true
         
         carouselContainerView.translatesAutoresizingMaskIntoConstraints = false
-        carouselContainerView.addSubview(carousel)
+        carouselContainerView.addSubview(productCarousel)
         
-        carousel.frame = carouselContainerView.bounds
-        carousel.topAnchor.constraint(equalTo: carouselContainerView.topAnchor).isActive = true
-        carousel.leftAnchor.constraint(equalTo: carouselContainerView.leftAnchor).isActive = true
-        carousel.bottomAnchor.constraint(equalTo: carouselContainerView.bottomAnchor).isActive = true
-        carousel.rightAnchor.constraint(equalTo: carouselContainerView.rightAnchor).isActive = true
+        productCarousel.frame = carouselContainerView.bounds
+        productCarousel.topAnchor.constraint(equalTo: carouselContainerView.topAnchor).isActive = true
+        productCarousel.leftAnchor.constraint(equalTo: carouselContainerView.leftAnchor).isActive = true
+        productCarousel.bottomAnchor.constraint(equalTo: carouselContainerView.bottomAnchor).isActive = true
+        productCarousel.rightAnchor.constraint(equalTo: carouselContainerView.rightAnchor).isActive = true
         
-        carousel.delegate = self
-        carousel.dataSource = self
-        carousel.isPagingEnabled = true
-        carousel.type = .invertedTimeMachine
-        carousel.reloadData()
+        productCarousel.delegate = self
+        productCarousel.dataSource = self
+        productCarousel.isPagingEnabled = true
+        productCarousel.type = .invertedTimeMachine
+        productCarousel.reloadData()
         
         updateProductDisplay(animated: false)
     }
@@ -85,16 +113,34 @@ class StoreViewController: UIViewController {
         } else {
             btnPurchase.setTitle("Buy Now", for: .normal)
         }
+        if let name = currentProduct["name"] as? String,
+            let brand = currentProduct["brand"] as? String,
+            let spf = currentProduct["spf"] as? Int {
+            
+            lblName.text = name
+            lblBrand.text = brand.uppercased()
+            lblSPF.text = "\(spf)"
+        } else {
+            lblSPF.text = ""
+            lblBrand.text = "REAPPLY"
+            lblName.text = "Recommended Sunscreen"
+        }
+        /*
+        ingredientListView.removeAllTags()
+        if let ingredients = currentProduct["ingredients"] as? [String] {
+            ingredientListView.addTags(ingredients)
+        }
+ */
     }
     
     @IBAction func previousProductAction(_ sender: Any) {
-        guard carousel.numberOfItems > 1, !carousel.isScrolling else { return }
-        carousel.scrollToItem(at: carousel.currentItemIndex - 1, duration: 1.0)
+        guard productCarousel.numberOfItems > 1, !productCarousel.isScrolling else { return }
+        productCarousel.scrollToItem(at: productCarousel.currentItemIndex - 1, duration: 1.0)
     }
     
     @IBAction func nextProductAction(_ sender: Any) {
-        guard carousel.numberOfItems > 1, !carousel.isScrolling else { return }
-        carousel.scrollToItem(at: carousel.currentItemIndex + 1, duration: 1.0)
+        guard productCarousel.numberOfItems > 1, !productCarousel.isScrolling else { return }
+        productCarousel.scrollToItem(at: productCarousel.currentItemIndex + 1, duration: 1.0)
     }
     
     @IBAction func reviewAction(_ sender: Any) {
@@ -117,6 +163,7 @@ class StoreViewController: UIViewController {
 extension StoreViewController: iCarouselDelegate {
     
     func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
+        
         if option == .wrap {
             return 1.0
         }
@@ -129,6 +176,7 @@ extension StoreViewController: iCarouselDelegate {
         if option == .fadeRange {
             return 0.5
         }
+        
         return value
     }
     
@@ -144,8 +192,15 @@ extension StoreViewController: iCarouselDataSource {
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-        let imageView = UIImageView(frame: carousel.bounds.insetBy(dx: 0, dy: 40))
-        imageView.contentMode = .scaleAspectFit
+        return productContentViewForIndex(carousel, viewForItemAt: index, reusing: view)
+    }
+    
+    private func productContentViewForIndex(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
+        let contentView = UIStackView(frame: carousel.bounds.insetBy(dx: 0, dy: 0))
+        contentView.axis = .vertical
+        contentView.backgroundColor = .clear
+        let imageView = UIImageView(frame: contentView.bounds)
+        imageView.contentMode = .scaleAspectFill
         if let product = StoreViewController.products[index] as? NSDictionary,
             let imageUrl = product["imageUrl"] as? String,
             let url = URL(string: imageUrl) {
@@ -153,7 +208,18 @@ extension StoreViewController: iCarouselDataSource {
         } else {
             imageView.image = UIImage(named: "temp-product")
         }
-        return imageView
+        
+        contentView.addArrangedSubview(imageView)
+        
+        let sizeLabel = UILabel(frame: CGRect.init(x: 0, y: 0, width: contentView.bounds.size.width, height: 44))
+        sizeLabel.adjustsFontSizeToFitWidth = true
+        sizeLabel.textAlignment = .center
+        sizeLabel.textColor = .white
+        sizeLabel.font = UIFont.systemFont(ofSize: 12.0)
+        sizeLabel.text = "2.5 FL OZ"
+        contentView.addArrangedSubview(sizeLabel)
+        
+        return contentView
     }
     
 }
