@@ -188,7 +188,7 @@ class ReminderViewController: GenericViewController {
         //Inner layer
         imgApplyBackground.layer.insertSublayer(pulsatorDarkOrange, at: 0)
         pulsatorDarkOrange.numPulse = 2
-        pulsatorDarkOrange.radius = 90.0
+        pulsatorDarkOrange.radius = 95.0
         pulsatorDarkOrange.backgroundColor = UIColor(red: 232/255.0, green: 149/255.0, blue: 76/255.0, alpha: 1).cgColor
         pulsatorDarkOrange.animationDuration = 8
         pulsatorDarkOrange.position = CGPoint(x:imgApplyBackground.bounds.midX, y:imgApplyBackground.bounds.midY)
@@ -196,7 +196,7 @@ class ReminderViewController: GenericViewController {
         //Middle layer
         imgApplyBackground.layer.insertSublayer(pulsatorLightOrange, at: 0)
         pulsatorLightOrange.numPulse = 2
-        pulsatorLightOrange.radius = 100.0
+        pulsatorLightOrange.radius = 105.0
         pulsatorLightOrange.backgroundColor = UIColor(red: 240/255.0, green: 176/255.0, blue: 95/255.0, alpha: 1).cgColor
         pulsatorLightOrange.animationDuration = 8
         //pulsatorLightOrange.pulseInterval = 5
@@ -205,7 +205,7 @@ class ReminderViewController: GenericViewController {
         //Outer Layer
         imgApplyBackground.layer.insertSublayer(pulsatorYellow, at: 0)
         pulsatorYellow.numPulse = 2
-        pulsatorYellow.radius = 110.0
+        pulsatorYellow.radius = 115.0
         pulsatorYellow.backgroundColor = UIColor(red: 244/255.0, green: 212/255.0, blue: 141/255.0, alpha: 1).cgColor
         pulsatorYellow.animationDuration = 8
         pulsatorYellow.position = CGPoint(x:imgApplyBackground.bounds.midX, y:imgApplyBackground.bounds.midY)
