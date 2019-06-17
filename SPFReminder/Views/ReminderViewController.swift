@@ -209,7 +209,7 @@ class ReminderViewController: GenericViewController {
         pulsatorYellow.animationDuration = 8
         pulsatorYellow.position = CGPoint(x:imgApplyBackground.bounds.midX, y:imgApplyBackground.bounds.midY)
         
-        //pulsatorDarkOrange.start()
+      
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
             self.pulsatorLightOrange.start()
@@ -314,6 +314,10 @@ class ReminderViewController: GenericViewController {
             lblToday.isHidden = true
             imgSunUV.isHidden = true
             lblTopUVTime.isHidden = true
+            
+            self.pulsatorLightOrange.stop()
+            self.pulsatorDarkOrange.stop()
+            self.pulsatorYellow.stop()
         }
     }
     
