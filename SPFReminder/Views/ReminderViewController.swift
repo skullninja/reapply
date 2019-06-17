@@ -33,6 +33,7 @@ class ReminderViewController: GenericViewController {
     @IBOutlet weak var imgSunUV: UIImageView!
     @IBOutlet weak var lblTopUVTime: UILabel!
     
+    @IBOutlet weak var imgSafety: UIImageView!
     @IBOutlet weak var imgApplyBackground: UIButton!
     
     let defaultTitleImage = UIImage(named: "default-title")
@@ -273,7 +274,6 @@ class ReminderViewController: GenericViewController {
         switch self.screenMode {
         case .daytime:
             btnReapply.isHidden = true
-            lblUntilNextReapply.isHidden = true
             btnApply.isHidden = false
             btnStop.isHidden = true
             nightBackgroundView.isHidden = true
@@ -287,6 +287,9 @@ class ReminderViewController: GenericViewController {
             lblTopUVTime.isHidden = false
             imgApplyBackground.isHidden = false
             
+            lblUntilNextReapply.isHidden = true
+            imgSafety.isHidden = true
+            
         case .running:
             btnReapply.isHidden = false
             lblUntilNextReapply.isHidden = false
@@ -295,6 +298,7 @@ class ReminderViewController: GenericViewController {
             nightBackgroundView.isHidden = true
             lblTimerCountdown.isHidden = false
             imgApplyBackground.isHidden = true
+            imgSafety.isHidden = false
             
             if UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 1334 {
                 //iPhone 6/6S/7/8
@@ -321,6 +325,7 @@ class ReminderViewController: GenericViewController {
             lblToday.isHidden = true
             imgSunUV.isHidden = true
             lblTopUVTime.isHidden = true
+            imgSafety.isHidden = true
         }
     }
     
