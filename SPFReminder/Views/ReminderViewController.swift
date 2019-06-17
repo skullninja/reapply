@@ -223,13 +223,6 @@ class ReminderViewController: GenericViewController {
             self.pulsatorDarkOrange.start()
         }
         
-        //TO DO: may not leave this here
-        
-        /*
-        let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "UserCompletedOnBoardingKey")
-        defaults.synchronize()
- */
         
         if !UserHelper.shared.hasCompletedOnboarding(){
             UserHelper.shared.setOnboardingComplete()
@@ -328,22 +321,27 @@ class ReminderViewController: GenericViewController {
     
     @IBAction func startStopAction(_ sender: Any) {
         
-        /*var config = SwiftMessages.defaultConfig
-        config.presentationStyle = .bottom
-        config.presentationContext = .viewController(self)
-        //config.presentationContext = .window(windowLevel: .alert)
-        config.duration = .forever
-        config.dimMode = .gray(interactive: true)
-        //config.interactiveHide = false
-        //config.preferredStatusBarStyle = .lightContent
-        config.eventListeners.append() { event in
-            if case .didHide = event { print("yep") }
-        }
-        */
-        
         if ReminderService.shared.isRunning {
             ReminderService.shared.stop()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+                self.pulsatorLightOrange.start()
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(0)) {
+                self.pulsatorYellow.start()
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(600)) {
+                self.pulsatorDarkOrange.start()
+            }
+            
         } else {
+            
+            self.pulsatorYellow.stop()
+            self.pulsatorDarkOrange.stop()
+            self.pulsatorLightOrange.stop()
+            
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             configureVC = storyboard.instantiateViewController(withIdentifier: "ConfigureReminderViewController") as? ConfigureReminderViewController
             configureVC?.delegate = self
