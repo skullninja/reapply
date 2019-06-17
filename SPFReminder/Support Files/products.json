@@ -11,7 +11,9 @@
         "reviewUrl": "https://amberreyn.wixsite.com/mysite-5/post/supergoop-superscreen-daily-moisturizer-spf",
         "imageUrl": "https://reapply-app-images.s3.amazonaws.com/supergoop-moisturizer.png",
         "linkUrl": "https://www.wallabii.com/product/57615/transfer",
-        "bodyPart": "Face"
+        "bodyPart": "Face",
+        "active": "Avobenzone 2.5%; Homosalate 8%; Octisalate 5%",
+        "inactive": "Water; Carthamus Tinctorius (Safflower) Oleosomes; Glycerin; C12-15 Alkyl Benzoate; Polyester-7; Ammonium Acryloyldimethyltaurate/VP Copolymer; Neopentyl Glycol Diheptanoate; Carthamus Tinctorius (Safflower) Seedcake Extract; Aphanizomenon Flos-Aquae Extract; Inulin Lauryl Carbamate; Xanthan Gum; Biosaccharide Gum-4; Cerium Oxide; Platinum Powder; 1,2-Hexanediol; Ethylhexylglycerin; Phenethyl Alcohol; Chlorphenesin"
     },
     {
         "name": "CC Cream Broad Spectrum",
@@ -25,7 +27,9 @@
         "reviewUrl": "",
         "imageUrl": "",
         "linkUrl": "https://www.wallabii.com/product/59988/transfer",
-        "bodyPart": "Face"
+        "bodyPart": "Face",
+        "active": "Titanium Dioxide (2%); Zinc Oxide (20%)",
+        "inactive": "Water; Cyclopentasiloxane; C12-15 Alkyl Benzoate; Isododecane; Glycerin; Propanediol; Cetyl Diglyceryl Tris(Trimethylsiloxy)silylethyl Dimethicone; 1,2-Hexanediol; Pyrus Malus (Apple) Fruit Extract; Sodium Chloride; Iron Oxides; Triethoxycaprylylsilane; Mica; Hydroxyacetophenone; Silica; Titanium Dioxide; Dimethicone/Vinyl Dimethicone Crosspolymer; Trisodium Ethylenediamine Disuccinate; Chlorphenesin; Tin Oxide; Tocopherol; Chondrus Crispus Extract; Sodium Hyaluronate"
     },
     {
         "name": "Invincible Setting Powder",
@@ -38,7 +42,9 @@
         "price": "$30.00",
         "imageUrl": "https://reapply-app-images.s3.amazonaws.com/invincible-setting-powder.png",
         "linkUrl": "https://www.wallabii.com/product/59989/transfer",
-        "bodyPart": "Face"
+        "bodyPart": "Face",
+        "active": "Zinc Oxide 24.5%",
+        "inactive": "Calcium Aluminum Borosilicate; Silica; Polymethyl Methacrylate; Ethylhexylglycerin; Triethoxycaprylysilane; Nylon-6/12; Sodium Dehydroacetate; Olive Glycerides; Ascorbyl Palmitate; Ceramide 3. May Contain +/- Iron Oxides (CI 77492 77491 77499); Titanium Dioxide (CI 77891)"
     },
     {
         "name": "5-in-1 Natural Moisturizing Face Sunscreen",
@@ -52,7 +58,9 @@
         "reviewUrl": "https://amberreyn.wixsite.com/mysite-5/post/supergoop-superscreen-daily-moisturizer-spf",
         "imageUrl": "https://reapply-app-images.s3.amazonaws.com/suntegrity.png",
         "linkUrl": "http://www.wallabii.com/product/57616/transfer",
-        "bodyPart": "Face (tinted)"
+        "bodyPart": "Face (tinted)",
+        "active": "Zinc-Oxide 20% (non-nano)",
+        "inactive": "Aloe Barbadensis (Organic Aloe Vera) Leaf Juice; Capric Caprylic Triglycerides (Coconut Oil Extract); Water (Aqua); Sorbitan Stearate (Plant Derived); Glyceryl Stearate (Plant Derived); Polyglyceryl-4 Isostearate (Plant Derived); Hexyl Laurate (Plant Derived); Simmondsia Chinensis (Organic Jojoba) Seed Oil; Cetyl Dimethicone (Mineral Derived); Magnesium Sulfate (Epsom Salt); Helianthus Annuus (Organic Sunflower) Seed Oil; Cucumis Sativus (Organic Cucumber) Fruit Extract; Astaxanthin (Algae Source); Hyaluronic Acid (Plant Derived); Chlorella Emersonii (Red Algae) Extract; Camellia Sinensis (Organic Green Tea) Extract; Punica Granatum (Organic Pomegranate) Seed Oil; Polyaminopropyl Biguanide; Ethylhexylglycerin; Iron Oxide"
     },
     {
         "name": "Body Organic Sunscreen Spray",
@@ -66,7 +74,9 @@
         "reviewUrl": "https://amberreyn.wixsite.com/mysite-5/post/supergoop-superscreen-daily-moisturizer-spf",
         "imageUrl": "https://reapply-app-images.s3.amazonaws.com/coola.png",
         "linkUrl": "http://www.wallabii.com/product/57617/transfer",
-        "bodyPart": "Body and Face"
+        "bodyPart": "Body and Face",
+        "active": "Zinc Oxide 14.0%",
+        "inactive": "Algae Extract (Organic); Aloe Barbadensis Leaf Juice (Organic); Bentonite; Bisabolol (Organic);  Brassica Campestris (Rapeseed) Seed Oil; Butyloctyl Salicylate; Camelina Sativa Seed Oil; Caprylhydroxamic Acid; Capryloyl Glycerin/Sebacic Acid Copolymer; Caprylyl Glycol; Carthamus Tinctorius (Safflower) Oleosomes; Cellulose Gum; Cetearyl Alcohol; Citric Acid; Citrus Aurantium Dulcis (Organic Orange) Fruit Water; Coco-Glucoside; Cocos Nucifera (Organic Coconut) Oil; Glycerin (Organic); Helianthus Annuus (Organic Sunflower) Seed Oil; Limnanthes Alba (Meadowfoam) Seed Oil; Mauritia Flexuosa (Organic Buriti) Fruit Oil;  Methyl Dihydroabietate; Microcrystalline Cellulose; Opuntia Ficus-Indica Flower Extract; Propanediol; Rosmarinus Officinalis (Organic Rosemary) Leaf Extract; Rubus Idaeus (Organic Raspberry) Seed Oil; Shea Butter Ethyl Esters; Simmondsia Chinesis (Organic Jojoba) Seed Oil; Sodium Stearoyl Glutamate; Water"
     },
     {
         "name": "Fragrance-Free Sunscreen",
@@ -80,7 +90,9 @@
         "reviewUrl": "https://www.reapplyapp.com/post/love-sun-body-spf-30-fragrance-free-body-sunscreen",
         "imageUrl": "https://reapply-app-images.s3.amazonaws.com/love-sun-body.png",
         "linkUrl": "https://www.wallabii.com/product/59401/transfer",
-        "bodyPart": "Body and Face"
+        "bodyPart": "Body and Face",
+        "active": "Zinc Oxide (Non-nano) 20.4%",
+        "inactive": "Almond Oil; Aqua/Water; Benzoic Acid; Caprylic/Capric Triglyceride (Coconut Oil); Cetyl Alcohol; Glycerin; Glyceryl Sterate SE; Natural Tiare; Natural Vanillin; Polyhydroxystearic Acid; Sorbitan Laurate; Sunflower Oil; Tocopherol (Vitamin E); Xathan Gum"
     },
     {
         "name": "Physical Fusion UV Defense",
@@ -94,7 +106,9 @@
         "reviewUrl": "https://www.reapplyapp.com/post/skinceuticals-physical-fusion-uv-defense-spf-50-product-review",
         "imageUrl": "https://reapply-app-images.s3.amazonaws.com/skinceuticals.png",
         "linkUrl": "https://www.wallabii.com/product/59153/transfer",
-        "bodyPart": "Face (tinted)"
+        "bodyPart": "Face (tinted)",
+        "active": "Titanium Dioxide 6%; Zinc Oxide 5%",
+        "inactive": "Water; Dimethicone; Isododecane; C12-15 Alkyl Benzoate; Undecane; Triethylhexanoin; Isohexadecane; Nylon-12; Caprylyl Methicone; Butyloctyl Salicylate; Phenethyl Benzoate; Styrene/acrylates Copolymer; Silica; Tridecane; Dicaprylyl Carbonate; Dicaprylyl Ether; Talc; Dimethicone/peg-10/15 Crosspolymer; Aluminum Stearate; Pentylene Glycol; Peg-9 Polydimethylsiloxyethyl Dimethicone; Alumina; Polyhydroxystearic Acid; Phenoxyethanol; Magnesium Sulfate; Caprylyl Glycol; Iron Oxides; Peg-8 Laurate; Disteardimonium Hectorite; Triethoxycaprylylsilane; Tocopherol; Propylene Carbonate; Artemia Extract; Benzoic Acid; C9-15 Fluoroalcohol Phosphate; Peg-9"
     },
     {
         "name": "Natural Mineral Sunscreen For Body",
@@ -108,7 +122,9 @@
         "reviewUrl": "",
         "imageUrl": "https://reapply-app-images.s3.amazonaws.com/suntegrity.png",
         "linkUrl": "http://www.wallabii.com/product/59693/transfer",
-        "bodyPart": "Body and Face"
+        "bodyPart": "Body and Face",
+        "active": "20% Zinc-Oxide (non-nano)",
+        "inactive": "Aloe Barbadensis (Organic Aloe Vera) Leaf Juice; Camellia Sinensis (Organic Green Tea) Leaf Extract; Caprylic Capric Triglycerides (Coconut Oil Extract); Cetyl Dimethicone (Mineral Based); Cucumis Sativus (Organic Cucumber) Fruit Extract; Ethylhexylglycerin (Plant Derived Preservative); Glyceryl Monostearate (Plant Derived); Helianthus Annuus (Organic Sunflower) Seed Oil; Hexyl Laurate (Plant Derived); Hyaluronic Acid (Plant Derived); Magnesium Sulfate (Epsom Salt); Polyaminopropyl Biguanide (Preservative); Polyglyceryl-4 Isostearate (Plant Derived); Punica Granatum (Organic Pomegranate) Seed Oil; Simmondsia Chinensis (Organic Jojoba) Seed Oil; Sorbitan Stearate (Plant Derived); Water"
     },
     {
         "name": "Countersun Mineral Sunscreen Lotion",
@@ -122,7 +138,9 @@
         "reviewUrl": "",
         "imageUrl": "https://reapply-app-images.s3.amazonaws.com/beauty-counter-countersun.png",
         "linkUrl": "https://www.wallabii.com/product/59694/transfer",
-        "bodyPart": "Body and Face"
+        "bodyPart": "Body and Face",
+        "active": "Zinc Oxide 19%",
+        "inactive": "Water; Caprylic/Capric Triglyceride; Coco-Caprylate; Cetearyl Nonanoate; Ethylhexyl Palmitate; Isopropyl Palmitate; Polyglyceryl-4 Diisostearate/Polyhydroxystearate/Sebacate; Glycerin; Isopropyl Myristate; Magnesium Sulfate; Beeswax; Phenoxyethanol; Silica; Sodium Chloride; Isostearic Acid; Lecithin; Polyglyceryl-3 Polyricinoleate; Polyhydroxystearic Acid; Hydrogenated Castor Oil; Decylene Glycol; Citrus Aurantium Dulcis (Orange) Peel Oil; Aloe Barbadensis Leaf Juice; 1,2-Hexanediol; Citrus Limon (Lemon) Peel Oil; Citrus Reticulata (Tangerine) Fruit Extract; Citrus Reticulata (Tangerine) Peel Oil; Eschscholzia Californica Leaf Cell Extract; Mentha Piperita (Peppermint) Oil; Mimosa Tenuiflora Bark Extract"
     },
     {
         "name": "Mineral Body Sunscreen Lotion",
@@ -136,7 +154,9 @@
         "reviewUrl": "",
         "imageUrl": "https://reapply-app-images.s3.amazonaws.com/bare-republic.png",
         "linkUrl": "https://www.wallabii.com/product/59695/transfer",
-        "bodyPart": "Body and Face"
+        "bodyPart": "Body and Face",
+        "active": "Titanium Dioxide 2.9%; Zinc Oxide 7.8%",
+        "inactive": "Alcohol; Aleurites Moluccana (Kukui) Seed Oil; Algae Extract; Allyl Heptoate; Aloe Barbadensis Leaf Juice; Butyloctyl Salicylate; C30-38 Olefin/Isopropyl Maleate/MA Copolymer; Caprylic/Capric Triglyceride; Caprylyl Glycol; Cetyl PEG/PPG-10/1 Dimethicone; Cocos Nucifera (Coconut) Oil; Dimethicone; Ethylhexyl Methoxycrylene; Ethylhexylglycerin; Gamma Decalactone; Gamma Nonalactone; Gamma Octalactone; Glycerin; Heliotropine; Isohexadecane; Lauryl PEG-8 Dimethicone; Octyldodecyl Citrate Crosspolymer; PEG-8; Phenylpropenol; Raspberry Ketone; Silica; Sodium Chloride; Sodium Citrate; Tocopheryl Acetate; Triethoxycaprylylsilane; Triethyl Citrate; Vanillin; Vegan Beeswax; Water"
     },
     {
         "name": "Mineral Face Sunscreen Lotion",
@@ -150,7 +170,9 @@
         "reviewUrl": "",
         "imageUrl": "https://reapply-app-images.s3.amazonaws.com/bare-republic.png",
         "linkUrl": "https://www.wallabii.com/product/59696/transfer",
-        "bodyPart": "Face"
+        "bodyPart": "Face",
+        "active": "Titanium Dioxide- 5.2%; Zinc Oxide- 2.5%",
+        "inactive": "Aluminum Hydroxide; Butyrospermum Parkii (Shea) Butter; Cyclopentasiloxane; Daucus Carota Sativa (Carrot) Seed Oil; Dimethicone Crosspolymer; Glycerin; Hydrogen Dimethicone; Isopropyl Myristate; Polyamide-5; Polysilicone-11; Propylene Carbonate; Rubus Idaeus (Raspberry) Seed Oil; Silica Silylate; Stearalkonium Hectorite; Vitis Vinifera (Grape) Seed Oil"
     },
     {
         "name": "Unscented Lip Balm",
@@ -163,7 +185,9 @@
         "price": "$7.59",
         "imageUrl": "https://reapply-app-images.s3.amazonaws.com/all-good-lip-balm.png",
         "linkUrl": "https://www.wallabii.com/product/59990/transfer",
-        "bodyPart": "Lips"
+        "bodyPart": "Lips",
+        "active": "Zinc Oxide 8.0% (Non-nanoparticle)",
+        "inactive": "Organic Calendula; Organic Comfrey; Organic Lavender; Organic Plantain and Organic Yarrow Infused in Organic Extra Virgin Olive Oil; Organic Beeswax; Organic Castor Oil; Raspberry Seed Oil; Non-GMO Vitamin E"
     },
     {
         "name": "Sheer Zinc Natural Spray for Sensitive Skin",
@@ -177,7 +201,9 @@
         "reviewUrl": "",
         "imageUrl": "",
         "linkUrl": "https://www.wallabii.com/product/59991/transfer",
-        "bodyPart": "Body and Face"
+        "bodyPart": "Body and Face",
+        "active": "Zinc Oxide 12% (Non-Nano) Minerals",
+        "inactive": "Aloe Barbadensis Leaf Juice; Bentonite; Butyloctyl Salicylate; Calendula Officinalis Flower Extract*; Caprylhydroxamic Acid; Caprylyl Glycol; Carthamus Tinctorius (Safflower) Seed Oil; Cetearyl Alcohol; Chamomilla Recutita (Matricaria) Flower Extract; Coco Glucoside; Glycerin; Helianthus Annuus (Sunflower) Seed Oil; Heptyl Undecylenate; Jojoba Esters; Methyl Dihydroabietate; Nasturtium Officinale Flower/Leaf Extract*; Pueraria Lobata Root Extract*; Spiraea Ulmaria Flower Extract; Water"
     },
     {
       "name": "Mineral Sun Silk Creme",
@@ -191,7 +217,9 @@
       "reviewUrl": "",
       "imageUrl": "",
       "linkUrl": "https://www.wallabii.com/product/60155/transfer",
-      "bodyPart": "Face"
+      "bodyPart": "Face",
+      "active": "Zinc Oxide 15.0%",
+      "inactive": "Aloe Barbadensis Leaf Juice; Butylene Glycol; Caprylyl Glycol; Caprylic/Capric Triglyceride; Cetearyl Alcohol; Didecyldimonium Chloride; Dimethicone; Glyceryl Caprylate; Glyceryl Stearate Citrate; Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer; Jasminum Sambac Leaf Cell Extract; Methylpropanediol; Niacinamide; PEG-7 Trimethylolpropane Coconut Ether; Polyhydroxystearic Acid; Polyisobutene; Polyquaternium-80; Propanediol; Schinus Molle Extract; Theobroma Cacao (Cocoa) Seed Extract"
     }
 ]
 

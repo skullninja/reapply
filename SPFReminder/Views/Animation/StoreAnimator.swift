@@ -17,7 +17,7 @@ class StoreAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 1.5
+        return 1.0
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {

@@ -15,6 +15,7 @@ target 'SPFReminder' do
  pod 'Firebase/Analytics'
  pod 'AlamofireImage', '~> 3.5'
  pod 'Presentr'
- pod "Pulsator"
+ pod 'Pulsator'
+ pod 'TagListView', '~> 1.4'
 
 end
