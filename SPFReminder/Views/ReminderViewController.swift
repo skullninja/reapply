@@ -341,7 +341,7 @@ class ReminderViewController: GenericViewController {
         if ReminderService.shared.isRunning {
             ReminderService.shared.stop()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(200)) {
                 self.pulsatorLightOrange.start()
             }
             
@@ -349,7 +349,7 @@ class ReminderViewController: GenericViewController {
                 self.pulsatorYellow.start()
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(600)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(400)) {
                 self.pulsatorDarkOrange.start()
             }
             
