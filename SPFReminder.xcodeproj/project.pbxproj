@@ -33,6 +33,7 @@
 		96236225221B5E8C00B8B172 /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96236224221B5E8C00B8B172 /* ForecastService.swift */; };
 		96236227221B7C0100B8B172 /* DailyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96236226221B7C0100B8B172 /* DailyForecast.swift */; };
 		965158B72224AB7B003B1092 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965158B62224AB7A003B1092 /* LocationService.swift */; };
+		965A3A5E22B962FC00D1A948 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965A3A5D22B962FC00D1A948 /* WebViewController.swift */; };
 		966A783B2294A86300039CF2 /* tips.json in Resources */ = {isa = PBXBuildFile; fileRef = 966A783A2294A86300039CF2 /* tips.json */; };
 		967C5EB8222F7FF9000582D7 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C5EB7222F7FF9000582D7 /* CloudKitManager.swift */; };
 		96F07993222615E7009A5C06 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96F07992222615E7009A5C06 /* CloudKit.framework */; };
@@ -72,6 +73,7 @@
 		96236224221B5E8C00B8B172 /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
 		96236226221B7C0100B8B172 /* DailyForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecast.swift; sourceTree = "<group>"; };
 		965158B62224AB7A003B1092 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		965A3A5D22B962FC00D1A948 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		966A783A2294A86300039CF2 /* tips.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tips.json; sourceTree = "<group>"; };
 		967C5EB5222F36D1000582D7 /* ReminderCloudKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCloudKitModel.swift; sourceTree = "<group>"; };
 		967C5EB7222F7FF9000582D7 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				5587FF042290C12600D07FFE /* StoreTransitionViewController.swift */,
 				9601E5B1229DA53100AADB45 /* OnboardingViewController.swift */,
 				960B738D22A0421800D3A3BC /* OnboardingPageContent.swift */,
+				965A3A5D22B962FC00D1A948 /* WebViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				9601E5B2229DA53100AADB45 /* OnboardingViewController.swift in Sources */,
 				5587FEFD229098BF00D07FFE /* StoreTransitioningDelegate.swift in Sources */,
 				55BAA908221B7C4F00D09D54 /* GraphService.swift in Sources */,
+				965A3A5E22B962FC00D1A948 /* WebViewController.swift in Sources */,
 				965158B72224AB7B003B1092 /* LocationService.swift in Sources */,
 				9601E5B4229DF10D00AADB45 /* UserHelper.swift in Sources */,
 				55BAA9052212921800D09D54 /* Reminder.swift in Sources */,
