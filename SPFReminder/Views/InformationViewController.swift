@@ -27,11 +27,17 @@ class InformationViewController: GenericViewController {
     @IBAction func btnSunBasicsTapped(_ sender: Any) {
         guard let url = URL(string: "https://www.reapplyapp.com/sun-care-basics") else { return }
         UIApplication.shared.open(url)
+        
     }
     
     @IBAction func btnTipsTapped(_ sender: Any) {
-        guard let url = URL(string: "https://www.reapplyapp.com/sun-safety-tips-1") else { return }
-        UIApplication.shared.open(url)
+        //guard let url = URL(string: "https://www.reapplyapp.com/sun-safety-tips-1") else { return }
+        //UIApplication.shared.open(url)
+        
+        let webViewController = WebViewController()
+        webViewController.urlString = "https://www.reapplyapp.com/copy-of-safety-tips"
+        self.present(webViewController, animated: true, completion: nil)
+        
     }
     
     @IBAction func btnReviewsTapped(_ sender: Any) {

@@ -622,7 +622,6 @@
                                 <state key="normal" backgroundImage="temp-button-2"/>
                                 <connections>
                                     <action selector="btnReviewsTapped:" destination="hBH-Td-nP7" eventType="touchUpInside" id="lWQ-mH-gIe"/>
-                                    <action selector="btnTipsTapped:" destination="hBH-Td-nP7" eventType="touchUpInside" id="yZV-zI-unr"/>
                                 </connections>
                             </button>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kkZ-rn-DXw">

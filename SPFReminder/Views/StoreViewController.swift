@@ -149,9 +149,11 @@ class StoreViewController: UIViewController {
     }
     
     @IBAction func reviewAction(_ sender: Any) {
-        guard let reviewUrl = currentProduct["reviewUrl"] as? String,
-            let url = URL(string: reviewUrl) else { return }
-        UIApplication.shared.open(url)
+        guard let reviewUrl = currentProduct["reviewUrl"] as? String else { return }
+ 
+        let webViewController = WebViewController()
+        webViewController.urlString = reviewUrl
+        self.present(webViewController, animated: true, completion: nil)
     }
     
     @IBAction func purchaseAction(_ sender: Any) {
