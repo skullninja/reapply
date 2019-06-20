@@ -98,8 +98,7 @@ class ReminderService {
             save(reminder)
         }
         _reminder = nil
-        print("notifications removed")
-        NotificationService.shared.removeNotifications()
+        NotificationService.shared.removeReminderNotifications()
     }
     
     func reapply() {

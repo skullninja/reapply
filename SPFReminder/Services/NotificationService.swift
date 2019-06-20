@@ -16,6 +16,8 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     private let _notificationCenter = UNUserNotificationCenter.current()
     private let _notificationContent = UNMutableNotificationContent()
     
+    var identifier:String = ""
+    
     private lazy var tips: NSArray = {
         if let path = Bundle.main.path(forResource: "tips", ofType: "json"),
             let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe),
@@ -39,6 +41,8 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
              _notificationContent.subtitle = "2 hours have passed"
         }
         
+        self.identifier = "Reminder"
+        
         //_notificationContent = UNNotificationSound.default()
     }
     
@@ -49,6 +53,8 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         _notificationContent.body = "Get on in here and reapply."
         _notificationContent.categoryIdentifier = "spfReminderCategory"
         //_notificationContent = UNNotificationSound.default()
+        
+        self.identifier = "Reminder"
     }
     
     func setupTipNotificationContent(_ tipDescripition: String) {
@@ -64,7 +70,8 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     func setReminderNotification(_ reminder: Reminder) {
         
         UNUserNotificationCenter.current().delegate = self
-        removeNotifications()
+        removeReminderNotifications()
+        removeTomorrowNotifications()
         
         let seconds = reminder.calculateSecondsToReapply()
         
@@ -105,7 +112,6 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
                     self.createNotification(notificationTime)
                     
                     secondsUntilSunset = secondsUntilSunset - Double(thirtyMinutes)
-                    //print("follow up notifcation for 30 minutes, \(secondsUntilSunset) minutes remaining")
                 }
                 
                 //only set a notification if there is more than hour before sunset after the notification fires
@@ -120,7 +126,11 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
                 }
                 
                 self.createFutureDailyNotification()
-                self.createTipsNotification()
+                
+                if !UserHelper.shared.hasTipNotificationsScheduled(){
+                    UserHelper.shared.setTipNotificationsScheduled()
+                    self.createTipsNotification()
+                }
             }
         }
     
@@ -130,7 +140,6 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds),
                                                         repeats: false)
         
-        let identifier = "InitialNotification\(seconds)"
         let notifcationRequest1 = UNNotificationRequest(identifier: identifier,
                                                         content: self._notificationContent, trigger: trigger)
         self._notificationCenter.add(notifcationRequest1, withCompletionHandler: { (error) in
@@ -177,12 +186,36 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         _notificationContent.body = "The top UV Index is \(maxUVIndex) and cloud coverage is \(cloudCoverage) percent. Get on in here and start the sunscreen reminder."
         _notificationContent.categoryIdentifier = "spfReminderCategory"
         //_notificationContent = UNNotificationSound.default()
+        
+        self.identifier = "TomorrowReminder"
     }
     
-    func removeNotifications() {
-        print("remove notifications")
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+    func removeReminderNotifications() {
+        
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (notificationRequests) in
+            var identifiersArray: [String] = []
+            for notification:UNNotificationRequest in notificationRequests {
+                if notification.identifier == "Reminder" {
+                    identifiersArray.append(notification.identifier)
+                    print("remove reminder notification")
+                }
+            }
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiersArray)
+        }
+    }
+    
+    func removeTomorrowNotifications() {
+        
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (notificationRequests) in
+            var identifiersArray: [String] = []
+            for notification:UNNotificationRequest in notificationRequests {
+                if notification.identifier == "TomorrowReminder" {
+                    identifiersArray.append(notification.identifier)
+                    print("remove tomorrow reminder notification")
+                }
+            }
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiersArray)
+        }
     }
     
     //Mark - UNNotifcation Delegate
@@ -200,7 +233,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
         //remove any notifications
-        NotificationService.shared.removeNotifications()
+        NotificationService.shared.removeReminderNotifications()
         
         completionHandler([.alert, .sound])
     }
@@ -212,8 +245,9 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         for tip in self.tips{
             
             var tipDict = tip as! Dictionary<String, AnyObject>
-            let tipDescription = tipDict["tip"]
-            self.setupTipNotificationContent(tipDescription as! String)
+            let tipDescription = tipDict["tip"] as! String
+            let tipId = tipDict["tipId"]
+            self.setupTipNotificationContent(tipDescription )
             
             //get next day noon
             let date = Date()
@@ -229,7 +263,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds),
                                                             repeats: false)
             
-            let identifier = "TipNotification\(seconds)"
+            self.identifier = "Tips"
             let notifcationRequest1 = UNNotificationRequest(identifier: identifier,
                                                             content: self._notificationContent, trigger: trigger)
             self._notificationCenter.add(notifcationRequest1, withCompletionHandler: { (error) in
@@ -239,6 +273,8 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             })
             
             i += 1
+            
+            UserHelper.shared.setKeyInUserDefaults(key: tipId as! String, value: "true")
         
         }
     }
