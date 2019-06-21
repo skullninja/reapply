@@ -16,7 +16,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     private let _notificationCenter = UNUserNotificationCenter.current()
     private let _notificationContent = UNMutableNotificationContent()
     
-    var identifier:String = ""
+    var identifier:String = "Reminder"
     
     private lazy var tips: NSArray = {
         if let path = Bundle.main.path(forResource: "tips", ofType: "json"),
@@ -41,8 +41,6 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
              _notificationContent.subtitle = "2 hours have passed"
         }
         
-        self.identifier = "Reminder"
-        
         //_notificationContent = UNNotificationSound.default()
     }
     
@@ -54,7 +52,6 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         _notificationContent.categoryIdentifier = "spfReminderCategory"
         //_notificationContent = UNNotificationSound.default()
         
-        self.identifier = "Reminder"
     }
     
     func setupTipNotificationContent(_ tipDescripition: String) {
@@ -140,11 +137,13 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds),
                                                         repeats: false)
         
-        let notifcationRequest1 = UNNotificationRequest(identifier: identifier,
+        let notifcationRequest1 = UNNotificationRequest(identifier: self.identifier,
                                                         content: self._notificationContent, trigger: trigger)
         self._notificationCenter.add(notifcationRequest1, withCompletionHandler: { (error) in
+            print("added notification \(self.identifier)")
             if error != nil {
                 // Something went wrong
+                print("something went wrong adding notification")
             }
         })
         
@@ -172,7 +171,21 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             let localNow = Date().convertFromGMT(timeZone: TimeZone.current)
             let secondsUntilTomorrowDate = abs(localNow.timeIntervalSince(localTomorrow))
             self.setupFutureDailyNotificationContent(dayIndex: i)
-            self.createNotification(Int(secondsUntilTomorrowDate))
+           // self.createNotification(Int(secondsUntilTomorrowDate))
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(secondsUntilTomorrowDate),
+                                                            repeats: false)
+            
+            let notifcationRequest1 = UNNotificationRequest(identifier: "TomorrowReminder",
+                                                            content: self._notificationContent, trigger: trigger)
+            self._notificationCenter.add(notifcationRequest1, withCompletionHandler: { (error) in
+                if error != nil {
+                    // Something went wrong
+                }
+                
+                print("added tomorrow notificaitons")
+            })
+            
             i += 1
         }
     }
@@ -187,7 +200,6 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         _notificationContent.categoryIdentifier = "spfReminderCategory"
         //_notificationContent = UNNotificationSound.default()
         
-        self.identifier = "TomorrowReminder"
     }
     
     func removeReminderNotifications() {
@@ -263,13 +275,14 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds),
                                                             repeats: false)
             
-            self.identifier = "Tips"
-            let notifcationRequest1 = UNNotificationRequest(identifier: identifier,
+            let notifcationRequest1 = UNNotificationRequest(identifier: "Tips",
                                                             content: self._notificationContent, trigger: trigger)
             self._notificationCenter.add(notifcationRequest1, withCompletionHandler: { (error) in
                 if error != nil {
-                    // Something went wrong
+                    print("error adding tip notificaitons")
                 }
+                
+                print("added tip notificaitons")
             })
             
             i += 1
