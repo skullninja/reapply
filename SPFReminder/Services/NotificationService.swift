@@ -67,8 +67,6 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     func setReminderNotification(_ reminder: Reminder) {
         
         UNUserNotificationCenter.current().delegate = self
-        removeReminderNotifications()
-        removeTomorrowNotifications()
         
         let seconds = reminder.calculateSecondsToReapply()
         
@@ -137,6 +135,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds),
                                                         repeats: false)
         
+        self.identifier = self.identifier + "\(seconds)"
         let notifcationRequest1 = UNNotificationRequest(identifier: self.identifier,
                                                         content: self._notificationContent, trigger: trigger)
         self._notificationCenter.add(notifcationRequest1, withCompletionHandler: { (error) in
@@ -150,6 +149,8 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     }
     
     func createFutureDailyNotification(){
+        
+        removeTomorrowNotifications()
         
         //start with index 1 to get tomorrow's forecast
         var i = 1
@@ -176,7 +177,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(secondsUntilTomorrowDate),
                                                             repeats: false)
             
-            let notifcationRequest1 = UNNotificationRequest(identifier: "TomorrowReminder",
+            let notifcationRequest1 = UNNotificationRequest(identifier: "TomorrowReminder\(secondsUntilTomorrowDate)",
                                                             content: self._notificationContent, trigger: trigger)
             self._notificationCenter.add(notifcationRequest1, withCompletionHandler: { (error) in
                 if error != nil {
@@ -207,7 +208,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         UNUserNotificationCenter.current().getPendingNotificationRequests { (notificationRequests) in
             var identifiersArray: [String] = []
             for notification:UNNotificationRequest in notificationRequests {
-                if notification.identifier == "Reminder" {
+                if notification.identifier .contains("Reminder")  {
                     identifiersArray.append(notification.identifier)
                     print("remove reminder notification")
                 }
@@ -221,7 +222,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         UNUserNotificationCenter.current().getPendingNotificationRequests { (notificationRequests) in
             var identifiersArray: [String] = []
             for notification:UNNotificationRequest in notificationRequests {
-                if notification.identifier == "TomorrowReminder" {
+                if notification.identifier .contains("TomorrowReminder")  {
                     identifiersArray.append(notification.identifier)
                     print("remove tomorrow reminder notification")
                 }
@@ -275,7 +276,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds),
                                                             repeats: false)
             
-            let notifcationRequest1 = UNNotificationRequest(identifier: "Tips",
+            let notifcationRequest1 = UNNotificationRequest(identifier: "Tips\(seconds)",
                                                             content: self._notificationContent, trigger: trigger)
             self._notificationCenter.add(notifcationRequest1, withCompletionHandler: { (error) in
                 if error != nil {
