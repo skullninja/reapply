@@ -130,6 +130,13 @@ class StoreViewController: UIViewController {
             lblBrand.text = "REAPPLY"
             lblName.text = "Recommended Sunscreen"
         }
+        if let reviewLink = currentProduct["reviewUrl"] as? String,
+            let _ = URL(string: reviewLink) {
+            btnReview.isHidden = false
+        } else {
+            btnReview.isHidden = true
+        }
+        
         /*
         ingredientListView.removeAllTags()
         if let ingredients = currentProduct["ingredients"] as? [String] {

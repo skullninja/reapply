@@ -990,7 +990,7 @@
                         <color key="tintColor" red="0.9882352941176471" green="0.70588235294117641" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.87450980392156863" green="0.37647058823529411" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" red="0.95294117647058818" green="0.44705882352941173" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
@@ -1014,7 +1014,7 @@
         <image name="read-light-idea" width="24" height="24"/>
         <image name="rounded" width="414" height="827"/>
         <image name="safety" width="12" height="12"/>
-        <image name="shopping-bag" width="21" height="24"/>
+        <image name="shopping-bag" width="24" height="28"/>
         <image name="sun-rays" width="375" height="812"/>
         <image name="temp-button-1" width="170" height="130"/>
         <image name="temp-button-2" width="170" height="130"/>
