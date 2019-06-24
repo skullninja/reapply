@@ -81,7 +81,7 @@
     {
         "name": "Fragrance-Free Body & Face Sunscreen",
         "brand": "Love Sun Body",
-        "description": "",
+        "description": "An all natural organic body mineral sunscreen that works. This sunscreen provides non-nano zinc and titanium oxide to block both UVA and UVB rays.",
         "size": 3.38,
         "mineral": true,
         "spf": 30,
@@ -208,7 +208,7 @@
     {
       "name": "Mineral Sun Silk Creme",
       "brand": "Coola",
-      "description": "An oil-free, airy-light formula gently glides on to form a transparent veil, ideal for everyday use. Non-nano Zinc Oxide provides broad spectrum UVA/UVB protection while a plant-derived Full Spectrum 360° complex helps mitigate the effects of today’s modern-world skin-aggressors – HEV light, IR, and pollution.",
+      "description": "An oil-free, light formula gently glides on to form a transparent veil, ideal for everyday use. Non-nano Zinc Oxide provides broad spectrum UVA/UVB protection while a plant derived Full Spectrum 360° complex helps mitigate the effects of today’s skin aggressors - HEV light, IR, and pollution.",
       "size": 1.5,
       "mineral": true,
       "spf": 30,
