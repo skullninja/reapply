@@ -25,6 +25,7 @@ class StoreViewController: UIViewController {
     @IBOutlet weak var lblSPF: UILabel!
     @IBOutlet weak var lblBrand: UILabel!
     @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var btnMoreInfo: UIButton!
     
     let productCarousel = iCarousel(frame: .zero)
     
@@ -172,6 +173,25 @@ class StoreViewController: UIViewController {
     @IBAction func closeAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func moreInfoAction(_ sender: Any) {
+        
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let configureVC = storyboard.instantiateViewController(withIdentifier: "MoreProductInfoViewController") as! MoreProductInfoViewController
+        
+        if let name = currentProduct["name"] as? String,
+            let brand = currentProduct["brand"] as? String,
+            let description = currentProduct["description"] as? String{
+        
+            configureVC.brandText = brand
+            configureVC.nameText = name
+            configureVC.descriptionText = description
+        }
+     
+        let segue = ConfigureReminderSegue(identifier: nil, source: self, destination: configureVC)
+            segue.perform()
+    }
+    
 }
 
 extension StoreViewController: iCarouselDelegate {
@@ -236,4 +256,5 @@ extension StoreViewController: iCarouselDataSource {
         return contentView
     }
     
+
 }
