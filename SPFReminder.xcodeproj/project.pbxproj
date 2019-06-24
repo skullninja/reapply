@@ -32,6 +32,7 @@
 		9623342621F81D7E00E31825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9623342421F81D7E00E31825 /* LaunchScreen.storyboard */; };
 		96236225221B5E8C00B8B172 /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96236224221B5E8C00B8B172 /* ForecastService.swift */; };
 		96236227221B7C0100B8B172 /* DailyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96236226221B7C0100B8B172 /* DailyForecast.swift */; };
+		9641C09922C04467008C9452 /* MoreProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641C09822C04467008C9452 /* MoreProductInfoViewController.swift */; };
 		965158B72224AB7B003B1092 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965158B62224AB7A003B1092 /* LocationService.swift */; };
 		965A3A5E22B962FC00D1A948 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965A3A5D22B962FC00D1A948 /* WebViewController.swift */; };
 		966A783B2294A86300039CF2 /* tips.json in Resources */ = {isa = PBXBuildFile; fileRef = 966A783A2294A86300039CF2 /* tips.json */; };
@@ -72,6 +73,7 @@
 		9623342721F81D7E00E31825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96236224221B5E8C00B8B172 /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
 		96236226221B7C0100B8B172 /* DailyForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecast.swift; sourceTree = "<group>"; };
+		9641C09822C04467008C9452 /* MoreProductInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProductInfoViewController.swift; sourceTree = "<group>"; };
 		965158B62224AB7A003B1092 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		965A3A5D22B962FC00D1A948 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		966A783A2294A86300039CF2 /* tips.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tips.json; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				9601E5B1229DA53100AADB45 /* OnboardingViewController.swift */,
 				960B738D22A0421800D3A3BC /* OnboardingPageContent.swift */,
 				965A3A5D22B962FC00D1A948 /* WebViewController.swift */,
+				9641C09822C04467008C9452 /* MoreProductInfoViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				96236225221B5E8C00B8B172 /* ForecastService.swift in Sources */,
 				5587FEFA228E66B700D07FFE /* StoreAnimator.swift in Sources */,
 				55BAA903220651E100D09D54 /* ReminderService.swift in Sources */,
+				9641C09922C04467008C9452 /* MoreProductInfoViewController.swift in Sources */,
 				967C5EB8222F7FF9000582D7 /* CloudKitManager.swift in Sources */,
 				5587FF0322909F5100D07FFE /* GenericViewController.swift in Sources */,
 				55F7D823226ED62A00205EE3 /* InformationViewController.swift in Sources */,
