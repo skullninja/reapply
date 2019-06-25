@@ -17,5 +17,6 @@ target 'SPFReminder' do
  pod 'Presentr'
  pod 'Pulsator'
  pod 'TagListView', '~> 1.4'
+ pod 'AMPopTip'
 
 end

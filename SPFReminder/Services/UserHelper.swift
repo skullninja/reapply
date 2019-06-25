@@ -52,4 +52,12 @@ class UserHelper: NSObject{
     func setTipNotificationsScheduled(){
         setKeyInUserDefaults(key: "TipNotificationsRequestKey", value: "true")
     }
+    
+    func hasSeenWelcomeTutorial() -> Bool{
+        return isKeyPresentInUserDefaults(key: "SeenWelcomeTutorialKey")
+    }
+    
+    func setSeenWelcomeTutorial(){
+        setKeyInUserDefaults(key: "SeenWelcomeTutorialKey", value: "true")
+    }
 }

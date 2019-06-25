@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.8.2)
   - AlamofireImage (3.5.2):
     - Alamofire (~> 4.8)
+  - AMPopTip (4.0.1)
   - Firebase/Analytics (6.1.0):
     - Firebase/Core
   - Firebase/Core (6.1.0):
@@ -73,6 +74,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.8)
   - AlamofireImage (~> 3.5)
+  - AMPopTip
   - Firebase/Analytics
   - ForecastIO (~> 5.1)
   - iCarousel (~> 1.8)
@@ -87,6 +89,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireImage
+    - AMPopTip
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -107,6 +110,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
+  AMPopTip: 41742f15d743203496cfdcd576f41b596b0efae3
   Firebase: 8d77bb33624ae9b62d745d82ec023de5f70f7e4f
   FirebaseAnalytics: 629301c2b9925f3537d4093a17a72751ae5b7084
   FirebaseCore: 66bdef3b310a026880e2a5bc8aa586ab62ce4543
@@ -124,6 +128,6 @@ SPEC CHECKSUMS:
   SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
   TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
 
-PODFILE CHECKSUM: fcfbd12bb2269ef1f71f2dc104cc3e9b884d5fc6
+PODFILE CHECKSUM: 3e73aed357474bf82d04283ac3236271e24fefaa
 
 COCOAPODS: 1.5.3
