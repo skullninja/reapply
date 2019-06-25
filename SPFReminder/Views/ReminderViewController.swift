@@ -13,6 +13,16 @@ import SwiftMessages
 import Presentr
 import UserNotifications
 import Pulsator
+import AMPopTip
+
+
+enum WelcomeStatus {
+    case started
+    case uvInfo
+    case timer
+    case shop
+}
+
 
 class ReminderViewController: GenericViewController {
     
@@ -46,11 +56,16 @@ class ReminderViewController: GenericViewController {
     let pulsatorLightOrange = Pulsator()
     let pulsatorYellow = Pulsator()
     
+    let popTip = PopTip()
+    let customView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 150))
+    
     var graphView: ScrollableGraphView?
     
     var configureVC: ConfigureReminderViewController?
     
     var uvIndexNeedsUpdate: Bool = true
+    
+    var welcomeTipsStatus = WelcomeStatus.started
     
     lazy var locationAlertController: AlertViewController = {
         let font = UIFont.boldSystemFont(ofSize: 16)
@@ -60,6 +75,13 @@ class ReminderViewController: GenericViewController {
         }
         let okAction = AlertAction(title: "YES, PLEASE! 🤘", style: .destructive) {
             LocationService.shared.activateLocationServices()
+            
+            if !UserHelper.shared.hasSeenWelcomeTutorial(){
+                UserHelper.shared.setSeenWelcomeTutorial()
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(5000)) {
+                    self.popTip.show(customView: self.customView, direction: .down, in: self.view, from: self.titleView.frame)
+                }
+            }
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
@@ -92,6 +114,7 @@ class ReminderViewController: GenericViewController {
                 let spfReminderCategory = UNNotificationCategory(identifier: "spfReminderCategory", actions: [choiceA, choiceB], intentIdentifiers: [], options: [])
                 
                 UNUserNotificationCenter.current().setNotificationCategories([spfReminderCategory])
+                
             }
         }
         alertController.addAction(cancelAction)
@@ -172,6 +195,24 @@ class ReminderViewController: GenericViewController {
         super.viewDidLoad()
         
        updateButtonDisplay(_initialLoad: true)
+        
+        popTip.dismissHandler = { _ in
+            print("dismiss")
+            
+            switch self.welcomeTipsStatus {
+            case .started:
+                self.popTip.bubbleColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.8)
+                self.popTip.show(text: "The UV Index in your location will be displayed here. See the Learn section to read more on UV Indexes.", direction: .down, maxWidth: 300, in: self.view, from: self.lblUVLevelDescription.frame)
+                self.welcomeTipsStatus = .uvInfo
+            case .uvInfo:
+                self.popTip.show(text: "After applying sunscreen, tap the Apply button to start the timer to be notified when to REAPPLY sunscreen.", direction: .down, maxWidth: 300, in: self.view, from: self.btnApply.frame)
+                self.welcomeTipsStatus = .timer
+            case .timer:
+                return
+            case .shop:
+                return
+            }
+        }
     
     }
     
@@ -235,7 +276,40 @@ class ReminderViewController: GenericViewController {
         if !UserHelper.shared.seenLocationRequest(){
              customPresentViewController(presenter, viewController: locationAlertController, animated: true, completion:{UserHelper.shared.setLocationRequestComplete()})
         }
- 
+        
+        
+        if !UserHelper.shared.hasSeenWelcomeTutorial(){
+        
+            popTip.bubbleColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.9)
+            popTip.cornerRadius = 10
+            popTip.font = UIFont.systemFont(ofSize: 20)
+            popTip.edgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        
+            let titleLabel = UILabel(frame: CGRect(x: 0, y: 10, width: 300, height: 20))
+            titleLabel.text = "HELLO!"
+            titleLabel.textAlignment = .center
+            titleLabel.textColor = .white
+            titleLabel.font = UIFont.systemFont(ofSize: 28, weight:UIFont.Weight.thin)
+            customView.addSubview(titleLabel)
+            
+            let subTitleText = UILabel(frame: CGRect(x: 0, y: 44, width: 300, height: 20))
+            subTitleText.text = "Welcome to REAPPLY"
+            subTitleText.textAlignment = .center
+            subTitleText.textColor = .white
+            subTitleText.font = UIFont.systemFont(ofSize: 23, weight:UIFont.Weight.thin)
+            customView.addSubview(subTitleText)
+        
+            let textLabel = UILabel(frame: CGRect(x: 10, y: 42, width: 300, height: 120))
+            textLabel.numberOfLines = 0
+            textLabel.text = "Let me show you a few things. Tap here to get started."
+            textLabel.textAlignment = .center
+            textLabel.textColor = .white
+            textLabel.font = UIFont.systemFont(ofSize: 23, weight:UIFont.Weight.thin)
+            customView.addSubview(textLabel)
+            
+            
+        }
+        
         //reloadGraph()
     
     }
