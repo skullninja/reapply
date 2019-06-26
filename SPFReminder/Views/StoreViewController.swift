@@ -166,7 +166,7 @@ class StoreViewController: UIViewController {
     
     @IBAction func purchaseAction(_ sender: Any) {
         guard let linkUrl = currentProduct["linkUrl"] as? String,
-            let url = URL(string: linkUrl) else { return }
+            let url = URL(string: linkUrl + "?utm_source=reapply") else { return }
         UIApplication.shared.open(url)
     }
     
