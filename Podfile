@@ -18,5 +18,7 @@ target 'SPFReminder' do
  pod 'Pulsator'
  pod 'TagListView', '~> 1.4'
  pod 'AMPopTip'
+ pod 'Fabric'
+ pod 'Crashlytics'
 
 end
