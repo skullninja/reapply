@@ -13,50 +13,74 @@
     },
     {
         "tipId": "tip04",
-        "tip": "When the UV Index is 9, you can get a sunburn in less than 20 minutes."
+        "tip": "UV-A rays cause aging, wrinkles and age spots. UV-B rays cause sunburn."
     },
     {
         "tipId": "tip05",
-        "tip":  "Even when the UV Index is 4, a sunburn is possible within 50 minutes."
+        "tip": "When the UV Index is 9, you can get a sunburn in less than 20 minutes."
     },
     {
         "tipId": "tip06",
-        "tip":  "Up to 80 percent of UV rays pass through clouds. A sunburn is possible on cloudy days."
+        "tip":  "Even when the UV Index is 4, a sunburn is possible within 50 minutes."
     },
     {
         "tipId": "tip07",
-        "tip":  "Snow, water, and sand increase sun exposure by reflecting incoming UV rays. It's important for skiers, boaters, and beachcombers to reapply sunscreen often."
+        "tip":  "Up to 80 percent of UV rays pass through clouds. A sunburn is possible on cloudy days."
     },
     {
         "tipId": "tip08",
-        "tip":  "Wear sunscreens that offer protection from both UVA and UVB rays."
+        "tip":  "Snow, water, and sand increase sun exposure by reflecting incoming UV rays. It's important for skiers, boaters, and beachcombers to reapply sunscreen often."
     },
     {
         "tipId": "tip09",
-        "tip":  "According to FDA, “water resistant” sunscreens must maintain their SPF after 40 minutes of water immersion, while “very water resistant” must maintain their SPF after 80 minutes of water immersion."
+        "tip":  "Wear broad spectrum sunscreens that offer protection from both UVA and UVB rays."
     },
     {
         "tipId": "tip10",
-        "tip":  "The Shadow rule - look at your shadow and if it is shorter than your height this means that the sun’s UV rays are strong."
+        "tip":  "Water resistant sunscreens must maintain their SPF after 40 minutes of water immersion, while VERY water resistant must maintain protection for 80 minutes."
     },
     {
         "tipId": "tip11",
-        "tip":  "Look out for sunscreens with oxybenzone and octinoxate, which are harmful to humans and  coral reefs."
+        "tip":  "The Shadow rule - look at your shadow and if it is shorter than your height this means that the sun’s UV rays are strong."
     },
     {
         "tipId": "tip12",
-        "tip":  "All skin tones need sunscreen even if you rarely get burned."
+        "tip":  "Keep a look out for sunscreens with oxybenzone and octinoxate, which are harmful to humans and  coral reef."
     },
     {
         "tipId": "tip13",
-        "tip":  "UV rays still penetrate the glass in your office and your car."
+        "tip":  "All skin tones need sunscreen. Anyone, no matter their skin tone, can get skin cancer."
     },
     {
         "tipId": "tip14",
-        "tip":  "For a day outdoors, we recommend SPF 50 and don’t forget to reapply every two hours."
+        "tip":  "UV rays still penetrate the glass in your office and your car."
     },
     {
         "tipId": "tip15",
+        "tip":  "For a day outdoors, we recommend SPF 50 and don’t forget to reapply every two hours."
+    },
+    {
+        "tipId": "tip16",
         "tip": "It only takes 5 minutes of sun exposure to get enough vitamin D for a day."
+    },
+    {
+        "tipId": "tip17",
+        "tip": "Check the sunscreen’s expiration date. Its shelf life is shorter if it has been exposed to high temperatures."
+    },
+    {
+        "tipId": "tip18",
+        "tip": "Sunglasses shield your eyes from UV rays. Look for a pair that says it blocks 99% or 100% of UVB and UVA rays."
+    },
+    {
+        "tipId": "tip19",
+        "tip": "Say no to tanning! There's no such thing as a safe tan, whether you're inside or outside."
+    },
+    {
+        "tipId": "tip20",
+        "tip": "Don’t forget to protect your lips, neck and ears with SPF, as these are common areas for skin cancer due to lack of protection."
+    },
+    {
+        "tipId": "tip21",
+        "tip": "Young babies should be kept out of the sun entirely. Use sunscreen on babies over 6 months of age."
     }
 ]

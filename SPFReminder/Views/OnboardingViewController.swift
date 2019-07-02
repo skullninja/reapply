@@ -20,7 +20,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         "We believe the daily application of sunscreen is the most important thing you can do to protect your skin",
         "Protecting your skin from the sun is a daily habit that’s easy to overlook",
         "Overexposure can lead to severe long term damage to your skin - wrinkles, sun spots, and skin cancer",
-        "Select sunscreens carefully, many have harmful ingredients that are skin irritants and coral reef killers"
+        "Choose sunscreens carefully; many have harmful ingredients that are skin irritants and coral reef killers"
         ]
     
     public var imageNames: Array<String> = ["sun-rays","hand-with-sunscreen","blured-beach", "blue-ocean"]

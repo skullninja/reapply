@@ -282,7 +282,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
                 
             })
             
-            i += 1
+            i += 2
             
             UserHelper.shared.setKeyInUserDefaults(key: tipId as! String, value: "true")
         
