@@ -202,7 +202,7 @@ class ReminderViewController: GenericViewController {
             switch self.welcomeTipsStatus {
             case .started:
                 self.popTip.bubbleColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.8)
-                self.popTip.show(text: "The most up-to-date UV level information for your location. See the Learn section to read more on UV Indexes.", direction: .down, maxWidth: 300, in: self.view, from: self.lblUVLevelDescription.frame)
+                self.popTip.show(text: "This is the most up-to-date UV level information for your location. See the Learn section to read more on UV Indexes.", direction: .down, maxWidth: 300, in: self.view, from: self.lblUVLevelDescription.frame)
                 self.welcomeTipsStatus = .uvInfo
             case .uvInfo:
                 self.popTip.show(text: "Tap the Apply button to start the timer to be notified when to REAPPLY sunscreen.", direction: .down, maxWidth: 300, in: self.view, from: self.btnApply.frame)
