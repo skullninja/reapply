@@ -366,24 +366,14 @@ class ReminderViewController: GenericViewController {
             
         case .running:
             btnReapply.isHidden = false
-            lblUntilNextReapply.isHidden = false
             btnApply.isHidden = true
             btnStop.isHidden = false
             nightBackgroundView.isHidden = true
             lblTimerCountdown.isHidden = false
             imgApplyBackground.isHidden = true
-            imgSafety.isHidden = false
             
-            if UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 1334 {
-                //iPhone 6/6S/7/8
-                btnReapply.isHidden = true
-                for constraint in self.view.constraints {
-                    if constraint.identifier == "StopTopConstraint" {
-                        constraint.constant = -80
-                    }
-                }
-        
-            }
+            lblUntilNextReapply.isHidden = UIScreen.main.bounds.size.height < 700
+            imgSafety.isHidden = UIScreen.main.bounds.size.height < 700
             
         case .nightime:
             btnReapply.isHidden = true

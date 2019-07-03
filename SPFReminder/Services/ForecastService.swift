@@ -47,7 +47,6 @@ class ForecastService {
             DispatchQueue.main.async {
                 if let uvindex = result.value.0?.currently?.uvIndex {
                     self.currentUVIndex = uvindex
-                    self.currentUVIndex = 99
                 }
                 
                 if let maxUVIndex = result.value.0?.daily?.data[0].uvIndex {
