@@ -95,15 +95,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="c5q-f6-zty">
-                                <rect key="frame" x="0.0" y="0.0" width="376.5" height="477"/>
+                                <rect key="frame" x="0.0" y="0.0" width="427" height="477"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="c5q-f6-zty" secondAttribute="height" multiplier="15:19" id="b8M-g6-CgL"/>
+                                    <constraint firstAttribute="width" secondItem="c5q-f6-zty" secondAttribute="height" multiplier="17:19" id="b8M-g6-CgL"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="nyB-8j-kaN">
-                                <rect key="frame" x="0.0" y="0.0" width="376.5" height="477"/>
+                                <rect key="frame" x="0.0" y="0.0" width="427" height="477"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="nyB-8j-kaN" secondAttribute="height" multiplier="15:19" id="p9n-rd-8Ld"/>
+                                    <constraint firstAttribute="width" secondItem="nyB-8j-kaN" secondAttribute="height" multiplier="17:19" id="p9n-rd-8Ld"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rounded" translatesAutoresizingMaskIntoConstraints="NO" id="Ztb-36-Css">
@@ -523,15 +523,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="tro-UD-r3s">
-                                <rect key="frame" x="0.0" y="0.0" width="376" height="477"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="477"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="tro-UD-r3s" secondAttribute="height" multiplier="376:477" id="91t-VT-VAG"/>
+                                    <constraint firstAttribute="width" secondItem="tro-UD-r3s" secondAttribute="height" multiplier="376:477" constant="17" id="91t-VT-VAG"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="JgZ-Sj-dlx">
-                                <rect key="frame" x="0.0" y="0.0" width="376" height="477"/>
+                                <rect key="frame" x="0.0" y="0.0" width="427" height="477"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="JgZ-Sj-dlx" secondAttribute="height" multiplier="376:477" id="Opi-CG-76J"/>
+                                    <constraint firstAttribute="width" secondItem="JgZ-Sj-dlx" secondAttribute="height" multiplier="17:19" id="Opi-CG-76J"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rounded" translatesAutoresizingMaskIntoConstraints="NO" id="8u3-6S-HMC">
@@ -770,12 +770,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="WZ7-sp-aIZ">
-                                <rect key="frame" x="0.0" y="0.0" width="676.5" height="857"/>
+                                <rect key="frame" x="0.0" y="0.0" width="767" height="857"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="Ydo-yx-IIj">
-                                <rect key="frame" x="0.0" y="0.0" width="676.5" height="857"/>
+                                <rect key="frame" x="0.0" y="0.0" width="767" height="857"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Ydo-yx-IIj" secondAttribute="height" multiplier="15:19" id="rEa-As-Ndl"/>
+                                    <constraint firstAttribute="width" secondItem="Ydo-yx-IIj" secondAttribute="height" multiplier="17:19" id="rEa-As-Ndl"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6F-SE-115">
@@ -973,9 +973,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="qSE-2H-8cO">
-                                <rect key="frame" x="0.0" y="0.0" width="376.5" height="477"/>
+                                <rect key="frame" x="0.0" y="0.0" width="427" height="477"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="qSE-2H-8cO" secondAttribute="height" multiplier="15:19" id="sSd-iT-cfg"/>
+                                    <constraint firstAttribute="width" secondItem="qSE-2H-8cO" secondAttribute="height" multiplier="17:19" id="sSd-iT-cfg"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rounded" translatesAutoresizingMaskIntoConstraints="NO" id="xFN-Gg-7hC">
