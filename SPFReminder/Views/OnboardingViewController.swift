@@ -25,6 +25,8 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     
     public var imageNames: Array<String> = ["sun-rays","hand-with-sunscreen","blured-beach", "blue-ocean"]
     
+    public var titles: Array<String> = ["", "PROTECTION", "ANTI-AGING", "ALL-NATURAL"]
+    
     
     fileprivate lazy var pages: [UIViewController] = {
         return [
@@ -41,6 +43,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         pageContentViewController.descriptionText = self.pageDescriptions[index]
         pageContentViewController.pageIndex = index
         pageContentViewController.imageName = self.imageNames[index]
+        pageContentViewController.titleText = self.titles[index]
         
         return pageContentViewController
     }
