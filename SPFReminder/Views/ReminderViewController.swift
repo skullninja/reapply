@@ -76,12 +76,22 @@ class ReminderViewController: GenericViewController {
         let okAction = AlertAction(title: "YES, PLEASE! 🤘", style: .destructive) {
             LocationService.shared.activateLocationServices()
             
-            if !UserHelper.shared.hasSeenWelcomeTutorial(){
-                UserHelper.shared.setSeenWelcomeTutorial()
-                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(5000)) {
-                    self.popTip.show(customView: self.customView, direction: .down, in: self.view, from: self.titleView.frame)
+            switch self.screenMode {
+            case .running:
+                break
+            case .nightime:
+                break
+            case .daytime:
+                if !UserHelper.shared.hasSeenWelcomeTutorial(){
+                    UserHelper.shared.setSeenWelcomeTutorial()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(5200)) {
+                        self.popTip.show(customView: self.customView, direction: .down, in: self.view, from: self.titleView.frame)
+                    }
                 }
+                
             }
+            
+            
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
