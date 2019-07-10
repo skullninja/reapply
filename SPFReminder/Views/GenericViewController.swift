@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 enum ScreenMode {
     case daytime
@@ -84,6 +85,13 @@ class GenericViewController: UIViewController {
     }
  
     @IBAction func storeAction(_ sender: Any) {
+        
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "StoreButton",
+            AnalyticsParameterItemName: "button",
+            AnalyticsParameterContentType: "store"
+            ])
+        
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let storeVC = storyboard.instantiateViewController(withIdentifier: "StoreViewController")
         self.storeTransitioningDelegate = StoreTransitioningDelegate(viewController: storeVC, presentingViewController: self)

@@ -9,6 +9,7 @@
 import UIKit
 import iCarousel
 import AlamofireImage
+import Firebase
 
 class StoreViewController: UIViewController {
     
@@ -112,6 +113,13 @@ class StoreViewController: UIViewController {
         updateProductDisplay(animated: false)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        Analytics.setScreenName("store", screenClass: "StoreViewController")
+        
+    }
+    
     private func updateProductDisplay(animated: Bool) {
         if let price = currentProduct["price"] as? String,
             let retailer = currentProduct["retailer"] as? String {
@@ -157,14 +165,29 @@ class StoreViewController: UIViewController {
     }
     
     @IBAction func reviewAction(_ sender: Any) {
+        
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "ProductReviewButton",
+            AnalyticsParameterItemName: "button",
+            AnalyticsParameterContentType: "review"
+            ])
+        
         guard let reviewUrl = currentProduct["reviewUrl"] as? String else { return }
  
         let webViewController = WebViewController()
         webViewController.urlString = reviewUrl
         self.present(webViewController, animated: true, completion: nil)
+        
     }
     
     @IBAction func purchaseAction(_ sender: Any) {
+        
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "BuyButton",
+            AnalyticsParameterItemName: "button",
+            AnalyticsParameterContentType: "store"
+            ])
+        
         guard let linkUrl = currentProduct["linkUrl"] as? String,
             let url = URL(string: linkUrl + "?utm_source=reapply") else { return }
         UIApplication.shared.open(url)

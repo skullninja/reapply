@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class InformationViewController: GenericViewController {
     
@@ -24,13 +25,35 @@ class InformationViewController: GenericViewController {
         btnShop.layer.cornerRadius = 6
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        Analytics.setScreenName("learn", screenClass: "InformationViewController")
+        
+    }
+
+    
     @IBAction func btnSunBasicsTapped(_ sender: Any) {
+        
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "SunCareButton",
+            AnalyticsParameterItemName: "button",
+            AnalyticsParameterContentType: "articles"
+            ])
+        
         guard let url = URL(string: "https://www.reapplyapp.com/sun-care-basics") else { return }
         UIApplication.shared.open(url)
         
     }
     
     @IBAction func btnTipsTapped(_ sender: Any) {
+        
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "SafetyTipsButton",
+            AnalyticsParameterItemName: "button",
+            AnalyticsParameterContentType: "articles"
+            ])
+        
         guard let url = URL(string: "https://www.reapplyapp.com/copy-of-safety-tips") else { return }
         UIApplication.shared.open(url)
         
@@ -41,11 +64,24 @@ class InformationViewController: GenericViewController {
     }
     
     @IBAction func btnReviewsTapped(_ sender: Any) {
+        
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "ReviewsButton",
+            AnalyticsParameterItemName: "button",
+            AnalyticsParameterContentType: "articles"
+            ])
+        
         guard let url = URL(string: "https://www.reapplyapp.com/sunscreen-reviews") else { return }
         UIApplication.shared.open(url)
     }
     
     @IBAction func btnShopTapped(_ sender: Any) {
+        
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "ShopFavsButton",
+            AnalyticsParameterItemName: "button",
+            AnalyticsParameterContentType: "store"
+            ])
         
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let storeVC = storyboard.instantiateViewController(withIdentifier: "StoreViewController")

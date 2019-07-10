@@ -195,7 +195,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         _notificationContent.title = "Good morning, sunshine!"
         //TO DO: get top uv index and cloud coverage
         _notificationContent.subtitle = "Don't forget to apply suncreen today."
-        _notificationContent.body = "The top UV Index is \(maxUVIndex) and cloud coverage is \(cloudCoverage) percent. Get on in here and start the sunscreen reminder."
+        _notificationContent.body = "The top UV Index is \(maxUVIndex) and cloud coverage is \(cloudCoverage) percent today."
         _notificationContent.categoryIdentifier = "spfReminderCategory"
         //_notificationContent = UNNotificationSound.default()
         
