@@ -14,6 +14,7 @@ import Presentr
 import UserNotifications
 import Pulsator
 import AMPopTip
+import Firebase
 
 
 enum WelcomeStatus {
@@ -231,6 +232,16 @@ class ReminderViewController: GenericViewController {
       
         uvIndexNeedsUpdate = true
         
+        switch self.screenMode {
+         case .daytime:
+            Analytics.setScreenName("daytimer", screenClass: "ReminderViewController")
+        case .running:
+            Analytics.setScreenName("runningtimer", screenClass: "ReminderViewController")
+        case .nightime:
+             Analytics.setScreenName("nighttimer", screenClass: "ReminderViewController")
+    
+        }
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -415,6 +426,13 @@ class ReminderViewController: GenericViewController {
         if ReminderService.shared.isRunning {
             ReminderService.shared.stop()
             
+            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+                AnalyticsParameterItemID: "StopButton",
+                AnalyticsParameterItemName: "button",
+                AnalyticsParameterContentType: "timer"
+                ])
+
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(200)) {
                 self.pulsatorLightOrange.start()
             }
@@ -428,6 +446,12 @@ class ReminderViewController: GenericViewController {
             }
             
         } else {
+            
+            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+                AnalyticsParameterItemID: "ApplyButton",
+                AnalyticsParameterItemName: "button",
+                AnalyticsParameterContentType: "timer"
+                ])
             
             self.pulsatorYellow.stop()
             self.pulsatorDarkOrange.stop()
@@ -456,11 +480,14 @@ class ReminderViewController: GenericViewController {
                 },  completion: nil)
         })
         
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "ReapplyButton",
+            AnalyticsParameterItemName: "button",
+            AnalyticsParameterContentType: "timer"
+            ])
         
          if ReminderService.shared.isRunning {
             ReminderService.shared.reapply()
-            // ensure the stop/start button is enabled and stop is the title
-            reloadGraph()
         }
     }
 }
