@@ -19,10 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
         
         Fabric.with([Crashlytics.self])
-        
-        FirebaseApp.configure()
         
         CloudKitManager.shared.requestAccountStatus(completionHandler: {
             if (CloudKitManager.shared.hasAccount){
