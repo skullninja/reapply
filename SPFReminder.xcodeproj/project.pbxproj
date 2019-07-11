@@ -15,6 +15,7 @@
 		5587FF052290C12600D07FFE /* StoreTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587FF042290C12600D07FFE /* StoreTransitionViewController.swift */; };
 		5587FF062293A2F400D07FFE /* ReminderCloudKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C5EB5222F36D1000582D7 /* ReminderCloudKitModel.swift */; };
 		5587FF082293A54A00D07FFE /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 5587FF072293A54A00D07FFE /* products.json */; };
+		55B0C37D22D6E7D200C70986 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55B0C37C22D6E7D200C70986 /* GoogleService-Info.plist */; };
 		55BAA90122040C1100D09D54 /* DateTimeZoneExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */; };
 		55BAA903220651E100D09D54 /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA902220651E100D09D54 /* ReminderService.swift */; };
 		55BAA9052212921800D09D54 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA9042212921800D09D54 /* Reminder.swift */; };
@@ -51,6 +52,7 @@
 		5587FF0222909F5100D07FFE /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
 		5587FF042290C12600D07FFE /* StoreTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTransitionViewController.swift; sourceTree = "<group>"; };
 		5587FF072293A54A00D07FFE /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
+		55B0C37C22D6E7D200C70986 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeZoneExtension.swift; sourceTree = "<group>"; };
 		55BAA902220651E100D09D54 /* ReminderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderService.swift; sourceTree = "<group>"; };
 		55BAA9042212921800D09D54 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		5562FBFF2232370B0063568A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				55B0C37C22D6E7D200C70986 /* GoogleService-Info.plist */,
 				55BAA9062213D3EB00D09D54 /* SPFReminder.entitlements */,
 				9623342221F81D7E00E31825 /* Assets.xcassets */,
 				9623342721F81D7E00E31825 /* Info.plist */,
@@ -309,6 +312,7 @@
 				9623342621F81D7E00E31825 /* LaunchScreen.storyboard in Resources */,
 				9623342321F81D7E00E31825 /* Assets.xcassets in Resources */,
 				9623342121F81D7C00E31825 /* Main.storyboard in Resources */,
+				55B0C37D22D6E7D200C70986 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
