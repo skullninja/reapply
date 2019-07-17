@@ -19,13 +19,13 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     public var pageDescriptions: Array<String> =  [
         "We believe the daily application of sunscreen is the most important thing you can do to protect your skin",
         "Protecting your skin from the sun is a daily habit that’s easy to overlook",
-        "Overexposure can lead to severe long term damage to your skin - wrinkles, sun spots, and skin cancer",
+        "Overexposure can lead to severe long term damage to your skin - premature aging, wrinkles, discoloration, and skin cancer",
         "Choose sunscreens carefully; many have harmful ingredients that are skin irritants and coral reef killers"
         ]
     
     public var imageNames: Array<String> = ["sun-rays","hand-with-sunscreen","blured-beach", "blue-ocean"]
     
-    public var titles: Array<String> = ["", "PROTECTION", "ANTI-AGING", "ALL-NATURAL"]
+    public var titles: Array<String> = ["", "PROTECTION", "ANTI-AGING", "NON-TOXIC"]
     
     
     fileprivate lazy var pages: [UIViewController] = {
@@ -85,7 +85,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         self.nextButton.addTarget(self, action:#selector(self.didTapNext), for: .touchUpInside)
         //self.pageControl.addSubview( self.nextButton)
         
-        self.doneButton = UIButton(frame: CGRect(x: 20, y: UIScreen.main.bounds.maxY - 120, width: self.view.bounds.width - 40, height: 45))
+        self.doneButton = UIButton(frame: CGRect(x: 20, y: UIScreen.main.bounds.maxY - 70, width: self.view.bounds.width - 40, height: 45))
         
         if UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 1334 {
             //iPhone 6/6S/7/8
