@@ -115,8 +115,10 @@ class ConfigureReminderViewController: UIViewController {
             ReminderService.shared.stop()
             break
         case .started:
-            Analytics.logEvent(AnalyticsEvents.timerStarted, parameters: nil)
-            self.logSliderEvent()
+            Analytics.logEvent(AnalyticsEvents.timerStarted, parameters: [
+                AnalyticsParameterItemID: "ProtectionLevel",
+                AnalyticsParameterItemName: self.currentProtectionLevel()
+                ])
             break
         case .tooLate:
             let alert = UIAlertController(title: "Uh oh, it's after sunset", message: "There is no need to apply sunscreen at this time. Try again after sunrise.", preferredStyle: UIAlertController.Style.alert)
@@ -137,31 +139,19 @@ class ConfigureReminderViewController: UIViewController {
     }
     
     
-    func logSliderEvent()
+    func currentProtectionLevel() -> String
     {
         guard let mode = protectionLevel(rawValue: sliderProtectionLevel.value) else {
-            return
+            return "normal"
         }
         
         switch mode {
         case protectionLevel.norm:
-            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-                AnalyticsParameterItemID: "ProtectionLevelNormal",
-                AnalyticsParameterItemName: "slider",
-                AnalyticsParameterContentType: "timer"
-                ])
+             return "normal"
         case protectionLevel.high:
-            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-                AnalyticsParameterItemID: "ProtectionLevelHigh",
-                AnalyticsParameterItemName: "slider",
-                AnalyticsParameterContentType: "timer"
-                ])
+             return "high"
         case protectionLevel.max:
-            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-                AnalyticsParameterItemID: "ProtectionLevelMax",
-                AnalyticsParameterItemName: "slider",
-                AnalyticsParameterContentType: "timer"
-                ])
+            return "max"
         }
     }
 }
