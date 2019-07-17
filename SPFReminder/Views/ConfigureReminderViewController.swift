@@ -83,27 +83,12 @@ class ConfigureReminderViewController: UIViewController {
         case protectionLevel.norm:
             ReminderService.shared.protection = .normal
             self.lblTimerLength.text = "2 hrs"
-            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-                AnalyticsParameterItemID: "ProtectionLevelNormal",
-                AnalyticsParameterItemName: "slider",
-                AnalyticsParameterContentType: "timer"
-                ])
         case protectionLevel.high:
             ReminderService.shared.protection = .high
             self.lblTimerLength.text = "80 mins"
-            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-                AnalyticsParameterItemID: "ProtectionLevelHigh",
-                AnalyticsParameterItemName: "slider",
-                AnalyticsParameterContentType: "timer"
-                ])
         case protectionLevel.max:
             ReminderService.shared.protection = .maximum
             self.lblTimerLength.text = "40 mins"
-            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-                AnalyticsParameterItemID: "ProtectionLevelMax",
-                AnalyticsParameterItemName: "slider",
-                AnalyticsParameterContentType: "timer"
-                ])
         }
     }
     
@@ -135,6 +120,7 @@ class ConfigureReminderViewController: UIViewController {
                 AnalyticsParameterItemName: "button",
                 AnalyticsParameterContentType: "timer"
                 ])
+            self.logSliderEvent()
             break
         case .tooLate:
             let alert = UIAlertController(title: "Uh oh, it's after sunset", message: "There is no need to apply sunscreen at this time. Try again after sunrise.", preferredStyle: UIAlertController.Style.alert)
@@ -152,5 +138,34 @@ class ConfigureReminderViewController: UIViewController {
         self.delegate?.didTapStart()
         
        })
+    }
+    
+    
+    func logSliderEvent()
+    {
+        guard let mode = protectionLevel(rawValue: sliderProtectionLevel.value) else {
+            return
+        }
+        
+        switch mode {
+        case protectionLevel.norm:
+            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+                AnalyticsParameterItemID: "ProtectionLevelNormal",
+                AnalyticsParameterItemName: "slider",
+                AnalyticsParameterContentType: "timer"
+                ])
+        case protectionLevel.high:
+            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+                AnalyticsParameterItemID: "ProtectionLevelHigh",
+                AnalyticsParameterItemName: "slider",
+                AnalyticsParameterContentType: "timer"
+                ])
+        case protectionLevel.max:
+            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+                AnalyticsParameterItemID: "ProtectionLevelMax",
+                AnalyticsParameterItemName: "slider",
+                AnalyticsParameterContentType: "timer"
+                ])
+        }
     }
 }
