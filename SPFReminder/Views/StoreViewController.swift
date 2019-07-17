@@ -166,13 +166,13 @@ class StoreViewController: UIViewController {
     
     @IBAction func reviewAction(_ sender: Any) {
         
-        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-            AnalyticsParameterItemID: "ProductReviewButton",
-            AnalyticsParameterItemName: "button",
-            AnalyticsParameterContentType: "review"
-            ])
+        guard let reviewUrl = currentProduct["reviewUrl"] as? String,
+            let productName = currentProduct["name"] as? String else { return }
         
-        guard let reviewUrl = currentProduct["reviewUrl"] as? String else { return }
+        Analytics.logEvent(AnalyticsEvents.productReviewTapped, parameters: [
+            AnalyticsParameterItemName: "ProductName",
+            AnalyticsParameterItemID: productName
+            ])
  
         let webViewController = WebViewController()
         webViewController.urlString = reviewUrl
@@ -182,14 +182,15 @@ class StoreViewController: UIViewController {
     
     @IBAction func purchaseAction(_ sender: Any) {
         
-        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-            AnalyticsParameterItemID: "BuyButton",
-            AnalyticsParameterItemName: "button",
-            AnalyticsParameterContentType: "store"
+        guard let linkUrl = currentProduct["linkUrl"] as? String,
+            let productName = currentProduct["name"] as? String,
+            let url = URL(string: linkUrl + "?utm_source=reapply") else { return }
+        
+        Analytics.logEvent(AnalyticsEvents.productPurchaseTapped, parameters: [
+            AnalyticsParameterItemName: "ProductName",
+            AnalyticsParameterItemID: productName
             ])
         
-        guard let linkUrl = currentProduct["linkUrl"] as? String,
-            let url = URL(string: linkUrl + "?utm_source=reapply") else { return }
         UIApplication.shared.open(url)
     }
     
@@ -268,13 +269,16 @@ extension StoreViewController: iCarouselDataSource {
         
         contentView.addArrangedSubview(imageView)
         
-        let sizeLabel = UILabel(frame: CGRect.init(x: 0, y: 0, width: contentView.bounds.size.width, height: 44))
-        sizeLabel.adjustsFontSizeToFitWidth = true
-        sizeLabel.textAlignment = .center
-        sizeLabel.textColor = .white
-        sizeLabel.font = UIFont.systemFont(ofSize: 12.0)
-        sizeLabel.text = "2.5 FL OZ"
-        contentView.addArrangedSubview(sizeLabel)
+        if let product = StoreViewController.products[index] as? NSDictionary,
+            let size = product["size"] as? String {
+            let sizeLabel = UILabel(frame: CGRect.init(x: 0, y: 0, width: contentView.bounds.size.width, height: 44))
+            sizeLabel.adjustsFontSizeToFitWidth = true
+            sizeLabel.textAlignment = .center
+            sizeLabel.textColor = .white
+            sizeLabel.font = UIFont.systemFont(ofSize: 12.0)
+            sizeLabel.text = "\(size) FL OZ"
+            contentView.addArrangedSubview(sizeLabel)
+        }
         
         return contentView
     }

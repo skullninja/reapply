@@ -8,6 +8,7 @@
 
 import Foundation
 import UserNotifications
+import Firebase
 
 class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     
@@ -231,9 +232,13 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
         if response.actionIdentifier == "Reapply" {
+            Analytics.logEvent(AnalyticsEvents.notificationReapplyTapped, parameters: nil)
             ReminderService.shared.reapply()
         } else if response.actionIdentifier == "Stop" {
             ReminderService.shared.stop()
+            Analytics.logEvent(AnalyticsEvents.notificationStopTapped, parameters: nil)
+        } else {
+            Analytics.logEvent(AnalyticsEvents.notificationTapped, parameters: nil)
         }
         
         completionHandler()

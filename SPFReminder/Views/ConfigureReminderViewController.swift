@@ -130,11 +130,7 @@ class ConfigureReminderViewController: UIViewController {
             ReminderService.shared.stop()
             break
         case .started:
-            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-                AnalyticsParameterItemID: "TimerStartButton",
-                AnalyticsParameterItemName: "button",
-                AnalyticsParameterContentType: "timer"
-                ])
+            Analytics.logEvent(AnalyticsEvents.timerStarted, parameters: nil)
             break
         case .tooLate:
             let alert = UIAlertController(title: "Uh oh, it's after sunset", message: "There is no need to apply sunscreen at this time. Try again after sunrise.", preferredStyle: UIAlertController.Style.alert)
