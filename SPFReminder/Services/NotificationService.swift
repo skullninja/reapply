@@ -165,7 +165,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             let date = Date()
             let formatter = DateFormatter()
             formatter.dateFormat = "MM.dd.yyyy"
-            let result = String(format: "%@ 10:00:00",formatter.string(from: date))
+            let result = String(format: "%@ 8:00:00",formatter.string(from: date))
             formatter.dateFormat = "MM.dd.yyyy HH:mm:ss"
             let newdate = formatter.date(from: result)
             let localTomorrow = Calendar.current.date(byAdding: .day, value: i, to: newdate!)!.convertFromGMT(timeZone: TimeZone.current)
