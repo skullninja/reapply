@@ -191,6 +191,14 @@ class StoreViewController: UIViewController {
             AnalyticsParameterItemID: productName
             ])
         
+        if let price = currentProduct["price"] as? String,
+            let priceNumber = Float(price.replacingOccurrences(of: "$", with: "")) {
+            Analytics.logEvent(AnalyticsEventEcommercePurchase, parameters: [
+                AnalyticsParameterValue: priceNumber,
+                AnalyticsParameterCurrency: "USD"
+                ])
+        }
+        
         UIApplication.shared.open(url)
     }
     
