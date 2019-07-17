@@ -35,11 +35,7 @@ class InformationViewController: GenericViewController {
     
     @IBAction func btnSunBasicsTapped(_ sender: Any) {
         
-        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-            AnalyticsParameterItemID: "SunCareButton",
-            AnalyticsParameterItemName: "button",
-            AnalyticsParameterContentType: "articles"
-            ])
+        Analytics.logEvent(AnalyticsEvents.suncareTapped, parameters: nil)
         
         guard let url = URL(string: "https://www.reapplyapp.com/sun-care-basics") else { return }
         UIApplication.shared.open(url)
@@ -48,11 +44,7 @@ class InformationViewController: GenericViewController {
     
     @IBAction func btnTipsTapped(_ sender: Any) {
         
-        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-            AnalyticsParameterItemID: "SafetyTipsButton",
-            AnalyticsParameterItemName: "button",
-            AnalyticsParameterContentType: "articles"
-            ])
+        Analytics.logEvent(AnalyticsEvents.safetyTipsTapped, parameters: nil)
         
         guard let url = URL(string: "https://www.reapplyapp.com/copy-of-safety-tips") else { return }
         UIApplication.shared.open(url)
@@ -65,11 +57,7 @@ class InformationViewController: GenericViewController {
     
     @IBAction func btnReviewsTapped(_ sender: Any) {
         
-        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-            AnalyticsParameterItemID: "ReviewsButton",
-            AnalyticsParameterItemName: "button",
-            AnalyticsParameterContentType: "articles"
-            ])
+        Analytics.logEvent(AnalyticsEvents.reviewsTapped, parameters: nil)
         
         guard let url = URL(string: "https://www.reapplyapp.com/sunscreen-reviews") else { return }
         UIApplication.shared.open(url)
@@ -77,11 +65,7 @@ class InformationViewController: GenericViewController {
     
     @IBAction func btnShopTapped(_ sender: Any) {
         
-        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-            AnalyticsParameterItemID: "ShopFavsButton",
-            AnalyticsParameterItemName: "button",
-            AnalyticsParameterContentType: "store"
-            ])
+        Analytics.logEvent(AnalyticsEvents.shopFavesTapped, parameters: nil)
         
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let storeVC = storyboard.instantiateViewController(withIdentifier: "StoreViewController")

@@ -426,11 +426,7 @@ class ReminderViewController: GenericViewController {
         if ReminderService.shared.isRunning {
             ReminderService.shared.stop()
             
-            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-                AnalyticsParameterItemID: "StopButton",
-                AnalyticsParameterItemName: "button",
-                AnalyticsParameterContentType: "timer"
-                ])
+            Analytics.logEvent(AnalyticsEvents.stopTapped, parameters: nil)
 
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(200)) {
@@ -447,11 +443,7 @@ class ReminderViewController: GenericViewController {
             
         } else {
             
-            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-                AnalyticsParameterItemID: "ApplyButton",
-                AnalyticsParameterItemName: "button",
-                AnalyticsParameterContentType: "timer"
-                ])
+            Analytics.logEvent(AnalyticsEvents.applyTapped, parameters: nil)
             
             self.pulsatorYellow.stop()
             self.pulsatorDarkOrange.stop()
@@ -480,11 +472,7 @@ class ReminderViewController: GenericViewController {
                 },  completion: nil)
         })
         
-        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-            AnalyticsParameterItemID: "ReapplyButton",
-            AnalyticsParameterItemName: "button",
-            AnalyticsParameterContentType: "timer"
-            ])
+        Analytics.logEvent(AnalyticsEvents.reapplyTapped, parameters: nil)
         
          if ReminderService.shared.isRunning {
             ReminderService.shared.reapply()
