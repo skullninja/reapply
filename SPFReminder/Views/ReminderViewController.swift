@@ -180,9 +180,12 @@ class ReminderViewController: GenericViewController {
             } else if uvIndex < 6 {
                 uvLevel = "Moderate"
                 uvDescription = "Protection Required"
-            } else if uvIndex <= 9 {
+            }else if uvIndex < 8 {
                 uvLevel = "High"
-                 uvDescription = "Protection Required"
+                uvDescription = "Protection Required"
+            } else if uvIndex < 11 {
+                uvLevel = "Very High"
+                 uvDescription = "Seek Shade"
             } else {
                 uvLevel = "Extremely High"
                 uvDescription = "Stay Indoors"
