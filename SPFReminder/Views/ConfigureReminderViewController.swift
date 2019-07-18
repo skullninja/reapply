@@ -116,8 +116,8 @@ class ConfigureReminderViewController: UIViewController {
             break
         case .started:
             Analytics.logEvent(AnalyticsEvents.timerStarted, parameters: [
-                AnalyticsParameterItemID: "ProtectionLevel",
-                AnalyticsParameterItemName: self.currentProtectionLevel()
+                AnalyticsParameterItemID: self.currentProtectionLevel(),
+                AnalyticsParameterItemName: "ProtectionLevel"
                 ])
             break
         case .tooLate:
