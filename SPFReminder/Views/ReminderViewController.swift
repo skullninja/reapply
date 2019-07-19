@@ -76,23 +76,7 @@ class ReminderViewController: GenericViewController {
         }
         let okAction = AlertAction(title: "YES, PLEASE! 🤘", style: .destructive) {
             LocationService.shared.activateLocationServices()
-            
-            switch self.screenMode {
-            case .running:
-                break
-            case .nightime:
-                break
-            case .daytime:
-                if !UserHelper.shared.hasSeenWelcomeTutorial(){
-                    UserHelper.shared.setSeenWelcomeTutorial()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(5200)) {
-                        self.popTip.show(customView: self.customView, direction: .down, in: self.view, from: self.titleView.frame)
-                    }
-                }
-                
-            }
-            
-            
+             UserHelper.shared.setLocationRequestComplete()
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
@@ -298,7 +282,7 @@ class ReminderViewController: GenericViewController {
         }
         
         if !UserHelper.shared.seenLocationRequest(){
-             customPresentViewController(presenter, viewController: locationAlertController, animated: true, completion:{UserHelper.shared.setLocationRequestComplete()})
+             customPresentViewController(presenter, viewController: locationAlertController, animated: true, completion:nil)
         }
         
         
@@ -387,6 +371,15 @@ class ReminderViewController: GenericViewController {
             
             lblUntilNextReapply.isHidden = true
             imgSafety.isHidden = true
+            
+            if UserHelper.shared.seenLocationRequest(){
+                if !UserHelper.shared.hasSeenWelcomeTutorial(){
+                    UserHelper.shared.setSeenWelcomeTutorial()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(5200)) {
+                        self.popTip.show(customView: self.customView, direction: .down, in: self.view, from: self.titleView.frame)
+                    }
+                }
+            }
             
         case .running:
             btnReapply.isHidden = false
