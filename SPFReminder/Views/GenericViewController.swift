@@ -47,6 +47,7 @@ class GenericViewController: UIViewController {
     }
     
     func updateScreenMode(animate: Bool) {
+        
         if ReminderService.shared.isRunning {
             self.screenMode = .running
         } else if let uvIndex = ForecastService.shared.currentUVIndex,
