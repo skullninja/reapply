@@ -77,6 +77,19 @@ class ReminderViewController: GenericViewController {
         let okAction = AlertAction(title: "YES, PLEASE! 🤘", style: .destructive) {
             LocationService.shared.activateLocationServices()
              UserHelper.shared.setLocationRequestComplete()
+            
+            if let uvIndex = ForecastService.shared.currentUVIndex {
+                //a hack - if the uv index is 0 assume it's night mode
+                if UserHelper.shared.seenLocationRequest() && uvIndex > 0{
+                    if !UserHelper.shared.hasSeenWelcomeTutorial(){
+                        UserHelper.shared.setSeenWelcomeTutorial()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(5200)) {
+                            self.popTip.show(customView: self.customView, direction: .down, in: self.view, from: self.titleView.frame)
+                            
+                        }
+                    }
+                }
+            }
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
@@ -129,6 +142,7 @@ class ReminderViewController: GenericViewController {
             titleView.image = nightTitleImage
         case .daytime:
             titleView.image = defaultTitleImage
+
         }
        
         if let reapplyDate = ReminderService.shared.currentReminder?.scheduledNotification {
@@ -195,7 +209,6 @@ class ReminderViewController: GenericViewController {
        updateButtonDisplay(_initialLoad: true)
         
         popTip.dismissHandler = { _ in
-            print("dismiss")
             
             switch self.welcomeTipsStatus {
             case .started:
@@ -371,16 +384,6 @@ class ReminderViewController: GenericViewController {
             
             lblUntilNextReapply.isHidden = true
             imgSafety.isHidden = true
-            
-            if UserHelper.shared.seenLocationRequest(){
-                if !UserHelper.shared.hasSeenWelcomeTutorial(){
-                    UserHelper.shared.setSeenWelcomeTutorial()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(5200)) {
-                        self.popTip.show(customView: self.customView, direction: .down, in: self.view, from: self.titleView.frame)
-                    }
-                }
-            }
-            
         case .running:
             btnReapply.isHidden = false
             btnApply.isHidden = true
