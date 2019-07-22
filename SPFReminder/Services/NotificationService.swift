@@ -40,7 +40,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
              _notificationContent.subtitle = "2 hours have passed"
         }
         
-        //_notificationContent = UNNotificationSound.default()
+        _notificationContent.sound = UNNotificationSound.default
     }
     
     func setupFollowUpNotificationContent(_ seconds: Int) {
@@ -49,7 +49,8 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         _notificationContent.subtitle = "Reapplying sunscreen will only take a minute."
         _notificationContent.body = "Get on in here and reapply."
         _notificationContent.categoryIdentifier = "spfReminderCategory"
-        //_notificationContent = UNNotificationSound.default()
+        
+        _notificationContent.sound = UNNotificationSound.default
         
     }
     
@@ -59,7 +60,8 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         _notificationContent.subtitle = "Do you know?"
         _notificationContent.body = tipDescripition
         _notificationContent.categoryIdentifier = "spfTipCategory"
-        //_notificationContent = UNNotificationSound.default()
+        
+        _notificationContent.sound = UNNotificationSound.default
     }
     
     
