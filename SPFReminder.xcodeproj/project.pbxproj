@@ -39,7 +39,7 @@
 		965A3A5E22B962FC00D1A948 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965A3A5D22B962FC00D1A948 /* WebViewController.swift */; };
 		966A783B2294A86300039CF2 /* tips.json in Resources */ = {isa = PBXBuildFile; fileRef = 966A783A2294A86300039CF2 /* tips.json */; };
 		967C5EB8222F7FF9000582D7 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C5EB7222F7FF9000582D7 /* CloudKitManager.swift */; };
-		968EADCE22E6958900C6D80C /* Cool-alarm-tone-notification-sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 968EADCD22E6958900C6D80C /* Cool-alarm-tone-notification-sound.caf */; };
+		968EADCE22E6958900C6D80C /* notification-sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 968EADCD22E6958900C6D80C /* notification-sound.caf */; };
 		96F07993222615E7009A5C06 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96F07992222615E7009A5C06 /* CloudKit.framework */; };
 		96F75BE1220BF4AB001F0B0F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F75BE0220BF4AA001F0B0F /* icon.png */; };
 		96F75BE3220E5CDE001F0B0F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F75BE2220E5CDE001F0B0F /* NotificationService.swift */; };
@@ -84,7 +84,7 @@
 		966A783A2294A86300039CF2 /* tips.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tips.json; sourceTree = "<group>"; };
 		967C5EB5222F36D1000582D7 /* ReminderCloudKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCloudKitModel.swift; sourceTree = "<group>"; };
 		967C5EB7222F7FF9000582D7 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
-		968EADCD22E6958900C6D80C /* Cool-alarm-tone-notification-sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cool-alarm-tone-notification-sound.caf"; sourceTree = "<group>"; };
+		968EADCD22E6958900C6D80C /* notification-sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "notification-sound.caf"; sourceTree = "<group>"; };
 		96F07992222615E7009A5C06 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		96F75BE0220BF4AA001F0B0F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		96F75BE2220E5CDE001F0B0F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		5562FBFF2232370B0063568A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				968EADCD22E6958900C6D80C /* Cool-alarm-tone-notification-sound.caf */,
+				968EADCD22E6958900C6D80C /* notification-sound.caf */,
 				55B0C37C22D6E7D200C70986 /* GoogleService-Info.plist */,
 				55BAA9062213D3EB00D09D54 /* SPFReminder.entitlements */,
 				9623342221F81D7E00E31825 /* Assets.xcassets */,
@@ -314,7 +314,7 @@
 			files = (
 				5587FF082293A54A00D07FFE /* products.json in Resources */,
 				96F75BE1220BF4AB001F0B0F /* icon.png in Resources */,
-				968EADCE22E6958900C6D80C /* Cool-alarm-tone-notification-sound.caf in Resources */,
+				968EADCE22E6958900C6D80C /* notification-sound.caf in Resources */,
 				966A783B2294A86300039CF2 /* tips.json in Resources */,
 				9623342621F81D7E00E31825 /* LaunchScreen.storyboard in Resources */,
 				9623342321F81D7E00E31825 /* Assets.xcassets in Resources */,

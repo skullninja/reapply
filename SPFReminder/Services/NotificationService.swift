@@ -39,8 +39,6 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         if minutes == 120{
              _notificationContent.subtitle = "2 hours have passed"
         }
-        
-        _notificationContent.sound = UNNotificationSound.default
     }
     
     func setupFollowUpNotificationContent(_ seconds: Int) {
@@ -49,9 +47,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         _notificationContent.subtitle = "Reapplying sunscreen will only take a minute."
         _notificationContent.body = "Get on in here and reapply."
         _notificationContent.categoryIdentifier = "spfReminderCategory"
-        
-        _notificationContent.sound = UNNotificationSound.default
-        
+    
     }
     
     func setupTipNotificationContent(_ tipDescripition: String) {
@@ -61,7 +57,6 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         _notificationContent.body = tipDescripition
         _notificationContent.categoryIdentifier = "spfTipCategory"
         
-        _notificationContent.sound = UNNotificationSound.default
     }
     
     
@@ -137,6 +132,8 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
                                                         repeats: false)
         
         let identifier = "Reminder\(seconds)"
+        
+        self._notificationContent.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "notification-sound.caf"))
   
         let notifcationRequest1 = UNNotificationRequest(identifier: identifier,
                                                         content: self._notificationContent, trigger: trigger)
@@ -179,6 +176,9 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(secondsUntilTomorrowDate),
                                                             repeats: false)
             print("added notification TomorrowReminder\(secondsUntilTomorrowDate)")
+            
+            self._notificationContent.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "notification-sound.caf"))
+            
             let notifcationRequest1 = UNNotificationRequest(identifier: "TomorrowReminder\(secondsUntilTomorrowDate)",
                                                             content: self._notificationContent, trigger: trigger)
             self._notificationCenter.add(notifcationRequest1, withCompletionHandler: { (error) in
@@ -200,8 +200,6 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         _notificationContent.subtitle = "Don't forget to apply suncreen today."
         _notificationContent.body = "The top UV Index is \(maxUVIndex) and cloud coverage is \(cloudCoverage) percent today."
         _notificationContent.categoryIdentifier = "spfReminderCategory"
-        //_notificationContent = UNNotificationSound.default()
-        
     }
     
     func removeReminderNotifications() {
@@ -279,7 +277,8 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds),
                                                             repeats: false)
             
-            print("added notification Tips\(seconds)")
+            self._notificationContent.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "notification-sound.caf"))
+            
             let notifcationRequest1 = UNNotificationRequest(identifier: "Tips\(seconds)",
                                                             content: self._notificationContent, trigger: trigger)
             self._notificationCenter.add(notifcationRequest1, withCompletionHandler: { (error) in
