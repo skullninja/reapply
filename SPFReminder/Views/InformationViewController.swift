@@ -46,12 +46,13 @@ class InformationViewController: GenericViewController {
         
         Analytics.logEvent(AnalyticsEvents.safetyTipsTapped, parameters: nil)
         
-        guard let url = URL(string: "https://www.reapplyapp.com/copy-of-safety-tips") else { return }
-        UIApplication.shared.open(url)
+       //guard let url = URL(string: "https://www.reapplyapp.com/copy-of-safety-tips") else { return }
+        //UIApplication.shared.open(url)
         
-        //let webViewController = WebViewController()
-        //webViewController.urlString = "https://www.reapplyapp.com/copy-of-safety-tips"
-       //self.present(webViewController, animated: true, completion: nil)
+        let webViewController = WebViewController()
+        webViewController.urlString = "https://www.reapplyapp.com/copy-of-safety-tips"
+        webViewController.blogPost = false
+        self.present(webViewController, animated: true, completion: nil)
         
     }
     
