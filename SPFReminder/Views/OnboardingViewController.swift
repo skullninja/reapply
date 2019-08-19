@@ -23,7 +23,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         "Choose sunscreens carefully; many have harmful ingredients that are skin irritants and coral reef killers"
         ]
     
-    public var imageNames: Array<String> = ["sun-rays","hand-with-sunscreen","blured-beach", "blue-ocean"]
+    public var imageNames: Array<String> = ["sun-rays","sun-girl","blured-beach", "blue-ocean"]
     
     public var titles: Array<String> = ["", "PROTECTION", "ANTI-AGING", "NON-TOXIC"]
     

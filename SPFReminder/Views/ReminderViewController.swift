@@ -303,29 +303,29 @@ class ReminderViewController: GenericViewController {
         
             popTip.bubbleColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.9)
             popTip.cornerRadius = 10
-            popTip.font = UIFont.systemFont(ofSize: 20)
+            popTip.font = UIFont.systemFont(ofSize: 16)
             popTip.edgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         
             let titleLabel = UILabel(frame: CGRect(x: 0, y: 10, width: 300, height: 20))
             titleLabel.text = "HELLO!"
             titleLabel.textAlignment = .center
             titleLabel.textColor = .white
-            titleLabel.font = UIFont.systemFont(ofSize: 28, weight:UIFont.Weight.thin)
+            titleLabel.font = UIFont.systemFont(ofSize: 24, weight:UIFont.Weight.thin)
             customView.addSubview(titleLabel)
             
             let subTitleText = UILabel(frame: CGRect(x: 0, y: 44, width: 300, height: 20))
             subTitleText.text = "Welcome to REAPPLY"
             subTitleText.textAlignment = .center
             subTitleText.textColor = .white
-            subTitleText.font = UIFont.systemFont(ofSize: 23, weight:UIFont.Weight.thin)
+            subTitleText.font = UIFont.systemFont(ofSize: 22, weight:UIFont.Weight.thin)
             customView.addSubview(subTitleText)
         
-            let textLabel = UILabel(frame: CGRect(x: 10, y: 42, width: 300, height: 120))
+            let textLabel = UILabel(frame: CGRect(x: 0, y: 42, width: 300, height: 120))
             textLabel.numberOfLines = 0
             textLabel.text = "Let me show you a few things. Tap here to get started."
             textLabel.textAlignment = .center
             textLabel.textColor = .white
-            textLabel.font = UIFont.systemFont(ofSize: 23, weight:UIFont.Weight.thin)
+            textLabel.font = UIFont.systemFont(ofSize: 16, weight:UIFont.Weight.thin)
             customView.addSubview(textLabel)
             
             
