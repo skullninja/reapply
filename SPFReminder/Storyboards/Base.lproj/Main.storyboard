@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We believe the daily application of sunscreen is the most important thing you can do to protect your skin" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvE-jz-eQo">
-                                <rect key="frame" x="24" y="603.33333333333337" width="327" height="64.666666666666629"/>
+                                <rect key="frame" x="24" y="613.33333333333337" width="327" height="64.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -53,7 +53,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME TO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yo-35-zCg">
-                                <rect key="frame" x="97" y="547" width="181" height="34"/>
+                                <rect key="frame" x="97" y="557" width="181" height="34"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -79,7 +79,7 @@
                             <constraint firstItem="LaX-m0-a9Y" firstAttribute="trailing" secondItem="XmR-Nq-dh9" secondAttribute="trailing" id="l1n-M4-bIl"/>
                             <constraint firstItem="2nB-5Y-PNy" firstAttribute="centerX" secondItem="XmR-Nq-dh9" secondAttribute="centerX" id="lfq-03-BdQ"/>
                             <constraint firstItem="LaX-m0-a9Y" firstAttribute="leading" secondItem="XmR-Nq-dh9" secondAttribute="leading" id="n8H-ah-ZWU"/>
-                            <constraint firstItem="Nb9-PN-mj2" firstAttribute="bottom" secondItem="pvE-jz-eQo" secondAttribute="bottom" constant="110" id="rVV-Gk-W0a"/>
+                            <constraint firstItem="Nb9-PN-mj2" firstAttribute="bottom" secondItem="pvE-jz-eQo" secondAttribute="bottom" constant="100" id="rVV-Gk-W0a"/>
                             <constraint firstItem="pvE-jz-eQo" firstAttribute="top" secondItem="3yo-35-zCg" secondAttribute="bottom" constant="22.329999999999998" id="smS-tr-RNj"/>
                             <constraint firstItem="pvE-jz-eQo" firstAttribute="leading" secondItem="XmR-Nq-dh9" secondAttribute="leading" constant="24" id="x0M-P3-jae"/>
                             <constraint firstItem="Od4-he-miz" firstAttribute="top" secondItem="XmR-Nq-dh9" secondAttribute="top" id="yni-hv-hgl"/>
