@@ -22,6 +22,7 @@
 		55BAA9052212921800D09D54 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA9042212921800D09D54 /* Reminder.swift */; };
 		55BAA908221B7C4F00D09D54 /* GraphService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA907221B7C4F00D09D54 /* GraphService.swift */; };
 		55BAA90A221B7D0100D09D54 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA909221B7D0100D09D54 /* UIColorExtension.swift */; };
+		55CDE6E02313A47300877E62 /* IngredientCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CDE6DF2313A47300877E62 /* IngredientCollectionViewCell.swift */; };
 		55D9834222324095000A0B68 /* ConfigureReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9834122324095000A0B68 /* ConfigureReminderViewController.swift */; };
 		55F7D823226ED62A00205EE3 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F7D822226ED62A00205EE3 /* InformationViewController.swift */; };
 		9601E5B2229DA53100AADB45 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9601E5B1229DA53100AADB45 /* OnboardingViewController.swift */; };
@@ -62,6 +63,7 @@
 		55BAA9062213D3EB00D09D54 /* SPFReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SPFReminder.entitlements; sourceTree = "<group>"; };
 		55BAA907221B7C4F00D09D54 /* GraphService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphService.swift; sourceTree = "<group>"; };
 		55BAA909221B7D0100D09D54 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		55CDE6DF2313A47300877E62 /* IngredientCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCollectionViewCell.swift; sourceTree = "<group>"; };
 		55D9834122324095000A0B68 /* ConfigureReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureReminderViewController.swift; sourceTree = "<group>"; };
 		55F7D822226ED62A00205EE3 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		833A342E2D33ECE68AC937ED /* Pods-SPFReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPFReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SPFReminder/Pods-SPFReminder.debug.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				960B738D22A0421800D3A3BC /* OnboardingPageContent.swift */,
 				965A3A5D22B962FC00D1A948 /* WebViewController.swift */,
 				9641C09822C04467008C9452 /* MoreProductInfoViewController.swift */,
+				55CDE6DF2313A47300877E62 /* IngredientCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				965158B72224AB7B003B1092 /* LocationService.swift in Sources */,
 				9601E5B4229DF10D00AADB45 /* UserHelper.swift in Sources */,
 				55BAA9052212921800D09D54 /* Reminder.swift in Sources */,
+				55CDE6E02313A47300877E62 /* IngredientCollectionViewCell.swift in Sources */,
 				96F75BE3220E5CDE001F0B0F /* NotificationService.swift in Sources */,
 				96236225221B5E8C00B8B172 /* ForecastService.swift in Sources */,
 				5587FEFA228E66B700D07FFE /* StoreAnimator.swift in Sources */,
