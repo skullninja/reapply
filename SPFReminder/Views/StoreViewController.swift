@@ -110,14 +110,21 @@ class StoreViewController: UIViewController {
         productCarousel.type = .invertedTimeMachine
         productCarousel.reloadData()
         
+        ingredientListContainerView.register(IngredientCollectionViewCell.self, forCellWithReuseIdentifier: "ingredient")
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 4.0
+        ingredientListContainerView.collectionViewLayout = layout
+        ingredientListContainerView.delegate = self
+        ingredientListContainerView.dataSource = self
+        ingredientListContainerView.showsHorizontalScrollIndicator = false
+        
         updateProductDisplay(animated: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         Analytics.setScreenName("store", screenClass: "StoreViewController")
-        
     }
     
     private func updateProductDisplay(animated: Bool) {
@@ -146,12 +153,7 @@ class StoreViewController: UIViewController {
             btnReview.isHidden = true
         }
         
-        /*
-        ingredientListView.removeAllTags()
-        if let ingredients = currentProduct["ingredients"] as? [String] {
-            ingredientListView.addTags(ingredients)
-        }
- */
+        ingredientListContainerView.reloadData()
     }
     
     @IBAction func previousProductAction(_ sender: Any) {
@@ -292,4 +294,39 @@ extension StoreViewController: iCarouselDataSource {
     }
     
 
+}
+
+extension StoreViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if let ingredients = currentProduct["ingredients"] as? [String] {
+            let name = ingredients[indexPath.row]
+            return IngredientCollectionViewCell.sizeFor(name: name)
+        }
+        return CGSize.zero
+    }
+    
+}
+
+extension StoreViewController: UICollectionViewDelegate {
+    
+}
+
+extension StoreViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let ingredients = currentProduct["ingredients"] as? [String] else { return 0 }
+        return ingredients.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ingredient", for: indexPath)
+        
+        if let ingredientCell = cell as? IngredientCollectionViewCell,
+            let ingredients = currentProduct["ingredients"] as? [String] {
+            ingredientCell.configure(name: ingredients[indexPath.row])
+        }
+        
+        return cell
+    }
+    
+    
 }
