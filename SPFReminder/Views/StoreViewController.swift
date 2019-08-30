@@ -184,20 +184,24 @@ class StoreViewController: UIViewController {
     
     @IBAction func purchaseAction(_ sender: Any) {
         
+        let transactionID = "TX" + String(Int.random(in: 2000 ... 10000))
+        
         guard let linkUrl = currentProduct["linkUrl"] as? String,
             let productName = currentProduct["name"] as? String,
-            let url = URL(string: linkUrl + "?utm_source=reapply") else { return }
+            let url = LinkHelper.affiliateUrl(linkUrl, tracking: transactionID) else { return }
         
         Analytics.logEvent(AnalyticsEvents.productPurchaseTapped, parameters: [
             AnalyticsParameterItemName: "ProductName",
-            AnalyticsParameterItemID: productName
+            AnalyticsParameterItemID: productName,
+            AnalyticsParameterTransactionID: transactionID
             ])
         
         if let price = currentProduct["price"] as? String,
             let priceNumber = Float(price.replacingOccurrences(of: "$", with: "")) {
             Analytics.logEvent(AnalyticsEventEcommercePurchase, parameters: [
                 AnalyticsParameterValue: priceNumber,
-                AnalyticsParameterCurrency: "USD"
+                AnalyticsParameterCurrency: "USD",
+                AnalyticsParameterTransactionID: transactionID
                 ])
         }
         
