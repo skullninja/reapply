@@ -15,6 +15,7 @@
 		5587FF052290C12600D07FFE /* StoreTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587FF042290C12600D07FFE /* StoreTransitionViewController.swift */; };
 		5587FF062293A2F400D07FFE /* ReminderCloudKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C5EB5222F36D1000582D7 /* ReminderCloudKitModel.swift */; };
 		5587FF082293A54A00D07FFE /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 5587FF072293A54A00D07FFE /* products.json */; };
+		559C969E2319E92A0066B6B2 /* LinkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559C969D2319E92A0066B6B2 /* LinkHelper.swift */; };
 		55B0C37D22D6E7D200C70986 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55B0C37C22D6E7D200C70986 /* GoogleService-Info.plist */; };
 		55B0C37F22DECAD300C70986 /* AnalyticsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B0C37E22DECAD300C70986 /* AnalyticsEvents.swift */; };
 		55BAA90122040C1100D09D54 /* DateTimeZoneExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */; };
@@ -55,6 +56,7 @@
 		5587FF0222909F5100D07FFE /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
 		5587FF042290C12600D07FFE /* StoreTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTransitionViewController.swift; sourceTree = "<group>"; };
 		5587FF072293A54A00D07FFE /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
+		559C969D2319E92A0066B6B2 /* LinkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkHelper.swift; sourceTree = "<group>"; };
 		55B0C37C22D6E7D200C70986 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		55B0C37E22DECAD300C70986 /* AnalyticsEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvents.swift; sourceTree = "<group>"; };
 		55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeZoneExtension.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				55BAA907221B7C4F00D09D54 /* GraphService.swift */,
 				965158B62224AB7A003B1092 /* LocationService.swift */,
 				9601E5B3229DF10D00AADB45 /* UserHelper.swift */,
+				559C969D2319E92A0066B6B2 /* LinkHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				96F75BE3220E5CDE001F0B0F /* NotificationService.swift in Sources */,
 				96236225221B5E8C00B8B172 /* ForecastService.swift in Sources */,
 				5587FEFA228E66B700D07FFE /* StoreAnimator.swift in Sources */,
+				559C969E2319E92A0066B6B2 /* LinkHelper.swift in Sources */,
 				55BAA903220651E100D09D54 /* ReminderService.swift in Sources */,
 				9641C09922C04467008C9452 /* MoreProductInfoViewController.swift in Sources */,
 				967C5EB8222F7FF9000582D7 /* CloudKitManager.swift in Sources */,
