@@ -325,8 +325,11 @@ extension StoreViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ingredient", for: indexPath)
         
         if let ingredientCell = cell as? IngredientCollectionViewCell,
-            let ingredients = currentProduct["ingredients"] as? [String] {
-            ingredientCell.configure(name: ingredients[indexPath.row])
+            let ingredients = currentProduct["ingredients"] as? [String],
+            let activeIngredients = currentProduct["activeIngredients"] as? [String] {
+            let ingredient = ingredients[indexPath.row]
+            let active = activeIngredients.contains(ingredient)
+            ingredientCell.configure(name: ingredient, active: active)
         }
         
         return cell
