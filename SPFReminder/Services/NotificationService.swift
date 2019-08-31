@@ -198,8 +198,21 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         _notificationContent.title = "Good morning, sunshine!"
         //TO DO: get top uv index and cloud coverage
         _notificationContent.subtitle = "Don't forget to apply suncreen today."
-        _notificationContent.body = "The top UV Index is \(maxUVIndex) and cloud coverage is \(cloudCoverage) percent today."
         _notificationContent.categoryIdentifier = "spfReminderCategory"
+        
+        var uvDescription = ""
+       if maxUVIndex <= 2 {
+            uvDescription = "A sunburn is possible within 60 minutes."
+        } else if maxUVIndex <= 5 {
+            uvDescription = "A sunburn is possible within 30 to 45 minutes."
+        }else if maxUVIndex <= 7 {
+            uvDescription = "A sunburn is possible within 15 to 25 minutes."
+        } else {
+            uvDescription = "A sunburn is possible within 15 minutes."
+        }
+        
+        _notificationContent.body = "The top UV Index is \(maxUVIndex) today. \(uvDescription)"
+        
     }
     
     func removeReminderNotifications() {
