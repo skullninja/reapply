@@ -24,11 +24,16 @@ public class IngredientCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
-    func configure(name: String) {
+    func configure(name: String, active: Bool) {
         self.ingredientName = name
         IngredientCollectionViewCell.configureButton(self.ingredientButton, name: name)
-        self.ingredientButton.backgroundColor = UIColor.colorFromHex(0xD8D8D8)
-        self.ingredientButton.setTitleColor(.black, for: .normal)
+        if active {
+            self.ingredientButton.backgroundColor = UIColor.colorFromHex(0xFA3352)
+            self.ingredientButton.setTitleColor(.white, for: .normal)
+        } else {
+            self.ingredientButton.backgroundColor = UIColor.colorFromHex(0xD8D8D8)
+            self.ingredientButton.setTitleColor(.black, for: .normal)
+        }
         self.ingredientButton.clipsToBounds = true
         self.ingredientButton.layer.cornerRadius = self.ingredientButton.bounds.height / 4.0
         self.contentView.sizeToFit()
