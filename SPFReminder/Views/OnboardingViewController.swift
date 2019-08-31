@@ -25,7 +25,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     
     public var imageNames: Array<String> = ["sun-rays","sun-girl","blured-beach", "blue-ocean"]
     
-    public var titles: Array<String> = ["", "PROTECTION", "ANTI-AGING", "NON-TOXIC"]
+    public var titles: Array<String> = ["", "PROTECTION", "ANTI-AGING", "ECO-FRIENDLY"]
     
     
     fileprivate lazy var pages: [UIViewController] = {

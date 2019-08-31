@@ -194,7 +194,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     
     func setupFutureDailyNotificationContent(dayIndex: Int) {
         let maxUVIndex = Int(ForecastService.shared.fiveDayForecast[dayIndex].uvIndex ?? 0)
-        let cloudCoverage = Int(ForecastService.shared.fiveDayForecast[dayIndex].cloudCoverage! * 100)
+        //let cloudCoverage = Int(ForecastService.shared.fiveDayForecast[dayIndex].cloudCoverage! * 100)
         _notificationContent.title = "Good morning, sunshine!"
         //TO DO: get top uv index and cloud coverage
         _notificationContent.subtitle = "Don't forget to apply suncreen today."
