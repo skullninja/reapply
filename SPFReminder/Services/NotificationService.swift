@@ -211,8 +211,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             uvDescription = "A sunburn is possible within 15 minutes."
         }
         
-        _notificationContent.body = "The top UV Index is \(maxUVIndex) today. \(uvDescription)"
-        
+        _notificationContent.body = "The peak UV Level is \(maxUVIndex) today. \(uvDescription)"
     }
     
     func removeReminderNotifications() {
