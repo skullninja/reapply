@@ -217,10 +217,11 @@ class ReminderViewController: GenericViewController {
                 self.welcomeTipsStatus = .uvInfo
             case .uvInfo:
                 self.popTip.show(text: "Tap the Apply button to start the timer to be notified when to REAPPLY sunscreen.", direction: .down, maxWidth: 300, in: self.view, from: self.btnApply.frame)
+                self.welcomeTipsStatus = .shop
+            case .shop:
+                self.popTip.show(text: "See our store to shop eco-friendly sunscreens.", direction: .left, maxWidth: 250, in: self.view, from: self.btnStore.frame)
                 self.welcomeTipsStatus = .timer
             case .timer:
-                return
-            case .shop:
                 return
             }
         }
