@@ -55,6 +55,35 @@ PODS:
   - GoogleUtilities/UserDefaults (6.1.0):
     - GoogleUtilities/Logger
   - iCarousel (1.8.3)
+  - MaterialComponents/AnimationTiming (84.2.0)
+  - MaterialComponents/Buttons (84.2.0):
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/Ripple
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Shapes
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - MaterialComponents/Ink (84.2.0):
+    - MaterialComponents/private/Math
+  - MaterialComponents/private/Application (84.2.0)
+  - MaterialComponents/private/Math (84.2.0)
+  - MaterialComponents/Ripple (84.2.0):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/private/Math
+  - MaterialComponents/ShadowElevations (84.2.0)
+  - MaterialComponents/ShadowLayer (84.2.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/Shapes (84.2.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - MaterialComponents/Typography (84.2.0):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+  - MDFInternationalization (2.0.0)
+  - MDFTextAccessibility (2.0.0)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
   - Moya/Core (12.0.1):
@@ -83,6 +112,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - ForecastIO (~> 5.1)
   - iCarousel (~> 1.8)
+  - MaterialComponents/Buttons
   - Moya (~> 12.0)
   - Presentr
   - Pulsator
@@ -105,6 +135,9 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - iCarousel
+    - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
     - Moya
     - nanopb
     - Presentr
@@ -128,6 +161,9 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 51d8d9ea48f0ca44484d29cfbdef976fbd4fc336
   GoogleUtilities: 84df567c76ca84f67b7bb40e769fdd4acc746a10
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  MaterialComponents: 97aaf99bed91a6918775cb4cdb4d4551ded48c3f
+  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
+  MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
@@ -137,6 +173,6 @@ SPEC CHECKSUMS:
   SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
   TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
 
-PODFILE CHECKSUM: ee2d04b8533a3e290b049d9e8040c9244b094f1d
+PODFILE CHECKSUM: 25a89e24c7885b9b3b0c94bab7b4c79ace834f63
 
 COCOAPODS: 1.5.3
