@@ -20,5 +20,6 @@ target 'SPFReminder' do
  pod 'AMPopTip'
  pod 'Fabric'
  pod 'Crashlytics'
+ pod 'MaterialComponents/Buttons'
 
 end
