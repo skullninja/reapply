@@ -1,0 +1,36 @@
+[
+    {
+        "question": "Who do you want to protect?",
+        "answers": [
+            "Whole Family",
+            "Women",
+            "Men"
+        ]
+    },
+    {
+        "question": "When will you apply it?",
+        "answers": [
+            "Everyday",
+            "Active Outside",
+            "On Vacation",
+            "With Makeup"
+        ]
+    },
+    {
+        "question": "What part of the body do you want to protect?",
+        "answers": [
+            "Face",
+            "Body",
+            "Both"
+        ]
+    },
+    {
+        "question": "Any skin concerns?",
+        "answers": [
+            "None",
+            "Dry",
+            "Oily",
+            "Sensitive"
+        ]
+    }
+]

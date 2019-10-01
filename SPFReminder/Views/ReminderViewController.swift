@@ -478,6 +478,12 @@ class ReminderViewController: GenericViewController {
             ReminderService.shared.reapply()
         }
     }
+    
+    @IBAction func quizButtonTapped(_ sender: Any){
+        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QuizViewController") as UIViewController
+        
+        self.present(viewController, animated: true, completion: nil)
+    }
 }
 
 extension ReminderViewController: ScrollableGraphViewDataSource {
