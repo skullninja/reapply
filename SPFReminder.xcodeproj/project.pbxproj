@@ -36,6 +36,7 @@
 		9623342621F81D7E00E31825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9623342421F81D7E00E31825 /* LaunchScreen.storyboard */; };
 		96236225221B5E8C00B8B172 /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96236224221B5E8C00B8B172 /* ForecastService.swift */; };
 		96236227221B7C0100B8B172 /* DailyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96236226221B7C0100B8B172 /* DailyForecast.swift */; };
+		963E4E652342E94C00453CF9 /* quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 963E4E642342E94C00453CF9 /* quiz.json */; };
 		9641C09922C04467008C9452 /* MoreProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641C09822C04467008C9452 /* MoreProductInfoViewController.swift */; };
 		965158B72224AB7B003B1092 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965158B62224AB7A003B1092 /* LocationService.swift */; };
 		965A3A5E22B962FC00D1A948 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965A3A5D22B962FC00D1A948 /* WebViewController.swift */; };
@@ -45,6 +46,7 @@
 		96F07993222615E7009A5C06 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96F07992222615E7009A5C06 /* CloudKit.framework */; };
 		96F75BE1220BF4AB001F0B0F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F75BE0220BF4AA001F0B0F /* icon.png */; };
 		96F75BE3220E5CDE001F0B0F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F75BE2220E5CDE001F0B0F /* NotificationService.swift */; };
+		96F8A229234285C000F357F1 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8A228234285C000F357F1 /* QuizViewController.swift */; };
 		EBFF1BDDACD7721912FBF5AA /* Pods_SPFReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5D7266F6C8089E10D3BBBC /* Pods_SPFReminder.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,7 @@
 		9623342721F81D7E00E31825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96236224221B5E8C00B8B172 /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
 		96236226221B7C0100B8B172 /* DailyForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecast.swift; sourceTree = "<group>"; };
+		963E4E642342E94C00453CF9 /* quiz.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = quiz.json; sourceTree = "<group>"; };
 		9641C09822C04467008C9452 /* MoreProductInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProductInfoViewController.swift; sourceTree = "<group>"; };
 		965158B62224AB7A003B1092 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		965A3A5D22B962FC00D1A948 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 		96F07992222615E7009A5C06 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		96F75BE0220BF4AA001F0B0F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		96F75BE2220E5CDE001F0B0F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		96F8A228234285C000F357F1 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		BA09F6739CC10E8A1A4CA02E /* Pods-SPFReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPFReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SPFReminder/Pods-SPFReminder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +135,7 @@
 				960B738D22A0421800D3A3BC /* OnboardingPageContent.swift */,
 				965A3A5D22B962FC00D1A948 /* WebViewController.swift */,
 				9641C09822C04467008C9452 /* MoreProductInfoViewController.swift */,
+				96F8A228234285C000F357F1 /* QuizViewController.swift */,
 				55CDE6DF2313A47300877E62 /* IngredientCollectionViewCell.swift */,
 			);
 			path = Views;
@@ -147,6 +152,7 @@
 				96F75BE0220BF4AA001F0B0F /* icon.png */,
 				5587FF072293A54A00D07FFE /* products.json */,
 				966A783A2294A86300039CF2 /* tips.json */,
+				963E4E642342E94C00453CF9 /* quiz.json */,
 				55B0C37E22DECAD300C70986 /* AnalyticsEvents.swift */,
 			);
 			path = "Support Files";
@@ -323,6 +329,7 @@
 				968EADCE22E6958900C6D80C /* notification-sound.caf in Resources */,
 				966A783B2294A86300039CF2 /* tips.json in Resources */,
 				9623342621F81D7E00E31825 /* LaunchScreen.storyboard in Resources */,
+				963E4E652342E94C00453CF9 /* quiz.json in Resources */,
 				9623342321F81D7E00E31825 /* Assets.xcassets in Resources */,
 				9623342121F81D7C00E31825 /* Main.storyboard in Resources */,
 				55B0C37D22D6E7D200C70986 /* GoogleService-Info.plist in Resources */,
@@ -347,6 +354,9 @@
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Presentr/Presentr.framework",
 				"${BUILT_PRODUCTS_DIR}/Pulsator/Pulsator.framework",
@@ -367,6 +377,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionAnimator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionInterchange.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionTransitioning.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Presentr.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulsator.framework",
@@ -445,6 +458,7 @@
 				96F75BE3220E5CDE001F0B0F /* NotificationService.swift in Sources */,
 				96236225221B5E8C00B8B172 /* ForecastService.swift in Sources */,
 				5587FEFA228E66B700D07FFE /* StoreAnimator.swift in Sources */,
+				96F8A229234285C000F357F1 /* QuizViewController.swift in Sources */,
 				559C969E2319E92A0066B6B2 /* LinkHelper.swift in Sources */,
 				55BAA903220651E100D09D54 /* ReminderService.swift in Sources */,
 				9641C09922C04467008C9452 /* MoreProductInfoViewController.swift in Sources */,
