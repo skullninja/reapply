@@ -89,69 +89,81 @@ class QuizViewController: UIViewController{
         switch sender.tag {
                case 1:
                 self.btnOne.isSelected = true
-                
-                self.btnTwo.isEnabled = false
-                self.btnThree.isEnabled = false
-                self.btnFour.isEnabled = false
-                
+    
                case 2:
                 self.btnTwo.isSelected = true
             
-                self.btnOne.isEnabled = false
-                self.btnThree.isEnabled = false
-                self.btnFour.isEnabled = false
-            
                case 3:
                 self.btnThree.isSelected = true
-                
-                self.btnOne.isEnabled = false
-                self.btnTwo.isEnabled = false
-                self.btnFour.isEnabled = false
-            
+              
                default:
                 self.btnFour.isSelected = true
-            
-                self.btnOne.isEnabled = false
-                self.btnTwo.isEnabled = false
-                self.btnThree.isEnabled = false
+
            }
+        
+        
+        UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseOut, animations: {
+            
+            self.btnOne.alpha = 0
+            self.btnTwo.alpha = 0
+            self.btnThree.alpha = 0
+            self.btnFour.alpha = 0
+            self.lblQuestion.alpha = 0
+            
+        }, completion: { (finished: Bool) in
+            
+           self.updateButtonDisplay()
+         
+                UIView.animate(withDuration: 0.2, delay: 0.2, options: .curveEaseOut, animations: {
+                              self.lblQuestion.alpha = 1.0
+                              self.btnOne.alpha = 1.0
+                              self.btnTwo.alpha = 1.0
+                              self.btnThree.alpha = 1.0
+                              self.btnFour.alpha = 1.0
+                              
+                          }, completion:nil)
+         
+        })
     
-        questionCounter = questionCounter + 1
-        self.resetButtons()
-        self.btnFour.isHidden = true
-        
-        let question = self.questions[questionCounter]
-        let questionDict = question as! Dictionary<String, AnyObject>
-               
-        let questionText = questionDict["question"] as! String
-        self.lblQuestion.text = questionText
-        
-        let answerOptions = questionDict["answers"] as! Array<String>
-               
-        self.btnOne.setTitle(answerOptions[0], for: .normal)
-        self.btnTwo.setTitle(answerOptions[1], for: .normal)
-        self.btnThree.setTitle(answerOptions[2], for: .normal)
-        
-        if (questionCounter == 1 && answerTag == "women"){
-            self.btnFour.isHidden = false
-            self.btnFour.setTitle(answerOptions[3], for: .normal)
-        }
-        
-        //TO DO: a case for sensitive
     }
     
-    func resetButtons(){
+    func resetButtonState(){
         
         self.btnOne.isSelected = false
         self.btnTwo.isSelected = false
         self.btnThree.isSelected = false
         self.btnFour.isSelected = false
-                       
-        self.btnOne.isEnabled = true
-        self.btnTwo.isEnabled = true
-        self.btnThree.isEnabled = true
-        self.btnFour.isEnabled = true
         
+        self.btnFour.isHidden = true
+    }
+    
+    func updateButtonDisplay (){
+        
+        self.resetButtonState()
+        
+        //Get the next question and answer options
+        questionCounter = questionCounter + 1
+        let question = self.questions[questionCounter]
+        let questionDict = question as! Dictionary<String, AnyObject>
+                      
+        let questionText = questionDict["question"] as! String
+               
+        self.lblQuestion.text = questionText
+               
+        let answerOptions = questionDict["answers"] as! Array<String>
+        
+        self.btnOne.setTitle(answerOptions[0], for: .normal)
+        self.btnTwo.setTitle(answerOptions[1], for: .normal)
+        self.btnThree.setTitle(answerOptions[2], for: .normal)
+    
+        let answerTag = self.tagsArray[0]
+        if ((questionCounter == 1 && answerTag == "women") || questionCounter == 3){
+            self.btnFour.isHidden = false
+            self.btnFour.setTitle(answerOptions[3], for: .normal)
+               
+        }
+        
+        //TO DO: skip 3rd question if women and with makeup is selected
     }
     
     @IBAction func closeTapped(){
