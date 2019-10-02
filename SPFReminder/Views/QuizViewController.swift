@@ -152,6 +152,12 @@ class QuizViewController: UIViewController {
         
         //Get the next question and answer options
         questionCounter = questionCounter + 1
+              
+        //skip question if women and withmakeup has been selected
+        if (questionCounter == 2 && self.tagsArray.contains("women") && self.tagsArray.contains("withmakeup")){
+              questionCounter = questionCounter + 1
+        }
+        
         let question = self.questions[questionCounter]
         let questionDict = question as! Dictionary<String, AnyObject>
                       
