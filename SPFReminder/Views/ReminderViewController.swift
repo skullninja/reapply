@@ -480,9 +480,22 @@ class ReminderViewController: GenericViewController {
     }
     
     @IBAction func quizButtonTapped(_ sender: Any){
-        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QuizViewController") as UIViewController
+        let viewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QuizViewController") as UIViewController
         
+        if let quizVC = viewController as? QuizViewController {
+            quizVC.delegate = self
+        }
+        
+        viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: true, completion: nil)
+    }
+}
+
+extension ReminderViewController: QuizViewControllerDelegate {
+    func quizCompleteWith(_ product: Any, quizViewController: QuizViewController) {
+        quizViewController.dismiss(animated: false) {
+            StoreViewController.presentForProduct(product: product, viewController: self)
+        }
     }
 }
 

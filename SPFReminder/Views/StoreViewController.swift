@@ -34,36 +34,20 @@ class StoreViewController: UIViewController {
     let timerHeaderImage = UIImage(named: "timer")
     let nightHeaderImage = UIImage(named: "night")
     
-    private static var products: NSArray = {
-        if let path = Bundle.main.path(forResource: "products", ofType: "json"),
-            let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe),
-            let jsonResult = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
-            let rawArray = jsonResult as? NSArray ?? NSArray()
-            var productArray = NSMutableArray()
-            for product in rawArray {
-                if var productDictionary = product as? [String: Any?],
-                    let active = productDictionary["active"] as? String,
-                    let inactive = productDictionary["inactive"] as? String {
-                    let activeArray = active.components(separatedBy: ";")
-                    let inactiveArray = inactive.components(separatedBy: ";")
-                    productDictionary["activeIngredients"] = activeArray
-                    productDictionary["inactiveIngredients"] = inactiveArray
-                    productDictionary["ingredients"] = activeArray + inactiveArray
-                    
-                    if let imageUrl = productDictionary["imageUrl"] as? String,
-                        let _ = URL(string: imageUrl) {
-                        productArray.add(productDictionary)
-                    }
-                }
-            }
-            return productArray
-        }
-        return NSArray()
-    }()
+    var startingIndex: Int = 0
     
     private var currentProduct: NSDictionary {
         let index = productCarousel.currentItemIndex
-        return StoreViewController.products[index] as? NSDictionary ?? NSDictionary()
+        return ProductService.shared.products[index] as? NSDictionary ?? NSDictionary()
+    }
+    
+    static func presentForProduct(product: Any, viewController: UIViewController) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        if let storeVC = storyboard.instantiateViewController(withIdentifier: "StoreViewController") as? StoreViewController {
+            storeVC.startingIndex = ProductService.shared.indexForProduct(product)
+            storeVC.modalPresentationStyle = .fullScreen
+            viewController.present(storeVC, animated: true, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
@@ -109,6 +93,7 @@ class StoreViewController: UIViewController {
         productCarousel.isPagingEnabled = true
         productCarousel.type = .invertedTimeMachine
         productCarousel.reloadData()
+        productCarousel.scrollToItem(at: self.startingIndex, animated: false)
         
         ingredientListContainerView.register(IngredientCollectionViewCell.self, forCellWithReuseIdentifier: "ingredient")
         let layout = UICollectionViewFlowLayout()
@@ -260,7 +245,7 @@ extension StoreViewController: iCarouselDelegate {
 
 extension StoreViewController: iCarouselDataSource {
     func numberOfItems(in carousel: iCarousel) -> Int {
-        return StoreViewController.products.count
+        return ProductService.shared.products.count
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
@@ -273,7 +258,7 @@ extension StoreViewController: iCarouselDataSource {
         contentView.backgroundColor = .clear
         let imageView = UIImageView(frame: contentView.bounds)
         imageView.contentMode = UIScreen.main.bounds.size.height < 700.0 ? .scaleAspectFit : .scaleAspectFill
-        if let product = StoreViewController.products[index] as? NSDictionary,
+        if let product = ProductService.shared.products[index] as? NSDictionary,
             let imageUrl = product["imageUrl"] as? String,
             let url = URL(string: imageUrl) {
             imageView.af_setImage(withURL: url)
@@ -283,7 +268,7 @@ extension StoreViewController: iCarouselDataSource {
         
         contentView.addArrangedSubview(imageView)
         
-        if let product = StoreViewController.products[index] as? NSDictionary,
+        if let product = ProductService.shared.products[index] as? NSDictionary,
             let size = product["size"] as? String {
             let sizeLabel = UILabel(frame: CGRect.init(x: 0, y: 0, width: contentView.bounds.size.width, height: 44))
             sizeLabel.adjustsFontSizeToFitWidth = true
