@@ -22,7 +22,7 @@
         ]
     },
     {
-        "name": "Fragrance-Free Sunscreen for Body",
+        "name": "Fragrance-Free Sunscreen",
         "brand": "Love Sun Body",
         "description": "An all natural organic body mineral sunscreen that works. This sunscreen provides non-nano zinc and titanium oxide to block both UVA and UVB rays.",
         "size": 3.38,
@@ -39,8 +39,11 @@
         "tags": [
             "women",
             "onvacation",
+            "activeoutside",
             "body",
-            "dry"
+            "both",
+            "dry",
+            "none"
         ]
     },
     {
@@ -63,6 +66,7 @@
             "onvacation",
             "everyday",
             "body",
+            "both",
             "sensitive",
             "oily",
             "none"
@@ -86,8 +90,8 @@
         "tags": [
             "men",
             "wholefamily",
-            "women",
             "activeoutside",
+            "both",
             "body",
             "dry",
             "sensitive",
@@ -136,6 +140,36 @@
             "wholefamily",
             "everyday",
             "body",
+            "none",
+            "dry",
+            "oily",
+            "sensitive"
+        ]
+    },
+    {
+        "name": "Clear Zinc Sunscreen Lotion",
+        "brand": "Babo Botanicals",
+        "description": "This unique, clear formula is non-nano and contains high UVB/UVA protection. Safe enough for the whole family including babies and kids.",
+        "size": 3.0,
+        "mineral": true,
+        "spf": 30,
+        "retailer": "Babo Botanicals",
+        "price": "$19.95",
+        "reviewUrl": "https://www.reapplyapp.com/post/babo-botanicals-sheer-zinc-continuous-spray-sunscreen-review",
+        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/babo-2.png",
+        "linkUrl": "https://www.babobotanicals.com/products/zinc-sunscreen-lotion-fragrance-free",
+        "bodyPart": "Body",
+        "active": "Zinc Oxide 19.0% (Non-Nano)",
+        "inactive": "Aloe Barbadensis Leaf (Aloe Vera Gel) Juice*; Aqua (Deionized Water); Argania Spinosa (Argan) Oil*; Butyrospermum Parkii (Shea) Butter*; Calendula Officinalis Extract;* Caprylic/Capric Triglyceride; Caprylyl/Capryl Glucoside; Caprylyl Glycol; Caryodendron Orinocense (Kahai) Oil; Chamomilla Recutita (Chamomile) Extract*, Glycerin*; Glyceryl Stearate; Helianthus Annuus (Sunflower) Oil*; Hexylene Glycol; Hippophae Rhamnoides (Sea Buckthorn) Oil); Hydroxyethylcellulose; Nasturtium Officinalis (Watercress) Extract*; Polyhydroxystearic Acid; Potassium Sorbate; Pueraria Lobata (Kudzu) Extract*; Rosa Canina (Rose Hips) Oil*; Rosmarinus Officinalis (Rosemary) Extract*; Sodium Bicarbonate; Spiraea Ulmairia (Meadowsweet) Extract*; Stearic Acid; Xanthan Gum; Zemea (Corn) Propanediol",
+        "tags": [
+            "wholefamily",
+            "everyday",
+            "onvacation",
+            "face",
+            "both",
+            "dry",
+            "oily",
+            "sensitive",
             "none"
         ]
     },
@@ -232,13 +266,19 @@
         "mineral": true,
         "spf": 30,
         "retailer": "Amazon",
-        "price": "$17.99",
+        "price": "$12.99",
         "reviewUrl": "",
-        "imageUrl": "",
-        "linkUrl": "https://www.amazon.com/Bare-Republic-Mineral-Sunscreen-Lotion/dp/B01FOWW2HM",
+        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/bare-republic-updated.png",
+        "linkUrl": "https://www.target.com/p/bare-republic-mineral-sunscreen-face-lotion-spf-30-1-7-fl-oz/-/A-16576945",
         "bodyPart": "Face",
         "active": "Titanium Dioxide- 5.2%; Zinc Oxide- 2.5%",
-        "inactive": "Aluminum Hydroxide; Butyrospermum Parkii (Shea) Butter; Cyclopentasiloxane; Daucus Carota Sativa (Carrot) Seed Oil; Dimethicone Crosspolymer; Glycerin; Hydrogen Dimethicone; Isopropyl Myristate; Polyamide-5; Polysilicone-11; Propylene Carbonate; Rubus Idaeus (Raspberry) Seed Oil; Silica Silylate; Stearalkonium Hectorite; Vitis Vinifera (Grape) Seed Oil"
+        "inactive": "Aluminum Hydroxide; Butyrospermum Parkii (Shea) Butter; Cyclopentasiloxane; Daucus Carota Sativa (Carrot) Seed Oil; Dimethicone Crosspolymer; Glycerin; Hydrogen Dimethicone; Isopropyl Myristate; Polyamide-5; Polysilicone-11; Propylene Carbonate; Rubus Idaeus (Raspberry) Seed Oil; Silica Silylate; Stearalkonium Hectorite; Vitis Vinifera (Grape) Seed Oil",
+        "tags": [
+            "wholefamily",
+            "activeoutside",
+            "face",
+            "none"
+        ]
     },
     {
         "name": "Invincible Setting Powder for Face",
