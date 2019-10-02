@@ -11,8 +11,11 @@ import MaterialComponents.MaterialButtons
 import MaterialComponents.MaterialButtons_Theming
 import MaterialComponents.MaterialContainerScheme
 
+protocol QuizViewControllerDelegate: AnyObject {
+    func quizCompleteWith(_ product: Any, quizViewController: QuizViewController)
+}
 
-class QuizViewController: UIViewController{
+class QuizViewController: UIViewController {
      
     @IBOutlet weak var lblQuestion: UILabel!
     @IBOutlet weak var btnOne: MDCButton!
@@ -21,6 +24,7 @@ class QuizViewController: UIViewController{
     @IBOutlet weak var btnFour: MDCButton!
     
     var questionCounter = 0
+    weak var delegate: QuizViewControllerDelegate?
     
     private lazy var questions: NSArray = {
         if let path = Bundle.main.path(forResource: "quiz", ofType: "json"),
@@ -78,13 +82,18 @@ class QuizViewController: UIViewController{
     
     @IBAction func answerTapped(sender: UIButton){
         
-        if (questionCounter == 3){ return }
-        
         var buttonTitle = sender.title(for: .normal)
-        buttonTitle = buttonTitle?.trimmingCharacters(in: .whitespaces)
+        buttonTitle = buttonTitle?.replacingOccurrences(of: " ", with: "")
         
         let answerTag = buttonTitle!.lowercased()
         self.tagsArray.append(answerTag)
+        
+        if (questionCounter == 3) {
+            if let product = ProductService.shared.productForTags(self.tagsArray) {
+                delegate?.quizCompleteWith(product, quizViewController: self)
+            }
+            return
+        }
         
         switch sender.tag {
                case 1:

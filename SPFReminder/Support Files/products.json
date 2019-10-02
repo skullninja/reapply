@@ -13,10 +13,16 @@
         "linkUrl": "https://www.amazon.com/Suntegrity-Natural-Mineral-Sunscreen-Body/dp/B00J3FSNRA/ref=sr_1_5",
         "bodyPart": "Body",
         "active": "20% Zinc-Oxide (non-nano)",
-        "inactive": "Aloe Barbadensis (Organic Aloe Vera) Leaf Juice; Camellia Sinensis (Organic Green Tea) Leaf Extract; Caprylic Capric Triglycerides (Coconut Oil Extract); Cetyl Dimethicone (Mineral Based); Cucumis Sativus (Organic Cucumber) Fruit Extract; Ethylhexylglycerin (Plant Derived Preservative); Glyceryl Monostearate (Plant Derived); Helianthus Annuus (Organic Sunflower) Seed Oil; Hexyl Laurate (Plant Derived); Hyaluronic Acid (Plant Derived); Magnesium Sulfate (Epsom Salt); Polyaminopropyl Biguanide (Preservative); Polyglyceryl-4 Isostearate (Plant Derived); Punica Granatum (Organic Pomegranate) Seed Oil; Simmondsia Chinensis (Organic Jojoba) Seed Oil; Sorbitan Stearate (Plant Derived); Water"
+        "inactive": "Aloe Barbadensis (Organic Aloe Vera) Leaf Juice; Camellia Sinensis (Organic Green Tea) Leaf Extract; Caprylic Capric Triglycerides (Coconut Oil Extract); Cetyl Dimethicone (Mineral Based); Cucumis Sativus (Organic Cucumber) Fruit Extract; Ethylhexylglycerin (Plant Derived Preservative); Glyceryl Monostearate (Plant Derived); Helianthus Annuus (Organic Sunflower) Seed Oil; Hexyl Laurate (Plant Derived); Hyaluronic Acid (Plant Derived); Magnesium Sulfate (Epsom Salt); Polyaminopropyl Biguanide (Preservative); Polyglyceryl-4 Isostearate (Plant Derived); Punica Granatum (Organic Pomegranate) Seed Oil; Simmondsia Chinensis (Organic Jojoba) Seed Oil; Sorbitan Stearate (Plant Derived); Water",
+        "tags": [
+            "wholefamily",
+            "onvacation",
+            "body",
+            "none"
+        ]
     },
     {
-        "name": "Fragrance-Free Sunscreen for Face & Body",
+        "name": "Fragrance-Free Sunscreen for Body",
         "brand": "Love Sun Body",
         "description": "An all natural organic body mineral sunscreen that works. This sunscreen provides non-nano zinc and titanium oxide to block both UVA and UVB rays.",
         "size": 3.38,
@@ -29,7 +35,13 @@
         "linkUrl": "https://www.amazon.com/Love-Sun-Body-Sunscreen-Fragrance-Free/dp/B07B6KYCCW",
         "bodyPart": "Body",
         "active": "Zinc Oxide (Non-nano) 20.4%",
-        "inactive": "Almond Oil; Aqua/Water; Benzoic Acid; Caprylic/Capric Triglyceride (Coconut Oil); Cetyl Alcohol; Glycerin; Glyceryl Sterate SE; Natural Tiare; Natural Vanillin; Polyhydroxystearic Acid; Sorbitan Laurate; Sunflower Oil; Tocopherol (Vitamin E); Xathan Gum"
+        "inactive": "Almond Oil; Aqua/Water; Benzoic Acid; Caprylic/Capric Triglyceride (Coconut Oil); Cetyl Alcohol; Glycerin; Glyceryl Sterate SE; Natural Tiare; Natural Vanillin; Polyhydroxystearic Acid; Sorbitan Laurate; Sunflower Oil; Tocopherol (Vitamin E); Xathan Gum",
+        "tags": [
+            "women",
+            "onvacation",
+            "body",
+            "dry"
+        ]
     },
     {
         "name": "Countersun Mineral Sunscreen for Body",
@@ -45,7 +57,16 @@
         "linkUrl": "https://www.beautycounter.com/product/countersun-mineral-sunscreen-lotion-spf-30-travel-size",
         "bodyPart": "Body",
         "active": "Zinc Oxide 19%",
-        "inactive": "Water; Caprylic/Capric Triglyceride; Coco-Caprylate; Cetearyl Nonanoate; Ethylhexyl Palmitate; Isopropyl Palmitate; Polyglyceryl-4 Diisostearate/Polyhydroxystearate/Sebacate; Glycerin; Isopropyl Myristate; Magnesium Sulfate; Beeswax; Phenoxyethanol; Silica; Sodium Chloride; Isostearic Acid; Lecithin; Polyglyceryl-3 Polyricinoleate; Polyhydroxystearic Acid; Hydrogenated Castor Oil; Decylene Glycol; Citrus Aurantium Dulcis (Orange) Peel Oil; Aloe Barbadensis Leaf Juice; 1,2-Hexanediol; Citrus Limon (Lemon) Peel Oil; Citrus Reticulata (Tangerine) Fruit Extract; Citrus Reticulata (Tangerine) Peel Oil; Eschscholzia Californica Leaf Cell Extract; Mentha Piperita (Peppermint) Oil; Mimosa Tenuiflora Bark Extract"
+        "inactive": "Water; Caprylic/Capric Triglyceride; Coco-Caprylate; Cetearyl Nonanoate; Ethylhexyl Palmitate; Isopropyl Palmitate; Polyglyceryl-4 Diisostearate/Polyhydroxystearate/Sebacate; Glycerin; Isopropyl Myristate; Magnesium Sulfate; Beeswax; Phenoxyethanol; Silica; Sodium Chloride; Isostearic Acid; Lecithin; Polyglyceryl-3 Polyricinoleate; Polyhydroxystearic Acid; Hydrogenated Castor Oil; Decylene Glycol; Citrus Aurantium Dulcis (Orange) Peel Oil; Aloe Barbadensis Leaf Juice; 1,2-Hexanediol; Citrus Limon (Lemon) Peel Oil; Citrus Reticulata (Tangerine) Fruit Extract; Citrus Reticulata (Tangerine) Peel Oil; Eschscholzia Californica Leaf Cell Extract; Mentha Piperita (Peppermint) Oil; Mimosa Tenuiflora Bark Extract",
+        "tags": [
+            "women",
+            "onvacation",
+            "everyday",
+            "body",
+            "sensitive",
+            "oily",
+            "none"
+        ]
     },
     {
         "name": "Mineral Sport Sunscreen for Body",
@@ -61,7 +82,17 @@
         "linkUrl": "https://www.target.com/p/bare-republic-mineral-body-lotion-spf50-5-0oz/-/A-16576941",
         "bodyPart": "Body",
         "active": "Titanium Dioxide 2.9%; Zinc Oxide 7.8%",
-        "inactive": "Alcohol; Aleurites Moluccana (Kukui) Seed Oil; Algae Extract; Allyl Heptoate; Aloe Barbadensis Leaf Juice; Butyloctyl Salicylate; C30-38 Olefin/Isopropyl Maleate/MA Copolymer; Caprylic/Capric Triglyceride; Caprylyl Glycol; Cetyl PEG/PPG-10/1 Dimethicone; Cocos Nucifera (Coconut) Oil; Dimethicone; Ethylhexyl Methoxycrylene; Ethylhexylglycerin; Gamma Decalactone; Gamma Nonalactone; Gamma Octalactone; Glycerin; Heliotropine; Isohexadecane; Lauryl PEG-8 Dimethicone; Octyldodecyl Citrate Crosspolymer; PEG-8; Phenylpropenol; Raspberry Ketone; Silica; Sodium Chloride; Sodium Citrate; Tocopheryl Acetate; Triethoxycaprylylsilane; Triethyl Citrate; Vanillin; Vegan Beeswax; Water"
+        "inactive": "Alcohol; Aleurites Moluccana (Kukui) Seed Oil; Algae Extract; Allyl Heptoate; Aloe Barbadensis Leaf Juice; Butyloctyl Salicylate; C30-38 Olefin/Isopropyl Maleate/MA Copolymer; Caprylic/Capric Triglyceride; Caprylyl Glycol; Cetyl PEG/PPG-10/1 Dimethicone; Cocos Nucifera (Coconut) Oil; Dimethicone; Ethylhexyl Methoxycrylene; Ethylhexylglycerin; Gamma Decalactone; Gamma Nonalactone; Gamma Octalactone; Glycerin; Heliotropine; Isohexadecane; Lauryl PEG-8 Dimethicone; Octyldodecyl Citrate Crosspolymer; PEG-8; Phenylpropenol; Raspberry Ketone; Silica; Sodium Chloride; Sodium Citrate; Tocopheryl Acetate; Triethoxycaprylylsilane; Triethyl Citrate; Vanillin; Vegan Beeswax; Water",
+        "tags": [
+            "men",
+            "wholefamily",
+            "women",
+            "activeoutside",
+            "body",
+            "dry",
+            "sensitive",
+            "none"
+        ]
     },
     {
         "name": "Mineral Sunscreen Spray for Body",
@@ -77,7 +108,14 @@
         "linkUrl": "https://www.dermstore.com/product_Mineral+Body+Sunscreen+Spray+SPF+30++FragranceFree_78975.htm",
         "bodyPart": "Body",
         "active": "Zinc Oxide 14.0%",
-        "inactive": "Algae Extract (Organic); Aloe Barbadensis Leaf Juice (Organic); Bentonite; Bisabolol (Organic);  Brassica Campestris (Rapeseed) Seed Oil; Butyloctyl Salicylate; Camelina Sativa Seed Oil; Caprylhydroxamic Acid; Capryloyl Glycerin/Sebacic Acid Copolymer; Caprylyl Glycol; Carthamus Tinctorius (Safflower) Oleosomes; Cellulose Gum; Cetearyl Alcohol; Citric Acid; Citrus Aurantium Dulcis (Organic Orange) Fruit Water; Coco-Glucoside; Cocos Nucifera (Organic Coconut) Oil; Glycerin (Organic); Helianthus Annuus (Organic Sunflower) Seed Oil; Limnanthes Alba (Meadowfoam) Seed Oil; Mauritia Flexuosa (Organic Buriti) Fruit Oil;  Methyl Dihydroabietate; Microcrystalline Cellulose; Opuntia Ficus-Indica Flower Extract; Propanediol; Rosmarinus Officinalis (Organic Rosemary) Leaf Extract; Rubus Idaeus (Organic Raspberry) Seed Oil; Shea Butter Ethyl Esters; Simmondsia Chinesis (Organic Jojoba) Seed Oil; Sodium Stearoyl Glutamate; Water"
+        "inactive": "Algae Extract (Organic); Aloe Barbadensis Leaf Juice (Organic); Bentonite; Bisabolol (Organic);  Brassica Campestris (Rapeseed) Seed Oil; Butyloctyl Salicylate; Camelina Sativa Seed Oil; Caprylhydroxamic Acid; Capryloyl Glycerin/Sebacic Acid Copolymer; Caprylyl Glycol; Carthamus Tinctorius (Safflower) Oleosomes; Cellulose Gum; Cetearyl Alcohol; Citric Acid; Citrus Aurantium Dulcis (Organic Orange) Fruit Water; Coco-Glucoside; Cocos Nucifera (Organic Coconut) Oil; Glycerin (Organic); Helianthus Annuus (Organic Sunflower) Seed Oil; Limnanthes Alba (Meadowfoam) Seed Oil; Mauritia Flexuosa (Organic Buriti) Fruit Oil;  Methyl Dihydroabietate; Microcrystalline Cellulose; Opuntia Ficus-Indica Flower Extract; Propanediol; Rosmarinus Officinalis (Organic Rosemary) Leaf Extract; Rubus Idaeus (Organic Raspberry) Seed Oil; Shea Butter Ethyl Esters; Simmondsia Chinesis (Organic Jojoba) Seed Oil; Sodium Stearoyl Glutamate; Water",
+        "tags": [
+            "men",
+            "women",
+            "everyday",
+            "body",
+            "none"
+        ]
     },
     {
         "name": "Sheer Zinc Natural Spray for Body",
@@ -93,7 +131,13 @@
         "linkUrl": "https://www.babobotanicals.com/products/sheer-zinc-sunscreen",
         "bodyPart": "Body",
         "active": "Zinc Oxide 12% (Non-Nano) Minerals",
-        "inactive": "Aloe Barbadensis Leaf Juice; Bentonite; Butyloctyl Salicylate; Calendula Officinalis Flower Extract*; Caprylhydroxamic Acid; Caprylyl Glycol; Carthamus Tinctorius (Safflower) Seed Oil; Cetearyl Alcohol; Chamomilla Recutita (Matricaria) Flower Extract; Coco Glucoside; Glycerin; Helianthus Annuus (Sunflower) Seed Oil; Heptyl Undecylenate; Jojoba Esters; Methyl Dihydroabietate; Nasturtium Officinale Flower/Leaf Extract*; Pueraria Lobata Root Extract*; Spiraea Ulmaria Flower Extract; Water"
+        "inactive": "Aloe Barbadensis Leaf Juice; Bentonite; Butyloctyl Salicylate; Calendula Officinalis Flower Extract*; Caprylhydroxamic Acid; Caprylyl Glycol; Carthamus Tinctorius (Safflower) Seed Oil; Cetearyl Alcohol; Chamomilla Recutita (Matricaria) Flower Extract; Coco Glucoside; Glycerin; Helianthus Annuus (Sunflower) Seed Oil; Heptyl Undecylenate; Jojoba Esters; Methyl Dihydroabietate; Nasturtium Officinale Flower/Leaf Extract*; Pueraria Lobata Root Extract*; Spiraea Ulmaria Flower Extract; Water",
+        "tags": [
+            "wholefamily",
+            "everyday",
+            "body",
+            "none"
+        ]
     },
     {
         "name": "Superscreen Daily Moisturizer for Face",
