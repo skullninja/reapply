@@ -47,7 +47,7 @@
         ]
     },
     {
-        "name": "Countersun Mineral Sunscreen for Body",
+        "name": "Countersun Mineral Sunscreen",
         "brand": "Beauty Counter",
         "description": "Guard against sun's damaging rays with this award winning sunscreen lotion. Formulated with non-nano zinc and California Poppy, this water resistant physical SPF 30 formulation provides an effective shield from UVA and UVB, while being gentle and pleasant feeling on the skin. ",
         "size": 3.4,
@@ -277,6 +277,7 @@
             "wholefamily",
             "activeoutside",
             "face",
+            "oily",
             "none"
         ]
     },
@@ -328,11 +329,65 @@
       "retailer": "Sephora",
       "price": "$42.00",
       "reviewUrl": "",
-      "imageUrl": "",
+      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/all-good-lip-balm.png",
       "linkUrl": "https://www.sephora.com/product/mineral-sun-silk-creme-P442271?icid2=products%20grid:p442271:product",
       "bodyPart": "Face",
       "active": "Zinc Oxide 15.0%",
-      "inactive": "Aloe Barbadensis Leaf Juice; Butylene Glycol; Caprylyl Glycol; Caprylic/Capric Triglyceride; Cetearyl Alcohol; Didecyldimonium Chloride; Dimethicone; Glyceryl Caprylate; Glyceryl Stearate Citrate; Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer; Jasminum Sambac Leaf Cell Extract; Methylpropanediol; Niacinamide; PEG-7 Trimethylolpropane Coconut Ether; Polyhydroxystearic Acid; Polyisobutene; Polyquaternium-80; Propanediol; Schinus Molle Extract; Theobroma Cacao (Cocoa) Seed Extract"
+      "inactive": "Aloe Barbadensis Leaf Juice; Butylene Glycol; Caprylyl Glycol; Caprylic/Capric Triglyceride; Cetearyl Alcohol; Didecyldimonium Chloride; Dimethicone; Glyceryl Caprylate; Glyceryl Stearate Citrate; Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer; Jasminum Sambac Leaf Cell Extract; Methylpropanediol; Niacinamide; PEG-7 Trimethylolpropane Coconut Ether; Polyhydroxystearic Acid; Polyisobutene; Polyquaternium-80; Propanediol; Schinus Molle Extract; Theobroma Cacao (Cocoa) Seed Extract",
+      "tags": [
+          "women",
+          "everyday",
+          "face",
+          "oily"
+      ]
+    },
+    {
+      "name": "Countersun Mineral Sunscreen Stick",
+      "brand": "Beauty Counter",
+      "description": "Guard your skin against sun's damaging rays with this convenient, water-resistant sunscreen stick. Formulated with non-nano zinc and California Poppy.",
+      "size": 0.5,
+      "mineral": true,
+      "spf": 30,
+      "retailer": "Beauty Counter",
+      "price": "$21.00",
+      "reviewUrl": "",
+      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/all-good-lip-balm.png",
+      "linkUrl": "https://www.beautycounter.com/product/countersun-mineral-sunscreen-stick-spf-30",
+      "bodyPart": "Face",
+      "active": "Zinc Oxide 15.0%",
+      "inactive": "Aloe Barbadensis Leaf Juice; Butylene Glycol; Caprylyl Glycol; Caprylic/Capric Triglyceride; Cetearyl Alcohol; Didecyldimonium Chloride; Dimethicone; Glyceryl Caprylate; Glyceryl Stearate Citrate; Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer; Jasminum Sambac Leaf Cell Extract; Methylpropanediol; Niacinamide; PEG-7 Trimethylolpropane Coconut Ether; Polyhydroxystearic Acid; Polyisobutene; Polyquaternium-80; Propanediol; Schinus Molle Extract; Theobroma Cacao (Cocoa) Seed Extract",
+      "tags": [
+          "women",
+          "activeoutside",
+          "face",
+          "none",
+          "dry",
+          "oily"
+      ]
+    },
+    {
+      "name": "Clear Zinc Sunscreen Stick",
+      "brand": "Babo Botanicals",
+      "description": "Babo's broad spectrum UVA/UVB zinc sunscreen stick is great for the face, lips, nose, ears and anywhere with extra sensitive skin. The fragrance-free sunscreen stick goes on clear, is non-greasy and rubs in well.",
+      "size": 0.6,
+      "mineral": true,
+      "spf": 30,
+      "retailer": "Babo Botanicals",
+      "price": "$12.95",
+      "reviewUrl": "",
+      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/all-good-lip-balm.png",
+      "linkUrl": "https://www.babobotanicals.com/products/zinc-sport-sunscreen-fragrance-free",
+      "bodyPart": "Face",
+      "active": "Zinc Oxide 15.0%",
+      "inactive": "Beeswax; Butyrospermum Parkii (Shea) Butter Calophyllum Tacamahaca Seed Oil; Cannabis Sativa Seed Oil; Euphorbia Cerifera (Candelilla) Wax; Jojoba Esters; Octyldodecyl Oleate; Oryza Sativa (Rice) Bran Oil; Persea Gratissima (Avocado) Oil; Simmondsia Chinensis (Jojoba) Seed Oil; Theobroma Cacao (Cocoa) Seed Butter; Tocopherol",
+      "tags": [
+          "wholefamily",
+          "men",
+          "women",
+          "activeoutside",
+          "face",
+          "sensitive"
+      ]
     }
 ]
 
