@@ -16,9 +16,12 @@
         "inactive": "Aloe Barbadensis (Organic Aloe Vera) Leaf Juice; Camellia Sinensis (Organic Green Tea) Leaf Extract; Caprylic Capric Triglycerides (Coconut Oil Extract); Cetyl Dimethicone (Mineral Based); Cucumis Sativus (Organic Cucumber) Fruit Extract; Ethylhexylglycerin (Plant Derived Preservative); Glyceryl Monostearate (Plant Derived); Helianthus Annuus (Organic Sunflower) Seed Oil; Hexyl Laurate (Plant Derived); Hyaluronic Acid (Plant Derived); Magnesium Sulfate (Epsom Salt); Polyaminopropyl Biguanide (Preservative); Polyglyceryl-4 Isostearate (Plant Derived); Punica Granatum (Organic Pomegranate) Seed Oil; Simmondsia Chinensis (Organic Jojoba) Seed Oil; Sorbitan Stearate (Plant Derived); Water",
         "tags": [
             "wholefamily",
+            "men",
+            "women",
             "onvacation",
             "body",
-            "none"
+            "none",
+            "sensitive"
         ]
     },
     {
@@ -118,6 +121,7 @@
             "men",
             "women",
             "everyday",
+            "onvacation",
             "body",
             "none"
         ]
@@ -139,6 +143,7 @@
         "inactive": "Aloe Barbadensis Leaf Juice; Bentonite; Butyloctyl Salicylate; Calendula Officinalis Flower Extract*; Caprylhydroxamic Acid; Caprylyl Glycol; Carthamus Tinctorius (Safflower) Seed Oil; Cetearyl Alcohol; Chamomilla Recutita (Matricaria) Flower Extract; Coco Glucoside; Glycerin; Helianthus Annuus (Sunflower) Seed Oil; Heptyl Undecylenate; Jojoba Esters; Methyl Dihydroabietate; Nasturtium Officinale Flower/Leaf Extract*; Pueraria Lobata Root Extract*; Spiraea Ulmaria Flower Extract; Water",
         "tags": [
             "wholefamily",
+            "men",
             "everyday",
             "body",
             "none",
@@ -358,7 +363,7 @@
       "linkUrl": "https://www.beautycounter.com/product/countersun-mineral-sunscreen-stick-spf-30",
       "bodyPart": "Face",
       "active": "Zinc Oxide 15.0%",
-      "inactive": "Aloe Barbadensis Leaf Juice; Butylene Glycol; Caprylyl Glycol; Caprylic/Capric Triglyceride; Cetearyl Alcohol; Didecyldimonium Chloride; Dimethicone; Glyceryl Caprylate; Glyceryl Stearate Citrate; Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer; Jasminum Sambac Leaf Cell Extract; Methylpropanediol; Niacinamide; PEG-7 Trimethylolpropane Coconut Ether; Polyhydroxystearic Acid; Polyisobutene; Polyquaternium-80; Propanediol; Schinus Molle Extract; Theobroma Cacao (Cocoa) Seed Extract",
+      "inactive": "Coco-Caprylate; Helianthus Annuus (Sunflower) Seed Oil; Theobroma Cacao (Cocoa) Seed Butter; Caprylic/Capric Triglyceride; Cetearyl Nonanoate; Mica; Coconut Alkanes; Polyhydroxystearic Acid; Beeswax; Butyrospermum Parkii (Shea) Butter; Cocos Nucifera (Coconut) Oil; Euphorbia Cerifera (Candelilla) Wax; Lauryl Laurate; Citrus Aurantium Dulcis (Orange) Peel Oil; Coco-Caprylate/Caprate; Isostearic Acid; Lecithin; Polyglyceryl-3 Polyricinoleate; Carthamus Tinctorius (Safflower) Seed Oil; Citrus Limon (Lemon) Peel Oil; Citrus Reticulata (Tangerine) Fruit Extract; Citrus Reticulata (Tangerine) Peel Oil; Cucurbita Pepo (Pumpkin) Seed Oil; Punica Granatum Seed Oil; Euterpe Oleracea Fruit Oil; Glycerin; Tocopherol; Glycine Soja (Soybean) Oil; Silica; Eschscholzia Californica Leaf Cell Extract; Rosmarinus Officinalis (Rosemary) Leaf Extract; Mentha Piperita (Peppermint) Oil; Mimosa Tenuiflora Bark Extract; Aloe Barbadensis Leaf Extract",
       "tags": [
           "women",
           "activeoutside",
@@ -389,31 +394,34 @@
           "women",
           "activeoutside",
           "face",
-          "sensitive"
+          "sensitive",
+          "dry"
       ]
     },
     {
       "name": "Force Field Daily Defense Lotion",
       "brand": "Ursa Major",
-      "description": "Ursa Major Force Field Daily Defense Lotion SPF 18 is a lightweight, unscented moisturizer that nourishes your skin with essential vitamins and minerals while combating the visible signs of aging and providing year-round, broad-spectrum sun protection.",
+      "description": "This lightweight, unscented moisturizer nourishes your skin with essential vitamins and minerals while combating the visible signs of aging and providing year-round, broad-spectrum sun protection.",
       "size": 1.7,
       "mineral": true,
       "spf": 18,
       "retailer": "Credo Beauty",
-      "price": "$37.50",
+      "price": "$54.00",
       "reviewUrl": "",
       "imageUrl": "https://reapply-app-images.s3.amazonaws.com/all-good-lip-balm.png",
       "linkUrl": "https://credobeauty.com/products/ursa-major-force-field-daily-defense-lotion",
       "bodyPart": "Face",
-      "active": "Zinc Oxide 15.0%",
-      "inactive": "Beeswax; Butyrospermum Parkii (Shea) Butter Calophyllum Tacamahaca Seed Oil; Cannabis Sativa Seed Oil; Euphorbia Cerifera (Candelilla) Wax; Jojoba Esters; Octyldodecyl Oleate; Oryza Sativa (Rice) Bran Oil; Persea Gratissima (Avocado) Oil; Simmondsia Chinensis (Jojoba) Seed Oil; Theobroma Cacao (Cocoa) Seed Butter; Tocopherol",
+      "active": "Zinc Oxide (non-nano 10.0%)",
+      "inactive": "aloe barbadensis (aloe vera) leaf juice; caprylic/capric triglyceride; glycerin; butyrospermum parkii (shea) butter; gluconolactone; squalane; citric acid; glyceryl stearate; sorbitan stearate; helianthus annuus (sunflower) seed oil; simmondsia chinensis (jojoba) seed oil; cetyl alcohol; sodium benzoate; cetearyl glucoside; cetearyl alcohol; rosa damascena (alpine rose) leaf cell extract; malus domestica (swiss apple) callus extract; argemone mexicana (mexican prickly poppy) callus extract; sclerotium gum; lysolecithin; pullulan; xanthan gum; sodium hyaluronate; sodium phytate",
       "tags": [
           "men",
           "everyday",
           "onvacation",
           "face",
           "none",
-          "sensitive"
+          "sensitive",
+          "oily",
+          "dry"
       ]
     }
 ]
