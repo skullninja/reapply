@@ -34,17 +34,16 @@ class ReminderViewController: GenericViewController {
     @IBOutlet weak var btnReapply: UIButton!
     @IBOutlet weak var btnApply: UIButton!
     @IBOutlet weak var btnStop: UIButton!
+    @IBOutlet weak var btnQuiz: UIButton!
     @IBOutlet weak var nightBackgroundView: UIImageView!
     @IBOutlet weak var titleView: UIImageView!
-    @IBOutlet weak var lblUntilNextReapply: UILabel!
     @IBOutlet weak var lblTopUVIndex: UILabel!
     
     @IBOutlet weak var lblNow: UILabel!
     @IBOutlet weak var lblToday: UILabel!
     @IBOutlet weak var imgSunUV: UIImageView!
     @IBOutlet weak var lblTopUVTime: UILabel!
-    
-    @IBOutlet weak var imgSafety: UIImageView!
+
     @IBOutlet weak var imgApplyBackground: UIButton!
     
     let defaultTitleImage = UIImage(named: "default-title")
@@ -383,8 +382,6 @@ class ReminderViewController: GenericViewController {
             lblTopUVTime.isHidden = false
             imgApplyBackground.isHidden = false
             
-            lblUntilNextReapply.isHidden = true
-            imgSafety.isHidden = true
         case .running:
             btnReapply.isHidden = false
             btnApply.isHidden = true
@@ -393,12 +390,10 @@ class ReminderViewController: GenericViewController {
             lblTimerCountdown.isHidden = false
             imgApplyBackground.isHidden = true
             
-            lblUntilNextReapply.isHidden = UIScreen.main.bounds.size.height < 700
-            imgSafety.isHidden = UIScreen.main.bounds.size.height < 700
-            
+            btnQuiz.isHidden = UIScreen.main.bounds.size.height < 700
+       
         case .nightime:
             btnReapply.isHidden = true
-            lblUntilNextReapply.isHidden = true
             btnApply.isHidden = true // Flip to false to support triggering the apply at anytime.
             btnStop.isHidden = true
             nightBackgroundView.isHidden = false
@@ -410,7 +405,6 @@ class ReminderViewController: GenericViewController {
             lblToday.isHidden = true
             imgSunUV.isHidden = true
             lblTopUVTime.isHidden = true
-            imgSafety.isHidden = true
         }
     }
     
