@@ -38,6 +38,7 @@
         "inactive": "Almond Oil; Aqua/Water; Benzoic Acid; Caprylic/Capric Triglyceride (Coconut Oil); Cetyl Alcohol; Glycerin; Glyceryl Sterate SE; Natural Tiare; Natural Vanillin; Polyhydroxystearic Acid; Sorbitan Laurate; Sunflower Oil; Tocopherol (Vitamin E); Xathan Gum",
         "tags": [
             "women",
+            "men",
             "onvacation",
             "activeoutside",
             "body",
@@ -276,6 +277,7 @@
         "tags": [
             "wholefamily",
             "activeoutside",
+            "men",
             "face",
             "oily",
             "none"
@@ -336,6 +338,7 @@
       "inactive": "Aloe Barbadensis Leaf Juice; Butylene Glycol; Caprylyl Glycol; Caprylic/Capric Triglyceride; Cetearyl Alcohol; Didecyldimonium Chloride; Dimethicone; Glyceryl Caprylate; Glyceryl Stearate Citrate; Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer; Jasminum Sambac Leaf Cell Extract; Methylpropanediol; Niacinamide; PEG-7 Trimethylolpropane Coconut Ether; Polyhydroxystearic Acid; Polyisobutene; Polyquaternium-80; Propanediol; Schinus Molle Extract; Theobroma Cacao (Cocoa) Seed Extract",
       "tags": [
           "women",
+          "man",
           "everyday",
           "face",
           "oily"
@@ -386,6 +389,30 @@
           "women",
           "activeoutside",
           "face",
+          "sensitive"
+      ]
+    },
+    {
+      "name": "Force Field Daily Defense Lotion",
+      "brand": "Ursa Major",
+      "description": "Ursa Major Force Field Daily Defense Lotion SPF 18 is a lightweight, unscented moisturizer that nourishes your skin with essential vitamins and minerals while combating the visible signs of aging and providing year-round, broad-spectrum sun protection.",
+      "size": 1.7,
+      "mineral": true,
+      "spf": 18,
+      "retailer": "Credo Beauty",
+      "price": "$37.50",
+      "reviewUrl": "",
+      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/all-good-lip-balm.png",
+      "linkUrl": "https://credobeauty.com/products/ursa-major-force-field-daily-defense-lotion",
+      "bodyPart": "Face",
+      "active": "Zinc Oxide 15.0%",
+      "inactive": "Beeswax; Butyrospermum Parkii (Shea) Butter Calophyllum Tacamahaca Seed Oil; Cannabis Sativa Seed Oil; Euphorbia Cerifera (Candelilla) Wax; Jojoba Esters; Octyldodecyl Oleate; Oryza Sativa (Rice) Bran Oil; Persea Gratissima (Avocado) Oil; Simmondsia Chinensis (Jojoba) Seed Oil; Theobroma Cacao (Cocoa) Seed Butter; Tocopherol",
+      "tags": [
+          "men",
+          "everyday",
+          "onvacation",
+          "face",
+          "none",
           "sensitive"
       ]
     }
