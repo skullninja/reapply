@@ -291,7 +291,7 @@ class ReminderViewController: GenericViewController {
         if !UserHelper.shared.hasCompletedOnboarding(){
             UserHelper.shared.setOnboardingComplete()
                 let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OnboardingViewController") as UIViewController
-                
+                viewController.modalPresentationStyle = .fullScreen
                 self.present(viewController, animated: false, completion: nil)
         }
         
