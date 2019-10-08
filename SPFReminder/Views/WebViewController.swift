@@ -113,6 +113,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         button.layer.cornerRadius = button.bounds.width / 2.0
         button.setImage(UIImage(named: "cross-white"), for: .normal)
         button.backgroundColor = .black
+        button.tintColor = .white
         button.addTarget(self, action: #selector(closeTapped), for: .touchUpInside)
         view.addSubview(button)
         
