@@ -926,7 +926,24 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6F-SE-115">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="479"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGi-EC-w5I">
+                                        <rect key="frame" x="10" y="52" width="80" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="4oT-cJ-NGz"/>
+                                            <constraint firstAttribute="height" constant="44" id="RRx-3n-4I7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Help?">
+                                            <color key="titleColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="wGi-EC-w5I" firstAttribute="top" secondItem="W6F-SE-115" secondAttribute="top" constant="52" id="KL9-Yk-7y3"/>
+                                    <constraint firstItem="wGi-EC-w5I" firstAttribute="leading" secondItem="W6F-SE-115" secondAttribute="leading" constant="10" id="mp7-5K-hdD"/>
+                                </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rounded" translatesAutoresizingMaskIntoConstraints="NO" id="tg9-8t-J8J">
                                 <rect key="frame" x="0.0" y="512" width="375" height="750"/>
