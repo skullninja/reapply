@@ -15,13 +15,15 @@
         "active": "20% Zinc-Oxide (non-nano)",
         "inactive": "Aloe Barbadensis (Organic Aloe Vera) Leaf Juice; Camellia Sinensis (Organic Green Tea) Leaf Extract; Caprylic Capric Triglycerides (Coconut Oil Extract); Cetyl Dimethicone (Mineral Based); Cucumis Sativus (Organic Cucumber) Fruit Extract; Ethylhexylglycerin (Plant Derived Preservative); Glyceryl Monostearate (Plant Derived); Helianthus Annuus (Organic Sunflower) Seed Oil; Hexyl Laurate (Plant Derived); Hyaluronic Acid (Plant Derived); Magnesium Sulfate (Epsom Salt); Polyaminopropyl Biguanide (Preservative); Polyglyceryl-4 Isostearate (Plant Derived); Punica Granatum (Organic Pomegranate) Seed Oil; Simmondsia Chinensis (Organic Jojoba) Seed Oil; Sorbitan Stearate (Plant Derived); Water",
         "tags": [
-            "wholefamily",
             "men",
             "women",
-            "onvacation",
+            "everyday",
+            "both",
             "body",
             "none",
-            "sensitive"
+            "sensitive",
+            "oily",
+            "dry"
         ]
     },
     {
@@ -47,7 +49,9 @@
             "body",
             "both",
             "dry",
-            "none"
+            "none",
+            "oily",
+            "sensitive"
         ]
     },
     {
@@ -73,7 +77,8 @@
             "both",
             "sensitive",
             "oily",
-            "none"
+            "none",
+            "dry"
         ]
     },
     {
@@ -144,7 +149,7 @@
         "tags": [
             "wholefamily",
             "men",
-            "everyday",
+            "activeoutside",
             "body",
             "none",
             "dry",
@@ -161,8 +166,8 @@
         "spf": 30,
         "retailer": "Babo Botanicals",
         "price": "$19.95",
-        "reviewUrl": "https://www.reapplyapp.com/post/babo-botanicals-sheer-zinc-continuous-spray-sunscreen-review",
-        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/babo-2.png",
+        "reviewUrl": "",
+        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/babo-clear-zinc-sunscreen.png",
         "linkUrl": "https://www.babobotanicals.com/products/zinc-sunscreen-lotion-fragrance-free",
         "bodyPart": "Body",
         "active": "Zinc Oxide 19.0% (Non-Nano)",
@@ -171,7 +176,8 @@
             "wholefamily",
             "everyday",
             "onvacation",
-            "face",
+            "activeoutside",
+            "body",
             "both",
             "dry",
             "oily",
@@ -199,7 +205,9 @@
                 "everyday",
                 "face",
                 "dry",
-                "sensitive"
+                "sensitive",
+                "none",
+                "oily"
         ]
     },
     {
@@ -235,11 +243,12 @@
         "inactive": "Water; Dimethicone; Isododecane; C12-15 Alkyl Benzoate; Undecane; Triethylhexanoin; Isohexadecane; Nylon-12; Caprylyl Methicone; Butyloctyl Salicylate; Phenethyl Benzoate; Styrene/acrylates Copolymer; Silica; Tridecane; Dicaprylyl Carbonate; Dicaprylyl Ether; Talc; Dimethicone/peg-10/15 Crosspolymer; Aluminum Stearate; Pentylene Glycol; Peg-9 Polydimethylsiloxyethyl Dimethicone; Alumina; Polyhydroxystearic Acid; Phenoxyethanol; Magnesium Sulfate; Caprylyl Glycol; Iron Oxides; Peg-8 Laurate; Disteardimonium Hectorite; Triethoxycaprylylsilane; Tocopherol; Propylene Carbonate; Artemia Extract; Benzoic Acid; C9-15 Fluoroalcohol Phosphate; Peg-9",
         "tags": [
             "women",
-            "everyday",
             "onvacation",
             "face",
             "none",
-            "oily"
+            "oily",
+            "sensitive",
+            "dry"
         ]
     },
     {
@@ -274,7 +283,7 @@
         "retailer": "Amazon",
         "price": "$12.99",
         "reviewUrl": "",
-        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/bare-republic-updated.png",
+        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/bare-republic-mineral-face.png",
         "linkUrl": "https://www.target.com/p/bare-republic-mineral-sunscreen-face-lotion-spf-30-1-7-fl-oz/-/A-16576945",
         "bodyPart": "Face",
         "active": "Titanium Dioxide- 5.2%; Zinc Oxide- 2.5%",
@@ -336,7 +345,7 @@
       "retailer": "Sephora",
       "price": "$42.00",
       "reviewUrl": "",
-      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/all-good-lip-balm.png",
+      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/coola-mineral-silk.png",
       "linkUrl": "https://www.sephora.com/product/mineral-sun-silk-creme-P442271?icid2=products%20grid:p442271:product",
       "bodyPart": "Face",
       "active": "Zinc Oxide 15.0%",
@@ -359,7 +368,7 @@
       "retailer": "Beauty Counter",
       "price": "$21.00",
       "reviewUrl": "",
-      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/all-good-lip-balm.png",
+      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/countersun-mineral-sunscreen-stick.png",
       "linkUrl": "https://www.beautycounter.com/product/countersun-mineral-sunscreen-stick-spf-30",
       "bodyPart": "Face",
       "active": "Zinc Oxide 15.0%",
@@ -383,7 +392,7 @@
       "retailer": "Babo Botanicals",
       "price": "$12.95",
       "reviewUrl": "",
-      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/all-good-lip-balm.png",
+      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/babo-sport-stick.png",
       "linkUrl": "https://www.babobotanicals.com/products/zinc-sport-sunscreen-fragrance-free",
       "bodyPart": "Face",
       "active": "Zinc Oxide 15.0%",
@@ -408,7 +417,7 @@
       "retailer": "Credo Beauty",
       "price": "$54.00",
       "reviewUrl": "",
-      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/all-good-lip-balm.png",
+      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/ursa-major-daily-defense.png",
       "linkUrl": "https://credobeauty.com/products/ursa-major-force-field-daily-defense-lotion",
       "bodyPart": "Face",
       "active": "Zinc Oxide (non-nano 10.0%)",

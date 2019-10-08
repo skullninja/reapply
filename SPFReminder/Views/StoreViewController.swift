@@ -35,6 +35,7 @@ class StoreViewController: UIViewController {
     let nightHeaderImage = UIImage(named: "night")
     
     var startingIndex: Int = 0
+    var recommendedProduct: Bool = false
     
     private var currentProduct: NSDictionary {
         let index = productCarousel.currentItemIndex
@@ -45,6 +46,7 @@ class StoreViewController: UIViewController {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         if let storeVC = storyboard.instantiateViewController(withIdentifier: "StoreViewController") as? StoreViewController {
             storeVC.startingIndex = ProductService.shared.indexForProduct(product)
+            storeVC.recommendedProduct = true
             storeVC.modalPresentationStyle = .fullScreen
             viewController.present(storeVC, animated: true, completion: nil)
         }
@@ -53,6 +55,11 @@ class StoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (recommendedProduct){
+            productCarousel.isScrollEnabled = false
+            btnPrevious.isHidden = true
+            btnNext.isHidden = true
+        }
         //TODO: Refactor
         if ReminderService.shared.isRunning {
             backgroundImageView.image = timerHeaderImage
@@ -142,11 +149,17 @@ class StoreViewController: UIViewController {
     }
     
     @IBAction func previousProductAction(_ sender: Any) {
+        
+        guard recommendedProduct == false else { return }
+        
         guard productCarousel.numberOfItems > 1, !productCarousel.isScrolling else { return }
         productCarousel.scrollToItem(at: productCarousel.currentItemIndex - 1, duration: 1.0)
     }
     
     @IBAction func nextProductAction(_ sender: Any) {
+        
+        guard recommendedProduct == false else { return }
+        
         guard productCarousel.numberOfItems > 1, !productCarousel.isScrolling else { return }
         productCarousel.scrollToItem(at: productCarousel.currentItemIndex + 1, duration: 1.0)
     }
