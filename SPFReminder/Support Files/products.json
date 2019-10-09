@@ -104,7 +104,8 @@
             "body",
             "dry",
             "sensitive",
-            "none"
+            "none",
+            "oily"
         ]
     },
     {
@@ -176,7 +177,7 @@
             "wholefamily",
             "everyday",
             "onvacation",
-            "activeoutside",
+            "face",
             "body",
             "both",
             "dry",

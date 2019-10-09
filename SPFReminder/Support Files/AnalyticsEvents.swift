@@ -21,6 +21,10 @@ struct AnalyticsEvents {
     static let productReviewTapped = "product_review_tapped"
     static let productPurchaseTapped = "product_purchased_tapped"
     
+    static let quizTapped = "quiz_tapped"
+    static let quizQuestionAnswered = "quiz_question_answered"
+    static let quizRecommendedProduct = "quiz_recommended_product"
+    
     static let notificationReapplyTapped = "notification_reapply_tapped"
     static let notificationStopTapped = "notification_stop_tapped"
     static let notificationTapped = "notification_tapped"

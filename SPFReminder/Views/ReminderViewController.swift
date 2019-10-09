@@ -480,6 +480,8 @@ class ReminderViewController: GenericViewController {
             quizVC.delegate = self
         }
         
+        Analytics.logEvent(AnalyticsEvents.quizTapped, parameters: nil)
+        
         viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: true, completion: nil)
     }
