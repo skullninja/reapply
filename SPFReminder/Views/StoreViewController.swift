@@ -59,6 +59,11 @@ class StoreViewController: UIViewController {
             productCarousel.isScrollEnabled = false
             btnPrevious.isHidden = true
             btnNext.isHidden = true
+            
+            Analytics.logEvent(AnalyticsEvents.quizRecommendedProduct, parameters: [
+                      AnalyticsParameterItemName: "productName",
+                      AnalyticsParameterItemID: currentProduct["name"] as? String ?? "none"
+                      ])
         }
         //TODO: Refactor
         if ReminderService.shared.isRunning {

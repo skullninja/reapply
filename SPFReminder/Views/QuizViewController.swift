@@ -10,6 +10,7 @@ import UIKit
 import MaterialComponents.MaterialButtons
 import MaterialComponents.MaterialButtons_Theming
 import MaterialComponents.MaterialContainerScheme
+import Firebase
 
 protocol QuizViewControllerDelegate: AnyObject {
     func quizCompleteWith(_ product: Any, quizViewController: QuizViewController)
@@ -87,6 +88,11 @@ class QuizViewController: UIViewController {
         
         let answerTag = buttonTitle!.lowercased()
         self.tagsArray.append(answerTag)
+        
+        Analytics.logEvent(AnalyticsEvents.quizQuestionAnswered, parameters: [
+                   AnalyticsParameterItemName: questionCounter,
+                   AnalyticsParameterItemID: answerTag
+                   ])
         
         if (questionCounter == 3) {
             if let product = ProductService.shared.productForTags(self.tagsArray) {
