@@ -59,12 +59,8 @@ class StoreViewController: UIViewController {
             productCarousel.isScrollEnabled = false
             btnPrevious.isHidden = true
             btnNext.isHidden = true
-            
-            Analytics.logEvent(AnalyticsEvents.quizRecommendedProduct, parameters: [
-                      AnalyticsParameterItemName: "productName",
-                      AnalyticsParameterItemID: currentProduct["name"] as? String ?? "none"
-                      ])
         }
+        
         //TODO: Refactor
         if ReminderService.shared.isRunning {
             backgroundImageView.image = timerHeaderImage
@@ -148,6 +144,14 @@ class StoreViewController: UIViewController {
             btnReview.isHidden = false
         } else {
             btnReview.isHidden = true
+        }
+        
+        if (recommendedProduct){
+                Analytics.logEvent(AnalyticsEvents.quizRecommendedProduct, parameters: [
+                             AnalyticsParameterItemName: "productName",
+                             AnalyticsParameterItemID: currentProduct["name"] as? String ?? "none"
+                             ])
+            
         }
         
         ingredientListContainerView.reloadData()
