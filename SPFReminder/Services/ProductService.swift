@@ -46,6 +46,8 @@ class ProductService {
     
     func productForTags(_ tags: Array<String>) -> Any? {
         
+        var foundProducts = [(sort: Int, product: Any)]()
+        
         for product in products {
             if let productDictionary = product as? [String: Any?],
                 let productTags = productDictionary["tags"] as? NSArray {
@@ -58,12 +60,13 @@ class ProductService {
                 }
                 
                 if success {
-                    return product
+                    foundProducts += [(sort: productTags.count, product: product)]
                 }
             }
         }
         
-        return nil
+        foundProducts.sort() { $0.sort < $1.sort }
+        return foundProducts.count > 0 ? foundProducts[0].product : nil
     }
 }
 
