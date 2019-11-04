@@ -22,6 +22,7 @@ enum WelcomeStatus {
     case uvInfo
     case timer
     case shop
+    case quiz
 }
 
 
@@ -134,7 +135,7 @@ class ReminderViewController: GenericViewController {
                 if UserHelper.shared.seenLocationRequest() && uvIndex > 0{
                     if !UserHelper.shared.hasSeenWelcomeTutorial(){
                         UserHelper.shared.setSeenWelcomeTutorial()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(3000)) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(2000)) {
                             self.popTip.show(customView: self.customView, direction: .down, in: self.view, from: self.titleView.frame)
                             
                         }
@@ -219,6 +220,9 @@ class ReminderViewController: GenericViewController {
                 self.welcomeTipsStatus = .shop
             case .shop:
                 self.popTip.show(text: "See our store to shop eco-friendly sunscreens.", direction: .left, maxWidth: 250, in: self.view, from: self.btnStore.frame)
+                self.welcomeTipsStatus = .timer
+            case .quiz:
+                self.popTip.show(text: "Tap here to get help finding a sunscreen.", direction: .right, maxWidth: 250, in: self.view, from: self.btnQuiz.frame)
                 self.welcomeTipsStatus = .timer
             case .timer:
                 return

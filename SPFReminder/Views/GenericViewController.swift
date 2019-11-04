@@ -21,6 +21,7 @@ class GenericViewController: UIViewController {
     @IBOutlet weak var transitionHeaderView: UIImageView!
     
     @IBOutlet weak var btnStore: UIButton!
+    @IBOutlet weak var btnQuizWand: UIButton!
     
     var storeTransitioningDelegate: StoreTransitioningDelegate?
     var displayTimer: Timer!
