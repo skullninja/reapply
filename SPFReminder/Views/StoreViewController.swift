@@ -148,7 +148,7 @@ class StoreViewController: UIViewController {
         
         if (recommendedProduct){
                 Analytics.logEvent(AnalyticsEvents.quizRecommendedProduct, parameters: [
-                             AnalyticsParameterItemName: "productName",
+                             AnalyticsParameterItemName: "product_name",
                              AnalyticsParameterItemID: currentProduct["name"] as? String ?? "none"
                              ])
             
@@ -179,7 +179,7 @@ class StoreViewController: UIViewController {
             let productName = currentProduct["name"] as? String else { return }
         
         Analytics.logEvent(AnalyticsEvents.productReviewTapped, parameters: [
-            AnalyticsParameterItemName: "ProductName",
+            AnalyticsParameterItemName: "product_name",
             AnalyticsParameterItemID: productName
             ])
  
@@ -198,7 +198,7 @@ class StoreViewController: UIViewController {
             let url = LinkHelper.affiliateUrl(linkUrl, tracking: transactionID) else { return }
         
         Analytics.logEvent(AnalyticsEvents.productPurchaseTapped, parameters: [
-            AnalyticsParameterItemName: "ProductName",
+            AnalyticsParameterItemName: "product_name",
             AnalyticsParameterItemID: productName,
             AnalyticsParameterTransactionID: transactionID
             ])

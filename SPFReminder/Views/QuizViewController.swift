@@ -90,7 +90,7 @@ class QuizViewController: UIViewController {
         self.tagsArray.append(answerTag)
         
         Analytics.logEvent(AnalyticsEvents.quizQuestionAnswered, parameters: [
-                   AnalyticsParameterItemName: questionCounter,
+                   AnalyticsParameterItemName: "answer_value",
                    AnalyticsParameterItemID: answerTag
                    ])
         
