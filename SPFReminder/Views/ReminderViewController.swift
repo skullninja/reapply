@@ -213,16 +213,16 @@ class ReminderViewController: GenericViewController {
             switch self.welcomeTipsStatus {
             case .started:
                 self.popTip.bubbleColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.8)
-                self.popTip.show(text: "This is the most up-to-date UV level information for your location. See the Learn section to read more on UV Indexes.", direction: .down, maxWidth: 300, in: self.view, from: self.lblUVLevelDescription.frame)
+                self.popTip.show(text: "This is the most up-to-date UV level information for your location. Tap this to continue.", direction: .down, maxWidth: 300, in: self.view, from: self.lblUVLevelDescription.frame)
                 self.welcomeTipsStatus = .uvInfo
             case .uvInfo:
-                self.popTip.show(text: "Tap the Apply button to start the timer to be notified when to REAPPLY sunscreen.", direction: .down, maxWidth: 300, in: self.view, from: self.btnApply.frame)
+                self.popTip.show(text: "The Apply button starts the timer to be notified when to REAPPLY sunscreen.", direction: .down, maxWidth: 300, in: self.view, from: self.btnApply.frame)
                 self.welcomeTipsStatus = .shop
             case .shop:
-                self.popTip.show(text: "See our store to shop eco-friendly sunscreens.", direction: .left, maxWidth: 250, in: self.view, from: self.btnStore.frame)
-                self.welcomeTipsStatus = .timer
+                self.popTip.show(text: "This is our store to shop eco-friendly sunscreens.", direction: .left, maxWidth: 250, in: self.view, from: self.btnStore.frame)
+                self.welcomeTipsStatus = .quiz
             case .quiz:
-                self.popTip.show(text: "Tap here to get help finding a sunscreen.", direction: .right, maxWidth: 250, in: self.view, from: self.btnQuiz.frame)
+                self.popTip.show(text: "Answer a few simple questions to help find the right sunscreen.", direction: .right, maxWidth: 250, in: self.view, from: self.btnQuizWand.frame)
                 self.welcomeTipsStatus = .timer
             case .timer:
                 return
@@ -326,7 +326,7 @@ class ReminderViewController: GenericViewController {
         
             let textLabel = UILabel(frame: CGRect(x: 0, y: 42, width: 300, height: 120))
             textLabel.numberOfLines = 0
-            textLabel.text = "Let me show you a few things. Tap here to get started."
+            textLabel.text = "Let me show you a few things. Tap this to get started."
             textLabel.textAlignment = .center
             textLabel.textColor = .white
             textLabel.font = UIFont.systemFont(ofSize: 16, weight:UIFont.Weight.thin)
