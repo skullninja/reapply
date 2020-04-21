@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class NewsCollectionViewCell: UICollectionViewCell {
     
@@ -25,6 +26,11 @@ class NewsCollectionViewCell: UICollectionViewCell {
                
             if let source =  news.source{
                 sourceLabel.text = source
+            }
+            
+            if let imageURL = news.imageUrl{
+                let url = URL(string: imageURL)
+                imageView.sd_setImage(with: url)
             }
        }
     }

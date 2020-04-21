@@ -21,5 +21,6 @@ target 'SPFReminder' do
  pod 'Fabric'
  pod 'Crashlytics'
  pod 'MaterialComponents'
+ pod 'SDWebImage'
 
 end
