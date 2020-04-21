@@ -139,7 +139,6 @@
 				5587FEF8228E669F00D07FFE /* Animation */,
 				9623341D21F81D7C00E31825 /* ReminderViewController.swift */,
 				55D9834122324095000A0B68 /* ConfigureReminderViewController.swift */,
-				55F7D822226ED62A00205EE3 /* InformationViewController.swift */,
 				5587FEF62283E3F200D07FFE /* StoreViewController.swift */,
 				5587FF0222909F5100D07FFE /* GenericViewController.swift */,
 				5587FF042290C12600D07FFE /* StoreTransitionViewController.swift */,
@@ -151,6 +150,7 @@
 				55CDE6DF2313A47300877E62 /* IngredientCollectionViewCell.swift */,
 				963DE024244E5CD30020417B /* LearnViewController.swift */,
 				963DE026244E632F0020417B /* NewsCollectionViewCell.swift */,
+				55F7D822226ED62A00205EE3 /* InformationViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
