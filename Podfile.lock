@@ -690,6 +690,9 @@ PODS:
   - PromisesObjC (1.2.8)
   - Pulsator (0.6.0)
   - ScrollableGraphView (4.0.6)
+  - SDWebImage (5.7.3):
+    - SDWebImage/Core (= 5.7.3)
+  - SDWebImage/Core (5.7.3)
   - SwiftMessages (6.0.2):
     - SwiftMessages/App (= 6.0.2)
   - SwiftMessages/App (6.0.2)
@@ -709,6 +712,7 @@ DEPENDENCIES:
   - Presentr
   - Pulsator
   - ScrollableGraphView (~> 4.0)
+  - SDWebImage
   - SwiftMessages (~> 6.0)
   - TagListView (~> 1.4)
 
@@ -742,6 +746,7 @@ SPEC REPOS:
     - PromisesObjC
     - Pulsator
     - ScrollableGraphView
+    - SDWebImage
     - SwiftMessages
     - TagListView
 
@@ -774,9 +779,10 @@ SPEC CHECKSUMS:
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Pulsator: eb5a9f9be4bdcbd19903984c65deca6aabe50a17
   ScrollableGraphView: 4af35d4ea9ecdec665d34a74da51da161ddff8ac
+  SDWebImage: 97351f6582ceca541ea294ba66a1fcb342a331c2
   SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
   TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
 
-PODFILE CHECKSUM: a7c74bf0e8ecb5e293ca6496033b8e5b2088f701
+PODFILE CHECKSUM: 91ed9e11fe3379d172783a9b234efe76fb8e1b03
 
 COCOAPODS: 1.9.1
