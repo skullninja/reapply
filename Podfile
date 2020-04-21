@@ -6,14 +6,14 @@ target 'SPFReminder' do
   use_frameworks!
 
   # Pods for SPFReminder
- pod 'Alamofire', '~> 4.8'
- pod 'Moya', '~> 12.0'
+ pod 'Alamofire', '~> 5.0'
+ pod 'Moya', '~> 14.0'
  pod 'ForecastIO', '~> 5.1'
  pod 'ScrollableGraphView', '~> 4.0'
  pod 'SwiftMessages', '~> 6.0'
  pod 'iCarousel', '~> 1.8'
  pod 'Firebase/Analytics'
- pod 'AlamofireImage', '~> 3.5'
+ pod 'AlamofireImage', '~> 4.1'
  pod 'Presentr'
  pod 'Pulsator'
  pod 'TagListView', '~> 1.4'

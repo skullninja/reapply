@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WsM-9m-bXp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WsM-9m-bXp">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -678,7 +679,7 @@
         <!--Learn-->
         <scene sceneID="A6c-uv-478">
             <objects>
-                <viewController id="hBH-Td-nP7" customClass="InformationViewController" customModule="SPFReminder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hBH-Td-nP7" customClass="LearnViewController" customModule="SPFReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fhr-WN-EEn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -701,150 +702,6 @@
                                     <constraint firstAttribute="width" secondItem="8u3-6S-HMC" secondAttribute="height" multiplier="1:2" id="wPd-Qv-D8l"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hi There," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azk-XK-jae">
-                                <rect key="frame" x="15" y="158" width="124" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="32"/>
-                                <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLq-Y0-hrq">
-                                <rect key="frame" x="15" y="222.00000000000003" width="344" height="105.33333333333334"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="105.5" id="SnI-f4-vMM"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">We believe the daily application of sunscreen is the most important thing you can do to protect your skin from harmful UV rays. Here you will find useful resources — articles, tips, and product reviews.</string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" metaFont="system" size="16"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineHeightMultiple="1.1000000000000001" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="TopLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8v-2Q-UCA">
-                                <rect key="frame" x="15" y="359.33333333333331" width="167" height="126"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="J8v-2Q-UCA" secondAttribute="height" multiplier="167:126" id="lKv-rA-X9R"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="temp-button-4"/>
-                                <connections>
-                                    <action selector="btnSunBasicsTapped:" destination="hBH-Td-nP7" eventType="touchUpInside" id="XAS-ad-SgN"/>
-                                </connections>
-                            </button>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96P-5N-p9f">
-                                <rect key="frame" x="15" y="442.33333333333331" width="139" height="28"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sun Care Basics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2Q-39-LCg">
-                                        <rect key="frame" x="4" y="4" width="116" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="gee-mM-X7p"/>
-                                    <constraint firstAttribute="height" constant="28" id="n0K-j0-AhY"/>
-                                    <constraint firstAttribute="width" constant="139" id="pTf-Ck-cvQ"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="139" id="pcL-k3-dO8"/>
-                                    <constraint firstAttribute="width" secondItem="96P-5N-p9f" secondAttribute="height" multiplier="139:28" id="yBJ-gp-3vm"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yr-Ap-epu">
-                                <rect key="frame" x="193" y="359.33333333333331" width="167" height="126"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="1Yr-Ap-epu" secondAttribute="height" multiplier="167:126" id="hcH-JX-I75"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="temp-button-3"/>
-                                <connections>
-                                    <action selector="btnTipsTapped:" destination="hBH-Td-nP7" eventType="touchUpInside" id="P4C-KU-e1H"/>
-                                </connections>
-                            </button>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBc-mL-zIG">
-                                <rect key="frame" x="193" y="442.33333333333331" width="139" height="28"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun Safety Tips" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8OK-if-3Y5">
-                                        <rect key="frame" x="4" y="4" width="123" height="22"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="R5g-gz-Cwv"/>
-                                            <constraint firstAttribute="width" constant="123" id="ROZ-th-39Z"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="8OK-if-3Y5" firstAttribute="leading" secondItem="kBc-mL-zIG" secondAttribute="leading" constant="4" id="Als-iR-w8x"/>
-                                    <constraint firstAttribute="bottom" secondItem="8OK-if-3Y5" secondAttribute="bottom" constant="2" id="I7S-sX-ttc"/>
-                                    <constraint firstAttribute="width" secondItem="kBc-mL-zIG" secondAttribute="height" multiplier="139:28" id="ID7-3m-Ax3"/>
-                                    <constraint firstAttribute="width" constant="139" id="N8V-xx-O2o"/>
-                                    <constraint firstAttribute="height" constant="28" id="ps7-rA-Kqs"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="TopLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tr-lO-xIT">
-                                <rect key="frame" x="15" y="520" width="167" height="126"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="9tr-lO-xIT" secondAttribute="height" multiplier="167:126" id="UIG-75-Gbx"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="temp-button-2"/>
-                                <connections>
-                                    <action selector="btnReviewsTapped:" destination="hBH-Td-nP7" eventType="touchUpInside" id="lWQ-mH-gIe"/>
-                                </connections>
-                            </button>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kkZ-rn-DXw">
-                                <rect key="frame" x="15" y="601.33333333333337" width="160" height="30"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sunscreen Reviews" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Km-o7-wW4">
-                                        <rect key="frame" x="4" y="5" width="139" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="kkZ-rn-DXw" secondAttribute="height" multiplier="16:3" id="FIp-Ov-XBw"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="I5g-qh-rTE"/>
-                                    <constraint firstAttribute="width" constant="160" id="VM0-lT-DO8"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="dLF-j0-Fbj"/>
-                                    <constraint firstAttribute="height" constant="30" id="uLz-dF-7Hb"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuO-0S-mku">
-                                <rect key="frame" x="193" y="520" width="167" height="126"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="vuO-0S-mku" secondAttribute="height" multiplier="167:126" id="R8m-62-z4V"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="temp-button-1"/>
-                                <connections>
-                                    <action selector="btnShopTapped:" destination="hBH-Td-nP7" eventType="touchUpInside" id="eEB-se-KL6"/>
-                                </connections>
-                            </button>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QeK-EL-Vy4">
-                                <rect key="frame" x="193" y="601.33333333333337" width="162" height="30"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shop Our Favorites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uP-V2-bfG">
-                                        <rect key="frame" x="4" y="4" width="160" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="QeK-EL-Vy4" secondAttribute="height" multiplier="27:5" id="9FN-rr-LNI"/>
-                                    <constraint firstAttribute="height" constant="30" id="j62-Aj-8hb"/>
-                                    <constraint firstAttribute="width" constant="162" id="mQE-Ch-qzU"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHA-wM-Nxi">
                                 <rect key="frame" x="315" y="44" width="44" height="44"/>
                                 <constraints>
@@ -857,70 +714,55 @@
                                     <action selector="storeAction:" destination="hBH-Td-nP7" eventType="touchUpInside" id="Y1j-Ia-ukR"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a6m-1j-mcO">
+                                <rect key="frame" x="0.0" y="160" width="375" height="643"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97627371549999997" green="0.96106678249999999" blue="0.94117420910000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CwO-Pi-3rK">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newsCell" id="oka-9n-Vyu" customClass="NewsCollectionViewCell" customModule="SPFReminder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ccJ-2g-3Ap">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.96078431372549022" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="9tr-lO-xIT" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" constant="15" id="2UB-BE-DUt"/>
-                            <constraint firstItem="9tr-lO-xIT" firstAttribute="top" secondItem="96P-5N-p9f" secondAttribute="bottom" constant="49.5" id="3Hr-Jq-oWL"/>
-                            <constraint firstItem="vuO-0S-mku" firstAttribute="width" secondItem="J8v-2Q-UCA" secondAttribute="width" id="4Ja-ow-JZs"/>
-                            <constraint firstItem="vuO-0S-mku" firstAttribute="top" secondItem="1Yr-Ap-epu" secondAttribute="bottom" constant="34.5" id="4eG-aE-kzK"/>
-                            <constraint firstItem="9tr-lO-xIT" firstAttribute="height" secondItem="J8v-2Q-UCA" secondAttribute="height" id="9Bv-Ia-dgA"/>
                             <constraint firstItem="tro-UD-r3s" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" id="9MK-j7-8cp"/>
                             <constraint firstItem="8u3-6S-HMC" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" id="APV-sR-E4z"/>
-                            <constraint firstItem="9tr-lO-xIT" firstAttribute="top" secondItem="J8v-2Q-UCA" secondAttribute="bottom" constant="34.5" id="ARU-WW-TYo"/>
-                            <constraint firstItem="J8v-2Q-UCA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WLq-Y0-hrq" secondAttribute="bottom" constant="30.5" id="AXx-Wd-7RW"/>
-                            <constraint firstItem="J8v-2Q-UCA" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" constant="15" id="Bh3-YY-pDg"/>
                             <constraint firstItem="8u3-6S-HMC" firstAttribute="trailing" secondItem="ORH-v5-Rsy" secondAttribute="trailing" id="Bss-GZ-zLc"/>
-                            <constraint firstItem="QeK-EL-Vy4" firstAttribute="top" secondItem="vuO-0S-mku" secondAttribute="bottom" constant="-44.5" id="CB0-VT-VQu"/>
-                            <constraint firstItem="vuO-0S-mku" firstAttribute="height" secondItem="J8v-2Q-UCA" secondAttribute="height" id="CM2-yr-PTy"/>
-                            <constraint firstItem="WLq-Y0-hrq" firstAttribute="top" secondItem="azk-XK-jae" secondAttribute="bottom" constant="1.5" id="FXt-5L-mrs"/>
-                            <constraint firstItem="ORH-v5-Rsy" firstAttribute="trailing" secondItem="WLq-Y0-hrq" secondAttribute="trailing" constant="16" id="Gy8-w8-C29"/>
-                            <constraint firstItem="96P-5N-p9f" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" constant="15" id="LmH-49-h4P"/>
-                            <constraint firstItem="QeK-EL-Vy4" firstAttribute="leading" secondItem="vuO-0S-mku" secondAttribute="leading" id="MEy-t6-Mbg"/>
                             <constraint firstItem="8u3-6S-HMC" firstAttribute="top" secondItem="fhr-WN-EEn" secondAttribute="top" constant="64" id="Mqz-2l-p1f"/>
-                            <constraint firstItem="ORH-v5-Rsy" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vuO-0S-mku" secondAttribute="bottom" constant="4.5" id="OiA-Cf-AfB"/>
-                            <constraint firstItem="azk-XK-jae" firstAttribute="top" secondItem="ORH-v5-Rsy" secondAttribute="top" constant="138" id="SJb-7g-d4H"/>
-                            <constraint firstItem="ORH-v5-Rsy" firstAttribute="trailing" secondItem="vuO-0S-mku" secondAttribute="trailing" constant="15" id="TpX-ko-Vgz"/>
-                            <constraint firstItem="J8v-2Q-UCA" firstAttribute="top" secondItem="WLq-Y0-hrq" secondAttribute="bottom" priority="900" constant="32" id="VvN-r7-lwm"/>
-                            <constraint firstItem="kkZ-rn-DXw" firstAttribute="leading" secondItem="9tr-lO-xIT" secondAttribute="leading" id="YSf-5w-Av4"/>
-                            <constraint firstItem="1Yr-Ap-epu" firstAttribute="top" secondItem="WLq-Y0-hrq" secondAttribute="bottom" priority="900" constant="32" id="YVI-rg-96G"/>
-                            <constraint firstItem="vuO-0S-mku" firstAttribute="top" secondItem="kBc-mL-zIG" secondAttribute="bottom" constant="49.5" id="Yr8-YX-fR5"/>
                             <constraint firstItem="tro-UD-r3s" firstAttribute="top" secondItem="fhr-WN-EEn" secondAttribute="top" id="a7P-HK-Ng6"/>
                             <constraint firstItem="JgZ-Sj-dlx" firstAttribute="top" secondItem="fhr-WN-EEn" secondAttribute="top" id="c77-V0-vIB"/>
-                            <constraint firstItem="1Yr-Ap-epu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WLq-Y0-hrq" secondAttribute="bottom" constant="30.5" id="cD8-Oc-WTd"/>
-                            <constraint firstItem="vuO-0S-mku" firstAttribute="leading" secondItem="9tr-lO-xIT" secondAttribute="trailing" constant="11" id="dG8-W9-8Ih"/>
-                            <constraint firstItem="9tr-lO-xIT" firstAttribute="width" secondItem="J8v-2Q-UCA" secondAttribute="width" id="eBC-6r-D9Z"/>
                             <constraint firstItem="ORH-v5-Rsy" firstAttribute="trailing" secondItem="xHA-wM-Nxi" secondAttribute="trailing" constant="16" id="g0V-8a-DGT"/>
                             <constraint firstItem="xHA-wM-Nxi" firstAttribute="top" secondItem="ORH-v5-Rsy" secondAttribute="top" id="gF0-uU-QCc"/>
-                            <constraint firstItem="kBc-mL-zIG" firstAttribute="leading" secondItem="J8v-2Q-UCA" secondAttribute="trailing" constant="11" id="ghR-bi-HvW"/>
-                            <constraint firstItem="WLq-Y0-hrq" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" constant="15" id="jUU-9t-mMh"/>
-                            <constraint firstItem="ORH-v5-Rsy" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9tr-lO-xIT" secondAttribute="bottom" constant="4.5" id="kHr-QA-A6J"/>
                             <constraint firstAttribute="bottom" secondItem="tro-UD-r3s" secondAttribute="bottom" constant="190" id="qcd-T6-iyp"/>
-                            <constraint firstItem="azk-XK-jae" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" constant="15" id="rsf-Jb-rWM"/>
-                            <constraint firstItem="ORH-v5-Rsy" firstAttribute="trailing" secondItem="1Yr-Ap-epu" secondAttribute="trailing" constant="15" id="sSy-j1-Y4A"/>
                             <constraint firstItem="JgZ-Sj-dlx" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" id="uLQ-WP-FXX"/>
-                            <constraint firstItem="kkZ-rn-DXw" firstAttribute="top" secondItem="9tr-lO-xIT" secondAttribute="bottom" constant="-44.5" id="uMw-gO-PGU"/>
-                            <constraint firstItem="1Yr-Ap-epu" firstAttribute="leading" secondItem="J8v-2Q-UCA" secondAttribute="trailing" constant="11" id="uks-yF-Gdq"/>
-                            <constraint firstItem="1Yr-Ap-epu" firstAttribute="height" secondItem="J8v-2Q-UCA" secondAttribute="height" id="ww1-I0-JKU"/>
                             <constraint firstAttribute="bottom" secondItem="JgZ-Sj-dlx" secondAttribute="bottom" constant="190" id="yqc-r1-NQe"/>
-                            <constraint firstItem="1Yr-Ap-epu" firstAttribute="width" secondItem="J8v-2Q-UCA" secondAttribute="width" id="zEe-ow-mae"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ORH-v5-Rsy"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Learn" image="read-light-idea" id="bSa-L9-DIe"/>
                     <connections>
                         <outlet property="activeHeaderView" destination="JgZ-Sj-dlx" id="6zu-PZ-uAi"/>
-                        <outlet property="btnReviews" destination="9tr-lO-xIT" id="i3p-50-GzD"/>
-                        <outlet property="btnShop" destination="vuO-0S-mku" id="2Cd-QZ-qfn"/>
                         <outlet property="btnStore" destination="xHA-wM-Nxi" id="248-8l-KSU"/>
-                        <outlet property="btnSunBasics" destination="J8v-2Q-UCA" id="fEr-Wb-TEI"/>
-                        <outlet property="btnTips" destination="1Yr-Ap-epu" id="trK-dM-8HL"/>
+                        <outlet property="learnCollectionView" destination="a6m-1j-mcO" id="gxd-x8-p4n"/>
                         <outlet property="transitionHeaderView" destination="tro-UD-r3s" id="u0p-o7-77v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U3P-cV-4eh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1908" y="411.544227886057"/>
+            <point key="canvasLocation" x="1908" y="410.83743842364532"/>
         </scene>
         <!--Store View Controller-->
         <scene sceneID="Gi5-cm-ymu">
@@ -1264,6 +1106,7 @@
             <point key="canvasLocation" x="3445.5999999999999" y="-121.4392803598201"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.9882352941176471" green="0.70588235294117641" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <image name="body-care-sun-cream" width="24" height="24"/>
         <image name="cross-white" width="18" height="18"/>
@@ -1277,12 +1120,7 @@
         <image name="rounded" width="414" height="827"/>
         <image name="shopping-bag" width="24" height="28"/>
         <image name="sun-rays" width="375" height="812"/>
-        <image name="temp-button-1" width="170" height="130"/>
-        <image name="temp-button-2" width="170" height="130"/>
-        <image name="temp-button-3" width="170" height="130"/>
-        <image name="temp-button-4" width="170" height="130"/>
         <image name="temp-night-placeholder" width="151" height="147"/>
         <image name="uv-sun" width="48" height="47"/>
     </resources>
-    <color key="tintColor" red="0.9882352941176471" green="0.70588235294117641" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
 </document>

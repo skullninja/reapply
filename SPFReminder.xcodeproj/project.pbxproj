@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -36,6 +36,11 @@
 		9623342621F81D7E00E31825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9623342421F81D7E00E31825 /* LaunchScreen.storyboard */; };
 		96236225221B5E8C00B8B172 /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96236224221B5E8C00B8B172 /* ForecastService.swift */; };
 		96236227221B7C0100B8B172 /* DailyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96236226221B7C0100B8B172 /* DailyForecast.swift */; };
+		963DE025244E5CD30020417B /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DE024244E5CD30020417B /* LearnViewController.swift */; };
+		963DE027244E632F0020417B /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DE026244E632F0020417B /* NewsCollectionViewCell.swift */; };
+		963DE029244EADA80020417B /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DE028244EADA80020417B /* UIExtensions.swift */; };
+		963DE02B244F6E740020417B /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DE02A244F6E740020417B /* NewsService.swift */; };
+		963DE02D244F6EBF0020417B /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DE02C244F6EBF0020417B /* News.swift */; };
 		963E4E652342E94C00453CF9 /* quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 963E4E642342E94C00453CF9 /* quiz.json */; };
 		963E4E672344400200453CF9 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E4E662344400200453CF9 /* ProductService.swift */; };
 		9641C09922C04467008C9452 /* MoreProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641C09822C04467008C9452 /* MoreProductInfoViewController.swift */; };
@@ -85,6 +90,11 @@
 		9623342721F81D7E00E31825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96236224221B5E8C00B8B172 /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
 		96236226221B7C0100B8B172 /* DailyForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecast.swift; sourceTree = "<group>"; };
+		963DE024244E5CD30020417B /* LearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
+		963DE026244E632F0020417B /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		963DE028244EADA80020417B /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		963DE02A244F6E740020417B /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
+		963DE02C244F6EBF0020417B /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		963E4E642342E94C00453CF9 /* quiz.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = quiz.json; sourceTree = "<group>"; };
 		963E4E662344400200453CF9 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		9641C09822C04467008C9452 /* MoreProductInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProductInfoViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +149,8 @@
 				9641C09822C04467008C9452 /* MoreProductInfoViewController.swift */,
 				96F8A228234285C000F357F1 /* QuizViewController.swift */,
 				55CDE6DF2313A47300877E62 /* IngredientCollectionViewCell.swift */,
+				963DE024244E5CD30020417B /* LearnViewController.swift */,
+				963DE026244E632F0020417B /* NewsCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +177,7 @@
 			children = (
 				55BAA909221B7D0100D09D54 /* UIColorExtension.swift */,
 				55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */,
+				963DE028244EADA80020417B /* UIExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -175,6 +188,7 @@
 				96236226221B7C0100B8B172 /* DailyForecast.swift */,
 				55BAA9042212921800D09D54 /* Reminder.swift */,
 				967C5EB5222F36D1000582D7 /* ReminderCloudKitModel.swift */,
+				963DE02C244F6EBF0020417B /* News.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,6 +204,7 @@
 				9601E5B3229DF10D00AADB45 /* UserHelper.swift */,
 				559C969D2319E92A0066B6B2 /* LinkHelper.swift */,
 				963E4E662344400200453CF9 /* ProductService.swift */,
+				963DE02A244F6E740020417B /* NewsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -347,55 +362,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SPFReminder/Pods-SPFReminder-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AMPopTip/AMPopTip.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
-				"${BUILT_PRODUCTS_DIR}/ForecastIO/ForecastIO.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
-				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
-				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
-				"${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework",
-				"${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework",
-				"${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/Presentr/Presentr.framework",
-				"${BUILT_PRODUCTS_DIR}/Pulsator/Pulsator.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
-				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
-				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SPFReminder/Pods-SPFReminder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AMPopTip.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ForecastIO.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionAnimator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionInterchange.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionTransitioning.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Presentr.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulsator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SPFReminder/Pods-SPFReminder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SPFReminder/Pods-SPFReminder-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SPFReminder/Pods-SPFReminder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7CF7153C6AE33C1448087D5B /* [CP] Check Pods Manifest.lock */ = {
@@ -445,10 +421,12 @@
 				9623341E21F81D7C00E31825 /* ReminderViewController.swift in Sources */,
 				9623341C21F81D7C00E31825 /* AppDelegate.swift in Sources */,
 				55BAA90122040C1100D09D54 /* DateTimeZoneExtension.swift in Sources */,
+				963DE025244E5CD30020417B /* LearnViewController.swift in Sources */,
 				55BAA90A221B7D0100D09D54 /* UIColorExtension.swift in Sources */,
 				5587FEF72283E3F200D07FFE /* StoreViewController.swift in Sources */,
 				963E4E672344400200453CF9 /* ProductService.swift in Sources */,
 				5587FF062293A2F400D07FFE /* ReminderCloudKitModel.swift in Sources */,
+				963DE02B244F6E740020417B /* NewsService.swift in Sources */,
 				55D9834222324095000A0B68 /* ConfigureReminderViewController.swift in Sources */,
 				960B738E22A0421800D3A3BC /* OnboardingPageContent.swift in Sources */,
 				9601E5B2229DA53100AADB45 /* OnboardingViewController.swift in Sources */,
@@ -464,11 +442,14 @@
 				5587FEFA228E66B700D07FFE /* StoreAnimator.swift in Sources */,
 				96F8A229234285C000F357F1 /* QuizViewController.swift in Sources */,
 				559C969E2319E92A0066B6B2 /* LinkHelper.swift in Sources */,
+				963DE027244E632F0020417B /* NewsCollectionViewCell.swift in Sources */,
 				55BAA903220651E100D09D54 /* ReminderService.swift in Sources */,
 				9641C09922C04467008C9452 /* MoreProductInfoViewController.swift in Sources */,
 				967C5EB8222F7FF9000582D7 /* CloudKitManager.swift in Sources */,
+				963DE02D244F6EBF0020417B /* News.swift in Sources */,
 				55B0C37F22DECAD300C70986 /* AnalyticsEvents.swift in Sources */,
 				5587FF0322909F5100D07FFE /* GenericViewController.swift in Sources */,
+				963DE029244EADA80020417B /* UIExtensions.swift in Sources */,
 				55F7D823226ED62A00205EE3 /* InformationViewController.swift in Sources */,
 				5587FEFF229098E700D07FFE /* StorePresentationController.swift in Sources */,
 			);
