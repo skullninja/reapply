@@ -13,8 +13,10 @@ class NewsCollectionViewCell: UICollectionViewCell {
     
     let imageView = UIImageView(cornerRadius: 8)
     
-    let titleLabel = UILabel(text: "TITLE HERE", font: .systemFont(ofSize: 18))
-    let sourceLabel = UILabel(text: "source", font: .systemFont(ofSize: 14))
+    let titleLabel = UILabel(text: "TITLE HERE", font: .systemFont(ofSize: 17, weight: .light))
+    let sourceLabel = UILabel(text: "source", font: .systemFont(ofSize: 13, weight: .thin))
+    
+    let grayTextColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1)
     
     var news: News! {
            
@@ -45,8 +47,10 @@ class NewsCollectionViewCell: UICollectionViewCell {
         
         self.titleLabel.numberOfLines = 3
         self.titleLabel.lineBreakMode = .byTruncatingTail
-        self.titleLabel.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        self.titleLabel.widthAnchor.constraint(equalToConstant: 225).isActive = true
         
+        self.sourceLabel.textColor = grayTextColor
+        self.titleLabel.textColor = grayTextColor
         
         let stackView = UIStackView(arrangedSubviews: [VerticalStackView(arrangedSubviews: [sourceLabel, titleLabel], spacing: 4), imageView])
         stackView.spacing = 15

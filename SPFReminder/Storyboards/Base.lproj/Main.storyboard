@@ -714,9 +714,8 @@
                                     <action selector="storeAction:" destination="hBH-Td-nP7" eventType="touchUpInside" id="Y1j-Ia-ukR"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a6m-1j-mcO">
-                                <rect key="frame" x="0.0" y="160" width="375" height="643"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a6m-1j-mcO">
+                                <rect key="frame" x="0.0" y="172" width="375" height="642"/>
                                 <color key="backgroundColor" red="0.97627371549999997" green="0.96106678249999999" blue="0.94117420910000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CwO-Pi-3rK">
                                     <size key="itemSize" width="128" height="128"/>
@@ -742,12 +741,17 @@
                             <constraint firstItem="8u3-6S-HMC" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" id="APV-sR-E4z"/>
                             <constraint firstItem="8u3-6S-HMC" firstAttribute="trailing" secondItem="ORH-v5-Rsy" secondAttribute="trailing" id="Bss-GZ-zLc"/>
                             <constraint firstItem="8u3-6S-HMC" firstAttribute="top" secondItem="fhr-WN-EEn" secondAttribute="top" constant="64" id="Mqz-2l-p1f"/>
+                            <constraint firstItem="a6m-1j-mcO" firstAttribute="top" secondItem="ORH-v5-Rsy" secondAttribute="top" constant="128" id="TLm-WN-YUB"/>
+                            <constraint firstItem="a6m-1j-mcO" firstAttribute="trailing" secondItem="ORH-v5-Rsy" secondAttribute="trailing" id="ZwF-5c-2jZ"/>
                             <constraint firstItem="tro-UD-r3s" firstAttribute="top" secondItem="fhr-WN-EEn" secondAttribute="top" id="a7P-HK-Ng6"/>
+                            <constraint firstItem="a6m-1j-mcO" firstAttribute="bottom" secondItem="8u3-6S-HMC" secondAttribute="bottom" id="bHc-UE-1UV"/>
                             <constraint firstItem="JgZ-Sj-dlx" firstAttribute="top" secondItem="fhr-WN-EEn" secondAttribute="top" id="c77-V0-vIB"/>
                             <constraint firstItem="ORH-v5-Rsy" firstAttribute="trailing" secondItem="xHA-wM-Nxi" secondAttribute="trailing" constant="16" id="g0V-8a-DGT"/>
                             <constraint firstItem="xHA-wM-Nxi" firstAttribute="top" secondItem="ORH-v5-Rsy" secondAttribute="top" id="gF0-uU-QCc"/>
+                            <constraint firstItem="a6m-1j-mcO" firstAttribute="centerX" secondItem="fhr-WN-EEn" secondAttribute="centerX" id="jEL-rX-WjT"/>
                             <constraint firstAttribute="bottom" secondItem="tro-UD-r3s" secondAttribute="bottom" constant="190" id="qcd-T6-iyp"/>
                             <constraint firstItem="JgZ-Sj-dlx" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" id="uLQ-WP-FXX"/>
+                            <constraint firstItem="a6m-1j-mcO" firstAttribute="leading" secondItem="ORH-v5-Rsy" secondAttribute="leading" id="uVy-FD-3yM"/>
                             <constraint firstAttribute="bottom" secondItem="JgZ-Sj-dlx" secondAttribute="bottom" constant="190" id="yqc-r1-NQe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ORH-v5-Rsy"/>
