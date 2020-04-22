@@ -10,9 +10,23 @@ import UIKit
 
 class SunBasicCollectionViewCell: UICollectionViewCell {
     
-    let titleLabel = UILabel(text: "What is UV Index?", font: .systemFont(ofSize: 24))
+    let titleLabel = UILabel(text: "What is UV Index?", font: .systemFont(ofSize: 20, weight: .light))
        
     let imageView = UIImageView(cornerRadius: 8)
+    
+    var basic: SunBasics! {
+           
+        didSet {
+            
+            if let title = basic.title{
+                titleLabel.text = title
+            }
+            
+            if let imageName = basic.imageName{
+                imageView.image = UIImage(named: imageName)
+            }
+       }
+    }
        
     override init(frame: CGRect) {
         super.init(frame: frame)

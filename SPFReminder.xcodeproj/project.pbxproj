@@ -48,6 +48,7 @@
 		965158B72224AB7B003B1092 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965158B62224AB7A003B1092 /* LocationService.swift */; };
 		9656E6E1244FC89400256DD3 /* SunBasicHorizontalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9656E6E0244FC89400256DD3 /* SunBasicHorizontalCollectionView.swift */; };
 		9656E6E3244FD1CE00256DD3 /* SunBasicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9656E6E2244FD1CE00256DD3 /* SunBasicCollectionViewCell.swift */; };
+		9656E6E5244FE2FA00256DD3 /* SunBasics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9656E6E4244FE2FA00256DD3 /* SunBasics.swift */; };
 		965A3A5E22B962FC00D1A948 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965A3A5D22B962FC00D1A948 /* WebViewController.swift */; };
 		966A783B2294A86300039CF2 /* tips.json in Resources */ = {isa = PBXBuildFile; fileRef = 966A783A2294A86300039CF2 /* tips.json */; };
 		967C5EB8222F7FF9000582D7 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C5EB7222F7FF9000582D7 /* CloudKitManager.swift */; };
@@ -105,6 +106,7 @@
 		965158B62224AB7A003B1092 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		9656E6E0244FC89400256DD3 /* SunBasicHorizontalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunBasicHorizontalCollectionView.swift; sourceTree = "<group>"; };
 		9656E6E2244FD1CE00256DD3 /* SunBasicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunBasicCollectionViewCell.swift; sourceTree = "<group>"; };
+		9656E6E4244FE2FA00256DD3 /* SunBasics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunBasics.swift; sourceTree = "<group>"; };
 		965A3A5D22B962FC00D1A948 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		966A783A2294A86300039CF2 /* tips.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tips.json; sourceTree = "<group>"; };
 		967C5EB5222F36D1000582D7 /* ReminderCloudKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCloudKitModel.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				55BAA9042212921800D09D54 /* Reminder.swift */,
 				967C5EB5222F36D1000582D7 /* ReminderCloudKitModel.swift */,
 				963DE02C244F6EBF0020417B /* News.swift */,
+				9656E6E4244FE2FA00256DD3 /* SunBasics.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				963DE029244EADA80020417B /* UIExtensions.swift in Sources */,
 				9656E6E1244FC89400256DD3 /* SunBasicHorizontalCollectionView.swift in Sources */,
 				55F7D823226ED62A00205EE3 /* InformationViewController.swift in Sources */,
+				9656E6E5244FE2FA00256DD3 /* SunBasics.swift in Sources */,
 				963DE032244FC39A0020417B /* SunBasicCollectionView.swift in Sources */,
 				5587FEFF229098E700D07FFE /* StorePresentationController.swift in Sources */,
 			);
