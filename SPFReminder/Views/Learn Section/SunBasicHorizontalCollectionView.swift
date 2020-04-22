@@ -35,6 +35,7 @@ class SunBasicHorizontalCollectionView: UICollectionViewController, UICollection
         }
         
         self.collectionView.backgroundColor = backgroundColor
+        self.collectionView.showsHorizontalScrollIndicator = false
        
         setupData()
     }
@@ -59,6 +60,18 @@ class SunBasicHorizontalCollectionView: UICollectionViewController, UICollection
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let basic = self.basics[indexPath.item] as SunBasics
+        
+        if let url = basic.url {
+            let webViewController = WebViewController()
+            webViewController.urlString = url
+            webViewController.blogPost = false
+            self.present(webViewController, animated: true, completion: nil)
+        }
+    }
+    
     func setupData(){
         
         let basic1 = SunBasics()
@@ -72,7 +85,7 @@ class SunBasicHorizontalCollectionView: UICollectionViewController, UICollection
         basic2.imageName =  "sky"
            
         let basic3 = SunBasics()
-        basic3.title =  "Chemical or Mineral Sunscreen?"
+        basic3.title =  "Chemical or Mineral?"
         basic3.url  = "https://www.reapplyapp.com/post/chemical-and-mineral-aka-physical-sunscreens"
         basic3.imageName =  "sunscreenlady"
         
