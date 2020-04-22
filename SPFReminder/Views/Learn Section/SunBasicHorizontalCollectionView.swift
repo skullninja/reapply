@@ -8,13 +8,13 @@
 
 import UIKit
 
-private let reuseIdentifier = "horizontalCell"
-
 class SunBasicHorizontalCollectionView: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     var basics = [SunBasics]()
     
     let cellId = "cellId"
+    
+    let backgroundColor = UIColor(red: 249/255, green: 245/255, blue: 240/255, alpha: 1)
     
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -34,51 +34,22 @@ class SunBasicHorizontalCollectionView: UICollectionViewController, UICollection
             layout.scrollDirection = .horizontal
         }
         
-        self.collectionView.backgroundColor = .white
+        self.collectionView.backgroundColor = backgroundColor
        
         setupData()
     }
     
-    func setupData(){
-        let basic1 = SunBasics()
-        basic1.title =  "What is SPF?"
-        basic1.url  = "https://www.reapplyapp.com/post/what-is-spf"
-        basic1.imageName =  "spf"
-        
-        let basic2 = SunBasics()
-        basic2.title =  "What is UV Index?"
-        basic2.url  = "https://www.reapplyapp.com/post/what-is-ultraviolet-index-uv-index"
-        basic2.imageName =  "sky"
-        
-        let basic3 = SunBasics()
-        basic3.title =  "What is UVA and UVB?"
-        basic3.url  = "https://www.reapplyapp.com/post/what-is-uva-uvb-rays"
-        basic3.imageName =  "spf"
-        
-        let basic4 = SunBasics()
-        basic4.title =  "Chemical or Mineral Sunscreens?"
-        basic4.url  = "https://www.reapplyapp.com/post/chemical-and-mineral-aka-physical-sunscreens"
-        basic4.imageName =  "spf"
-        
-        self.basics.append(basic1)
-        self.basics.append(basic2)
-        self.basics.append(basic3)
-        self.basics.append(basic4)
-        
-        self.collectionView.reloadData()
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return .init(width: view.frame.width - 80, height: view.frame.height)
     }
        
-       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-           return .init(width: view.frame.width - 80, height: view.frame.height)
-       }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 0, left: 16, bottom: 10, right: 16)
+    }
        
-       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-           return .init(top: 0, left: 16, bottom: 0, right: 0)
-       }
-       
-       override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.basics.count
-       }
+    }
        
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -87,4 +58,36 @@ class SunBasicHorizontalCollectionView: UICollectionViewController, UICollection
         cell.basic = basic
         return cell
     }
+    
+    func setupData(){
+        
+        let basic1 = SunBasics()
+        basic1.title =  "What is SPF?"
+        basic1.url  = "https://www.reapplyapp.com/post/what-is-spf"
+        basic1.imageName =  "spf"
+           
+        let basic2 = SunBasics()
+        basic2.title =  "What is UV Index?"
+        basic2.url  = "https://www.reapplyapp.com/post/what-is-ultraviolet-index-uv-index"
+        basic2.imageName =  "sky"
+           
+        let basic3 = SunBasics()
+        basic3.title =  "Chemical or Mineral Sunscreen?"
+        basic3.url  = "https://www.reapplyapp.com/post/chemical-and-mineral-aka-physical-sunscreens"
+        basic3.imageName =  "sunscreenlady"
+        
+        let basic4 = SunBasics()
+        basic4.title =  "What is UVA and UVB?"
+        basic4.url  = "https://www.reapplyapp.com/post/what-is-uva-uvb-rays"
+        basic4.imageName =  "uvauvb"
+           
+          
+           
+           self.basics.append(basic1)
+           self.basics.append(basic2)
+           self.basics.append(basic3)
+           self.basics.append(basic4)
+           
+           self.collectionView.reloadData()
+       }
 }
