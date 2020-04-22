@@ -41,10 +41,13 @@
 		963DE029244EADA80020417B /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DE028244EADA80020417B /* UIExtensions.swift */; };
 		963DE02B244F6E740020417B /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DE02A244F6E740020417B /* NewsService.swift */; };
 		963DE02D244F6EBF0020417B /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DE02C244F6EBF0020417B /* News.swift */; };
+		963DE032244FC39A0020417B /* SunBasicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DE031244FC39A0020417B /* SunBasicCollectionView.swift */; };
 		963E4E652342E94C00453CF9 /* quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 963E4E642342E94C00453CF9 /* quiz.json */; };
 		963E4E672344400200453CF9 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963E4E662344400200453CF9 /* ProductService.swift */; };
 		9641C09922C04467008C9452 /* MoreProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641C09822C04467008C9452 /* MoreProductInfoViewController.swift */; };
 		965158B72224AB7B003B1092 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965158B62224AB7A003B1092 /* LocationService.swift */; };
+		9656E6E1244FC89400256DD3 /* SunBasicHorizontalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9656E6E0244FC89400256DD3 /* SunBasicHorizontalCollectionView.swift */; };
+		9656E6E3244FD1CE00256DD3 /* SunBasicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9656E6E2244FD1CE00256DD3 /* SunBasicCollectionViewCell.swift */; };
 		965A3A5E22B962FC00D1A948 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965A3A5D22B962FC00D1A948 /* WebViewController.swift */; };
 		966A783B2294A86300039CF2 /* tips.json in Resources */ = {isa = PBXBuildFile; fileRef = 966A783A2294A86300039CF2 /* tips.json */; };
 		967C5EB8222F7FF9000582D7 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C5EB7222F7FF9000582D7 /* CloudKitManager.swift */; };
@@ -95,10 +98,13 @@
 		963DE028244EADA80020417B /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		963DE02A244F6E740020417B /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		963DE02C244F6EBF0020417B /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		963DE031244FC39A0020417B /* SunBasicCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunBasicCollectionView.swift; sourceTree = "<group>"; };
 		963E4E642342E94C00453CF9 /* quiz.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = quiz.json; sourceTree = "<group>"; };
 		963E4E662344400200453CF9 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		9641C09822C04467008C9452 /* MoreProductInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProductInfoViewController.swift; sourceTree = "<group>"; };
 		965158B62224AB7A003B1092 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		9656E6E0244FC89400256DD3 /* SunBasicHorizontalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunBasicHorizontalCollectionView.swift; sourceTree = "<group>"; };
+		9656E6E2244FD1CE00256DD3 /* SunBasicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunBasicCollectionViewCell.swift; sourceTree = "<group>"; };
 		965A3A5D22B962FC00D1A948 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		966A783A2294A86300039CF2 /* tips.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tips.json; sourceTree = "<group>"; };
 		967C5EB5222F36D1000582D7 /* ReminderCloudKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCloudKitModel.swift; sourceTree = "<group>"; };
@@ -148,9 +154,7 @@
 				9641C09822C04467008C9452 /* MoreProductInfoViewController.swift */,
 				96F8A228234285C000F357F1 /* QuizViewController.swift */,
 				55CDE6DF2313A47300877E62 /* IngredientCollectionViewCell.swift */,
-				963DE024244E5CD30020417B /* LearnViewController.swift */,
-				963DE026244E632F0020417B /* NewsCollectionViewCell.swift */,
-				55F7D822226ED62A00205EE3 /* InformationViewController.swift */,
+				963DE02E244FC2EF0020417B /* Learn Section */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -250,6 +254,19 @@
 				967C5EB7222F7FF9000582D7 /* CloudKitManager.swift */,
 			);
 			path = SPFReminder;
+			sourceTree = "<group>";
+		};
+		963DE02E244FC2EF0020417B /* Learn Section */ = {
+			isa = PBXGroup;
+			children = (
+				963DE024244E5CD30020417B /* LearnViewController.swift */,
+				963DE026244E632F0020417B /* NewsCollectionViewCell.swift */,
+				55F7D822226ED62A00205EE3 /* InformationViewController.swift */,
+				963DE031244FC39A0020417B /* SunBasicCollectionView.swift */,
+				9656E6E0244FC89400256DD3 /* SunBasicHorizontalCollectionView.swift */,
+				9656E6E2244FD1CE00256DD3 /* SunBasicCollectionViewCell.swift */,
+			);
+			path = "Learn Section";
 			sourceTree = "<group>";
 		};
 		DC153E819A8143108B40CAD0 /* Pods */ = {
@@ -445,12 +462,15 @@
 				963DE027244E632F0020417B /* NewsCollectionViewCell.swift in Sources */,
 				55BAA903220651E100D09D54 /* ReminderService.swift in Sources */,
 				9641C09922C04467008C9452 /* MoreProductInfoViewController.swift in Sources */,
+				9656E6E3244FD1CE00256DD3 /* SunBasicCollectionViewCell.swift in Sources */,
 				967C5EB8222F7FF9000582D7 /* CloudKitManager.swift in Sources */,
 				963DE02D244F6EBF0020417B /* News.swift in Sources */,
 				55B0C37F22DECAD300C70986 /* AnalyticsEvents.swift in Sources */,
 				5587FF0322909F5100D07FFE /* GenericViewController.swift in Sources */,
 				963DE029244EADA80020417B /* UIExtensions.swift in Sources */,
+				9656E6E1244FC89400256DD3 /* SunBasicHorizontalCollectionView.swift in Sources */,
 				55F7D823226ED62A00205EE3 /* InformationViewController.swift in Sources */,
+				963DE032244FC39A0020417B /* SunBasicCollectionView.swift in Sources */,
 				5587FEFF229098E700D07FFE /* StorePresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

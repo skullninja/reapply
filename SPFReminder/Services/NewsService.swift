@@ -50,7 +50,7 @@ class NewsService{
                             newsObject.date = fields!["Date"] as? String
                             newsObject.title = fields!["Title"] as? String
                             newsObject.source = fields!["Source"] as? String
-                            newsObject.url = fields!["URL"] as? String
+                            newsObject.url = fields!["Url"] as? String
                             newsObject.imageUrl = fields!["ImageUrl"] as? String
                             
                             newsArray.append(newsObject)

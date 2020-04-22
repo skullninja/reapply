@@ -13,6 +13,7 @@ class LearnViewController: GenericViewController, UICollectionViewDelegate {
     @IBOutlet weak var learnCollectionView: UICollectionView!
     
     fileprivate let cellId = "newsCell"
+    fileprivate let headerId = "headerId"
     
     fileprivate var newsResults = [News]()
     
@@ -23,6 +24,8 @@ class LearnViewController: GenericViewController, UICollectionViewDelegate {
         self.learnCollectionView.dataSource = self
         
         self.learnCollectionView.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+    
+       self.learnCollectionView.register(SunBasicCollectionView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         
         fetchData()
     }
@@ -38,7 +41,8 @@ class LearnViewController: GenericViewController, UICollectionViewDelegate {
                self.newsResults = news!
                self.learnCollectionView.reloadData()
            }
-       }
+    }
+    
 }
 
 extension LearnViewController: UICollectionViewDataSource{
@@ -52,6 +56,27 @@ extension LearnViewController: UICollectionViewDataSource{
         cell.news =  news
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let news = self.newsResults[indexPath.item] as News
+        
+        if let url = news.url {
+            let webViewController = WebViewController()
+            webViewController.urlString = url
+            webViewController.blogPost = false
+            self.present(webViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+          return .init(width: view.frame.width, height: 240)
+      }
     
     
 }
@@ -69,7 +94,7 @@ extension LearnViewController:  UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 0, left: 15, bottom: 0, right: 15)
+        return .init(top: 25, left: 15, bottom: 0, right: 15)
     }
     
 }

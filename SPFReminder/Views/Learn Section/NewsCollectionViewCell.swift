@@ -18,6 +18,9 @@ class NewsCollectionViewCell: UICollectionViewCell {
     
     let grayTextColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1)
     
+    let imageSize:CGFloat = 90
+    let padding:CGFloat = 50
+    
     var news: News! {
            
         didSet {
@@ -42,15 +45,16 @@ class NewsCollectionViewCell: UICollectionViewCell {
         
         imageView.backgroundColor = .orange
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(equalToConstant: 90).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: imageSize).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: imageSize).isActive = true
         
-        self.titleLabel.numberOfLines = 3
-        self.titleLabel.lineBreakMode = .byTruncatingTail
-        self.titleLabel.widthAnchor.constraint(equalToConstant: 225).isActive = true
+        titleLabel.numberOfLines = 3
+        titleLabel.lineBreakMode = .byTruncatingTail
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.widthAnchor.constraint(equalToConstant: frame.width - imageSize - padding).isActive = true
         
-        self.sourceLabel.textColor = grayTextColor
-        self.titleLabel.textColor = grayTextColor
+        sourceLabel.textColor = grayTextColor
+        titleLabel.textColor = grayTextColor
         
         let stackView = UIStackView(arrangedSubviews: [VerticalStackView(arrangedSubviews: [sourceLabel, titleLabel], spacing: 4), imageView])
         stackView.spacing = 15
