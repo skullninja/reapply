@@ -41,11 +41,15 @@ class SunBasicHorizontalCollectionView: UICollectionViewController, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width - 80, height: view.frame.height)
+        return .init(width: view.frame.width - 210, height: view.frame.height)
     }
        
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .init(top: 0, left: 16, bottom: 10, right: 16)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
     }
        
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -90,7 +94,7 @@ class SunBasicHorizontalCollectionView: UICollectionViewController, UICollection
         basic3.imageName =  "sunscreenlady"
         
         let basic4 = SunBasics()
-        basic4.title =  "What is UVA and UVB?"
+        basic4.title =  "What is UVA UVB?"
         basic4.url  = "https://www.reapplyapp.com/post/what-is-uva-uvb-rays"
         basic4.imageName =  "uvauvb"
            

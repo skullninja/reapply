@@ -75,7 +75,7 @@ extension LearnViewController: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-          return .init(width: view.frame.width, height: 240)
+          return .init(width: view.frame.width, height: 160)
       }
     
     
