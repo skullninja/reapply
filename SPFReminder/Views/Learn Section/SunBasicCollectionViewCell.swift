@@ -10,8 +10,10 @@ import UIKit
 
 class SunBasicCollectionViewCell: UICollectionViewCell {
     
-    let titleLabel = UILabel(text: "What is UV Index?", font: .systemFont(ofSize: 20, weight: .light))
+    let titleLabel = UILabel(text: "What is UV Index?", font: .systemFont(ofSize: 17, weight: .light))
        
+    let grayTextColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1)
+    
     let imageView = UIImageView(cornerRadius: 8)
     
     var basic: SunBasics! {
@@ -31,7 +33,7 @@ class SunBasicCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
            
-        imageView.backgroundColor = .red
+        titleLabel.textColor = grayTextColor
         titleLabel.numberOfLines = 2
            
            let stackView = VerticalStackView(arrangedSubviews: [

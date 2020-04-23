@@ -101,7 +101,11 @@ class WebViewController: UIViewController, WKNavigationDelegate {
             isPreloading = true
         }
         var urlRequest = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 60)
+        
         urlRequest.httpShouldUsePipelining = true
+        
+        webView.allowsBackForwardNavigationGestures =  true
+        
         webView.load(urlRequest)
         
         // 2
@@ -109,15 +113,16 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         toolbarItems = [refresh]
         navigationController?.isToolbarHidden = false
         
-        let button = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 65, y: 30, width: 47, height: 47))
-        button.layer.cornerRadius = button.bounds.width / 2.0
-        button.setImage(UIImage(named: "cross-white"), for: .normal)
-        button.backgroundColor = .black
-        button.tintColor = .white
-        button.addTarget(self, action: #selector(closeTapped), for: .touchUpInside)
-        view.addSubview(button)
-        
     }
+    
+    override func viewWillLayoutSubviews() {
+          let width = self.view.frame.width
+          let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: width, height: 44))
+          self.view.addSubview(navigationBar);
+          let doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: nil, action: #selector(closeTapped))
+          navigationItem.leftBarButtonItem = doneBtn
+          navigationBar.setItems([navigationItem], animated: false)
+       }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress" {
