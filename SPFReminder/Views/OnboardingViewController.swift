@@ -107,7 +107,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?
     {
-        guard let viewControllerIndex = pages.index(of: viewController) else
+        guard let viewControllerIndex = pages.firstIndex(of: viewController) else
         {
             return nil
             
@@ -132,7 +132,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?
     {
 
-        guard let viewControllerIndex = pages.index(of: viewController)
+        guard let viewControllerIndex = pages.firstIndex(of: viewController)
             else
         {
                 return nil
@@ -160,9 +160,9 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
         let pageContentViewController = pageViewController.viewControllers![0]
-        self.pageControl.currentPage = pages.index(of: pageContentViewController)!
+        self.pageControl.currentPage = pages.firstIndex(of: pageContentViewController)!
        
-        pageIndex = pages.index(of: pageContentViewController)!
+        pageIndex = pages.firstIndex(of: pageContentViewController)!
         
         if pageIndex == 3 {
             self.nextButton.isHidden = true
