@@ -35,6 +35,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
             
             if let imageURL = news.imageUrl{
                 let url = URL(string: imageURL)
+                imageView.sd_imageTransition = .fade
                 imageView.sd_setImage(with: url)
             }
        }
@@ -43,7 +44,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        imageView.backgroundColor = .orange
+        imageView.backgroundColor = .lightGray
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.widthAnchor.constraint(equalToConstant: imageSize).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: imageSize).isActive = true
