@@ -20,6 +20,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
     
     let imageSize:CGFloat = 90
     let padding:CGFloat = 50
+    var isLoaded: Bool = false
     
     var news: News! {
            
@@ -36,15 +37,26 @@ class NewsCollectionViewCell: UICollectionViewCell {
             if let imageURL = news.imageUrl{
                 let url = URL(string: imageURL)
                 imageView.sd_imageTransition = .fade
-                imageView.sd_setImage(with: url)
+                imageView.sd_setImage(with: url) { (_, _, _, _) in
+                    self.isLoaded = true
+                    for v in self.imageView.subviews {
+                        v.removeFromSuperview()
+                    }
+                }
+            
             }
        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        isLoaded = false
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        imageView.backgroundColor = .lightGray
+        imageView.backgroundColor = UIColor.colorFromHex(0xEBEBEB)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.widthAnchor.constraint(equalToConstant: imageSize).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: imageSize).isActive = true

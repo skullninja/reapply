@@ -1,4 +1,5 @@
 //   NO LONGER IN USE - REPLACED WITH LearnViewController
+//  Deprecated
 //  InformationViewController.swift
 //  SPFReminder
 //
@@ -9,6 +10,8 @@
 import UIKit
 import Firebase
 
+
+//DEPRECATEDDeprecated - replaced with LearnViewController
 class InformationViewController: GenericViewController {
     
     @IBOutlet weak var btnSunBasics: UIButton!
