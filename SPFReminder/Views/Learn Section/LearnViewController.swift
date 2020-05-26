@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import FluentUI
 
 class LearnViewController: GenericViewController, UICollectionViewDelegate {
 
     @IBOutlet weak var learnCollectionView: UICollectionView!
+    
+    let shimmerSynchronizer = AnimationSynchronizer()
     
     fileprivate let cellId = "newsCell"
     fileprivate let headerId = "headerId"
@@ -47,13 +50,34 @@ class LearnViewController: GenericViewController, UICollectionViewDelegate {
 
 extension LearnViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if newsResults.count == 0{
+            return 8
+        }
         return newsResults.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! NewsCollectionViewCell
-        let news = self.newsResults[indexPath.item] as News
-        cell.news =  news
+        
+        if newsResults.count > 0 {
+            let news = self.newsResults[indexPath.item] as News
+            cell.news =  news
+            
+            cell.sourceLabel.backgroundColor = .clear
+            cell.titleLabel.backgroundColor = .clear
+        }
+        else{
+            cell.sourceLabel.text = String(repeating: " ", count: 24)
+            cell.titleLabel.text = String(repeating: " ", count: 24 * 3)
+            
+            cell.sourceLabel.backgroundColor = UIColor.colorFromHex(0xEBEBEB)
+            cell.titleLabel.backgroundColor = UIColor.colorFromHex(0xEBEBEB)
+        }
+       
+        cell.shimmer(containerView: cell.imageView, synchronizer: shimmerSynchronizer)
+        //cell.shimmer(containerView: cell.titleLabel, synchronizer: shimmerSynchronizer)
+        //cell.shimmer(containerView: cell.sourceLabel, synchronizer: shimmerSynchronizer)
         return cell
     }
     
@@ -98,3 +122,29 @@ extension LearnViewController:  UICollectionViewDelegateFlowLayout{
     }
     
 }
+
+
+extension NewsCollectionViewCell {
+
+    /// Start or reset the shimmer
+    func shimmer(containerView: UIView, synchronizer: AnimationSynchronizerProtocol) {
+        guard !self.isLoaded else {
+            return
+        }
+        // because the cells have different layouts in this example, remove and re-add the shimmers
+        for view in containerView.subviews {
+            if let sv = view as? ShimmerView {
+                sv.removeFromSuperview()
+            }
+        }
+        
+        let shimmerView = ShimmerView(containerView: containerView,
+                                      animationSynchronizer: synchronizer)
+        containerView.addSubview(shimmerView)
+        shimmerView.frame = containerView.bounds
+        shimmerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        shimmerView.backgroundColor = UIColor.colorFromHex(0xEBEBEB)
+    }
+}
+
+

@@ -22,5 +22,6 @@ target 'SPFReminder' do
  pod 'Crashlytics'
  pod 'MaterialComponents'
  pod 'SDWebImage'
+ pod 'MicrosoftFluentUI'
 
 end
