@@ -46,10 +46,6 @@
 	<string>We use your location to get the local forecast</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We use your location to get the local forecast</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
-	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
