@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '12.0'
+platform :ios, '14.0'
 
 target 'SPFReminder' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -18,10 +18,19 @@ target 'SPFReminder' do
  pod 'Pulsator'
  pod 'TagListView', '~> 1.4'
  pod 'AMPopTip'
- pod 'Fabric'
- pod 'Crashlytics'
+ pod 'FirebaseCrashlytics'
  pod 'MaterialComponents'
  pod 'SDWebImage'
  pod 'MicrosoftFluentUI'
 
+end
+
+  post_install do |installer|
+   installer.pods_project.targets.each do |target|
+       target.build_configurations.each do |config|
+          if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 14.0
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '14.0'
+          end
+       end
+   end
 end

@@ -117,7 +117,7 @@ class StoreViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Analytics.setScreenName("store", screenClass: "StoreViewController")
+        Analytics.logEvent(AnalyticsEventScreenView, parameters: [AnalyticsParameterScreenName: "store", AnalyticsParameterScreenClass: "StoreViewController"])
     }
     
     private func updateProductDisplay(animated: Bool) {
@@ -205,7 +205,7 @@ class StoreViewController: UIViewController {
         
         if let price = currentProduct["price"] as? String,
             let priceNumber = Float(price.replacingOccurrences(of: "$", with: "")) {
-            Analytics.logEvent(AnalyticsEventEcommercePurchase, parameters: [
+            Analytics.logEvent(AnalyticsEventPurchase, parameters: [
                 AnalyticsParameterValue: priceNumber,
                 AnalyticsParameterCurrency: "USD",
                 AnalyticsParameterTransactionID: transactionID

@@ -31,8 +31,7 @@ class InformationViewController: GenericViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        Analytics.setScreenName("learn", screenClass: "InformationViewController")
-        
+        Analytics.logEvent(AnalyticsEventScreenView, parameters: [AnalyticsParameterScreenName: "learn", AnalyticsParameterScreenClass: "InformationViewController"])
     }
 
     

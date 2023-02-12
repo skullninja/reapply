@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import Fabric
-import Crashlytics
+import FirebaseCrashlytics
 import Firebase
 
 @UIApplicationMain
@@ -25,9 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #else
         FirebaseApp.configure()
         #endif
-        
-        Fabric.with([Crashlytics.self])
-        
+
         CloudKitManager.shared.requestAccountStatus(completionHandler: {
             if (CloudKitManager.shared.hasAccount){
                 ReminderCloudKitModel.shared.syncReminders()
