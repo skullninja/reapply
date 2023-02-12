@@ -69,7 +69,7 @@ class ReminderService {
             let currentDate = Date();
             if currentDate < sunUp { return .tooEarly }
         }
-        
+         
         let reminder = Reminder()
         reminder.method = method
         reminder.protection = protection
