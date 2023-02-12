@@ -238,11 +238,11 @@ class ReminderViewController: GenericViewController {
         
         switch self.screenMode {
          case .daytime:
-            Analytics.setScreenName("daytimer", screenClass: "ReminderViewController")
+            Analytics.logEvent(AnalyticsEventScreenView, parameters: [AnalyticsParameterScreenName: "daytimer", AnalyticsParameterScreenClass: "ReminderViewController"])
         case .running:
-            Analytics.setScreenName("runningtimer", screenClass: "ReminderViewController")
+            Analytics.logEvent(AnalyticsEventScreenView, parameters: [AnalyticsParameterScreenName: "runningtimer", AnalyticsParameterScreenClass: "ReminderViewController"])
         case .nightime:
-             Analytics.setScreenName("nighttimer", screenClass: "ReminderViewController")
+            Analytics.logEvent(AnalyticsEventScreenView, parameters: [AnalyticsParameterScreenName: "nighttimer", AnalyticsParameterScreenClass: "ReminderViewController"])
     
         }
     

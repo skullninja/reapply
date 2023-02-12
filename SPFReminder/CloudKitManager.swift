@@ -37,12 +37,12 @@ class CloudKitManager {
             // Update Account Status
             switch accountStatus {
             case .available:
-               print("available")
+                print("available")
                 self.accountStatus = CKAccountStatus.available
                 self.hasAccount = true
             case .noAccount:
                 print("no account")
-                 self.accountStatus = CKAccountStatus.noAccount
+                self.accountStatus = CKAccountStatus.noAccount
                 self.hasAccount = false
             case .couldNotDetermine:
                 if let e = error {
@@ -52,7 +52,11 @@ class CloudKitManager {
             case .restricted:
                 print("restricted")
                 self.accountStatus = CKAccountStatus.restricted
+            default:
+                print("default")
+                // Do nothing (?)
             }
+            
             
              completionHandler()
         }
