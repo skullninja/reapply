@@ -37,23 +37,23 @@ class CloudKitManager {
             // Update Account Status
             switch accountStatus {
             case .available:
-                print("available")
+                print("CloudKit Available")
                 self.accountStatus = CKAccountStatus.available
                 self.hasAccount = true
             case .noAccount:
-                print("no account")
+                print("No CloudKit Account")
                 self.accountStatus = CKAccountStatus.noAccount
                 self.hasAccount = false
             case .couldNotDetermine:
                 if let e = error {
-                    print("Error checking account status: \(e)")
+                    print("Error checking CloudKit Account Status: \(e)")
                     self.accountStatus = CKAccountStatus.couldNotDetermine
                 }
             case .restricted:
-                print("restricted")
+                print("CloudKit Restricted")
                 self.accountStatus = CKAccountStatus.restricted
             default:
-                print("default")
+                print("Default")
                 // Do nothing (?)
             }
             

@@ -75,8 +75,10 @@ class ReminderViewController: GenericViewController {
             print("CANCEL!!")
         }
         let okAction = AlertAction(title: "YES, PLEASE! 🤘", style: .destructive) {
-            LocationService.shared.activateLocationServices()
-             UserHelper.shared.setLocationRequestComplete()
+            Task {
+                LocationService.shared.activateLocationServices()
+                UserHelper.shared.setLocationRequestComplete()
+            }
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
@@ -163,7 +165,11 @@ class ReminderViewController: GenericViewController {
         
         if let uvIndex = ForecastService.shared.currentUVIndex {
             self.lblUVIndex.text = String(format: "%g", uvIndex)
-            self.lblTopUVIndex.text = String(format: "%g",ForecastService.shared.maxUVIndex!)
+            if let maxUVIndex = ForecastService.shared.maxUVIndex {
+                self.lblTopUVIndex.text = String(format: "%g", maxUVIndex)
+            } else {
+                self.lblTopUVIndex.text = "-"
+            }
             var uvLevel = ""
             var uvDescription = "Some Protection Required"
             if uvIndex == 0 {

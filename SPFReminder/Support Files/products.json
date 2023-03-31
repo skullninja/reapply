@@ -108,30 +108,6 @@
         ]
     },
     {
-        "name": "Mineral Sunscreen Spray for Body",
-        "brand": "Coola",
-        "description": "Easy-to-apply spray sunscreen that provides hydrating, chemical active-free sun protection for even sensitive skin.",
-        "size": 8,
-        "mineral": true,
-        "spf": 30,
-        "retailer": "Ulta",
-        "price": "$38.00",
-        "reviewUrl": "https://www.reapplyapp.com/post/coola-mineral-body-sunscreen-spray-spf-30-review",
-        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/coola.png",
-        "linkUrl": "https://www.ulta.com/mineral-body-organic-sunscreen-spray-spf-30-fragrance-free?productId=pimprod2003903",
-        "bodyPart": "Body",
-        "active": "Zinc Oxide 14.0%",
-        "inactive": "Algae Extract (Organic); Aloe Barbadensis Leaf Juice (Organic); Bentonite; Bisabolol (Organic);  Brassica Campestris (Rapeseed) Seed Oil; Butyloctyl Salicylate; Camelina Sativa Seed Oil; Caprylhydroxamic Acid; Capryloyl Glycerin/Sebacic Acid Copolymer; Caprylyl Glycol; Carthamus Tinctorius (Safflower) Oleosomes; Cellulose Gum; Cetearyl Alcohol; Citric Acid; Citrus Aurantium Dulcis (Organic Orange) Fruit Water; Coco-Glucoside; Cocos Nucifera (Organic Coconut) Oil; Glycerin (Organic); Helianthus Annuus (Organic Sunflower) Seed Oil; Limnanthes Alba (Meadowfoam) Seed Oil; Mauritia Flexuosa (Organic Buriti) Fruit Oil;  Methyl Dihydroabietate; Microcrystalline Cellulose; Opuntia Ficus-Indica Flower Extract; Propanediol; Rosmarinus Officinalis (Organic Rosemary) Leaf Extract; Rubus Idaeus (Organic Raspberry) Seed Oil; Shea Butter Ethyl Esters; Simmondsia Chinesis (Organic Jojoba) Seed Oil; Sodium Stearoyl Glutamate; Water",
-        "tags": [
-            "men",
-            "women",
-            "everyday",
-            "onvacation",
-            "body",
-            "none"
-        ]
-    },
-    {
         "name": "Sheer Zinc Natural Spray for Body",
         "brand": "Babo Botanicals",
         "description": "The first 100% Zinc Sheer Continuous Spray SPF 30 sunscreen. Babo's fragrance free sunscreen is perfect for extra sensitive skin, protecting against damaging UVA and UVB rays while providing 80 minutes of water resistance.",
@@ -252,35 +228,13 @@
         ]
     },
     {
-        "name": "5-in-1 Natural Moisturizing Face Sunscreen",
-        "brand": "Suntegrity",
-        "description": "Tinted moisturizer combines broad spectrum, mineral SPF 30 protection with potent ingredients to moisturize, protect, and give you dewy coverage.",
-        "size": 2,
-        "mineral": true,
-        "spf": 30,
-        "retailer": "Dermstore",
-        "price": "$45.00",
-        "reviewUrl": "https://www.reapplyapp.com/post/suntegrity-5-in-1-natural-moisturizing-face-sunscreen-product-review",
-        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/suntegrity-5-1-tinted.png",
-        "linkUrl": "https://www.dermstore.com/product_5+in+1+Natural+Moisturizing+Face+Sunscreen+SPF+30_51311.htm",
-        "bodyPart": "Face (tinted)",
-        "active": "Zinc-Oxide 20% (non-nano)",
-        "inactive": "Aloe Barbadensis (Organic Aloe Vera) Leaf Juice; Capric Caprylic Triglycerides (Coconut Oil Extract); Water (Aqua); Sorbitan Stearate (Plant Derived); Glyceryl Stearate (Plant Derived); Polyglyceryl-4 Isostearate (Plant Derived); Hexyl Laurate (Plant Derived); Simmondsia Chinensis (Organic Jojoba) Seed Oil; Cetyl Dimethicone (Mineral Derived); Magnesium Sulfate (Epsom Salt); Helianthus Annuus (Organic Sunflower) Seed Oil; Cucumis Sativus (Organic Cucumber) Fruit Extract; Astaxanthin (Algae Source); Hyaluronic Acid (Plant Derived); Chlorella Emersonii (Red Algae) Extract; Camellia Sinensis (Organic Green Tea) Extract; Punica Granatum (Organic Pomegranate) Seed Oil; Polyaminopropyl Biguanide; Ethylhexylglycerin; Iron Oxide",
-        "tags": [
-            "women",
-            "withmakeup",
-            "sensitive",
-            "dry"
-        ]
-    },
-    {
         "name": "Mineral Face Sunscreen Lotion",
         "brand": "Bare Republic",
         "description": "A suncreen lotion that gently melts into skin for a sheer, powdery finish, while an infusion of antioxidant-rich raspberry, grape and carrot seed oils help fight free radicals and promote youthful-looking skin year-round.",
         "size": 1.7,
         "mineral": true,
         "spf": 30,
-        "retailer": "Amazon",
+        "retailer": "Target",
         "price": "$12.99",
         "reviewUrl": "",
         "imageUrl": "https://reapply-app-images.s3.amazonaws.com/bare-republic-mineral-face.png",
@@ -298,28 +252,6 @@
         ]
     },
     {
-        "name": "Invincible Setting Powder for Face",
-        "brand": "Supergoop!",
-        "description": "A setting powder that provides 100 percent mineral broad-spectrum UV protection with a flawless, satin finish—perfect for setting your makeup and re-applying SPF in just one step.",
-        "size": 0.2,
-        "mineral": true,
-        "spf": 45,
-        "retailer": "Sephora",
-        "price": "$30.00",
-        "reviewUrl": "https://www.reapplyapp.com/post/supergoop-mineral-invincible-setting-powder-review",
-        "imageUrl": "https://reapply-app-images.s3.amazonaws.com/invisible-powder.png",
-        "linkUrl": "https://www.sephora.com/product/invincible-setting-powder-spf-45-P429247",
-        "bodyPart": "Face",
-        "active": "Zinc Oxide 24.5%",
-        "inactive": "Calcium Aluminum Borosilicate; Silica; Polymethyl Methacrylate; Ethylhexylglycerin; Triethoxycaprylysilane; Nylon-6/12; Sodium Dehydroacetate; Olive Glycerides; Ascorbyl Palmitate; Ceramide 3. May Contain +/- Iron Oxides (CI 77492 77491 77499); Titanium Dioxide (CI 77891)",
-        "tags": [
-            "women",
-            "withmakeup",
-            "none",
-            "oily"
-        ]
-    },
-    {
         "name": "Unscented Lip Balm",
         "brand": "All Good",
         "description": "Whether you need a little hydration or sun protection, All good lip balm is formulated to keep your lips soft and smooth with the safest ingredients.",
@@ -334,29 +266,6 @@
         "bodyPart": "face",
         "active": "Zinc Oxide 8.0% (Non-nanoparticle)",
         "inactive": "Organic Calendula; Organic Comfrey; Organic Lavender; Organic Plantain and Organic Yarrow Infused in Organic Extra Virgin Olive Oil; Organic Beeswax; Organic Castor Oil; Raspberry Seed Oil; Non-GMO Vitamin E"
-    },
-    {
-      "name": "Mineral Sun Silk Creme",
-      "brand": "Coola",
-      "description": "An oil-free, light formula gently glides on to form a transparent veil, ideal for everyday use. Non-nano Zinc Oxide provides broad spectrum UVA/UVB protection while a plant derived Full Spectrum 360° complex helps mitigate the effects of today’s skin aggressors - HEV light, IR, and pollution.",
-      "size": 1.5,
-      "mineral": true,
-      "spf": 30,
-      "retailer": "Sephora",
-      "price": "$42.00",
-      "reviewUrl": "",
-      "imageUrl": "https://reapply-app-images.s3.amazonaws.com/coola-mineral-silk.png",
-      "linkUrl": "https://www.sephora.com/product/mineral-sun-silk-creme-P442271?icid2=products%20grid:p442271:product",
-      "bodyPart": "Face",
-      "active": "Zinc Oxide 15.0%",
-      "inactive": "Aloe Barbadensis Leaf Juice; Butylene Glycol; Caprylyl Glycol; Caprylic/Capric Triglyceride; Cetearyl Alcohol; Didecyldimonium Chloride; Dimethicone; Glyceryl Caprylate; Glyceryl Stearate Citrate; Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer; Jasminum Sambac Leaf Cell Extract; Methylpropanediol; Niacinamide; PEG-7 Trimethylolpropane Coconut Ether; Polyhydroxystearic Acid; Polyisobutene; Polyquaternium-80; Propanediol; Schinus Molle Extract; Theobroma Cacao (Cocoa) Seed Extract",
-      "tags": [
-          "women",
-          "man",
-          "everyday",
-          "face",
-          "oily"
-      ]
     },
     {
       "name": "Countersun Mineral Sunscreen Stick",

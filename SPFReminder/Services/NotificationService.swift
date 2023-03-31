@@ -42,31 +42,26 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     }
     
     func setupFollowUpNotificationContent(_ seconds: Int) {
-
         _notificationContent.title = "Hello, sunshine!"
         _notificationContent.subtitle = "Reapplying sunscreen will only take a minute."
         _notificationContent.body = "Get on in here and reapply."
         _notificationContent.categoryIdentifier = "spfReminderCategory"
-    
     }
     
     func setupTipNotificationContent(_ tipDescripition: String) {
-        
         _notificationContent.title = "Sun Safety Tip"
         _notificationContent.subtitle = "Do you know?"
         _notificationContent.body = tipDescripition
         _notificationContent.categoryIdentifier = "spfTipCategory"
-        
     }
-    
     
     func setReminderNotification(_ reminder: Reminder) {
         
         UNUserNotificationCenter.current().delegate = self
-        
         let seconds = reminder.calculateSecondsToReapply()
         
-        _notificationCenter.getNotificationSettings{ (settings) in
+        Task {
+            let settings = await _notificationCenter.notificationSettings()
             if settings.authorizationStatus == .authorized {
                 // Notifications allowed
                 
@@ -154,11 +149,12 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         //start with index 1 to get tomorrow's forecast
         var i = 1
         
-        while i < ForecastService.shared.fiveDayForecast.count {
+        while i < min(6, ForecastService.shared.fiveDayForecast.count) {
             
             //if the max uv index is 2 or less or cloud coverage is 90% of more --> continue
             if Int(ForecastService.shared.fiveDayForecast[i].uvIndex ?? 0) <= 2 {continue}
-            if Int(ForecastService.shared.fiveDayForecast[i].cloudCoverage! * 100) >= 90 {continue}
+            //WeatherKit does not forecast cloud coverage
+            //if Int(ForecastService.shared.fiveDayForecast[i].cloudCoverage! * 100) >= 90 {continue}
         
             //get next day noon
             let date = Date()
@@ -270,7 +266,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         
         for tip in self.tips{
             
-            var tipDict = tip as! Dictionary<String, AnyObject>
+            let tipDict = tip as! Dictionary<String, AnyObject>
             let tipDescription = tipDict["tip"] as! String
             let tipId = tipDict["tipId"]
             self.setupTipNotificationContent(tipDescription )
