@@ -47,9 +47,9 @@ class ReminderService {
         
     }
     
-    func refreshUVIndex() {
+    func refreshUVIndex() async {
         guard let location = self.location else { return }
-        ForecastService.shared.updateUVIndexIfNeeded(location, completionHandler: nil)
+        await ForecastService.shared.updateUVIndexFromWKIfNeeded(for: location) {success in }
     }
     
     func start() -> StartResponse {

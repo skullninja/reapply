@@ -16,6 +16,7 @@
 		5587FF062293A2F400D07FFE /* ReminderCloudKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C5EB5222F36D1000582D7 /* ReminderCloudKitModel.swift */; };
 		5587FF082293A54A00D07FFE /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = 5587FF072293A54A00D07FFE /* products.json */; };
 		559C969E2319E92A0066B6B2 /* LinkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559C969D2319E92A0066B6B2 /* LinkHelper.swift */; };
+		55AA8CDD29C79201004D80C0 /* WeatherKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AA8CDB29C790A5004D80C0 /* WeatherKit.framework */; };
 		55B0C37D22D6E7D200C70986 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55B0C37C22D6E7D200C70986 /* GoogleService-Info.plist */; };
 		55B0C37F22DECAD300C70986 /* AnalyticsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B0C37E22DECAD300C70986 /* AnalyticsEvents.swift */; };
 		55BAA90122040C1100D09D54 /* DateTimeZoneExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */; };
@@ -69,6 +70,7 @@
 		5587FF042290C12600D07FFE /* StoreTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTransitionViewController.swift; sourceTree = "<group>"; };
 		5587FF072293A54A00D07FFE /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		559C969D2319E92A0066B6B2 /* LinkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkHelper.swift; sourceTree = "<group>"; };
+		55AA8CDB29C790A5004D80C0 /* WeatherKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WeatherKit.framework; path = System/Library/Frameworks/WeatherKit.framework; sourceTree = SDKROOT; };
 		55B0C37C22D6E7D200C70986 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		55B0C37E22DECAD300C70986 /* AnalyticsEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvents.swift; sourceTree = "<group>"; };
 		55BAA90022040C1100D09D54 /* DateTimeZoneExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeZoneExtension.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBFF1BDDACD7721912FBF5AA /* Pods_SPFReminder.framework in Frameworks */,
+				55AA8CDD29C79201004D80C0 /* WeatherKit.framework in Frameworks */,
 				96F07993222615E7009A5C06 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +287,7 @@
 		E23BE698DF26B39DBF4ADAF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				55AA8CDB29C790A5004D80C0 /* WeatherKit.framework */,
 				96F07992222615E7009A5C06 /* CloudKit.framework */,
 				8D5D7266F6C8089E10D3BBBC /* Pods_SPFReminder.framework */,
 			);
@@ -319,7 +323,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "Skull Ninja Inc";
 				TargetAttributes = {
 					9623341721F81D7C00E31825 = {
@@ -510,6 +514,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -535,7 +540,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -571,6 +576,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -590,7 +596,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -608,15 +614,15 @@
 				CODE_SIGN_ENTITLEMENTS = "SPFReminder/Support Files/SPFReminder.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 48GXQQY7U2;
 				INFOPLIST_FILE = "SPFReminder/Support Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.skullninja.SPFReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -633,15 +639,15 @@
 				CODE_SIGN_ENTITLEMENTS = "SPFReminder/Support Files/SPFReminder.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 48GXQQY7U2;
 				INFOPLIST_FILE = "SPFReminder/Support Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.skullninja.SPFReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

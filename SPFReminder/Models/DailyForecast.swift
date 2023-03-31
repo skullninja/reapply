@@ -14,7 +14,10 @@ class DailyForecast {
     var sunsetTime = Date()
     var sunriseTime = Date()
     var uvIndex:Double?
+    
+    @available(*, deprecated, message: "Not available in WeatherKit")
     var cloudCoverage:Double?
+    
     var ForecastSummary:String?
     
 }

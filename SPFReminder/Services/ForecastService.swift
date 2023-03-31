@@ -7,12 +7,13 @@
 //
 
 import Foundation
-import ForecastIO
 import CoreLocation
+import WeatherKit
 
 class ForecastService {
     
     static let shared = ForecastService()
+    let weatherService = WeatherService()
     
     var sunsetTime: Date?
     var sunriseTime: Date?
@@ -22,16 +23,117 @@ class ForecastService {
     
     var fiveDayForecast: Array<DailyForecast> = Array()
     
-    lazy var client: DarkSkyClient = {
-        let darkSky = DarkSkyClient(apiKey: "16d1cdbf343ab6a7ee0dcb340b7484ff")
-        darkSky.units = .auto
-        darkSky.language = .english
-        return darkSky
-    }()
-    
     private var isUpdating = false
     private var lastUpdate: Date?
+    private var updateAttemptCount = 0
     
+    func updateUVIndexFromWKIfNeeded(for location: CLLocation, completion: @escaping (Bool) -> ()) async {
+        self.updateAttemptCount += 1
+        print("WeatherService Update Check: \(updateAttemptCount)")
+        // Perform your guard and time check here
+        guard !isUpdating else { return }
+        
+        if let lastUpdate = lastUpdate, Calendar.current.compare(Date(), to: lastUpdate, toGranularity: .hour).rawValue == 0 {
+            // Updated in last hour, so bail
+            print("WeatherService was recently fetched, so no new attempt will be made.")
+            return
+        }
+        
+        isUpdating = true
+        print("WeatherService data is being fetched.")
+        
+        var weatherData: (current: CurrentWeather?, daily: Forecast<DayWeather>?)
+        
+        do {
+            weatherData = try await self.weatherService.weather(for: location,
+                                                                including: .current, .daily)
+        } catch let error {
+            print("Error fetching Weather: \(error)")
+            self.isUpdating = false
+            completion(false)
+            return
+        }
+        
+        
+        if let weather = weatherData.current, let daily = weatherData.daily {
+            
+            // Extract current UV index
+            self.currentUVIndex = Double(weather.uvIndex.value)
+            self.currentCloudCoverage = weather.cloudCover
+            
+            // Extract maximum UV index for the day, sunrise and sunset time
+            if let todayForecast = daily.first {
+                self.maxUVIndex = Double(todayForecast.uvIndex.value)
+                self.sunriseTime = todayForecast.sun.sunrise
+                self.sunsetTime = todayForecast.sun.sunset
+            }
+            
+            // Extract five-day forecast
+            self.fiveDayForecast = daily.map { dailyWeather -> DailyForecast in
+                let dailyForecast = DailyForecast()
+                dailyForecast.forecastDate = dailyWeather.date
+                dailyForecast.cloudCoverage = 0
+                dailyForecast.uvIndex = Double(dailyWeather.uvIndex.value)
+                if let sunsetTime = dailyWeather.sun.sunset {
+                    dailyForecast.sunsetTime = sunsetTime
+                }
+                if let sunriseTime = dailyWeather.sun.sunrise {
+                    dailyForecast.sunriseTime = sunriseTime
+                }
+                return dailyForecast
+            }
+            
+            self.lastUpdate = Date()
+            self.isUpdating = false
+            completion(true)
+        } else {
+            print("Failed to fetch weather data")
+            self.isUpdating = false
+            completion(false)
+        }
+    }
+
+    /*
+    
+    func updateUVIndexFromWeatherKitIfNeeded(_ location: CLLocation, completionHandler: ((Bool) ->())?) {
+        guard !isUpdating else { return }
+        
+        if let lastUpdate = lastUpdate, Calendar.current.compare(Date(), to: lastUpdate, toGranularity: .hour).rawValue == 0 {
+            // Updated in last hour, so bail
+            return
+        }
+        
+        isUpdating = true
+        
+        //TODO: Update When Day Switches or Location Changes
+        //WeatherService.shared.weather(for: location, including: currentUVIndex)
+        /*
+        WeatherKit.shared.getUVIndex(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) { (uvIndex, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    isUpdating = false
+                    return
+                }
+                
+                self.currentUVIndex = uvIndex.value
+                
+                //self.maxUVIndex = self.currentUVIndex
+                //self.currentCloudCoverage = 0
+                //self.sunsetTime =
+                //self.sunriseTime =
+                //self.fiveDayForecast
+                
+                self.lastUpdate = Date()
+                self.isUpdating = false
+                if let completionHandler = completionHandler {
+                    completionHandler(true)
+                }
+            }
+        }
+         */
+    }
+    */
+    /*
     func updateUVIndexIfNeeded(_ location: CLLocation, completionHandler: ((Bool) ->())?) {
         guard !isUpdating else { return }
         
@@ -92,6 +194,6 @@ class ForecastService {
         }
         
     }
-
+*/
     
 }

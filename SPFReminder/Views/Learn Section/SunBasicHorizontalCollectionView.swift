@@ -81,7 +81,7 @@ class SunBasicHorizontalCollectionView: UICollectionViewController, UICollection
         let basic1 = SunBasics()
         basic1.title =  "What is SPF?"
         basic1.url  = "https://www.reapplyapp.com/post/what-is-spf"
-        basic1.imageName =  "spf"
+        basic1.imageName =  "SPF"
            
         let basic2 = SunBasics()
         basic2.title =  "What is UV Index?"

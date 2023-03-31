@@ -28,9 +28,11 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        ForecastService.shared.updateUVIndexIfNeeded(locations[0], completionHandler: {_ in
-            ReminderService.shared.location = locations[0]
-        })
+        Task {
+            await ForecastService.shared.updateUVIndexFromWKIfNeeded(for: locations[0], completion: {_ in
+                ReminderService.shared.location = locations[0]
+            })
+        }
     }
     
     func restartUpdatingLocation() {
