@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct SunSafetyTipsView: View {
+struct SunSafetyTips {
     let tips: [SunTip] = [
         SunTip(icon: "sun.max.fill", text: "All skin tones need sunscreen. Anyone, no matter their skin tone, can get skin cancer."),
         SunTip(icon: "drop.fill", text: "Dermatologists recommend SPF 30 as the minimum daily protection."),
@@ -23,45 +23,6 @@ struct SunSafetyTipsView: View {
         SunTip(icon: "repeat.circle.fill", text: "We often apply too little sunscreen. Reapply after 20 minutes to ensure full coverage."),
         SunTip(icon: "baby.fill", text: "Sunburns in childhood greatly increase the risk of skin cancer later in life.")
     ]
-    
-    @State private var appearedTips: Set<UUID> = []
-
-    var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("☀️ SUN SAFETY TIPS")
-                        .font(.title)
-                        .bold()
-                        .padding(.bottom, 10)
-
-                    ForEach(tips.indices, id: \.self) { index in
-                        let tip = tips[index]
-
-                        HStack(alignment: .top, spacing: 12) {
-                            Image(systemName: tip.icon)
-                                .foregroundColor(.orange)
-                                .font(.title3)
-                                .frame(width: 24)
-
-                            Text(tip.text)
-                                .font(.body)
-                                .fixedSize(horizontal: false, vertical: true)
-                        }
-                        .padding(.vertical, 4)
-                        .opacity(appearedTips.contains(tip.id) ? 1 : 0)
-                        .scaleEffect(appearedTips.contains(tip.id) ? 1 : 0.9)
-                        .animation(.easeOut(duration: 0.3).delay(Double(index) * 0.05), value: appearedTips)
-                        .onAppear {
-                            appearedTips.insert(tip.id)
-                        }
-                    }
-                }
-                .padding()
-            }
-            .navigationTitle("Sun Safety")
-        }
-    }
 }
 
 struct SunTip: Identifiable {

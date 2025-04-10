@@ -34,17 +34,26 @@ class NewsCollectionViewCell: UICollectionViewCell {
                 sourceLabel.text = source
             }
             
-            if let imageURL = news.imageUrl{
-                let url = URL(string: imageURL)
-                imageView.sd_imageTransition = .fade
-                imageView.sd_setImage(with: url) { (_, _, _, _) in
+            if let imageURL = news.imageUrl {
+                if let url = URL(string: imageURL), UIApplication.shared.canOpenURL(url) {
+                    // Valid URL - try to load remote image
+                    imageView.sd_imageTransition = .fade
+                    imageView.sd_setImage(with: url) { (_, _, _, _) in
+                        self.isLoaded = true
+                        for v in self.imageView.subviews {
+                            v.removeFromSuperview()
+                        }
+                    }
+                } else {
+                    // Not a valid URL - try to load as system image
+                    imageView.image = UIImage(systemName: imageURL)
                     self.isLoaded = true
                     for v in self.imageView.subviews {
                         v.removeFromSuperview()
                     }
                 }
-            
             }
+            
        }
     }
     
