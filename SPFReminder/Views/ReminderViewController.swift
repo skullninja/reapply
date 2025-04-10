@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ForecastIO
 import ScrollableGraphView
 import SwiftMessages
 import Presentr

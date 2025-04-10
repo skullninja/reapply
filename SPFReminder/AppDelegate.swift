@@ -10,7 +10,7 @@ import UIKit
 import FirebaseCrashlytics
 import Firebase
 
-@UIApplicationMainThread
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
