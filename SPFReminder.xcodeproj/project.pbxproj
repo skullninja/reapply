@@ -622,7 +622,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SPFReminder/Support Files/SPFReminder.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 48GXQQY7U2;
 				INFOPLIST_FILE = "SPFReminder/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -647,7 +647,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SPFReminder/Support Files/SPFReminder.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 48GXQQY7U2;
 				INFOPLIST_FILE = "SPFReminder/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
