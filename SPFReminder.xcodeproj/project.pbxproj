@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -58,6 +58,7 @@
 		96F75BE1220BF4AB001F0B0F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F75BE0220BF4AA001F0B0F /* icon.png */; };
 		96F75BE3220E5CDE001F0B0F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F75BE2220E5CDE001F0B0F /* NotificationService.swift */; };
 		96F8A229234285C000F357F1 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8A228234285C000F357F1 /* QuizViewController.swift */; };
+		9CB62A652DA61936002FBD4E /* SunSafetyTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB62A642DA61936002FBD4E /* SunSafetyTips.swift */; };
 		EBFF1BDDACD7721912FBF5AA /* Pods_SPFReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5D7266F6C8089E10D3BBBC /* Pods_SPFReminder.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +119,7 @@
 		96F75BE0220BF4AA001F0B0F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		96F75BE2220E5CDE001F0B0F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		96F8A228234285C000F357F1 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		9CB62A642DA61936002FBD4E /* SunSafetyTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunSafetyTips.swift; sourceTree = "<group>"; };
 		BA09F6739CC10E8A1A4CA02E /* Pods-SPFReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPFReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-SPFReminder/Pods-SPFReminder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -265,6 +267,7 @@
 		963DE02E244FC2EF0020417B /* Learn Section */ = {
 			isa = PBXGroup;
 			children = (
+				9CB62A642DA61936002FBD4E /* SunSafetyTips.swift */,
 				963DE024244E5CD30020417B /* LearnViewController.swift */,
 				963DE026244E632F0020417B /* NewsCollectionViewCell.swift */,
 				9656E6E2244FD1CE00256DD3 /* SunBasicCollectionViewCell.swift */,
@@ -389,9 +392,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SPFReminder/Pods-SPFReminder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SPFReminder/Pods-SPFReminder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -442,6 +449,7 @@
 				965A3A5E22B962FC00D1A948 /* WebViewController.swift in Sources */,
 				965158B72224AB7B003B1092 /* LocationService.swift in Sources */,
 				9601E5B4229DF10D00AADB45 /* UserHelper.swift in Sources */,
+				9CB62A652DA61936002FBD4E /* SunSafetyTips.swift in Sources */,
 				55BAA9052212921800D09D54 /* Reminder.swift in Sources */,
 				55CDE6E02313A47300877E62 /* IngredientCollectionViewCell.swift in Sources */,
 				96F75BE3220E5CDE001F0B0F /* NotificationService.swift in Sources */,
@@ -614,7 +622,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SPFReminder/Support Files/SPFReminder.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 48GXQQY7U2;
 				INFOPLIST_FILE = "SPFReminder/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -622,10 +630,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.skullninja.SPFReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -639,7 +651,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SPFReminder/Support Files/SPFReminder.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 48GXQQY7U2;
 				INFOPLIST_FILE = "SPFReminder/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -647,10 +659,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.skullninja.SPFReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

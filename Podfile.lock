@@ -46,7 +46,6 @@ PODS:
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
     - PromisesObjC (~> 2.1)
-  - ForecastIO (5.1.0)
   - GoogleAppMeasurement (10.5.0):
     - GoogleAppMeasurement/AdIdSupport (= 10.5.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
@@ -924,7 +923,6 @@ DEPENDENCIES:
   - AMPopTip
   - Firebase/Analytics
   - FirebaseCrashlytics
-  - ForecastIO (~> 5.1)
   - iCarousel (~> 1.8)
   - MaterialComponents
   - MicrosoftFluentUI
@@ -947,7 +945,6 @@ SPEC REPOS:
     - FirebaseCoreInternal
     - FirebaseCrashlytics
     - FirebaseInstallations
-    - ForecastIO
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
@@ -978,7 +975,6 @@ SPEC CHECKSUMS:
   FirebaseCoreInternal: e463f41bb935cd049505bf7e9a5bdd7dcea90df6
   FirebaseCrashlytics: ea94bc81f67d5d4702d0c782da13e1483217bac8
   FirebaseInstallations: 935bc4abb6f7a035cab7a0c31cb777b2be3dd254
-  ForecastIO: cefaecb3a1bd764a03067a82ff546e84d3b97456
   GoogleAppMeasurement: 40c70a7d89013f0eca72006c4b9732163ea4cdae
   GoogleDataTransport: ea169759df570f4e37bdee1623ec32a7e64e67c4
   GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
@@ -999,6 +995,6 @@ SPEC CHECKSUMS:
   SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
   TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
 
-PODFILE CHECKSUM: e0da92a6e64dfb472d97835507492acf5949f7be
+PODFILE CHECKSUM: c995abd529c2307df17c5ab3495e727967d09df1
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.16.2

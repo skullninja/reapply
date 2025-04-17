@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ForecastIO
 import ScrollableGraphView
 import SwiftMessages
 import Presentr
@@ -199,12 +198,15 @@ class ReminderViewController: GenericViewController {
             self.lblUVLevelDescription.text = uvDescription
         }
         
+        updateButtonDisplay(_initialLoad: false)
+    }
+    
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
         LocationService.shared.lookUpCurrentLocation{ geoLoc in
             let dateFormatter = DateFormatter()
             dateFormatter.timeStyle = .medium
         }
-        
-        updateButtonDisplay(_initialLoad: false)
     }
 
     override func viewDidLoad() {
@@ -492,7 +494,6 @@ class ReminderViewController: GenericViewController {
         
         Analytics.logEvent(AnalyticsEvents.quizTapped, parameters: nil)
         
-        viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: true, completion: nil)
     }
 }

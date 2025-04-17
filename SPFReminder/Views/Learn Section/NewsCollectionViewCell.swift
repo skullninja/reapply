@@ -19,7 +19,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
     let grayTextColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1)
     
     let imageSize:CGFloat = 90
-    let padding:CGFloat = 50
+    let padding:CGFloat = 30
     var isLoaded: Bool = false
     
     var news: News! {
@@ -34,17 +34,26 @@ class NewsCollectionViewCell: UICollectionViewCell {
                 sourceLabel.text = source
             }
             
-            if let imageURL = news.imageUrl{
-                let url = URL(string: imageURL)
-                imageView.sd_imageTransition = .fade
-                imageView.sd_setImage(with: url) { (_, _, _, _) in
+            if let imageURL = news.imageUrl {
+                if let url = URL(string: imageURL), UIApplication.shared.canOpenURL(url) {
+                    // Valid URL - try to load remote image
+                    imageView.sd_imageTransition = .fade
+                    imageView.sd_setImage(with: url) { (_, _, _, _) in
+                        self.isLoaded = true
+                        for v in self.imageView.subviews {
+                            v.removeFromSuperview()
+                        }
+                    }
+                } else {
+                    // Not a valid URL - try to load as system image
+                    imageView.image = UIImage(systemName: imageURL)
                     self.isLoaded = true
                     for v in self.imageView.subviews {
                         v.removeFromSuperview()
                     }
                 }
-            
             }
+            
        }
     }
     
@@ -55,28 +64,29 @@ class NewsCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        imageView.backgroundColor = UIColor.colorFromHex(0xEBEBEB)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(equalToConstant: imageSize).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: imageSize).isActive = true
-        
+
+        // Removed imageView entirely
+
         titleLabel.numberOfLines = 3
         titleLabel.lineBreakMode = .byTruncatingTail
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.widthAnchor.constraint(equalToConstant: frame.width - imageSize - padding).isActive = true
-        
+        // Update width constraint to fit the full frame
+        titleLabel.widthAnchor.constraint(equalToConstant: frame.width - 2 * padding).isActive = true
+
         sourceLabel.textColor = grayTextColor
         titleLabel.textColor = grayTextColor
-        
-        let stackView = UIStackView(arrangedSubviews: [VerticalStackView(arrangedSubviews: [sourceLabel, titleLabel], spacing: 4), imageView])
+
+        let verticalStack = VerticalStackView(arrangedSubviews: [sourceLabel, titleLabel], spacing: 4)
+
+        // Now main stackView only has verticalStack
+        let stackView = UIStackView(arrangedSubviews: [verticalStack])
         stackView.spacing = 15
-        
-        stackView.alignment = .center
-        
+        stackView.alignment = .leading  // or .fill if you want it to stretch
+
         addSubview(stackView)
         stackView.fillSuperview()
     }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
