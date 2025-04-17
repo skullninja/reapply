@@ -10,7 +10,7 @@ import Foundation
 
 class LinkHelper {
     
-    private static let baseUrl = "http://go.hitmiss.io?id=37750X1169153&xs=1&url="
+    private static let baseUrl = "https://go.skimresources.com?id=37750X1169153&xs=1&url="
     private static let baseTrackingParam = "&xcust="
     
     private static let trackingPrefixValue = "reapply"
