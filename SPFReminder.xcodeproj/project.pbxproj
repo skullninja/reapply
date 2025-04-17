@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		550C21EE2DB092DC00DC2FA6 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 550C21ED2DB092DC00DC2FA6 /* APIKeys.plist */; };
+		550C21F12DB0938F00DC2FA6 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550C21F02DB0938F00DC2FA6 /* APIKeys.swift */; };
+		550C21F52DB0973D00DC2FA6 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550C21F42DB0973D00DC2FA6 /* NewsService.swift */; };
 		5587FEF72283E3F200D07FFE /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587FEF62283E3F200D07FFE /* StoreViewController.swift */; };
 		5587FEFA228E66B700D07FFE /* StoreAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587FEF9228E66B700D07FFE /* StoreAnimator.swift */; };
 		5587FEFD229098BF00D07FFE /* StoreTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587FEFC229098BF00D07FFE /* StoreTransitioningDelegate.swift */; };
@@ -40,7 +43,6 @@
 		963DE025244E5CD30020417B /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DE024244E5CD30020417B /* LearnViewController.swift */; };
 		963DE027244E632F0020417B /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DE026244E632F0020417B /* NewsCollectionViewCell.swift */; };
 		963DE029244EADA80020417B /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DE028244EADA80020417B /* UIExtensions.swift */; };
-		963DE02B244F6E740020417B /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DE02A244F6E740020417B /* NewsService.swift */; };
 		963DE02D244F6EBF0020417B /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DE02C244F6EBF0020417B /* News.swift */; };
 		963DE032244FC39A0020417B /* SunBasicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963DE031244FC39A0020417B /* SunBasicCollectionView.swift */; };
 		963E4E652342E94C00453CF9 /* quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 963E4E642342E94C00453CF9 /* quiz.json */; };
@@ -63,6 +65,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		550C21ED2DB092DC00DC2FA6 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
+		550C21F02DB0938F00DC2FA6 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		550C21F42DB0973D00DC2FA6 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		5587FEF62283E3F200D07FFE /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		5587FEF9228E66B700D07FFE /* StoreAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAnimator.swift; sourceTree = "<group>"; };
 		5587FEFC229098BF00D07FFE /* StoreTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTransitioningDelegate.swift; sourceTree = "<group>"; };
@@ -100,7 +105,6 @@
 		963DE024244E5CD30020417B /* LearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
 		963DE026244E632F0020417B /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		963DE028244EADA80020417B /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
-		963DE02A244F6E740020417B /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		963DE02C244F6EBF0020417B /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		963DE031244FC39A0020417B /* SunBasicCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunBasicCollectionView.swift; sourceTree = "<group>"; };
 		963E4E642342E94C00453CF9 /* quiz.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = quiz.json; sourceTree = "<group>"; };
@@ -137,6 +141,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		550C21EF2DB0936D00DC2FA6 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				55B0C37E22DECAD300C70986 /* AnalyticsEvents.swift */,
+				55B0C37C22D6E7D200C70986 /* GoogleService-Info.plist */,
+				5587FF072293A54A00D07FFE /* products.json */,
+				966A783A2294A86300039CF2 /* tips.json */,
+				550C21ED2DB092DC00DC2FA6 /* APIKeys.plist */,
+				550C21F02DB0938F00DC2FA6 /* APIKeys.swift */,
+				963E4E642342E94C00453CF9 /* quiz.json */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		5562FBFD223236C60063568A /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,15 +188,10 @@
 			isa = PBXGroup;
 			children = (
 				968EADCD22E6958900C6D80C /* notification-sound.caf */,
-				55B0C37C22D6E7D200C70986 /* GoogleService-Info.plist */,
 				55BAA9062213D3EB00D09D54 /* SPFReminder.entitlements */,
 				9623342221F81D7E00E31825 /* Assets.xcassets */,
 				9623342721F81D7E00E31825 /* Info.plist */,
 				96F75BE0220BF4AA001F0B0F /* icon.png */,
-				5587FF072293A54A00D07FFE /* products.json */,
-				966A783A2294A86300039CF2 /* tips.json */,
-				963E4E642342E94C00453CF9 /* quiz.json */,
-				55B0C37E22DECAD300C70986 /* AnalyticsEvents.swift */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -216,7 +229,7 @@
 				9601E5B3229DF10D00AADB45 /* UserHelper.swift */,
 				559C969D2319E92A0066B6B2 /* LinkHelper.swift */,
 				963E4E662344400200453CF9 /* ProductService.swift */,
-				963DE02A244F6E740020417B /* NewsService.swift */,
+				550C21F42DB0973D00DC2FA6 /* NewsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -252,6 +265,7 @@
 		9623341A21F81D7C00E31825 /* SPFReminder */ = {
 			isa = PBXGroup;
 			children = (
+				550C21EF2DB0936D00DC2FA6 /* Configuration */,
 				5562FC02223237610063568A /* Services */,
 				5562FC01223237490063568A /* Models */,
 				5562FC00223237330063568A /* Extensions */,
@@ -370,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5587FF082293A54A00D07FFE /* products.json in Resources */,
+				550C21EE2DB092DC00DC2FA6 /* APIKeys.plist in Resources */,
 				96F75BE1220BF4AB001F0B0F /* icon.png in Resources */,
 				968EADCE22E6958900C6D80C /* notification-sound.caf in Resources */,
 				966A783B2294A86300039CF2 /* tips.json in Resources */,
@@ -440,7 +455,6 @@
 				5587FEF72283E3F200D07FFE /* StoreViewController.swift in Sources */,
 				963E4E672344400200453CF9 /* ProductService.swift in Sources */,
 				5587FF062293A2F400D07FFE /* ReminderCloudKitModel.swift in Sources */,
-				963DE02B244F6E740020417B /* NewsService.swift in Sources */,
 				55D9834222324095000A0B68 /* ConfigureReminderViewController.swift in Sources */,
 				960B738E22A0421800D3A3BC /* OnboardingPageContent.swift in Sources */,
 				9601E5B2229DA53100AADB45 /* OnboardingViewController.swift in Sources */,
@@ -455,11 +469,13 @@
 				96F75BE3220E5CDE001F0B0F /* NotificationService.swift in Sources */,
 				96236225221B5E8C00B8B172 /* ForecastService.swift in Sources */,
 				5587FEFA228E66B700D07FFE /* StoreAnimator.swift in Sources */,
+				550C21F52DB0973D00DC2FA6 /* NewsService.swift in Sources */,
 				96F8A229234285C000F357F1 /* QuizViewController.swift in Sources */,
 				559C969E2319E92A0066B6B2 /* LinkHelper.swift in Sources */,
 				963DE027244E632F0020417B /* NewsCollectionViewCell.swift in Sources */,
 				55BAA903220651E100D09D54 /* ReminderService.swift in Sources */,
 				9641C09922C04467008C9452 /* MoreProductInfoViewController.swift in Sources */,
+				550C21F12DB0938F00DC2FA6 /* APIKeys.swift in Sources */,
 				9656E6E3244FD1CE00256DD3 /* SunBasicCollectionViewCell.swift in Sources */,
 				967C5EB8222F7FF9000582D7 /* CloudKitManager.swift in Sources */,
 				963DE02D244F6EBF0020417B /* News.swift in Sources */,
@@ -622,7 +638,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SPFReminder/Support Files/SPFReminder.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 48GXQQY7U2;
 				INFOPLIST_FILE = "SPFReminder/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -651,7 +667,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SPFReminder/Support Files/SPFReminder.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 48GXQQY7U2;
 				INFOPLIST_FILE = "SPFReminder/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;

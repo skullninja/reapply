@@ -80,22 +80,22 @@ class SunBasicHorizontalCollectionView: UICollectionViewController, UICollection
         
         let basic1 = SunBasics()
         basic1.title =  "What is SPF?"
-        basic1.url  = "https://www.reapplyapp.com/post/what-is-spf"
+        basic1.url  = APIKeys.value(for: .spfURL)
         basic1.imageName =  "SPF"
            
         let basic2 = SunBasics()
         basic2.title =  "What is UV Index?"
-        basic2.url  = "https://www.reapplyapp.com/post/what-is-ultraviolet-index-uv-index"
+        basic2.url  = APIKeys.value(for: .uvIndexURL)
         basic2.imageName =  "sky"
            
         let basic3 = SunBasics()
         basic3.title =  "Chemical or Mineral?"
-        basic3.url  = "https://www.reapplyapp.com/post/chemical-and-mineral-aka-physical-sunscreens"
+        basic3.url  = APIKeys.value(for: .chemicalURL)
         basic3.imageName =  "sunscreenlady"
         
         let basic4 = SunBasics()
         basic4.title =  "What is UVA UVB?"
-        basic4.url  = "https://www.reapplyapp.com/post/what-is-uva-uvb-rays"
+        basic4.url  = APIKeys.value(for: .raysURL)
         basic4.imageName =  "uvauvb"
            
           

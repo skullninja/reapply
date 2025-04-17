@@ -39,7 +39,7 @@ class InformationViewController: GenericViewController {
         
         Analytics.logEvent(AnalyticsEvents.suncareTapped, parameters: nil)
         
-        guard let url = URL(string: "https://www.reapplyapp.com/sun-care-basics") else { return }
+        guard let url = URL(string: APIKeys.value(for: .sunCareBasicsURL)) else { return }
         UIApplication.shared.open(url)
         
     }
@@ -48,11 +48,8 @@ class InformationViewController: GenericViewController {
         
         Analytics.logEvent(AnalyticsEvents.safetyTipsTapped, parameters: nil)
         
-       //guard let url = URL(string: "https://www.reapplyapp.com/copy-of-safety-tips") else { return }
-        //UIApplication.shared.open(url)
-        
         let webViewController = WebViewController()
-        webViewController.urlString = "https://www.reapplyapp.com/copy-of-safety-tips"
+        webViewController.urlString = APIKeys.value(for: .safetyTipsURL)
         webViewController.blogPost = false
         self.present(webViewController, animated: true, completion: nil)
         
@@ -62,7 +59,7 @@ class InformationViewController: GenericViewController {
         
         Analytics.logEvent(AnalyticsEvents.reviewsTapped, parameters: nil)
         
-        guard let url = URL(string: "https://www.reapplyapp.com/sunscreen-reviews") else { return }
+        guard let url = URL(string: APIKeys.value(for: .reviewsURL)) else { return }
         UIApplication.shared.open(url)
     }
     

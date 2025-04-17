@@ -10,12 +10,16 @@ import Foundation
 
 class LinkHelper {
     
-    private static let baseUrl = "https://go.skimresources.com?id=37750X1169153&xs=1&url="
-    private static let baseTrackingParam = "&xcust="
-    
-    private static let trackingPrefixValue = "reapply"
+    private static let baseUrl = APIKeys.value(for: .affiliateLinkBaseURL)
+    private static let baseTrackingParam = APIKeys.value(for: .affiliateLinkBaseTrackingParam)
+    private static let trackingPrefixValue = APIKeys.value(for: .affiliateLinkBaseTrackingValue)
     
     static func affiliateUrl(_ rawUrl: String, tracking: String?) -> URL? {
+        // If baseUrl is empty, return rawUrl directly
+        if baseUrl.isEmpty {
+            return URL(string: rawUrl)
+        }
+
         if let escapedString = rawUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
             print(escapedString)
             var url = baseUrl

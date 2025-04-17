@@ -9,18 +9,19 @@
 import Foundation
 import Alamofire
 
+@available(*, deprecated, message: "News Powered by Airtable.  No longer maintained or utilized.")
 class NewsService{
     
     static let shared = NewsService() // Singleton
     
-    fileprivate let key = "api_key=keytYWvxqVLd3IUcm"
+    fileprivate let key = "api_key=" + APIKeys.value(for: .airtableKey)
+    fileprivate let app = APIKeys.value(for: .airtableApp)
     
     func fetchNews (completion: @escaping ([News]?, Error?) -> ()) {
         
+        // Create a table named 'Articles' to host news stories.
+        let urlString = "https://api.airtable.com/v0/\(app)/Articles?\(key)"
         
-        let urlString = "https://api.airtable.com/v0/appBv4ozCwNwqBVCj/Articles?\(key)"
-        
-               
         //add some error handling
         AF.request(urlString).validate().response{ response in
             
