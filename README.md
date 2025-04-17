@@ -1,4 +1,3 @@
-```markdown
 # ☀️ Reapply
 
 **Your daily reminder to protect your skin.**
@@ -86,7 +85,3 @@ Stay tuned for contribution guidelines in a future release!
 ## ☀️ Stay safe, stay glowing!
 
 If this app has helped you build a better SPF habit or you have feedback, we'd love to hear from you!
-
-```
-
----
