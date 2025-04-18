@@ -8,6 +8,7 @@
 ![CocoaPods](https://img.shields.io/badge/dependencies-CocoaPods-red)
 ![Version](https://img.shields.io/badge/version-1.8-blueviolet)
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
+![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)
 
 ---
 
@@ -70,8 +71,11 @@ Whether you're new to SPF or a daily devotee who forgets to reapply, Reapply is 
 
 ## 📄 License
 
-**License TBD.**  
-This repository will be open-sourced in a future update.
+This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)**.
+
+You are free to use, share, and adapt the code for personal and educational purposes, but **commercial use is strictly prohibited**.
+
+[Read the full license here.](https://creativecommons.org/licenses/by-nc/4.0/)
 
 ---
 
