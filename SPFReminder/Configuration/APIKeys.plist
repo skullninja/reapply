@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>affiliateLinkBaseURL</key>
+	<string>https://go.skimresources.com?id=37750X1169153&amp;xs=1&amp;url=</string>
+	<key>affiliateLinkBaseTrackingParam</key>
+	<string>&amp;xcust=</string>
+	<key>affiliateLinkBaseTrackingValue</key>
+	<string>reapply</string>
+	<key>airtableKey</key>
+	<string>keytYWvxqVLd3IUcm</string>
+	<key>airtableApp</key>
+	<string>appBv4ozCwNwqBVCj</string>
+	<key>sunCareBasicsURL</key>
+	<string>https://www.reapplyapp.com/sun-care-basics</string>
+	<key>safetyTipsURL</key>
+	<string>https://www.reapplyapp.com/copy-of-safety-tips</string>
+	<key>reviewsURL</key>
+	<string>https://www.reapplyapp.com/sunscreen-reviews</string>
+	<key>spfURL</key>
+	<string>https://www.reapplyapp.com/post/what-is-spf</string>
+	<key>uvIndexURL</key>
+	<string>https://www.reapplyapp.com/post/what-is-ultraviolet-index-uv-index</string>
+	<key>chemicalURL</key>
+	<string>https://www.reapplyapp.com/post/chemical-and-mineral-aka-physical-sunscreens</string>
+	<key>raysURL</key>
+	<string>https://www.reapplyapp.com/post/what-is-uva-uvb-rays</string>
+</dict>
+</plist>
