@@ -9,6 +9,7 @@
 ![Version](https://img.shields.io/badge/version-1.8-blueviolet)
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
 ![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)
+![WeatherKit](https://img.shields.io/badge/WeatherKit-Required-blue)
 
 ---
 
@@ -66,6 +67,37 @@ Whether you're new to SPF or a daily devotee who forgets to reapply, Reapply is 
 
    - Locate a file named `APIKeys.plist` in the project Configuration directory.
    - Fill in the appropriate values for your build environment (or leave blank to run with limited functionality).
+
+---
+
+### ☁️ WeatherKit Integration (Required)
+
+This project requires **WeatherKit** to function correctly.
+
+- WeatherKit is used to access UV data essential to the app’s features.
+- You must configure WeatherKit access through your own Apple Developer account to build and run the app properly.
+- To enable WeatherKit:
+  - Register your app’s Bundle Identifier with WeatherKit through the [Apple Developer Portal](https://developer.apple.com/account/).
+  - Ensure your Apple Developer account has an active WeatherKit subscription (free tier available).
+  - Enable the WeatherKit capability in your Xcode project Signing & Capabilities settings.
+
+Without properly configured WeatherKit access, the app will build but may not function correctly at runtime.
+
+---
+
+### ⚙️ Code Signing and Cloud Services
+
+Reapply uses features like iCloud and push notifications in the production App Store version.  
+For this public repository:
+
+- **iCloud services have been disabled** in the project settings to simplify local setup.
+- You can build and run the app without needing an Apple Developer account or provisioning profile.
+- If you wish to re-enable iCloud functionality, you must:
+  - Add your own iCloud container in Apple Developer settings.
+  - Update the entitlements file (`SPFReminder.entitlements`) accordingly.
+  - Enable iCloud services under Signing & Capabilities.
+
+This allows the public version to remain fully buildable without special configuration.
 
 ---
 

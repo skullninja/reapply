@@ -13,11 +13,19 @@ class CloudKitManager {
     
     static let shared = CloudKitManager()
     
-    private let container = CKContainer.default()
+    private let container: CKContainer?
     
     private var accountStatus: CKAccountStatus = .couldNotDetermine
     
     var hasAccount: Bool = false
+    
+    init() {
+        if FileManager.default.ubiquityIdentityToken != nil {
+            container = CKContainer.default()
+        } else {
+            container = nil
+        }
+    }
     
     // MARK: - Notification Handling
     
@@ -29,6 +37,12 @@ class CloudKitManager {
     // MARK: - Helper Methods
     
     func requestAccountStatus(completionHandler: @escaping () -> Void) {
+        
+        guard let container = container else {
+            print("No CloudKit container available.")
+            return
+        }
+        
         // Request Account Status
         container.accountStatus { [unowned self] (accountStatus, error) in
             // Print Errors
